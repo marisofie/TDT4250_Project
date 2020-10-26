@@ -23,6 +23,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/minimumCrew"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/requiredRunwayLength"/>
     </genClasses>
+    <genClasses ecoreClass="at.ecore#//Airline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airline/name"/>
+    </genClasses>
     <genClasses ecoreClass="at.ecore#//Airport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airport/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airport/location"/>
@@ -52,6 +55,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationGate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/crew"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/passengers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Flight/code"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
