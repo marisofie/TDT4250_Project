@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<at:Flight xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore"
+    xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore at.ecore">
+  <plane/>
+</at:Flight>
