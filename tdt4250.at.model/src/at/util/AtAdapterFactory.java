@@ -68,8 +68,20 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 	protected AtSwitch<Adapter> modelSwitch =
 		new AtSwitch<Adapter>() {
 			@Override
+			public Adapter caseTravelPlanner(TravelPlanner object) {
+				return createTravelPlannerAdapter();
+			}
+			@Override
+			public Adapter caseAirline(Airline object) {
+				return createAirlineAdapter();
+			}
+			@Override
 			public Adapter caseAirplane(Airplane object) {
 				return createAirplaneAdapter();
+			}
+			@Override
+			public Adapter caseFlight(Flight object) {
+				return createFlightAdapter();
 			}
 			@Override
 			public Adapter caseAirport(Airport object) {
@@ -92,10 +104,6 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 				return createCrewAdapter();
 			}
 			@Override
-			public Adapter caseFlight(Flight object) {
-				return createFlightAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -116,6 +124,34 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link at.TravelPlanner <em>Travel Planner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.TravelPlanner
+	 * @generated
+	 */
+	public Adapter createTravelPlannerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.Airline <em>Airline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.Airline
+	 * @generated
+	 */
+	public Adapter createAirlineAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link at.Airplane <em>Airplane</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -126,6 +162,20 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAirplaneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.Flight <em>Flight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.Flight
+	 * @generated
+	 */
+	public Adapter createFlightAdapter() {
 		return null;
 	}
 
@@ -196,20 +246,6 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCrewAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link at.Flight <em>Flight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see at.Flight
-	 * @generated
-	 */
-	public Adapter createFlightAdapter() {
 		return null;
 	}
 

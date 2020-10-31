@@ -13,12 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.Person#getName <em>Name</em>}</li>
+ *   <li>{@link at.Person#getFullName <em>Full Name</em>}</li>
  *   <li>{@link at.Person#getFirstName <em>First Name</em>}</li>
  *   <li>{@link at.Person#getFamilyName <em>Family Name</em>}</li>
  *   <li>{@link at.Person#getGender <em>Gender</em>}</li>
  *   <li>{@link at.Person#getAge <em>Age</em>}</li>
- *   <li>{@link at.Person#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getPerson()
@@ -27,26 +26,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Person extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Full Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see at.AtPackage#getPerson_Name()
-	 * @model derived="true"
+	 * @return the value of the '<em>Full Name</em>' attribute.
+	 * @see at.AtPackage#getPerson_FullName()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 derivation='self.firstName + \' \' + self.familyName'"
 	 * @generated
 	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link at.Person#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+	String getFullName();
 
 	/**
 	 * Returns the value of the '<em><b>First Name</b></em>' attribute.
@@ -94,25 +83,28 @@ public interface Person extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Gender</b></em>' attribute.
+	 * The literals are from the enumeration {@link at.Gender}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Gender</em>' attribute.
-	 * @see #setGender(String)
+	 * @see at.Gender
+	 * @see #setGender(Gender)
 	 * @see at.AtPackage#getPerson_Gender()
-	 * @model
+	 * @model dataType="at.Gender"
 	 * @generated
 	 */
-	String getGender();
+	Gender getGender();
 
 	/**
 	 * Sets the value of the '{@link at.Person#getGender <em>Gender</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Gender</em>' attribute.
+	 * @see at.Gender
 	 * @see #getGender()
 	 * @generated
 	 */
-	void setGender(String value);
+	void setGender(Gender value);
 
 	/**
 	 * Returns the value of the '<em><b>Age</b></em>' attribute.
@@ -135,27 +127,5 @@ public interface Person extends EObject {
 	 * @generated
 	 */
 	void setAge(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Role</em>' attribute.
-	 * @see #setRole(String)
-	 * @see at.AtPackage#getPerson_Role()
-	 * @model
-	 * @generated
-	 */
-	String getRole();
-
-	/**
-	 * Sets the value of the '{@link at.Person#getRole <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' attribute.
-	 * @see #getRole()
-	 * @generated
-	 */
-	void setRole(String value);
 
 } // Person

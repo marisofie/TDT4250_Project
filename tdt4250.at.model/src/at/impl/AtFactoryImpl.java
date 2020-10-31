@@ -57,13 +57,15 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case AtPackage.TRAVEL_PLANNER: return createTravelPlanner();
+			case AtPackage.AIRLINE: return createAirline();
 			case AtPackage.AIRPLANE: return createAirplane();
+			case AtPackage.FLIGHT: return createFlight();
 			case AtPackage.AIRPORT: return createAirport();
 			case AtPackage.GATE: return createGate();
 			case AtPackage.RUNWAY: return createRunway();
 			case AtPackage.PERSON: return createPerson();
 			case AtPackage.CREW: return createCrew();
-			case AtPackage.FLIGHT: return createFlight();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +81,10 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 		switch (eDataType.getClassifierID()) {
 			case AtPackage.ROLE:
 				return createRoleFromString(eDataType, initialValue);
+			case AtPackage.GENDER:
+				return createGenderFromString(eDataType, initialValue);
+			case AtPackage.AIRPLANE_TYPE:
+				return createAirplaneTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +100,10 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 		switch (eDataType.getClassifierID()) {
 			case AtPackage.ROLE:
 				return convertRoleToString(eDataType, instanceValue);
+			case AtPackage.GENDER:
+				return convertGenderToString(eDataType, instanceValue);
+			case AtPackage.AIRPLANE_TYPE:
+				return convertAirplaneTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -104,9 +114,39 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TravelPlanner createTravelPlanner() {
+		TravelPlannerImpl travelPlanner = new TravelPlannerImpl();
+		return travelPlanner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Airline createAirline() {
+		AirlineImpl airline = new AirlineImpl();
+		return airline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Airplane createAirplane() {
 		AirplaneImpl airplane = new AirplaneImpl();
 		return airplane;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Flight createFlight() {
+		FlightImpl flight = new FlightImpl();
+		return flight;
 	}
 
 	/**
@@ -164,16 +204,6 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Flight createFlight() {
-		FlightImpl flight = new FlightImpl();
-		return flight;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Role createRoleFromString(EDataType eDataType, String initialValue) {
 		Role result = Role.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -186,6 +216,46 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 	 * @generated
 	 */
 	public String convertRoleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Gender createGenderFromString(EDataType eDataType, String initialValue) {
+		Gender result = Gender.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGenderToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AirplaneType createAirplaneTypeFromString(EDataType eDataType, String initialValue) {
+		AirplaneType result = AirplaneType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAirplaneTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

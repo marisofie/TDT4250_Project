@@ -11,6 +11,7 @@ import at.Gate;
 import at.Person;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,8 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,30 +34,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.impl.FlightImpl#getPlane <em>Plane</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getDuration <em>Duration</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getAirplane <em>Airplane</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDepartureAirport <em>Departure Airport</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDestinationAirport <em>Destination Airport</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDepartureGate <em>Departure Gate</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDestinationGate <em>Destination Gate</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getCrew <em>Crew</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getPassengers <em>Passengers</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getDepartureTime <em>Departure Time</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getArrivalTime <em>Arrival Time</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	/**
-	 * The cached value of the '{@link #getPlane() <em>Plane</em>}' containment reference.
+	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlane()
+	 * @see #getDuration()
 	 * @generated
 	 * @ordered
 	 */
-	protected Airplane plane;
+	protected static final int DURATION_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getDepartureAirport() <em>Departure Airport</em>}' containment reference.
+	 * The cached value of the '{@link #getAirplane() <em>Airplane</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAirplane()
+	 * @generated
+	 * @ordered
+	 */
+	protected Airplane airplane;
+
+	/**
+	 * The cached value of the '{@link #getDepartureAirport() <em>Departure Airport</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDepartureAirport()
@@ -67,7 +81,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Airport departureAirport;
 
 	/**
-	 * The cached value of the '{@link #getDestinationAirport() <em>Destination Airport</em>}' containment reference.
+	 * The cached value of the '{@link #getDestinationAirport() <em>Destination Airport</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDestinationAirport()
@@ -77,7 +91,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Airport destinationAirport;
 
 	/**
-	 * The cached value of the '{@link #getDepartureGate() <em>Departure Gate</em>}' containment reference.
+	 * The cached value of the '{@link #getDepartureGate() <em>Departure Gate</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDepartureGate()
@@ -87,7 +101,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Gate departureGate;
 
 	/**
-	 * The cached value of the '{@link #getDestinationGate() <em>Destination Gate</em>}' containment reference.
+	 * The cached value of the '{@link #getDestinationGate() <em>Destination Gate</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDestinationGate()
@@ -107,7 +121,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Crew crew;
 
 	/**
-	 * The cached value of the '{@link #getPassengers() <em>Passengers</em>}' containment reference list.
+	 * The cached value of the '{@link #getPassengers() <em>Passengers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPassengers()
@@ -115,6 +129,66 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @ordered
 	 */
 	protected EList<Person> passengers;
+
+	/**
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String code = CODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDepartureTime() <em>Departure Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepartureTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDepartureTime() <em>Departure Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepartureTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date departureTime = DEPARTURE_TIME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArrivalTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArrivalTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,10 +212,19 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public Airplane getPlane() {
-		return plane;
+	public int getDuration() {
+		// Ensure that you remove @generated or mark it @generated NOT
+		
+		Date departure = this.getDepartureTime();
+		Date arrival = this.getArrivalTime();
+		
+		long diff = arrival.getTime() - departure.getTime();
+		
+		diff = diff / (1000*60); // From ms to minutes
+		
+		return Math.toIntExact(diff);
 	}
 
 	/**
@@ -149,14 +232,16 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPlane(Airplane newPlane, NotificationChain msgs) {
-		Airplane oldPlane = plane;
-		plane = newPlane;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__PLANE, oldPlane, newPlane);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public Airplane getAirplane() {
+		if (airplane != null && airplane.eIsProxy()) {
+			InternalEObject oldAirplane = (InternalEObject)airplane;
+			airplane = (Airplane)eResolveProxy(oldAirplane);
+			if (airplane != oldAirplane) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__AIRPLANE, oldAirplane, airplane));
+			}
 		}
-		return msgs;
+		return airplane;
 	}
 
 	/**
@@ -164,18 +249,20 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPlane(Airplane newPlane) {
-		if (newPlane != plane) {
-			NotificationChain msgs = null;
-			if (plane != null)
-				msgs = ((InternalEObject)plane).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__PLANE, null, msgs);
-			if (newPlane != null)
-				msgs = ((InternalEObject)newPlane).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__PLANE, null, msgs);
-			msgs = basicSetPlane(newPlane, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__PLANE, newPlane, newPlane));
+	public Airplane basicGetAirplane() {
+		return airplane;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAirplane(Airplane newAirplane) {
+		Airplane oldAirplane = airplane;
+		airplane = newAirplane;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__AIRPLANE, oldAirplane, airplane));
 	}
 
 	/**
@@ -184,6 +271,14 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public Airport getDepartureAirport() {
+		if (departureAirport != null && departureAirport.eIsProxy()) {
+			InternalEObject oldDepartureAirport = (InternalEObject)departureAirport;
+			departureAirport = (Airport)eResolveProxy(oldDepartureAirport);
+			if (departureAirport != oldDepartureAirport) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DEPARTURE_AIRPORT, oldDepartureAirport, departureAirport));
+			}
+		}
 		return departureAirport;
 	}
 
@@ -192,14 +287,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDepartureAirport(Airport newDepartureAirport, NotificationChain msgs) {
-		Airport oldDepartureAirport = departureAirport;
-		departureAirport = newDepartureAirport;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_AIRPORT, oldDepartureAirport, newDepartureAirport);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Airport basicGetDepartureAirport() {
+		return departureAirport;
 	}
 
 	/**
@@ -208,17 +297,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public void setDepartureAirport(Airport newDepartureAirport) {
-		if (newDepartureAirport != departureAirport) {
-			NotificationChain msgs = null;
-			if (departureAirport != null)
-				msgs = ((InternalEObject)departureAirport).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DEPARTURE_AIRPORT, null, msgs);
-			if (newDepartureAirport != null)
-				msgs = ((InternalEObject)newDepartureAirport).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DEPARTURE_AIRPORT, null, msgs);
-			msgs = basicSetDepartureAirport(newDepartureAirport, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_AIRPORT, newDepartureAirport, newDepartureAirport));
+		Airport oldDepartureAirport = departureAirport;
+		departureAirport = newDepartureAirport;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_AIRPORT, oldDepartureAirport, departureAirport));
 	}
 
 	/**
@@ -227,6 +309,14 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public Airport getDestinationAirport() {
+		if (destinationAirport != null && destinationAirport.eIsProxy()) {
+			InternalEObject oldDestinationAirport = (InternalEObject)destinationAirport;
+			destinationAirport = (Airport)eResolveProxy(oldDestinationAirport);
+			if (destinationAirport != oldDestinationAirport) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DESTINATION_AIRPORT, oldDestinationAirport, destinationAirport));
+			}
+		}
 		return destinationAirport;
 	}
 
@@ -235,14 +325,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDestinationAirport(Airport newDestinationAirport, NotificationChain msgs) {
-		Airport oldDestinationAirport = destinationAirport;
-		destinationAirport = newDestinationAirport;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_AIRPORT, oldDestinationAirport, newDestinationAirport);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Airport basicGetDestinationAirport() {
+		return destinationAirport;
 	}
 
 	/**
@@ -251,17 +335,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public void setDestinationAirport(Airport newDestinationAirport) {
-		if (newDestinationAirport != destinationAirport) {
-			NotificationChain msgs = null;
-			if (destinationAirport != null)
-				msgs = ((InternalEObject)destinationAirport).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DESTINATION_AIRPORT, null, msgs);
-			if (newDestinationAirport != null)
-				msgs = ((InternalEObject)newDestinationAirport).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DESTINATION_AIRPORT, null, msgs);
-			msgs = basicSetDestinationAirport(newDestinationAirport, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_AIRPORT, newDestinationAirport, newDestinationAirport));
+		Airport oldDestinationAirport = destinationAirport;
+		destinationAirport = newDestinationAirport;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_AIRPORT, oldDestinationAirport, destinationAirport));
 	}
 
 	/**
@@ -270,6 +347,14 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public Gate getDepartureGate() {
+		if (departureGate != null && departureGate.eIsProxy()) {
+			InternalEObject oldDepartureGate = (InternalEObject)departureGate;
+			departureGate = (Gate)eResolveProxy(oldDepartureGate);
+			if (departureGate != oldDepartureGate) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DEPARTURE_GATE, oldDepartureGate, departureGate));
+			}
+		}
 		return departureGate;
 	}
 
@@ -278,14 +363,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDepartureGate(Gate newDepartureGate, NotificationChain msgs) {
-		Gate oldDepartureGate = departureGate;
-		departureGate = newDepartureGate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_GATE, oldDepartureGate, newDepartureGate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Gate basicGetDepartureGate() {
+		return departureGate;
 	}
 
 	/**
@@ -294,17 +373,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public void setDepartureGate(Gate newDepartureGate) {
-		if (newDepartureGate != departureGate) {
-			NotificationChain msgs = null;
-			if (departureGate != null)
-				msgs = ((InternalEObject)departureGate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DEPARTURE_GATE, null, msgs);
-			if (newDepartureGate != null)
-				msgs = ((InternalEObject)newDepartureGate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DEPARTURE_GATE, null, msgs);
-			msgs = basicSetDepartureGate(newDepartureGate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_GATE, newDepartureGate, newDepartureGate));
+		Gate oldDepartureGate = departureGate;
+		departureGate = newDepartureGate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_GATE, oldDepartureGate, departureGate));
 	}
 
 	/**
@@ -313,6 +385,14 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public Gate getDestinationGate() {
+		if (destinationGate != null && destinationGate.eIsProxy()) {
+			InternalEObject oldDestinationGate = (InternalEObject)destinationGate;
+			destinationGate = (Gate)eResolveProxy(oldDestinationGate);
+			if (destinationGate != oldDestinationGate) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DESTINATION_GATE, oldDestinationGate, destinationGate));
+			}
+		}
 		return destinationGate;
 	}
 
@@ -321,14 +401,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDestinationGate(Gate newDestinationGate, NotificationChain msgs) {
-		Gate oldDestinationGate = destinationGate;
-		destinationGate = newDestinationGate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_GATE, oldDestinationGate, newDestinationGate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Gate basicGetDestinationGate() {
+		return destinationGate;
 	}
 
 	/**
@@ -337,17 +411,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 */
 	public void setDestinationGate(Gate newDestinationGate) {
-		if (newDestinationGate != destinationGate) {
-			NotificationChain msgs = null;
-			if (destinationGate != null)
-				msgs = ((InternalEObject)destinationGate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DESTINATION_GATE, null, msgs);
-			if (newDestinationGate != null)
-				msgs = ((InternalEObject)newDestinationGate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__DESTINATION_GATE, null, msgs);
-			msgs = basicSetDestinationGate(newDestinationGate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_GATE, newDestinationGate, newDestinationGate));
+		Gate oldDestinationGate = destinationGate;
+		destinationGate = newDestinationGate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_GATE, oldDestinationGate, destinationGate));
 	}
 
 	/**
@@ -400,9 +467,72 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 */
 	public EList<Person> getPassengers() {
 		if (passengers == null) {
-			passengers = new EObjectContainmentEList<Person>(Person.class, this, AtPackage.FLIGHT__PASSENGERS);
+			passengers = new EObjectResolvingEList<Person>(Person.class, this, AtPackage.FLIGHT__PASSENGERS);
 		}
 		return passengers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCode() {
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCode(String newCode) {
+		String oldCode = code;
+		code = newCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__CODE, oldCode, code));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getDepartureTime() {
+		return departureTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDepartureTime(Date newDepartureTime) {
+		Date oldDepartureTime = departureTime;
+		departureTime = newDepartureTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_TIME, oldDepartureTime, departureTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getArrivalTime() {
+		return arrivalTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArrivalTime(Date newArrivalTime) {
+		Date oldArrivalTime = arrivalTime;
+		arrivalTime = newArrivalTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__ARRIVAL_TIME, oldArrivalTime, arrivalTime));
 	}
 
 	/**
@@ -413,20 +543,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__PLANE:
-				return basicSetPlane(null, msgs);
-			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
-				return basicSetDepartureAirport(null, msgs);
-			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
-				return basicSetDestinationAirport(null, msgs);
-			case AtPackage.FLIGHT__DEPARTURE_GATE:
-				return basicSetDepartureGate(null, msgs);
-			case AtPackage.FLIGHT__DESTINATION_GATE:
-				return basicSetDestinationGate(null, msgs);
 			case AtPackage.FLIGHT__CREW:
 				return basicSetCrew(null, msgs);
-			case AtPackage.FLIGHT__PASSENGERS:
-				return ((InternalEList<?>)getPassengers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -439,20 +557,33 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__PLANE:
-				return getPlane();
+			case AtPackage.FLIGHT__DURATION:
+				return getDuration();
+			case AtPackage.FLIGHT__AIRPLANE:
+				if (resolve) return getAirplane();
+				return basicGetAirplane();
 			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
-				return getDepartureAirport();
+				if (resolve) return getDepartureAirport();
+				return basicGetDepartureAirport();
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
-				return getDestinationAirport();
+				if (resolve) return getDestinationAirport();
+				return basicGetDestinationAirport();
 			case AtPackage.FLIGHT__DEPARTURE_GATE:
-				return getDepartureGate();
+				if (resolve) return getDepartureGate();
+				return basicGetDepartureGate();
 			case AtPackage.FLIGHT__DESTINATION_GATE:
-				return getDestinationGate();
+				if (resolve) return getDestinationGate();
+				return basicGetDestinationGate();
 			case AtPackage.FLIGHT__CREW:
 				return getCrew();
 			case AtPackage.FLIGHT__PASSENGERS:
 				return getPassengers();
+			case AtPackage.FLIGHT__CODE:
+				return getCode();
+			case AtPackage.FLIGHT__DEPARTURE_TIME:
+				return getDepartureTime();
+			case AtPackage.FLIGHT__ARRIVAL_TIME:
+				return getArrivalTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -466,8 +597,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__PLANE:
-				setPlane((Airplane)newValue);
+			case AtPackage.FLIGHT__AIRPLANE:
+				setAirplane((Airplane)newValue);
 				return;
 			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
 				setDepartureAirport((Airport)newValue);
@@ -488,6 +619,15 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				getPassengers().clear();
 				getPassengers().addAll((Collection<? extends Person>)newValue);
 				return;
+			case AtPackage.FLIGHT__CODE:
+				setCode((String)newValue);
+				return;
+			case AtPackage.FLIGHT__DEPARTURE_TIME:
+				setDepartureTime((Date)newValue);
+				return;
+			case AtPackage.FLIGHT__ARRIVAL_TIME:
+				setArrivalTime((Date)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -500,8 +640,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__PLANE:
-				setPlane((Airplane)null);
+			case AtPackage.FLIGHT__AIRPLANE:
+				setAirplane((Airplane)null);
 				return;
 			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
 				setDepartureAirport((Airport)null);
@@ -521,6 +661,15 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__PASSENGERS:
 				getPassengers().clear();
 				return;
+			case AtPackage.FLIGHT__CODE:
+				setCode(CODE_EDEFAULT);
+				return;
+			case AtPackage.FLIGHT__DEPARTURE_TIME:
+				setDepartureTime(DEPARTURE_TIME_EDEFAULT);
+				return;
+			case AtPackage.FLIGHT__ARRIVAL_TIME:
+				setArrivalTime(ARRIVAL_TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -533,8 +682,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__PLANE:
-				return plane != null;
+			case AtPackage.FLIGHT__DURATION:
+				return getDuration() != DURATION_EDEFAULT;
+			case AtPackage.FLIGHT__AIRPLANE:
+				return airplane != null;
 			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
 				return departureAirport != null;
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
@@ -547,8 +698,34 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return crew != null;
 			case AtPackage.FLIGHT__PASSENGERS:
 				return passengers != null && !passengers.isEmpty();
+			case AtPackage.FLIGHT__CODE:
+				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case AtPackage.FLIGHT__DEPARTURE_TIME:
+				return DEPARTURE_TIME_EDEFAULT == null ? departureTime != null : !DEPARTURE_TIME_EDEFAULT.equals(departureTime);
+			case AtPackage.FLIGHT__ARRIVAL_TIME:
+				return ARRIVAL_TIME_EDEFAULT == null ? arrivalTime != null : !ARRIVAL_TIME_EDEFAULT.equals(arrivalTime);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (code: ");
+		result.append(code);
+		result.append(", departureTime: ");
+		result.append(departureTime);
+		result.append(", arrivalTime: ");
+		result.append(arrivalTime);
+		result.append(')');
+		return result.toString();
 	}
 
 } //FlightImpl

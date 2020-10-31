@@ -2,6 +2,8 @@
  */
 package at;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.Airport#getId <em>Id</em>}</li>
  *   <li>{@link at.Airport#getLocation <em>Location</em>}</li>
+ *   <li>{@link at.Airport#getRunways <em>Runways</em>}</li>
+ *   <li>{@link at.Airport#getGates <em>Gates</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getAirport()
@@ -65,5 +69,29 @@ public interface Airport extends EObject {
 	 * @generated
 	 */
 	void setLocation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Runways</b></em>' containment reference list.
+	 * The list contents are of type {@link at.Runway}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Runways</em>' containment reference list.
+	 * @see at.AtPackage#getAirport_Runways()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Runway> getRunways();
+
+	/**
+	 * Returns the value of the '<em><b>Gates</b></em>' containment reference list.
+	 * The list contents are of type {@link at.Gate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gates</em>' containment reference list.
+	 * @see at.AtPackage#getAirport_Gates()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Gate> getGates();
 
 } // Airport

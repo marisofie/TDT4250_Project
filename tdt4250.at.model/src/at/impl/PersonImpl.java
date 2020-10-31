@@ -3,11 +3,13 @@
 package at.impl;
 
 import at.AtPackage;
+import at.Gender;
 import at.Person;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -20,36 +22,25 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.impl.PersonImpl#getName <em>Name</em>}</li>
+ *   <li>{@link at.impl.PersonImpl#getFullName <em>Full Name</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getFamilyName <em>Family Name</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getAge <em>Age</em>}</li>
- *   <li>{@link at.impl.PersonImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached setting delegate for the '{@link #getFullName() <em>Full Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getFullName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected EStructuralFeature.Internal.SettingDelegate FULL_NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)AtPackage.Literals.PERSON__FULL_NAME).getSettingDelegate();
 
 	/**
 	 * The default value of the '{@link #getFirstName() <em>First Name</em>}' attribute.
@@ -99,7 +90,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String GENDER_EDEFAULT = null;
+	protected static final Gender GENDER_EDEFAULT = Gender.FEMALE;
 
 	/**
 	 * The cached value of the '{@link #getGender() <em>Gender</em>}' attribute.
@@ -109,7 +100,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @generated
 	 * @ordered
 	 */
-	protected String gender = GENDER_EDEFAULT;
+	protected Gender gender = GENDER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getAge() <em>Age</em>}' attribute.
@@ -130,26 +121,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @ordered
 	 */
 	protected int age = AGE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ROLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected String role = ROLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,20 +146,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__NAME, oldName, name));
+	public String getFullName() {
+		return (String)FULL_NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
@@ -238,7 +197,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
@@ -247,9 +206,9 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGender(String newGender) {
-		String oldGender = gender;
-		gender = newGender;
+	public void setGender(Gender newGender) {
+		Gender oldGender = gender;
+		gender = newGender == null ? GENDER_EDEFAULT : newGender;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__GENDER, oldGender, gender));
 	}
@@ -280,32 +239,11 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRole() {
-		return role;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRole(String newRole) {
-		String oldRole = role;
-		role = newRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__ROLE, oldRole, role));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AtPackage.PERSON__NAME:
-				return getName();
+			case AtPackage.PERSON__FULL_NAME:
+				return getFullName();
 			case AtPackage.PERSON__FIRST_NAME:
 				return getFirstName();
 			case AtPackage.PERSON__FAMILY_NAME:
@@ -314,8 +252,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return getGender();
 			case AtPackage.PERSON__AGE:
 				return getAge();
-			case AtPackage.PERSON__ROLE:
-				return getRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,9 +264,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AtPackage.PERSON__NAME:
-				setName((String)newValue);
-				return;
 			case AtPackage.PERSON__FIRST_NAME:
 				setFirstName((String)newValue);
 				return;
@@ -338,13 +271,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				setFamilyName((String)newValue);
 				return;
 			case AtPackage.PERSON__GENDER:
-				setGender((String)newValue);
+				setGender((Gender)newValue);
 				return;
 			case AtPackage.PERSON__AGE:
 				setAge((Integer)newValue);
-				return;
-			case AtPackage.PERSON__ROLE:
-				setRole((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -358,9 +288,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AtPackage.PERSON__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case AtPackage.PERSON__FIRST_NAME:
 				setFirstName(FIRST_NAME_EDEFAULT);
 				return;
@@ -372,9 +299,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return;
 			case AtPackage.PERSON__AGE:
 				setAge(AGE_EDEFAULT);
-				return;
-			case AtPackage.PERSON__ROLE:
-				setRole(ROLE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -388,18 +312,16 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AtPackage.PERSON__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case AtPackage.PERSON__FULL_NAME:
+				return FULL_NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case AtPackage.PERSON__FIRST_NAME:
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
 			case AtPackage.PERSON__FAMILY_NAME:
 				return FAMILY_NAME_EDEFAULT == null ? familyName != null : !FAMILY_NAME_EDEFAULT.equals(familyName);
 			case AtPackage.PERSON__GENDER:
-				return GENDER_EDEFAULT == null ? gender != null : !GENDER_EDEFAULT.equals(gender);
+				return gender != GENDER_EDEFAULT;
 			case AtPackage.PERSON__AGE:
 				return age != AGE_EDEFAULT;
-			case AtPackage.PERSON__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -414,9 +336,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", firstName: ");
+		result.append(" (firstName: ");
 		result.append(firstName);
 		result.append(", familyName: ");
 		result.append(familyName);
@@ -424,8 +344,6 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 		result.append(gender);
 		result.append(", age: ");
 		result.append(age);
-		result.append(", role: ");
-		result.append(role);
 		result.append(')');
 		return result.toString();
 	}

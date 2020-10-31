@@ -15,11 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.Airplane#getType <em>Type</em>}</li>
  *   <li>{@link at.Airplane#getNumberOfSeats <em>Number Of Seats</em>}</li>
- *   <li>{@link at.Airplane#getWeight <em>Weight</em>}</li>
- *   <li>{@link at.Airplane#getMaximumWeight <em>Maximum Weight</em>}</li>
- *   <li>{@link at.Airplane#getReach <em>Reach</em>}</li>
  *   <li>{@link at.Airplane#getMinimumCrew <em>Minimum Crew</em>}</li>
- *   <li>{@link at.Airplane#getRequiredRunwayLength <em>Required Runway Length</em>}</li>
+ *   <li>{@link at.Airplane#getRequiredRunwayLengthTakeoff <em>Required Runway Length Takeoff</em>}</li>
+ *   <li>{@link at.Airplane#getRequiredRunwayLengthLanding <em>Required Runway Length Landing</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getAirplane()
@@ -29,25 +27,28 @@ import org.eclipse.emf.ecore.EObject;
 public interface Airplane extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link at.AirplaneType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
+	 * @see at.AirplaneType
+	 * @see #setType(AirplaneType)
 	 * @see at.AtPackage#getAirplane_Type()
-	 * @model
+	 * @model dataType="at.AirplaneType"
 	 * @generated
 	 */
-	String getType();
+	AirplaneType getType();
 
 	/**
 	 * Sets the value of the '{@link at.Airplane#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see at.AirplaneType
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(String value);
+	void setType(AirplaneType value);
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Seats</b></em>' attribute.
@@ -72,72 +73,6 @@ public interface Airplane extends EObject {
 	void setNumberOfSeats(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Weight</em>' attribute.
-	 * @see #setWeight(int)
-	 * @see at.AtPackage#getAirplane_Weight()
-	 * @model
-	 * @generated
-	 */
-	int getWeight();
-
-	/**
-	 * Sets the value of the '{@link at.Airplane#getWeight <em>Weight</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Weight</em>' attribute.
-	 * @see #getWeight()
-	 * @generated
-	 */
-	void setWeight(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Maximum Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Maximum Weight</em>' attribute.
-	 * @see #setMaximumWeight(int)
-	 * @see at.AtPackage#getAirplane_MaximumWeight()
-	 * @model
-	 * @generated
-	 */
-	int getMaximumWeight();
-
-	/**
-	 * Sets the value of the '{@link at.Airplane#getMaximumWeight <em>Maximum Weight</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Maximum Weight</em>' attribute.
-	 * @see #getMaximumWeight()
-	 * @generated
-	 */
-	void setMaximumWeight(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Reach</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reach</em>' attribute.
-	 * @see #setReach(int)
-	 * @see at.AtPackage#getAirplane_Reach()
-	 * @model
-	 * @generated
-	 */
-	int getReach();
-
-	/**
-	 * Sets the value of the '{@link at.Airplane#getReach <em>Reach</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reach</em>' attribute.
-	 * @see #getReach()
-	 * @generated
-	 */
-	void setReach(int value);
-
-	/**
 	 * Returns the value of the '<em><b>Minimum Crew</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,25 +95,47 @@ public interface Airplane extends EObject {
 	void setMinimumCrew(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Required Runway Length</b></em>' attribute.
+	 * Returns the value of the '<em><b>Required Runway Length Takeoff</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Runway Length</em>' attribute.
-	 * @see #setRequiredRunwayLength(int)
-	 * @see at.AtPackage#getAirplane_RequiredRunwayLength()
+	 * @return the value of the '<em>Required Runway Length Takeoff</em>' attribute.
+	 * @see #setRequiredRunwayLengthTakeoff(int)
+	 * @see at.AtPackage#getAirplane_RequiredRunwayLengthTakeoff()
 	 * @model
 	 * @generated
 	 */
-	int getRequiredRunwayLength();
+	int getRequiredRunwayLengthTakeoff();
 
 	/**
-	 * Sets the value of the '{@link at.Airplane#getRequiredRunwayLength <em>Required Runway Length</em>}' attribute.
+	 * Sets the value of the '{@link at.Airplane#getRequiredRunwayLengthTakeoff <em>Required Runway Length Takeoff</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Runway Length</em>' attribute.
-	 * @see #getRequiredRunwayLength()
+	 * @param value the new value of the '<em>Required Runway Length Takeoff</em>' attribute.
+	 * @see #getRequiredRunwayLengthTakeoff()
 	 * @generated
 	 */
-	void setRequiredRunwayLength(int value);
+	void setRequiredRunwayLengthTakeoff(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Required Runway Length Landing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required Runway Length Landing</em>' attribute.
+	 * @see #setRequiredRunwayLengthLanding(int)
+	 * @see at.AtPackage#getAirplane_RequiredRunwayLengthLanding()
+	 * @model
+	 * @generated
+	 */
+	int getRequiredRunwayLengthLanding();
+
+	/**
+	 * Sets the value of the '{@link at.Airplane#getRequiredRunwayLengthLanding <em>Required Runway Length Landing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required Runway Length Landing</em>' attribute.
+	 * @see #getRequiredRunwayLengthLanding()
+	 * @generated
+	 */
+	void setRequiredRunwayLengthLanding(int value);
 
 } // Airplane

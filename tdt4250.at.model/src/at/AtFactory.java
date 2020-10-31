@@ -22,6 +22,24 @@ public interface AtFactory extends EFactory {
 	AtFactory eINSTANCE = at.impl.AtFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Travel Planner</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Travel Planner</em>'.
+	 * @generated
+	 */
+	TravelPlanner createTravelPlanner();
+
+	/**
+	 * Returns a new object of class '<em>Airline</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Airline</em>'.
+	 * @generated
+	 */
+	Airline createAirline();
+
+	/**
 	 * Returns a new object of class '<em>Airplane</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,6 +47,15 @@ public interface AtFactory extends EFactory {
 	 * @generated
 	 */
 	Airplane createAirplane();
+
+	/**
+	 * Returns a new object of class '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Flight</em>'.
+	 * @generated
+	 */
+	Flight createFlight();
 
 	/**
 	 * Returns a new object of class '<em>Airport</em>'.
@@ -74,15 +101,6 @@ public interface AtFactory extends EFactory {
 	 * @generated
 	 */
 	Crew createCrew();
-
-	/**
-	 * Returns a new object of class '<em>Flight</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flight</em>'.
-	 * @generated
-	 */
-	Flight createFlight();
 
 	/**
 	 * Returns the package supported by this factory.

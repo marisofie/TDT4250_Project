@@ -8,10 +8,13 @@ import at.Person;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -25,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link at.impl.CrewImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link at.impl.CrewImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +43,26 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	 * @ordered
 	 */
 	protected EList<Person> members;
+
+	/**
+	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected String role = ROLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,11 +100,34 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRole(String newRole) {
+		String oldRole = role;
+		role = newRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW__ROLE, oldRole, role));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AtPackage.CREW__MEMBERS:
 				return getMembers();
+			case AtPackage.CREW__ROLE:
+				return getRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,6 +145,9 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends Person>)newValue);
 				return;
+			case AtPackage.CREW__ROLE:
+				setRole((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,6 +163,9 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 			case AtPackage.CREW__MEMBERS:
 				getMembers().clear();
 				return;
+			case AtPackage.CREW__ROLE:
+				setRole(ROLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,8 +180,26 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 		switch (featureID) {
 			case AtPackage.CREW__MEMBERS:
 				return members != null && !members.isEmpty();
+			case AtPackage.CREW__ROLE:
+				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (role: ");
+		result.append(role);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CrewImpl

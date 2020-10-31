@@ -3,71 +3,107 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="at" nsURI="platform:/plugin/tdt4250.at.model/model/at.ecore"
     nsPrefix="at">
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="settingDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
     <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="Airplane">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumWeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reach" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCrew" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredRunwayLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TravelPlanner">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airports" upperBound="-1"
+        eType="#//Airport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airlines" upperBound="-1"
+        eType="#//Airline" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passengers" upperBound="-1"
+        eType="#//Person" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airline">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flights" upperBound="-1"
+        eType="#//Flight" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airplanes" upperBound="-1"
+        eType="#//Airplane" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Airplane">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AirplaneType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCrew" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredRunwayLengthTakeoff"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredRunwayLengthLanding"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Flight">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="maximumPassengers minimumCrew"/>
+    </eAnnotations>
+    <eAnnotations source="OCL" references="#//Flight/%OCL%">
+      <details key="maximumPassengers" value="self.passengers -> size() &lt; self.airplane.numberOfSeats"/>
+      <details key="minimumCrew" value="self.crew -> size() >= self.airplane.minimumCrew"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airplane" eType="#//Airplane"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationAirport" eType="#//Airport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureGate" eType="#//Gate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passengers" upperBound="-1"
+        eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="departureTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runways" upperBound="-1"
+        eType="#//Runway" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gates" upperBound="-1"
+        eType="#//Gate" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Runway">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
+        <details key="derivation" value="self.firstName + ' ' + self.familyName"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="familyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//Gender"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Crew">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crewAllocations" upperBound="-1"
+        eType="#//CrewAllocation" containment="true" eOpposite="#//CrewAllocation/crew"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Flight">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="maximumPassengers"/>
-    </eAnnotations>
-    <eAnnotations source="OCL" references="#//Flight/%OCL%">
-      <details key="maximumPassengers" value="self.passengers -> select(p|p.role = 'passenger') -> size() &lt; 10"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plane" eType="#//Airplane"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationAirport" eType="#//Airport"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="departureGate" eType="#//Gate"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="passengers" upperBound="-1"
-        eType="#//Person" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CrewAllocation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" upperBound="-1"
+        eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" eOpposite="#//Crew/crewAllocations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Role" instanceClassName="java.lang.string">
     <eLiterals name="Pilot" literal="Pilot"/>
-    <eLiterals name="FirstOfficer" value="1" literal="First Officer"/>
-    <eLiterals name="SecondOfficer" value="2" literal="Second Officer"/>
+    <eLiterals name="FirstOfficer" value="1" literal="First officer"/>
+    <eLiterals name="SecondOfficer" value="2" literal="Second officer"/>
     <eLiterals name="Purser" value="3" literal="Purser"/>
-    <eLiterals name="Flightattendant" value="4" literal="Flight attendant"/>
-    <eLiterals name="Passenger" value="5" literal="Passenger"/>
+    <eLiterals name="FlightAttendant" value="4" literal="Flight attendant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Gender" instanceClassName="java.lang.string">
+    <eLiterals name="Female" literal="Female"/>
+    <eLiterals name="Male" value="1" literal="Male"/>
+    <eLiterals name="Other" value="2" literal="Other"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AirplaneType" instanceClassName="java.lang.string">
+    <eLiterals name="Boeing737800" literal="Boeing 737-800"/>
+    <eLiterals name="Boeing737700" value="1" literal="Boeing 737-700"/>
+    <eLiterals name="Boeing737600" value="2" literal="Boeing 737-600"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link at.Crew#getMembers <em>Members</em>}</li>
+ *   <li>{@link at.Crew#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getCrew()
@@ -34,5 +35,27 @@ public interface Crew extends EObject {
 	 * @generated
 	 */
 	EList<Person> getMembers();
+
+	/**
+	 * Returns the value of the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Role</em>' attribute.
+	 * @see #setRole(String)
+	 * @see at.AtPackage#getCrew_Role()
+	 * @model
+	 * @generated
+	 */
+	String getRole();
+
+	/**
+	 * Sets the value of the '{@link at.Crew#getRole <em>Role</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Role</em>' attribute.
+	 * @see #getRole()
+	 * @generated
+	 */
+	void setRole(String value);
 
 } // Crew

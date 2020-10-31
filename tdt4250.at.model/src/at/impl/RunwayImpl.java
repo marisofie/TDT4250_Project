@@ -20,12 +20,33 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link at.impl.RunwayImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.impl.RunwayImpl#getLength <em>Length</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getLength() <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,6 +91,27 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.RUNWAY__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getLength() {
 		return length;
 	}
@@ -94,6 +136,8 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AtPackage.RUNWAY__ID:
+				return getId();
 			case AtPackage.RUNWAY__LENGTH:
 				return getLength();
 		}
@@ -108,6 +152,9 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AtPackage.RUNWAY__ID:
+				setId((String)newValue);
+				return;
 			case AtPackage.RUNWAY__LENGTH:
 				setLength((Integer)newValue);
 				return;
@@ -123,6 +170,9 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AtPackage.RUNWAY__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case AtPackage.RUNWAY__LENGTH:
 				setLength(LENGTH_EDEFAULT);
 				return;
@@ -138,6 +188,8 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AtPackage.RUNWAY__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case AtPackage.RUNWAY__LENGTH:
 				return length != LENGTH_EDEFAULT;
 		}
@@ -154,7 +206,9 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (length: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", length: ");
 		result.append(length);
 		result.append(')');
 		return result.toString();

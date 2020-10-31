@@ -66,9 +66,27 @@ public class AtSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case AtPackage.TRAVEL_PLANNER: {
+				TravelPlanner travelPlanner = (TravelPlanner)theEObject;
+				T result = caseTravelPlanner(travelPlanner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtPackage.AIRLINE: {
+				Airline airline = (Airline)theEObject;
+				T result = caseAirline(airline);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AtPackage.AIRPLANE: {
 				Airplane airplane = (Airplane)theEObject;
 				T result = caseAirplane(airplane);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AtPackage.FLIGHT: {
+				Flight flight = (Flight)theEObject;
+				T result = caseFlight(flight);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -102,14 +120,38 @@ public class AtSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AtPackage.FLIGHT: {
-				Flight flight = (Flight)theEObject;
-				T result = caseFlight(flight);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Travel Planner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Travel Planner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTravelPlanner(TravelPlanner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Airline</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Airline</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAirline(Airline object) {
+		return null;
 	}
 
 	/**
@@ -124,6 +166,21 @@ public class AtSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAirplane(Airplane object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flight</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlight(Flight object) {
 		return null;
 	}
 
@@ -199,21 +256,6 @@ public class AtSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCrew(Crew object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Flight</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Flight</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFlight(Flight object) {
 		return null;
 	}
 

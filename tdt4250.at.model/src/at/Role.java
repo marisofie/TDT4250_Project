@@ -36,7 +36,7 @@ public enum Role implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FIRST_OFFICER(1, "FirstOfficer", "First Officer"),
+	FIRST_OFFICER(1, "FirstOfficer", "First officer"),
 
 	/**
 	 * The '<em><b>Second Officer</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum Role implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SECOND_OFFICER(2, "SecondOfficer", "Second Officer"),
+	SECOND_OFFICER(2, "SecondOfficer", "Second officer"),
 
 	/**
 	 * The '<em><b>Purser</b></em>' literal object.
@@ -59,24 +59,14 @@ public enum Role implements Enumerator {
 	PURSER(3, "Purser", "Purser"),
 
 	/**
-	 * The '<em><b>Flightattendant</b></em>' literal object.
+	 * The '<em><b>Flight Attendant</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FLIGHTATTENDANT_VALUE
+	 * @see #FLIGHT_ATTENDANT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FLIGHTATTENDANT(4, "Flightattendant", "Flight attendant"),
-
-	/**
-	 * The '<em><b>Passenger</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PASSENGER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PASSENGER(5, "Passenger", "Passenger");
+	FLIGHT_ATTENDANT(4, "FlightAttendant", "Flight attendant");
 
 	/**
 	 * The '<em><b>Pilot</b></em>' literal value.
@@ -94,7 +84,7 @@ public enum Role implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FIRST_OFFICER
-	 * @model name="FirstOfficer" literal="First Officer"
+	 * @model name="FirstOfficer" literal="First officer"
 	 * @generated
 	 * @ordered
 	 */
@@ -105,7 +95,7 @@ public enum Role implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #SECOND_OFFICER
-	 * @model name="SecondOfficer" literal="Second Officer"
+	 * @model name="SecondOfficer" literal="Second officer"
 	 * @generated
 	 * @ordered
 	 */
@@ -123,26 +113,15 @@ public enum Role implements Enumerator {
 	public static final int PURSER_VALUE = 3;
 
 	/**
-	 * The '<em><b>Flightattendant</b></em>' literal value.
+	 * The '<em><b>Flight Attendant</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FLIGHTATTENDANT
-	 * @model name="Flightattendant" literal="Flight attendant"
+	 * @see #FLIGHT_ATTENDANT
+	 * @model name="FlightAttendant" literal="Flight attendant"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FLIGHTATTENDANT_VALUE = 4;
-
-	/**
-	 * The '<em><b>Passenger</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #PASSENGER
-	 * @model name="Passenger"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PASSENGER_VALUE = 5;
+	public static final int FLIGHT_ATTENDANT_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Role</b></em>' enumerators.
@@ -156,8 +135,7 @@ public enum Role implements Enumerator {
 			FIRST_OFFICER,
 			SECOND_OFFICER,
 			PURSER,
-			FLIGHTATTENDANT,
-			PASSENGER,
+			FLIGHT_ATTENDANT,
 		};
 
 	/**
@@ -218,8 +196,7 @@ public enum Role implements Enumerator {
 			case FIRST_OFFICER_VALUE: return FIRST_OFFICER;
 			case SECOND_OFFICER_VALUE: return SECOND_OFFICER;
 			case PURSER_VALUE: return PURSER;
-			case FLIGHTATTENDANT_VALUE: return FLIGHTATTENDANT;
-			case PASSENGER_VALUE: return PASSENGER;
+			case FLIGHT_ATTENDANT_VALUE: return FLIGHT_ATTENDANT;
 		}
 		return null;
 	}

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see at.AtFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegates='http://www.eclipse.org/acceleo/query/1.0'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore settingDelegates='http://www.eclipse.org/acceleo/query/1.0' validationDelegates='http://www.eclipse.org/acceleo/query/1.0'"
  * @generated
  */
 public interface AtPackage extends EPackage {
@@ -59,6 +59,116 @@ public interface AtPackage extends EPackage {
 	AtPackage eINSTANCE = at.impl.AtPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link at.impl.TravelPlannerImpl <em>Travel Planner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.impl.TravelPlannerImpl
+	 * @see at.impl.AtPackageImpl#getTravelPlanner()
+	 * @generated
+	 */
+	int TRAVEL_PLANNER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Airports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRAVEL_PLANNER__AIRPORTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Airlines</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRAVEL_PLANNER__AIRLINES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Passengers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRAVEL_PLANNER__PASSENGERS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Travel Planner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRAVEL_PLANNER_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Travel Planner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRAVEL_PLANNER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link at.impl.AirlineImpl <em>Airline</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.impl.AirlineImpl
+	 * @see at.impl.AtPackageImpl#getAirline()
+	 * @generated
+	 */
+	int AIRLINE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Flights</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE__FLIGHTS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Airplanes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE__AIRPLANES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Airline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Airline</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link at.impl.AirplaneImpl <em>Airplane</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,7 +176,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getAirplane()
 	 * @generated
 	 */
-	int AIRPLANE = 0;
+	int AIRPLANE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -87,49 +197,31 @@ public interface AtPackage extends EPackage {
 	int AIRPLANE__NUMBER_OF_SEATS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AIRPLANE__WEIGHT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Maximum Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AIRPLANE__MAXIMUM_WEIGHT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Reach</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AIRPLANE__REACH = 4;
-
-	/**
 	 * The feature id for the '<em><b>Minimum Crew</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__MINIMUM_CREW = 5;
+	int AIRPLANE__MINIMUM_CREW = 2;
 
 	/**
-	 * The feature id for the '<em><b>Required Runway Length</b></em>' attribute.
+	 * The feature id for the '<em><b>Required Runway Length Takeoff</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__REQUIRED_RUNWAY_LENGTH = 6;
+	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_TAKEOFF = 3;
+
+	/**
+	 * The feature id for the '<em><b>Required Runway Length Landing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_LANDING = 4;
 
 	/**
 	 * The number of structural features of the '<em>Airplane</em>' class.
@@ -138,7 +230,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE_FEATURE_COUNT = 7;
+	int AIRPLANE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Airplane</em>' class.
@@ -150,6 +242,133 @@ public interface AtPackage extends EPackage {
 	int AIRPLANE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link at.impl.FlightImpl <em>Flight</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.impl.FlightImpl
+	 * @see at.impl.AtPackageImpl#getFlight()
+	 * @generated
+	 */
+	int FLIGHT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DURATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Airplane</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__AIRPLANE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Departure Airport</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DEPARTURE_AIRPORT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Destination Airport</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DESTINATION_AIRPORT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Departure Gate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DEPARTURE_GATE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Destination Gate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DESTINATION_GATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Crew</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__CREW = 6;
+
+	/**
+	 * The feature id for the '<em><b>Passengers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__PASSENGERS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__CODE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Departure Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__DEPARTURE_TIME = 9;
+
+	/**
+	 * The feature id for the '<em><b>Arrival Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT__ARRIVAL_TIME = 10;
+
+	/**
+	 * The number of structural features of the '<em>Flight</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT_FEATURE_COUNT = 11;
+
+	/**
+	 * The number of operations of the '<em>Flight</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLIGHT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link at.impl.AirportImpl <em>Airport</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,7 +376,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getAirport()
 	 * @generated
 	 */
-	int AIRPORT = 1;
+	int AIRPORT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -178,13 +397,31 @@ public interface AtPackage extends EPackage {
 	int AIRPORT__LOCATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Runways</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRPORT__RUNWAYS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Gates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRPORT__GATES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Airport</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPORT_FEATURE_COUNT = 2;
+	int AIRPORT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Airport</em>' class.
@@ -203,7 +440,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getGate()
 	 * @generated
 	 */
-	int GATE = 2;
+	int GATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -240,7 +477,16 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getRunway()
 	 * @generated
 	 */
-	int RUNWAY = 3;
+	int RUNWAY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNWAY__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -249,7 +495,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUNWAY__LENGTH = 0;
+	int RUNWAY__LENGTH = 1;
 
 	/**
 	 * The number of structural features of the '<em>Runway</em>' class.
@@ -258,7 +504,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUNWAY_FEATURE_COUNT = 1;
+	int RUNWAY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Runway</em>' class.
@@ -277,16 +523,16 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getPerson()
 	 * @generated
 	 */
-	int PERSON = 4;
+	int PERSON = 7;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON__NAME = 0;
+	int PERSON__FULL_NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>First Name</b></em>' attribute.
@@ -325,22 +571,13 @@ public interface AtPackage extends EPackage {
 	int PERSON__AGE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PERSON__ROLE = 5;
-
-	/**
 	 * The number of structural features of the '<em>Person</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_FEATURE_COUNT = 6;
+	int PERSON_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Person</em>' class.
@@ -359,7 +596,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getCrew()
 	 * @generated
 	 */
-	int CREW = 5;
+	int CREW = 8;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' reference list.
@@ -371,13 +608,22 @@ public interface AtPackage extends EPackage {
 	int CREW__MEMBERS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW__ROLE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Crew</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREW_FEATURE_COUNT = 1;
+	int CREW_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Crew</em>' class.
@@ -389,97 +635,6 @@ public interface AtPackage extends EPackage {
 	int CREW_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link at.impl.FlightImpl <em>Flight</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see at.impl.FlightImpl
-	 * @see at.impl.AtPackageImpl#getFlight()
-	 * @generated
-	 */
-	int FLIGHT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Plane</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__PLANE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Departure Airport</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__DEPARTURE_AIRPORT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Destination Airport</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__DESTINATION_AIRPORT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Departure Gate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__DEPARTURE_GATE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Destination Gate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__DESTINATION_GATE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Crew</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__CREW = 5;
-
-	/**
-	 * The feature id for the '<em><b>Passengers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT__PASSENGERS = 6;
-
-	/**
-	 * The number of structural features of the '<em>Flight</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT_FEATURE_COUNT = 7;
-
-	/**
-	 * The number of operations of the '<em>Flight</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLIGHT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link at.Role <em>Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,8 +642,114 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 7;
+	int ROLE = 9;
 
+	/**
+	 * The meta object id for the '{@link at.Gender <em>Gender</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.Gender
+	 * @see at.impl.AtPackageImpl#getGender()
+	 * @generated
+	 */
+	int GENDER = 10;
+
+	/**
+	 * The meta object id for the '{@link at.AirplaneType <em>Airplane Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.AirplaneType
+	 * @see at.impl.AtPackageImpl#getAirplaneType()
+	 * @generated
+	 */
+	int AIRPLANE_TYPE = 11;
+
+
+	/**
+	 * Returns the meta object for class '{@link at.TravelPlanner <em>Travel Planner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Travel Planner</em>'.
+	 * @see at.TravelPlanner
+	 * @generated
+	 */
+	EClass getTravelPlanner();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.TravelPlanner#getAirports <em>Airports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Airports</em>'.
+	 * @see at.TravelPlanner#getAirports()
+	 * @see #getTravelPlanner()
+	 * @generated
+	 */
+	EReference getTravelPlanner_Airports();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.TravelPlanner#getAirlines <em>Airlines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Airlines</em>'.
+	 * @see at.TravelPlanner#getAirlines()
+	 * @see #getTravelPlanner()
+	 * @generated
+	 */
+	EReference getTravelPlanner_Airlines();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.TravelPlanner#getPassengers <em>Passengers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Passengers</em>'.
+	 * @see at.TravelPlanner#getPassengers()
+	 * @see #getTravelPlanner()
+	 * @generated
+	 */
+	EReference getTravelPlanner_Passengers();
+
+	/**
+	 * Returns the meta object for class '{@link at.Airline <em>Airline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Airline</em>'.
+	 * @see at.Airline
+	 * @generated
+	 */
+	EClass getAirline();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Airline#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see at.Airline#getName()
+	 * @see #getAirline()
+	 * @generated
+	 */
+	EAttribute getAirline_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.Airline#getFlights <em>Flights</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Flights</em>'.
+	 * @see at.Airline#getFlights()
+	 * @see #getAirline()
+	 * @generated
+	 */
+	EReference getAirline_Flights();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.Airline#getAirplanes <em>Airplanes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Airplanes</em>'.
+	 * @see at.Airline#getAirplanes()
+	 * @see #getAirline()
+	 * @generated
+	 */
+	EReference getAirline_Airplanes();
 
 	/**
 	 * Returns the meta object for class '{@link at.Airplane <em>Airplane</em>}'.
@@ -523,39 +784,6 @@ public interface AtPackage extends EPackage {
 	EAttribute getAirplane_NumberOfSeats();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.Airplane#getWeight <em>Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Weight</em>'.
-	 * @see at.Airplane#getWeight()
-	 * @see #getAirplane()
-	 * @generated
-	 */
-	EAttribute getAirplane_Weight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.Airplane#getMaximumWeight <em>Maximum Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum Weight</em>'.
-	 * @see at.Airplane#getMaximumWeight()
-	 * @see #getAirplane()
-	 * @generated
-	 */
-	EAttribute getAirplane_MaximumWeight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link at.Airplane#getReach <em>Reach</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reach</em>'.
-	 * @see at.Airplane#getReach()
-	 * @see #getAirplane()
-	 * @generated
-	 */
-	EAttribute getAirplane_Reach();
-
-	/**
 	 * Returns the meta object for the attribute '{@link at.Airplane#getMinimumCrew <em>Minimum Crew</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,15 +795,157 @@ public interface AtPackage extends EPackage {
 	EAttribute getAirplane_MinimumCrew();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.Airplane#getRequiredRunwayLength <em>Required Runway Length</em>}'.
+	 * Returns the meta object for the attribute '{@link at.Airplane#getRequiredRunwayLengthTakeoff <em>Required Runway Length Takeoff</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Required Runway Length</em>'.
-	 * @see at.Airplane#getRequiredRunwayLength()
+	 * @return the meta object for the attribute '<em>Required Runway Length Takeoff</em>'.
+	 * @see at.Airplane#getRequiredRunwayLengthTakeoff()
 	 * @see #getAirplane()
 	 * @generated
 	 */
-	EAttribute getAirplane_RequiredRunwayLength();
+	EAttribute getAirplane_RequiredRunwayLengthTakeoff();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Airplane#getRequiredRunwayLengthLanding <em>Required Runway Length Landing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required Runway Length Landing</em>'.
+	 * @see at.Airplane#getRequiredRunwayLengthLanding()
+	 * @see #getAirplane()
+	 * @generated
+	 */
+	EAttribute getAirplane_RequiredRunwayLengthLanding();
+
+	/**
+	 * Returns the meta object for class '{@link at.Flight <em>Flight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Flight</em>'.
+	 * @see at.Flight
+	 * @generated
+	 */
+	EClass getFlight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Flight#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see at.Flight#getDuration()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EAttribute getFlight_Duration();
+
+	/**
+	 * Returns the meta object for the reference '{@link at.Flight#getAirplane <em>Airplane</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Airplane</em>'.
+	 * @see at.Flight#getAirplane()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_Airplane();
+
+	/**
+	 * Returns the meta object for the reference '{@link at.Flight#getDepartureAirport <em>Departure Airport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Departure Airport</em>'.
+	 * @see at.Flight#getDepartureAirport()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_DepartureAirport();
+
+	/**
+	 * Returns the meta object for the reference '{@link at.Flight#getDestinationAirport <em>Destination Airport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Destination Airport</em>'.
+	 * @see at.Flight#getDestinationAirport()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_DestinationAirport();
+
+	/**
+	 * Returns the meta object for the reference '{@link at.Flight#getDepartureGate <em>Departure Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Departure Gate</em>'.
+	 * @see at.Flight#getDepartureGate()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_DepartureGate();
+
+	/**
+	 * Returns the meta object for the reference '{@link at.Flight#getDestinationGate <em>Destination Gate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Destination Gate</em>'.
+	 * @see at.Flight#getDestinationGate()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_DestinationGate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link at.Flight#getCrew <em>Crew</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Crew</em>'.
+	 * @see at.Flight#getCrew()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_Crew();
+
+	/**
+	 * Returns the meta object for the reference list '{@link at.Flight#getPassengers <em>Passengers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Passengers</em>'.
+	 * @see at.Flight#getPassengers()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EReference getFlight_Passengers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Flight#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see at.Flight#getCode()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EAttribute getFlight_Code();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Flight#getDepartureTime <em>Departure Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Departure Time</em>'.
+	 * @see at.Flight#getDepartureTime()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EAttribute getFlight_DepartureTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.Flight#getArrivalTime <em>Arrival Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Arrival Time</em>'.
+	 * @see at.Flight#getArrivalTime()
+	 * @see #getFlight()
+	 * @generated
+	 */
+	EAttribute getFlight_ArrivalTime();
 
 	/**
 	 * Returns the meta object for class '{@link at.Airport <em>Airport</em>}'.
@@ -610,6 +980,28 @@ public interface AtPackage extends EPackage {
 	EAttribute getAirport_Location();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link at.Airport#getRunways <em>Runways</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Runways</em>'.
+	 * @see at.Airport#getRunways()
+	 * @see #getAirport()
+	 * @generated
+	 */
+	EReference getAirport_Runways();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link at.Airport#getGates <em>Gates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Gates</em>'.
+	 * @see at.Airport#getGates()
+	 * @see #getAirport()
+	 * @generated
+	 */
+	EReference getAirport_Gates();
+
+	/**
 	 * Returns the meta object for class '{@link at.Gate <em>Gate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +1033,17 @@ public interface AtPackage extends EPackage {
 	EClass getRunway();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.Runway#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see at.Runway#getId()
+	 * @see #getRunway()
+	 * @generated
+	 */
+	EAttribute getRunway_Id();
+
+	/**
 	 * Returns the meta object for the attribute '{@link at.Runway#getLength <em>Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -662,15 +1065,15 @@ public interface AtPackage extends EPackage {
 	EClass getPerson();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.Person#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link at.Person#getFullName <em>Full Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see at.Person#getName()
+	 * @return the meta object for the attribute '<em>Full Name</em>'.
+	 * @see at.Person#getFullName()
 	 * @see #getPerson()
 	 * @generated
 	 */
-	EAttribute getPerson_Name();
+	EAttribute getPerson_FullName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link at.Person#getFirstName <em>First Name</em>}'.
@@ -717,17 +1120,6 @@ public interface AtPackage extends EPackage {
 	EAttribute getPerson_Age();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.Person#getRole <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see at.Person#getRole()
-	 * @see #getPerson()
-	 * @generated
-	 */
-	EAttribute getPerson_Role();
-
-	/**
 	 * Returns the meta object for class '{@link at.Crew <em>Crew</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -749,91 +1141,15 @@ public interface AtPackage extends EPackage {
 	EReference getCrew_Members();
 
 	/**
-	 * Returns the meta object for class '{@link at.Flight <em>Flight</em>}'.
+	 * Returns the meta object for the attribute '{@link at.Crew#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Flight</em>'.
-	 * @see at.Flight
+	 * @return the meta object for the attribute '<em>Role</em>'.
+	 * @see at.Crew#getRole()
+	 * @see #getCrew()
 	 * @generated
 	 */
-	EClass getFlight();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getPlane <em>Plane</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Plane</em>'.
-	 * @see at.Flight#getPlane()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_Plane();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getDepartureAirport <em>Departure Airport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Departure Airport</em>'.
-	 * @see at.Flight#getDepartureAirport()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_DepartureAirport();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getDestinationAirport <em>Destination Airport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Destination Airport</em>'.
-	 * @see at.Flight#getDestinationAirport()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_DestinationAirport();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getDepartureGate <em>Departure Gate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Departure Gate</em>'.
-	 * @see at.Flight#getDepartureGate()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_DepartureGate();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getDestinationGate <em>Destination Gate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Destination Gate</em>'.
-	 * @see at.Flight#getDestinationGate()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_DestinationGate();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link at.Flight#getCrew <em>Crew</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Crew</em>'.
-	 * @see at.Flight#getCrew()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_Crew();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link at.Flight#getPassengers <em>Passengers</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Passengers</em>'.
-	 * @see at.Flight#getPassengers()
-	 * @see #getFlight()
-	 * @generated
-	 */
-	EReference getFlight_Passengers();
+	EAttribute getCrew_Role();
 
 	/**
 	 * Returns the meta object for enum '{@link at.Role <em>Role</em>}'.
@@ -844,6 +1160,26 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getRole();
+
+	/**
+	 * Returns the meta object for enum '{@link at.Gender <em>Gender</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Gender</em>'.
+	 * @see at.Gender
+	 * @generated
+	 */
+	EEnum getGender();
+
+	/**
+	 * Returns the meta object for enum '{@link at.AirplaneType <em>Airplane Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Airplane Type</em>'.
+	 * @see at.AirplaneType
+	 * @generated
+	 */
+	EEnum getAirplaneType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -868,6 +1204,74 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link at.impl.TravelPlannerImpl <em>Travel Planner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.impl.TravelPlannerImpl
+		 * @see at.impl.AtPackageImpl#getTravelPlanner()
+		 * @generated
+		 */
+		EClass TRAVEL_PLANNER = eINSTANCE.getTravelPlanner();
+
+		/**
+		 * The meta object literal for the '<em><b>Airports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRAVEL_PLANNER__AIRPORTS = eINSTANCE.getTravelPlanner_Airports();
+
+		/**
+		 * The meta object literal for the '<em><b>Airlines</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRAVEL_PLANNER__AIRLINES = eINSTANCE.getTravelPlanner_Airlines();
+
+		/**
+		 * The meta object literal for the '<em><b>Passengers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRAVEL_PLANNER__PASSENGERS = eINSTANCE.getTravelPlanner_Passengers();
+
+		/**
+		 * The meta object literal for the '{@link at.impl.AirlineImpl <em>Airline</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.impl.AirlineImpl
+		 * @see at.impl.AtPackageImpl#getAirline()
+		 * @generated
+		 */
+		EClass AIRLINE = eINSTANCE.getAirline();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AIRLINE__NAME = eINSTANCE.getAirline_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Flights</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AIRLINE__FLIGHTS = eINSTANCE.getAirline_Flights();
+
+		/**
+		 * The meta object literal for the '<em><b>Airplanes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AIRLINE__AIRPLANES = eINSTANCE.getAirline_Airplanes();
+
 		/**
 		 * The meta object literal for the '{@link at.impl.AirplaneImpl <em>Airplane</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -895,30 +1299,6 @@ public interface AtPackage extends EPackage {
 		EAttribute AIRPLANE__NUMBER_OF_SEATS = eINSTANCE.getAirplane_NumberOfSeats();
 
 		/**
-		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AIRPLANE__WEIGHT = eINSTANCE.getAirplane_Weight();
-
-		/**
-		 * The meta object literal for the '<em><b>Maximum Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AIRPLANE__MAXIMUM_WEIGHT = eINSTANCE.getAirplane_MaximumWeight();
-
-		/**
-		 * The meta object literal for the '<em><b>Reach</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute AIRPLANE__REACH = eINSTANCE.getAirplane_Reach();
-
-		/**
 		 * The meta object literal for the '<em><b>Minimum Crew</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -927,12 +1307,118 @@ public interface AtPackage extends EPackage {
 		EAttribute AIRPLANE__MINIMUM_CREW = eINSTANCE.getAirplane_MinimumCrew();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Runway Length</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Required Runway Length Takeoff</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AIRPLANE__REQUIRED_RUNWAY_LENGTH = eINSTANCE.getAirplane_RequiredRunwayLength();
+		EAttribute AIRPLANE__REQUIRED_RUNWAY_LENGTH_TAKEOFF = eINSTANCE.getAirplane_RequiredRunwayLengthTakeoff();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Runway Length Landing</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AIRPLANE__REQUIRED_RUNWAY_LENGTH_LANDING = eINSTANCE.getAirplane_RequiredRunwayLengthLanding();
+
+		/**
+		 * The meta object literal for the '{@link at.impl.FlightImpl <em>Flight</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.impl.FlightImpl
+		 * @see at.impl.AtPackageImpl#getFlight()
+		 * @generated
+		 */
+		EClass FLIGHT = eINSTANCE.getFlight();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLIGHT__DURATION = eINSTANCE.getFlight_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Airplane</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__AIRPLANE = eINSTANCE.getFlight_Airplane();
+
+		/**
+		 * The meta object literal for the '<em><b>Departure Airport</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__DEPARTURE_AIRPORT = eINSTANCE.getFlight_DepartureAirport();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination Airport</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__DESTINATION_AIRPORT = eINSTANCE.getFlight_DestinationAirport();
+
+		/**
+		 * The meta object literal for the '<em><b>Departure Gate</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__DEPARTURE_GATE = eINSTANCE.getFlight_DepartureGate();
+
+		/**
+		 * The meta object literal for the '<em><b>Destination Gate</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__DESTINATION_GATE = eINSTANCE.getFlight_DestinationGate();
+
+		/**
+		 * The meta object literal for the '<em><b>Crew</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__CREW = eINSTANCE.getFlight_Crew();
+
+		/**
+		 * The meta object literal for the '<em><b>Passengers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLIGHT__PASSENGERS = eINSTANCE.getFlight_Passengers();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLIGHT__CODE = eINSTANCE.getFlight_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Departure Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLIGHT__DEPARTURE_TIME = eINSTANCE.getFlight_DepartureTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Arrival Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLIGHT__ARRIVAL_TIME = eINSTANCE.getFlight_ArrivalTime();
 
 		/**
 		 * The meta object literal for the '{@link at.impl.AirportImpl <em>Airport</em>}' class.
@@ -959,6 +1445,22 @@ public interface AtPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AIRPORT__LOCATION = eINSTANCE.getAirport_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Runways</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AIRPORT__RUNWAYS = eINSTANCE.getAirport_Runways();
+
+		/**
+		 * The meta object literal for the '<em><b>Gates</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AIRPORT__GATES = eINSTANCE.getAirport_Gates();
 
 		/**
 		 * The meta object literal for the '{@link at.impl.GateImpl <em>Gate</em>}' class.
@@ -989,6 +1491,14 @@ public interface AtPackage extends EPackage {
 		EClass RUNWAY = eINSTANCE.getRunway();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUNWAY__ID = eINSTANCE.getRunway_Id();
+
+		/**
 		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1007,12 +1517,12 @@ public interface AtPackage extends EPackage {
 		EClass PERSON = eINSTANCE.getPerson();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Full Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PERSON__NAME = eINSTANCE.getPerson_Name();
+		EAttribute PERSON__FULL_NAME = eINSTANCE.getPerson_FullName();
 
 		/**
 		 * The meta object literal for the '<em><b>First Name</b></em>' attribute feature.
@@ -1047,14 +1557,6 @@ public interface AtPackage extends EPackage {
 		EAttribute PERSON__AGE = eINSTANCE.getPerson_Age();
 
 		/**
-		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PERSON__ROLE = eINSTANCE.getPerson_Role();
-
-		/**
 		 * The meta object literal for the '{@link at.impl.CrewImpl <em>Crew</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1073,70 +1575,12 @@ public interface AtPackage extends EPackage {
 		EReference CREW__MEMBERS = eINSTANCE.getCrew_Members();
 
 		/**
-		 * The meta object literal for the '{@link at.impl.FlightImpl <em>Flight</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see at.impl.FlightImpl
-		 * @see at.impl.AtPackageImpl#getFlight()
-		 * @generated
-		 */
-		EClass FLIGHT = eINSTANCE.getFlight();
-
-		/**
-		 * The meta object literal for the '<em><b>Plane</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FLIGHT__PLANE = eINSTANCE.getFlight_Plane();
-
-		/**
-		 * The meta object literal for the '<em><b>Departure Airport</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__DEPARTURE_AIRPORT = eINSTANCE.getFlight_DepartureAirport();
-
-		/**
-		 * The meta object literal for the '<em><b>Destination Airport</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__DESTINATION_AIRPORT = eINSTANCE.getFlight_DestinationAirport();
-
-		/**
-		 * The meta object literal for the '<em><b>Departure Gate</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__DEPARTURE_GATE = eINSTANCE.getFlight_DepartureGate();
-
-		/**
-		 * The meta object literal for the '<em><b>Destination Gate</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__DESTINATION_GATE = eINSTANCE.getFlight_DestinationGate();
-
-		/**
-		 * The meta object literal for the '<em><b>Crew</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__CREW = eINSTANCE.getFlight_Crew();
-
-		/**
-		 * The meta object literal for the '<em><b>Passengers</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FLIGHT__PASSENGERS = eINSTANCE.getFlight_Passengers();
+		EAttribute CREW__ROLE = eINSTANCE.getCrew_Role();
 
 		/**
 		 * The meta object literal for the '{@link at.Role <em>Role</em>}' enum.
@@ -1147,6 +1591,26 @@ public interface AtPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ROLE = eINSTANCE.getRole();
+
+		/**
+		 * The meta object literal for the '{@link at.Gender <em>Gender</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.Gender
+		 * @see at.impl.AtPackageImpl#getGender()
+		 * @generated
+		 */
+		EEnum GENDER = eINSTANCE.getGender();
+
+		/**
+		 * The meta object literal for the '{@link at.AirplaneType <em>Airplane Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.AirplaneType
+		 * @see at.impl.AtPackageImpl#getAirplaneType()
+		 * @generated
+		 */
+		EEnum AIRPLANE_TYPE = eINSTANCE.getAirplaneType();
 
 	}
 
