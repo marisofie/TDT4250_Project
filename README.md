@@ -10,6 +10,9 @@
 
 ### User Features
 
+- A presentable overview of all flights provided by an airline
+- Options for different airline flight overviews
+
 ### Technical Features
 
 - Model to Text transformation using Acceleo

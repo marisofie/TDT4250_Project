@@ -2,23 +2,81 @@
 [module AirFlight2Text('platform:/plugin/tdt4250.at.model/model/at.ecore', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 
-[template public generateElement(travelPlanner : TravelPlanner)]
+[template public generateHomePage(travelPlanner : TravelPlanner)]
 [comment @main/]
+[file ('index.html', false, 'UTF-8')]
+[generateHeader('Home Page')/]
+[generateNavBar(travelPlanner)/]
 
+<h1>Welcome to Travel Planner</h1>
+
+<p> Created by Mari Sofie, Sigrid Marita, and &Aring;dne </p>
+
+[generateReferenceList(travelPlanner)/]
+</html>
+[/file]
+[/template]
+
+
+[template public generateAirlinePages(travelPlanner : TravelPlanner)]
+[comment @main/]
 [for (airline : Airline | travelPlanner.airlines)]
 [file (airline.name.concat('.html'), false, 'UTF-8')]
-
-
-<html>
-<head>
-<title>[airline.name/]</title>
-<meta charset="utf-8"/>
-</head>
+[generateHeader(airline.name)/]
+[generateNavBar(travelPlanner)/]
 
 <h1>[airline.name/]</h1>
+[generateFlightList(airline)/]
 
-
+[generateReferenceList(travelPlanner)/]
 </html>
 [/file]
 [/for]
+[/template]
+
+[template public generateHeader(title : String)]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	<title>[title/]</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+[/template]
+
+[template public generateNavBar(travelPlanner : TravelPlanner)]
+<!-- tp: travel planner -->
+<div class="tp-header">
+<img src="tp.png" alt="TP Logo"/>
+<nav class="tp_nav">
+<ul>
+	<li><a href='index.html'>Home</a></li>
+	[for (airline : Airline | travelPlanner.airlines)]
+	<li><a href="[airline.name/].html">[airline.name/]</a></li>
+	[/for]
+</ul>
+</nav>
+</div>
+[/template]
+
+[template public generateFlightList(airline: Airline)]
+<!-- ft: flight table -->
+<div class="ft">
+[for (flight : Flight | airline.flights)]
+<div class="ft_item ft_code">[flight.code/]</div>
+<div class="ft_item ft_dep-ap">[flight.departureAirport.id/]</div>
+<div class="ft_item ft_dest-ap">[flight.destinationAirport.id/]</div>
+<div class="ft_item ft_dep-time">[flight.departureTime/]</div>
+<div class="ft_item ft_arr-time">[flight.arrivalTime/]</div>
+<div class="ft_item ft_duration">[flight.duration/]</div>
+[/for]
+</div>
+[/template]
+
+[template public generateReferenceList(travelPlanner : TravelPlanner)]
+<div class="ref-list">
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+</div>
 [/template]

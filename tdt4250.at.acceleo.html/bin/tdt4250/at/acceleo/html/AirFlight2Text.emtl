@@ -1,38 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="AirFlight2Text" nsURI="tdt4250::at::acceleo::html::AirFlight2Text" startHeaderPosition="30" endHeaderPosition="232">
+  <mtl:Module name="AirFlight2Text" nsURI="tdt4250::at::acceleo::html::AirFlight2Text" startHeaderPosition="30" endHeaderPosition="233">
     <input>
       <takesTypesFrom href="platform:/plugin/tdt4250.at.model/model/at.ecore#/"/>
     </input>
     <input>
       <takesTypesFrom href="http://www.eclipse.org/emf/2002/Ecore#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateHomePage" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHeader">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Home Page">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:TemplateInvocation" definition="/0/generateNavBar">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateHomePage/travelPlanner">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;&lt;h1>Welcome to Travel Planner&lt;/h1>&#xD;&#xA;&#xD;&#xA;&lt;p> Created by Mari Sofie, Sigrid Marita, and &amp;Aring;dne &lt;/p>&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="mtl:TemplateInvocation" definition="/0/generateReferenceList">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateHomePage/travelPlanner">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="index.html">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="travelPlanner">
+        <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateAirlinePages" visibility="Public" main="true">
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;&lt;html>&#xD;&#xA;&lt;head>&#xD;&#xA;&lt;title>"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateHeader">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateAirlinePages/%/airline">
+                <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateNavBar">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateAirlinePages/travelPlanner">
+              <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;&lt;h1>"/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateElement/%.1/airline">
+            <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateAirlinePages/%/airline">
               <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
             </source>
             <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;&lt;meta charset=&quot;utf-8&quot;/>&#xD;&#xA;&lt;/head>&#xD;&#xA;&#xD;&#xA;&lt;h1>"/>
-          <body xsi:type="ocl.ecore:PropertyCallExp">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xD;&#xA;"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateFlightList">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateElement/%.1/airline">
+            <argument xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateAirlinePages/%/airline">
               <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
-            </source>
-            <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
+            </argument>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateReferenceList">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateAirlinePages/travelPlanner">
+              <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
           <fileUrl xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateElement/%.1/airline">
+              <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateAirlinePages/%/airline">
                 <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
               </source>
               <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
@@ -49,13 +105,139 @@
         <loopVariable name="airline">
           <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
         </loopVariable>
-        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(Airline)">
-          <source xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateElement/travelPlanner">
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/15/OrderedSet(Airline)">
+          <source xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateAirlinePages/travelPlanner">
             <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
           </source>
           <referredProperty xsi:type="ecore:EReference" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner/airlines"/>
         </iterSet>
       </body>
+      <parameter name="travelPlanner">
+        <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateHeader" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;!DOCTYPE html>&#xD;&#xA;&lt;html lang=&quot;en&quot;>&#xD;&#xA;&lt;head>&#xD;&#xA;&#x9;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>&#xD;&#xA;&#x9;&lt;meta charset=&quot;utf-8&quot;/>&#xD;&#xA;&#x9;&lt;title>"/>
+      <body xsi:type="ocl.ecore:VariableExp" name="title" referredVariable="/0/generateHeader/title.1">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; />&#xD;&#xA;&lt;/head>&#xD;&#xA;"/>
+      <parameter name="title">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateNavBar" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;!-- tp: travel planner -->&#xD;&#xA;&lt;div class=&quot;tp-header&quot;>&#xD;&#xA;&lt;img src=&quot;tp.png&quot; alt=&quot;TP Logo&quot;/>&#xD;&#xA;&lt;nav class=&quot;tp_nav&quot;>&#xD;&#xA;&lt;ul>&#xD;&#xA;&#x9;&lt;li>&lt;a href='index.html'>Home&lt;/a>&lt;/li>&#xD;&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;li>&lt;a href=&quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateNavBar/%.1/airline">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateNavBar/%.1/airline">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/a>&lt;/li>&#xD;&#xA;"/>
+        <loopVariable name="airline">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/15/OrderedSet(Airline)">
+          <source xsi:type="ocl.ecore:VariableExp" name="travelPlanner" referredVariable="/0/generateNavBar/travelPlanner">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner/airlines"/>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/ul>&#xD;&#xA;&lt;/nav>&#xD;&#xA;&lt;/div>"/>
+      <parameter name="travelPlanner">
+        <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateFlightList" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;!-- ft: flight table -->&#xD;&#xA;&lt;div class=&quot;ft&quot;>&#xD;&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;div class=&quot;ft_item ft_code&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/code"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;&lt;div class=&quot;ft_item ft_dep-ap&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airport"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+              <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/departureAirport"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airport/id"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;&lt;div class=&quot;ft_item ft_dest-ap&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airport"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+              <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/destinationAirport"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airport/id"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;&lt;div class=&quot;ft_item ft_dep-time&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/departureTime"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;&lt;div class=&quot;ft_item ft_arr-time&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/arrivalTime"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;&lt;div class=&quot;ft_item ft_duration&quot;>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="flight" referredVariable="/0/generateFlightList/%.1/flight">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight/duration"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>&#xD;&#xA;"/>
+        <loopVariable name="flight">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/15/OrderedSet(Flight)">
+          <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateFlightList/airline">
+            <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/flights"/>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/div>"/>
+      <parameter name="airline">
+        <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateReferenceList" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;div class=&quot;ref-list&quot;>&#xD;&#xA;Icons made by &lt;a href=&quot;https://www.flaticon.com/authors/freepik&quot; title=&quot;Freepik&quot;>Freepik&lt;/a> from &lt;a href=&quot;https://www.flaticon.com/&quot; title=&quot;Flaticon&quot;> www.flaticon.com&lt;/a>&#xD;&#xA;&lt;/div>"/>
       <parameter name="travelPlanner">
         <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
       </parameter>
@@ -81,11 +263,61 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eAnnotations>
-      <eOperations name="generateElement">
+      <eOperations name="generateHomePage">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
-        <eAnnotations source="MTL" references="/0/generateElement"/>
+        <eAnnotations source="MTL" references="/0/generateHomePage"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="travelPlanner">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateAirlinePages">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateAirlinePages"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="travelPlanner">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateHeader">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateHeader"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="title">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateNavBar">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateNavBar"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="travelPlanner">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateFlightList">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateFlightList"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="airline">
+          <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateReferenceList">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateReferenceList"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="travelPlanner">
           <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
@@ -117,7 +349,39 @@
         <references href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
       </eAnnotations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="at_Airline_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+      </eAnnotations>
+    </eClassifiers>
   </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
@@ -134,9 +398,21 @@
     <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Airline)" instanceClassName="java.util.LinkedHashSet">
       <elementType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Flight)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
@@ -162,106 +438,575 @@
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Flight"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//TravelPlanner"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/generateElement">
+    <eAnnotations source="positions.0" references="/0/generateHomePage">
       <details key="start" value="152"/>
-      <details key="end" value="500"/>
+      <details key="end" value="517"/>
       <details key="line" value="5"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/generateElement/%">
-      <details key="start" value="236"/>
-      <details key="end" value="238"/>
+    <eAnnotations source="positions.1" references="/0/generateHomePage/%">
+      <details key="start" value="237"/>
+      <details key="end" value="504"/>
       <details key="line" value="7"/>
     </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/generateElement/%.1">
-      <details key="start" value="238"/>
-      <details key="end" value="487"/>
-      <details key="line" value="8"/>
-    </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/generateElement/%.1/%">
-      <details key="start" value="290"/>
-      <details key="end" value="479"/>
-      <details key="line" value="9"/>
-    </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateElement/%.1/%/%">
-      <details key="start" value="345"/>
-      <details key="end" value="372"/>
-      <details key="line" value="10"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateElement/%.1/%/%.1">
-      <details key="start" value="373"/>
-      <details key="end" value="385"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateElement/%.1/%/%.1/airline">
-      <details key="start" value="373"/>
-      <details key="end" value="380"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateElement/%.1/%/%.2">
-      <details key="start" value="387"/>
-      <details key="end" value="437"/>
-      <details key="line" value="14"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/generateElement/%.1/%/%.3">
-      <details key="start" value="438"/>
-      <details key="end" value="450"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateElement/%.1/%/%.3/airline">
-      <details key="start" value="438"/>
-      <details key="end" value="445"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateElement/%.1/%/%.4">
-      <details key="start" value="452"/>
-      <details key="end" value="472"/>
-      <details key="line" value="18"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/generateElement/%.1/%/%.5">
-      <details key="start" value="297"/>
-      <details key="end" value="325"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/generateElement/%.1/%/%.5/%">
-      <details key="start" value="297"/>
-      <details key="end" value="309"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/generateElement/%.1/%/%.5/%/airline">
-      <details key="start" value="297"/>
+    <eAnnotations source="positions.2" references="/0/generateHomePage/%/%">
+      <details key="start" value="277"/>
       <details key="end" value="304"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateElement/%.1/%/%.5/%.1">
-      <details key="start" value="317"/>
-      <details key="end" value="324"/>
+    <eAnnotations source="positions.3" references="/0/generateHomePage/%/%/%">
+      <details key="start" value="292"/>
+      <details key="end" value="303"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/generateElement/%.1/%/%.6">
-      <details key="start" value="334"/>
-      <details key="end" value="341"/>
+    <eAnnotations source="positions.4" references="/0/generateHomePage/%/%.1">
+      <details key="start" value="306"/>
+      <details key="end" value="308"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateHomePage/%/%.2">
+      <details key="start" value="309"/>
+      <details key="end" value="338"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/generateElement/%.1/airline">
+    <eAnnotations source="positions.6" references="/0/generateHomePage/%/%.2/travelPlanner">
+      <details key="start" value="324"/>
+      <details key="end" value="337"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateHomePage/%/%.3">
+      <details key="start" value="340"/>
+      <details key="end" value="447"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateHomePage/%/%.4">
+      <details key="start" value="448"/>
+      <details key="end" value="484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateHomePage/%/%.4/travelPlanner">
+      <details key="start" value="470"/>
+      <details key="end" value="483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateHomePage/%/%.5">
+      <details key="start" value="486"/>
+      <details key="end" value="497"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateHomePage/%/%.6">
       <details key="start" value="244"/>
-      <details key="end" value="261"/>
-      <details key="line" value="8"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/generateElement/%.1/%.1">
-      <details key="start" value="264"/>
-      <details key="end" value="286"/>
+      <details key="end" value="256"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/generateElement/%.1/%.1/travelPlanner">
-      <details key="start" value="264"/>
-      <details key="end" value="277"/>
+    <eAnnotations source="positions.12" references="/0/generateHomePage/%/%.7">
+      <details key="start" value="265"/>
+      <details key="end" value="272"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/generateElement/travelPlanner">
-      <details key="start" value="185"/>
-      <details key="end" value="214"/>
+    <eAnnotations source="positions.13" references="/0/generateHomePage/travelPlanner">
+      <details key="start" value="186"/>
+      <details key="end" value="215"/>
       <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateAirlinePages">
+      <details key="start" value="523"/>
+      <details key="end" value="926"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateAirlinePages/%">
+      <details key="start" value="612"/>
+      <details key="end" value="913"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateAirlinePages/%/%">
+      <details key="start" value="664"/>
+      <details key="end" value="905"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateAirlinePages/%/%/%">
+      <details key="start" value="720"/>
+      <details key="end" value="748"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateAirlinePages/%/%/%/%">
+      <details key="start" value="735"/>
+      <details key="end" value="747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateAirlinePages/%/%/%/%/airline">
+      <details key="start" value="735"/>
+      <details key="end" value="742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateAirlinePages/%/%/%.1">
+      <details key="start" value="750"/>
+      <details key="end" value="752"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateAirlinePages/%/%/%.2">
+      <details key="start" value="753"/>
+      <details key="end" value="782"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateAirlinePages/%/%/%.2/travelPlanner">
+      <details key="start" value="768"/>
+      <details key="end" value="781"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateAirlinePages/%/%/%.3">
+      <details key="start" value="784"/>
+      <details key="end" value="792"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateAirlinePages/%/%/%.4">
+      <details key="start" value="793"/>
+      <details key="end" value="805"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateAirlinePages/%/%/%.4/airline">
+      <details key="start" value="793"/>
+      <details key="end" value="800"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateAirlinePages/%/%/%.5">
+      <details key="start" value="807"/>
+      <details key="end" value="814"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateAirlinePages/%/%/%.6">
+      <details key="start" value="815"/>
+      <details key="end" value="842"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateAirlinePages/%/%/%.6/airline">
+      <details key="start" value="834"/>
+      <details key="end" value="841"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateAirlinePages/%/%/%.7">
+      <details key="start" value="844"/>
+      <details key="end" value="848"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateAirlinePages/%/%/%.8">
+      <details key="start" value="849"/>
+      <details key="end" value="885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateAirlinePages/%/%/%.8/travelPlanner">
+      <details key="start" value="871"/>
+      <details key="end" value="884"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateAirlinePages/%/%/%.9">
+      <details key="start" value="887"/>
+      <details key="end" value="898"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateAirlinePages/%/%/%.10">
+      <details key="start" value="671"/>
+      <details key="end" value="699"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateAirlinePages/%/%/%.10/%">
+      <details key="start" value="671"/>
+      <details key="end" value="683"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateAirlinePages/%/%/%.10/%/airline">
+      <details key="start" value="671"/>
+      <details key="end" value="678"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateAirlinePages/%/%/%.10/%.1">
+      <details key="start" value="691"/>
+      <details key="end" value="698"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateAirlinePages/%/%/%.11">
+      <details key="start" value="708"/>
+      <details key="end" value="715"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateAirlinePages/%/airline">
+      <details key="start" value="618"/>
+      <details key="end" value="635"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateAirlinePages/%/%.1">
+      <details key="start" value="638"/>
+      <details key="end" value="660"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateAirlinePages/%/%.1/travelPlanner">
+      <details key="start" value="638"/>
+      <details key="end" value="651"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateAirlinePages/travelPlanner">
+      <details key="start" value="561"/>
+      <details key="end" value="590"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateHeader">
+      <details key="start" value="930"/>
+      <details key="end" value="1214"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateHeader/%">
+      <details key="start" value="980"/>
+      <details key="end" value="1130"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateHeader/title">
+      <details key="start" value="1131"/>
+      <details key="end" value="1136"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateHeader/%.1">
+      <details key="start" value="1138"/>
+      <details key="end" value="1201"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateHeader/title.1">
+      <details key="start" value="962"/>
+      <details key="end" value="976"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateNavBar">
+      <details key="start" value="1218"/>
+      <details key="end" value="1599"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateNavBar/%">
+      <details key="start" value="1283"/>
+      <details key="end" value="1441"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateNavBar/%.1">
+      <details key="start" value="1442"/>
+      <details key="end" value="1563"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateNavBar/%.1/%">
+      <details key="start" value="1494"/>
+      <details key="end" value="1508"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateNavBar/%.1/%.1">
+      <details key="start" value="1509"/>
+      <details key="end" value="1521"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateNavBar/%.1/%.1/airline">
+      <details key="start" value="1509"/>
+      <details key="end" value="1516"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateNavBar/%.1/%.2">
+      <details key="start" value="1523"/>
+      <details key="end" value="1530"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateNavBar/%.1/%.3">
+      <details key="start" value="1531"/>
+      <details key="end" value="1543"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateNavBar/%.1/%.3/airline">
+      <details key="start" value="1531"/>
+      <details key="end" value="1538"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateNavBar/%.1/%.4">
+      <details key="start" value="1545"/>
+      <details key="end" value="1556"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateNavBar/%.1/airline">
+      <details key="start" value="1448"/>
+      <details key="end" value="1465"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateNavBar/%.1/%.5">
+      <details key="start" value="1468"/>
+      <details key="end" value="1490"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateNavBar/%.1/%.5/travelPlanner">
+      <details key="start" value="1468"/>
+      <details key="end" value="1481"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateNavBar/%.2">
+      <details key="start" value="1565"/>
+      <details key="end" value="1586"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateNavBar/travelPlanner">
+      <details key="start" value="1250"/>
+      <details key="end" value="1279"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateFlightList">
+      <details key="start" value="1603"/>
+      <details key="end" value="2149"/>
+      <details key="line" value="64"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateFlightList/%">
+      <details key="start" value="1659"/>
+      <details key="end" value="1704"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateFlightList/%.1">
+      <details key="start" value="1704"/>
+      <details key="end" value="2128"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateFlightList/%.1/%">
+      <details key="start" value="1747"/>
+      <details key="end" value="1776"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateFlightList/%.1/%.1">
+      <details key="start" value="1777"/>
+      <details key="end" value="1788"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateFlightList/%.1/%.1/flight">
+      <details key="start" value="1777"/>
+      <details key="end" value="1783"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateFlightList/%.1/%.2">
+      <details key="start" value="1790"/>
+      <details key="end" value="1829"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateFlightList/%.1/%.3">
+      <details key="start" value="1830"/>
+      <details key="end" value="1856"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateFlightList/%.1/%.3/%">
+      <details key="start" value="1830"/>
+      <details key="end" value="1853"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateFlightList/%.1/%.3/%/flight">
+      <details key="start" value="1830"/>
+      <details key="end" value="1836"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateFlightList/%.1/%.4">
+      <details key="start" value="1858"/>
+      <details key="end" value="1898"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateFlightList/%.1/%.5">
+      <details key="start" value="1899"/>
+      <details key="end" value="1927"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateFlightList/%.1/%.5/%">
+      <details key="start" value="1899"/>
+      <details key="end" value="1924"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateFlightList/%.1/%.5/%/flight">
+      <details key="start" value="1899"/>
+      <details key="end" value="1905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateFlightList/%.1/%.6">
+      <details key="start" value="1929"/>
+      <details key="end" value="1970"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateFlightList/%.1/%.7">
+      <details key="start" value="1971"/>
+      <details key="end" value="1991"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateFlightList/%.1/%.7/flight">
+      <details key="start" value="1971"/>
+      <details key="end" value="1977"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateFlightList/%.1/%.8">
+      <details key="start" value="1993"/>
+      <details key="end" value="2034"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateFlightList/%.1/%.9">
+      <details key="start" value="2035"/>
+      <details key="end" value="2053"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateFlightList/%.1/%.9/flight">
+      <details key="start" value="2035"/>
+      <details key="end" value="2041"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateFlightList/%.1/%.10">
+      <details key="start" value="2055"/>
+      <details key="end" value="2096"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateFlightList/%.1/%.11">
+      <details key="start" value="2097"/>
+      <details key="end" value="2112"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateFlightList/%.1/%.11/flight">
+      <details key="start" value="2097"/>
+      <details key="end" value="2103"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateFlightList/%.1/%.12">
+      <details key="start" value="2114"/>
+      <details key="end" value="2122"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateFlightList/%.1/flight">
+      <details key="start" value="1710"/>
+      <details key="end" value="1725"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateFlightList/%.1/%.13">
+      <details key="start" value="1728"/>
+      <details key="end" value="1743"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateFlightList/%.1/%.13/airline">
+      <details key="start" value="1728"/>
+      <details key="end" value="1735"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateFlightList/%.2">
+      <details key="start" value="2130"/>
+      <details key="end" value="2136"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateFlightList/airline">
+      <details key="start" value="1639"/>
+      <details key="end" value="1655"/>
+      <details key="line" value="64"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateReferenceList">
+      <details key="start" value="2153"/>
+      <details key="end" value="2442"/>
+      <details key="line" value="78"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateReferenceList/%">
+      <details key="start" value="2225"/>
+      <details key="end" value="2429"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateReferenceList/travelPlanner">
+      <details key="start" value="2192"/>
+      <details key="end" value="2221"/>
+      <details key="line" value="78"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>
