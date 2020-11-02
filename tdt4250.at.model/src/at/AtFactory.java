@@ -103,6 +103,15 @@ public interface AtFactory extends EFactory {
 	Crew createCrew();
 
 	/**
+	 * Returns a new object of class '<em>Crew Allocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Crew Allocation</em>'.
+	 * @generated
+	 */
+	CrewAllocation createCrewAllocation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

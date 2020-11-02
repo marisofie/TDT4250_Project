@@ -35,8 +35,7 @@
         passengers="//@passengers.0"
         code="SK330"
         departureTime="2020-11-02T06:55:00.000+0100"
-        arrivalTime="2020-11-02T07:55:00.000+0100">
-    </flights>
+        arrivalTime="2020-11-02T07:55:00.000+0100"/>
     <airplanes
         numberOfSeats="162"
         minimumCrew="5"

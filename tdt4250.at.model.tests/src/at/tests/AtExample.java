@@ -5,6 +5,7 @@ package at.tests;
 import at.AtFactory;
 import at.AtPackage;
 import at.TravelPlanner;
+import at.util.AtResourceFactoryImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class AtExample {
 		//
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put
 			(Resource.Factory.Registry.DEFAULT_EXTENSION, 
-			 new XMIResourceFactoryImpl());
+			 new AtResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
 		//

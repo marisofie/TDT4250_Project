@@ -104,6 +104,10 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 				return createCrewAdapter();
 			}
 			@Override
+			public Adapter caseCrewAllocation(CrewAllocation object) {
+				return createCrewAllocationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -246,6 +250,20 @@ public class AtAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCrewAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link at.CrewAllocation <em>Crew Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see at.CrewAllocation
+	 * @generated
+	 */
+	public Adapter createCrewAllocationAdapter() {
 		return null;
 	}
 

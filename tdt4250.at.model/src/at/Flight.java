@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see at.AtPackage#getFlight()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers'"
- *        annotation="OCL maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew'"
+ *        annotation="OCL maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew'"
  * @generated
  */
 public interface Flight extends EObject {

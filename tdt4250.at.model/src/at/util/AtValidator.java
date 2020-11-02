@@ -104,6 +104,8 @@ public class AtValidator extends EObjectValidator {
 				return validatePerson((Person)value, diagnostics, context);
 			case AtPackage.CREW:
 				return validateCrew((Crew)value, diagnostics, context);
+			case AtPackage.CREW_ALLOCATION:
+				return validateCrewAllocation((CrewAllocation)value, diagnostics, context);
 			case AtPackage.ROLE:
 				return validateRole((Role)value, diagnostics, context);
 			case AtPackage.GENDER:
@@ -158,6 +160,7 @@ public class AtValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_maximumPassengers(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_minimumCrew(flight, diagnostics, context);
 		return result;
 	}
 
@@ -181,6 +184,34 @@ public class AtValidator extends EObjectValidator {
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
 						 new Object[] { "maximumPassengers", getObjectLabel(flight, context) },
+						 new Object[] { flight },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the minimumCrew constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_minimumCrew(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "minimumCrew", getObjectLabel(flight, context) },
 						 new Object[] { flight },
 						 context));
 			}
@@ -232,6 +263,15 @@ public class AtValidator extends EObjectValidator {
 	 */
 	public boolean validateCrew(Crew crew, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(crew, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCrewAllocation(CrewAllocation crewAllocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(crewAllocation, diagnostics, context);
 	}
 
 	/**

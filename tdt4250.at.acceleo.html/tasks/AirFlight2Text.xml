@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="AirFlight2Text" name="tdt4250.at.acceleo.html">
+    <property name="ECLIPSE_HOME" value="../../../Eclipse/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../tdt4250"/>
+
+    <!-- The classpath with only the dependencies used by the project -->
+    <path id="tdt4250.at.acceleo.html.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/tdt4250.at.acceleo.html/bin"/>
+    </path>
+
+    <path id="tdt4250.at.acceleo.html.classpath">
+        <path refid="tdt4250.at.acceleo.html.libraryclasspath"/>
+    </path>
+
+    <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
+    <path id="tdt4250.at.acceleo.html.libraryclasspath.alljars">
+        <pathelement location="../tdt4250.at.acceleo.html/bin"/>
+        <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
+    </path>
+
+    <path id="tdt4250.at.acceleo.html.classpath.alljars">
+        <path refid="tdt4250.at.acceleo.html.libraryclasspath.alljars"/>
+    </path>
+
+    <!-- The default task with the jars used by this project -->
+    <target name="AirFlight2Text">
+        <java classname="tdt4250.at.acceleo.html.AirFlight2Text" classpathref="tdt4250.at.acceleo.html.classpath">
+            <arg value="${model}"/>
+            <arg value="${target}"/>
+        </java>
+    </target>
+
+    <!--
+        In case of problem you can also try with all the jar available in your Eclipse
+        Keep in mind that having two versions of the same jar can create problems
+    -->
+    <target name="AirFlight2Text.alljars">
+        <java classname="tdt4250.at.acceleo.html.AirFlight2Text" classpathref="tdt4250.at.acceleo.html.classpath">
+            <arg value="${model}"/>
+            <arg value="${target}"/>
+        </java>
+    </target>
+</project>

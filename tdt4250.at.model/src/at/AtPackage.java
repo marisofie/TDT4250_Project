@@ -599,22 +599,13 @@ public interface AtPackage extends EPackage {
 	int CREW = 8;
 
 	/**
-	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * The feature id for the '<em><b>Crew Allocations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREW__MEMBERS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREW__ROLE = 1;
+	int CREW__CREW_ALLOCATIONS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Crew</em>' class.
@@ -623,7 +614,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREW_FEATURE_COUNT = 2;
+	int CREW_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Crew</em>' class.
@@ -635,6 +626,61 @@ public interface AtPackage extends EPackage {
 	int CREW_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link at.impl.CrewAllocationImpl <em>Crew Allocation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see at.impl.CrewAllocationImpl
+	 * @see at.impl.AtPackageImpl#getCrewAllocation()
+	 * @generated
+	 */
+	int CREW_ALLOCATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW_ALLOCATION__ROLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Member</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW_ALLOCATION__MEMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Crew</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW_ALLOCATION__CREW = 2;
+
+	/**
+	 * The number of structural features of the '<em>Crew Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW_ALLOCATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Crew Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREW_ALLOCATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link at.Role <em>Role</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,7 +688,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getRole()
 	 * @generated
 	 */
-	int ROLE = 9;
+	int ROLE = 10;
 
 	/**
 	 * The meta object id for the '{@link at.Gender <em>Gender</em>}' enum.
@@ -652,7 +698,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getGender()
 	 * @generated
 	 */
-	int GENDER = 10;
+	int GENDER = 11;
 
 	/**
 	 * The meta object id for the '{@link at.AirplaneType <em>Airplane Type</em>}' enum.
@@ -662,7 +708,7 @@ public interface AtPackage extends EPackage {
 	 * @see at.impl.AtPackageImpl#getAirplaneType()
 	 * @generated
 	 */
-	int AIRPLANE_TYPE = 11;
+	int AIRPLANE_TYPE = 12;
 
 
 	/**
@@ -1130,26 +1176,58 @@ public interface AtPackage extends EPackage {
 	EClass getCrew();
 
 	/**
-	 * Returns the meta object for the reference list '{@link at.Crew#getMembers <em>Members</em>}'.
+	 * Returns the meta object for the containment reference list '{@link at.Crew#getCrewAllocations <em>Crew Allocations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Members</em>'.
-	 * @see at.Crew#getMembers()
+	 * @return the meta object for the containment reference list '<em>Crew Allocations</em>'.
+	 * @see at.Crew#getCrewAllocations()
 	 * @see #getCrew()
 	 * @generated
 	 */
-	EReference getCrew_Members();
+	EReference getCrew_CrewAllocations();
 
 	/**
-	 * Returns the meta object for the attribute '{@link at.Crew#getRole <em>Role</em>}'.
+	 * Returns the meta object for class '{@link at.CrewAllocation <em>Crew Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Crew Allocation</em>'.
+	 * @see at.CrewAllocation
+	 * @generated
+	 */
+	EClass getCrewAllocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link at.CrewAllocation#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Role</em>'.
-	 * @see at.Crew#getRole()
-	 * @see #getCrew()
+	 * @see at.CrewAllocation#getRole()
+	 * @see #getCrewAllocation()
 	 * @generated
 	 */
-	EAttribute getCrew_Role();
+	EAttribute getCrewAllocation_Role();
+
+	/**
+	 * Returns the meta object for the reference list '{@link at.CrewAllocation#getMember <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Member</em>'.
+	 * @see at.CrewAllocation#getMember()
+	 * @see #getCrewAllocation()
+	 * @generated
+	 */
+	EReference getCrewAllocation_Member();
+
+	/**
+	 * Returns the meta object for the container reference '{@link at.CrewAllocation#getCrew <em>Crew</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Crew</em>'.
+	 * @see at.CrewAllocation#getCrew()
+	 * @see #getCrewAllocation()
+	 * @generated
+	 */
+	EReference getCrewAllocation_Crew();
 
 	/**
 	 * Returns the meta object for enum '{@link at.Role <em>Role</em>}'.
@@ -1567,12 +1645,22 @@ public interface AtPackage extends EPackage {
 		EClass CREW = eINSTANCE.getCrew();
 
 		/**
-		 * The meta object literal for the '<em><b>Members</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Crew Allocations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CREW__MEMBERS = eINSTANCE.getCrew_Members();
+		EReference CREW__CREW_ALLOCATIONS = eINSTANCE.getCrew_CrewAllocations();
+
+		/**
+		 * The meta object literal for the '{@link at.impl.CrewAllocationImpl <em>Crew Allocation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see at.impl.CrewAllocationImpl
+		 * @see at.impl.AtPackageImpl#getCrewAllocation()
+		 * @generated
+		 */
+		EClass CREW_ALLOCATION = eINSTANCE.getCrewAllocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
@@ -1580,7 +1668,23 @@ public interface AtPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CREW__ROLE = eINSTANCE.getCrew_Role();
+		EAttribute CREW_ALLOCATION__ROLE = eINSTANCE.getCrewAllocation_Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Member</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREW_ALLOCATION__MEMBER = eINSTANCE.getCrewAllocation_Member();
+
+		/**
+		 * The meta object literal for the '<em><b>Crew</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREW_ALLOCATION__CREW = eINSTANCE.getCrewAllocation_Crew();
 
 		/**
 		 * The meta object literal for the '{@link at.Role <em>Role</em>}' enum.

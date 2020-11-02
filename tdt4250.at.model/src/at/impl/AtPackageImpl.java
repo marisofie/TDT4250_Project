@@ -9,6 +9,7 @@ import at.Airport;
 import at.AtFactory;
 import at.AtPackage;
 import at.Crew;
+import at.CrewAllocation;
 import at.Flight;
 import at.Gate;
 import at.Gender;
@@ -16,7 +17,6 @@ import at.Person;
 import at.Role;
 import at.Runway;
 import at.TravelPlanner;
-
 import at.util.AtValidator;
 
 import org.eclipse.emf.common.util.URI;
@@ -99,6 +99,13 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	private EClass crewEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass crewAllocationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -583,7 +590,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCrew_Members() {
+	public EReference getCrew_CrewAllocations() {
 		return (EReference)crewEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -592,8 +599,35 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCrew_Role() {
-		return (EAttribute)crewEClass.getEStructuralFeatures().get(1);
+	public EClass getCrewAllocation() {
+		return crewAllocationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCrewAllocation_Role() {
+		return (EAttribute)crewAllocationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrewAllocation_Member() {
+		return (EReference)crewAllocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrewAllocation_Crew() {
+		return (EReference)crewAllocationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -702,8 +736,12 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEAttribute(personEClass, PERSON__AGE);
 
 		crewEClass = createEClass(CREW);
-		createEReference(crewEClass, CREW__MEMBERS);
-		createEAttribute(crewEClass, CREW__ROLE);
+		createEReference(crewEClass, CREW__CREW_ALLOCATIONS);
+
+		crewAllocationEClass = createEClass(CREW_ALLOCATION);
+		createEAttribute(crewAllocationEClass, CREW_ALLOCATION__ROLE);
+		createEReference(crewAllocationEClass, CREW_ALLOCATION__MEMBER);
+		createEReference(crewAllocationEClass, CREW_ALLOCATION__CREW);
 
 		// Create enums
 		roleEEnum = createEEnum(ROLE);
@@ -792,8 +830,12 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEAttribute(getPerson_Age(), ecorePackage.getEInt(), "age", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(crewEClass, Crew.class, "Crew", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCrew_Members(), this.getPerson(), null, "members", null, 0, -1, Crew.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCrew_Role(), ecorePackage.getEString(), "role", null, 0, 1, Crew.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrew_CrewAllocations(), this.getCrewAllocation(), this.getCrewAllocation_Crew(), "crewAllocations", null, 0, -1, Crew.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(crewAllocationEClass, CrewAllocation.class, "CrewAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCrewAllocation_Role(), ecorePackage.getEString(), "role", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrewAllocation_Member(), this.getPerson(), null, "member", null, 0, -1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrewAllocation_Crew(), this.getCrew(), this.getCrew_CrewAllocations(), "crew", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(roleEEnum, Role.class, "Role");
@@ -844,7 +886,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		  (flightEClass,
 		   source,
 		   new String[] {
-			   "constraints", "maximumPassengers"
+			   "constraints", "maximumPassengers minimumCrew"
 		   });
 	}
 
@@ -860,7 +902,8 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		  (flightEClass,
 		   source,
 		   new String[] {
-			   "maximumPassengers", "self.passengers -> size() < self.airplane.numberOfSeats"
+			   "maximumPassengers", "self.passengers -> size() < self.airplane.numberOfSeats",
+			   "minimumCrew", "self.crew -> size() >= self.airplane.minimumCrew"
 		   },
 		   new URI[] {
 			 URI.createURI(eNS_URI).appendFragment("//Flight/%OCL%")

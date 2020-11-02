@@ -4,20 +4,25 @@ package at.impl;
 
 import at.AtPackage;
 import at.Crew;
+import at.CrewAllocation;
 import at.Person;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,42 +32,21 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.impl.CrewImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link at.impl.CrewImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link at.impl.CrewImpl#getCrewAllocations <em>Crew Allocations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	/**
-	 * The cached value of the '{@link #getMembers() <em>Members</em>}' reference list.
+	 * The cached value of the '{@link #getCrewAllocations() <em>Crew Allocations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMembers()
+	 * @see #getCrewAllocations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Person> members;
-
-	/**
-	 * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ROLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected String role = ROLE_EDEFAULT;
+	protected EList<CrewAllocation> crewAllocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +72,11 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Person> getMembers() {
-		if (members == null) {
-			members = new EObjectResolvingEList<Person>(Person.class, this, AtPackage.CREW__MEMBERS);
+	public EList<CrewAllocation> getCrewAllocations() {
+		if (crewAllocations == null) {
+			crewAllocations = new EObjectContainmentWithInverseEList<CrewAllocation>(CrewAllocation.class, this, AtPackage.CREW__CREW_ALLOCATIONS, AtPackage.CREW_ALLOCATION__CREW);
 		}
-		return members;
+		return crewAllocations;
 	}
 
 	/**
@@ -100,8 +84,14 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRole() {
-		return role;
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCrewAllocations()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -109,11 +99,13 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRole(String newRole) {
-		String oldRole = role;
-		role = newRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW__ROLE, oldRole, role));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				return ((InternalEList<?>)getCrewAllocations()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -124,10 +116,8 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AtPackage.CREW__MEMBERS:
-				return getMembers();
-			case AtPackage.CREW__ROLE:
-				return getRole();
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				return getCrewAllocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,12 +131,9 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AtPackage.CREW__MEMBERS:
-				getMembers().clear();
-				getMembers().addAll((Collection<? extends Person>)newValue);
-				return;
-			case AtPackage.CREW__ROLE:
-				setRole((String)newValue);
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				getCrewAllocations().clear();
+				getCrewAllocations().addAll((Collection<? extends CrewAllocation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,11 +147,8 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AtPackage.CREW__MEMBERS:
-				getMembers().clear();
-				return;
-			case AtPackage.CREW__ROLE:
-				setRole(ROLE_EDEFAULT);
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				getCrewAllocations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -178,28 +162,10 @@ public class CrewImpl extends MinimalEObjectImpl.Container implements Crew {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AtPackage.CREW__MEMBERS:
-				return members != null && !members.isEmpty();
-			case AtPackage.CREW__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+			case AtPackage.CREW__CREW_ALLOCATIONS:
+				return crewAllocations != null && !crewAllocations.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (role: ");
-		result.append(role);
-		result.append(')');
-		return result.toString();
 	}
 
 } //CrewImpl

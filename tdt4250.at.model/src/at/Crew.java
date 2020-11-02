@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link at.Crew#getMembers <em>Members</em>}</li>
- *   <li>{@link at.Crew#getRole <em>Role</em>}</li>
+ *   <li>{@link at.Crew#getCrewAllocations <em>Crew Allocations</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getCrew()
@@ -25,37 +24,17 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Crew extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Members</b></em>' reference list.
-	 * The list contents are of type {@link at.Person}.
+	 * Returns the value of the '<em><b>Crew Allocations</b></em>' containment reference list.
+	 * The list contents are of type {@link at.CrewAllocation}.
+	 * It is bidirectional and its opposite is '{@link at.CrewAllocation#getCrew <em>Crew</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Members</em>' reference list.
-	 * @see at.AtPackage#getCrew_Members()
-	 * @model
+	 * @return the value of the '<em>Crew Allocations</em>' containment reference list.
+	 * @see at.AtPackage#getCrew_CrewAllocations()
+	 * @see at.CrewAllocation#getCrew
+	 * @model opposite="crew" containment="true"
 	 * @generated
 	 */
-	EList<Person> getMembers();
-
-	/**
-	 * Returns the value of the '<em><b>Role</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Role</em>' attribute.
-	 * @see #setRole(String)
-	 * @see at.AtPackage#getCrew_Role()
-	 * @model
-	 * @generated
-	 */
-	String getRole();
-
-	/**
-	 * Sets the value of the '{@link at.Crew#getRole <em>Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role</em>' attribute.
-	 * @see #getRole()
-	 * @generated
-	 */
-	void setRole(String value);
+	EList<CrewAllocation> getCrewAllocations();
 
 } // Crew

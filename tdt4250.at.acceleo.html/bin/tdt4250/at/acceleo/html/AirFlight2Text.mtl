@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module AirFlight2Text('platform:/plugin/tdt4250.at.model/model/at.ecore', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public generateElement(travelPlanner : TravelPlanner)]
+[comment @main/]
+
+[for (airline : Airline | travelPlanner.airlines)]
+[file (airline.name.concat('.html'), false, 'UTF-8')]
+
+
+<html>
+<head>
+<title>[airline.name/]</title>
+<meta charset="utf-8"/>
+</head>
+
+<h1>[airline.name/]</h1>
+
+
+</html>
+[/file]
+[/for]
+[/template]

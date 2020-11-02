@@ -3,12 +3,16 @@
 ## Project overview 📢
 
     - tdt4250.at.model
+    - tdt4250.at.model.tests
+    - tdt4250.at.acceleo.html
 
 ## Features 🔥
 
 ### User Features
 
 ### Technical Features
+
+- Model to Text transformation using Acceleo
 
 ## Learning objectives
 
