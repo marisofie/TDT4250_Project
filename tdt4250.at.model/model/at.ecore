@@ -105,5 +105,6 @@
     <eLiterals name="Boeing737800" literal="Boeing 737-800"/>
     <eLiterals name="Boeing737700" value="1" literal="Boeing 737-700"/>
     <eLiterals name="Boeing737600" value="2" literal="Boeing 737-600"/>
+    <eLiterals name="BombardierDash8100" value="3" literal="Bombardier DHC-8 Dash 8-100"/>
   </eClassifiers>
 </ecore:EPackage>

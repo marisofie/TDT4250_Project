@@ -46,7 +46,15 @@ public enum AirplaneType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOEING737600(2, "Boeing737600", "Boeing 737-600");
+	BOEING737600(2, "Boeing737600", "Boeing 737-600"), /**
+	 * The '<em><b>Bombardier Dash8100</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOMBARDIER_DASH8100_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BOMBARDIER_DASH8100(3, "BombardierDash8100", "Bombardier DHC-8 Dash 8-100");
 
 	/**
 	 * The '<em><b>Boeing737800</b></em>' literal value.
@@ -82,6 +90,17 @@ public enum AirplaneType implements Enumerator {
 	public static final int BOEING737600_VALUE = 2;
 
 	/**
+	 * The '<em><b>Bombardier Dash8100</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOMBARDIER_DASH8100
+	 * @model name="BombardierDash8100" literal="Bombardier DHC-8 Dash 8-100"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOMBARDIER_DASH8100_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Airplane Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +111,7 @@ public enum AirplaneType implements Enumerator {
 			BOEING737800,
 			BOEING737700,
 			BOEING737600,
+			BOMBARDIER_DASH8100,
 		};
 
 	/**
@@ -151,6 +171,7 @@ public enum AirplaneType implements Enumerator {
 			case BOEING737800_VALUE: return BOEING737800;
 			case BOEING737700_VALUE: return BOEING737700;
 			case BOEING737600_VALUE: return BOEING737600;
+			case BOMBARDIER_DASH8100_VALUE: return BOMBARDIER_DASH8100;
 		}
 		return null;
 	}

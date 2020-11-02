@@ -854,6 +854,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		addEEnumLiteral(airplaneTypeEEnum, AirplaneType.BOEING737800);
 		addEEnumLiteral(airplaneTypeEEnum, AirplaneType.BOEING737700);
 		addEEnumLiteral(airplaneTypeEEnum, AirplaneType.BOEING737600);
+		addEEnumLiteral(airplaneTypeEEnum, AirplaneType.BOMBARDIER_DASH8100);
 
 		// Create resource
 		createResource(eNS_URI);

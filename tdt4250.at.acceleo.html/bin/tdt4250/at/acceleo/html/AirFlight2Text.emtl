@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="AirFlight2Text" nsURI="tdt4250::at::acceleo::html::AirFlight2Text" startHeaderPosition="29" endHeaderPosition="227">
+  <mtl:Module name="AirFlight2Text" nsURI="tdt4250::at::acceleo::html::AirFlight2Text" startHeaderPosition="30" endHeaderPosition="232">
     <input>
       <takesTypesFrom href="platform:/plugin/tdt4250.at.model/model/at.ecore#/"/>
     </input>
@@ -8,10 +8,10 @@
       <takesTypesFrom href="http://www.eclipse.org/emf/2002/Ecore#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:ForBlock">
         <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&lt;html>&#xA;&lt;head>&#xA;&lt;title>"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;&lt;html>&#xD;&#xA;&lt;head>&#xD;&#xA;&lt;title>"/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateElement/%.1/airline">
@@ -19,7 +19,7 @@
             </source>
             <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xA;&lt;meta charset=&quot;utf-8&quot;/>&#xA;&lt;/head>&#xA;&#xA;&lt;h1>"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;&lt;meta charset=&quot;utf-8&quot;/>&#xD;&#xA;&lt;/head>&#xD;&#xA;&#xD;&#xA;&lt;h1>"/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:VariableExp" name="airline" referredVariable="/0/generateElement/%.1/airline">
@@ -27,7 +27,7 @@
             </source>
             <referredProperty xsi:type="ecore:EAttribute" href="platform:/plugin/tdt4250.at.model/model/at.ecore#//Airline/name"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xA;&#xA;&#xA;&lt;/html>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
           <fileUrl xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -164,103 +164,103 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateElement">
-      <details key="start" value="148"/>
-      <details key="end" value="477"/>
+      <details key="start" value="152"/>
+      <details key="end" value="500"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateElement/%">
-      <details key="start" value="230"/>
-      <details key="end" value="231"/>
+      <details key="start" value="236"/>
+      <details key="end" value="238"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateElement/%.1">
-      <details key="start" value="231"/>
-      <details key="end" value="465"/>
+      <details key="start" value="238"/>
+      <details key="end" value="487"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateElement/%.1/%">
-      <details key="start" value="282"/>
-      <details key="end" value="458"/>
+      <details key="start" value="290"/>
+      <details key="end" value="479"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateElement/%.1/%/%">
-      <details key="start" value="336"/>
-      <details key="end" value="359"/>
+      <details key="start" value="345"/>
+      <details key="end" value="372"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateElement/%.1/%/%.1">
-      <details key="start" value="360"/>
-      <details key="end" value="372"/>
+      <details key="start" value="373"/>
+      <details key="end" value="385"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateElement/%.1/%/%.1/airline">
-      <details key="start" value="360"/>
-      <details key="end" value="367"/>
+      <details key="start" value="373"/>
+      <details key="end" value="380"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateElement/%.1/%/%.2">
-      <details key="start" value="374"/>
-      <details key="end" value="420"/>
+      <details key="start" value="387"/>
+      <details key="end" value="437"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateElement/%.1/%/%.3">
-      <details key="start" value="421"/>
-      <details key="end" value="433"/>
+      <details key="start" value="438"/>
+      <details key="end" value="450"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateElement/%.1/%/%.3/airline">
-      <details key="start" value="421"/>
-      <details key="end" value="428"/>
+      <details key="start" value="438"/>
+      <details key="end" value="445"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateElement/%.1/%/%.4">
-      <details key="start" value="435"/>
-      <details key="end" value="451"/>
+      <details key="start" value="452"/>
+      <details key="end" value="472"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/generateElement/%.1/%/%.5">
-      <details key="start" value="289"/>
-      <details key="end" value="317"/>
+      <details key="start" value="297"/>
+      <details key="end" value="325"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/generateElement/%.1/%/%.5/%">
-      <details key="start" value="289"/>
-      <details key="end" value="301"/>
+      <details key="start" value="297"/>
+      <details key="end" value="309"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/generateElement/%.1/%/%.5/%/airline">
-      <details key="start" value="289"/>
-      <details key="end" value="296"/>
+      <details key="start" value="297"/>
+      <details key="end" value="304"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/generateElement/%.1/%/%.5/%.1">
-      <details key="start" value="309"/>
-      <details key="end" value="316"/>
+      <details key="start" value="317"/>
+      <details key="end" value="324"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/generateElement/%.1/%/%.6">
-      <details key="start" value="326"/>
-      <details key="end" value="333"/>
+      <details key="start" value="334"/>
+      <details key="end" value="341"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/generateElement/%.1/airline">
-      <details key="start" value="237"/>
-      <details key="end" value="254"/>
+      <details key="start" value="244"/>
+      <details key="end" value="261"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/generateElement/%.1/%.1">
-      <details key="start" value="257"/>
-      <details key="end" value="279"/>
+      <details key="start" value="264"/>
+      <details key="end" value="286"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/generateElement/%.1/%.1/travelPlanner">
-      <details key="start" value="257"/>
-      <details key="end" value="270"/>
+      <details key="start" value="264"/>
+      <details key="end" value="277"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/generateElement/travelPlanner">
-      <details key="start" value="181"/>
-      <details key="end" value="210"/>
+      <details key="start" value="185"/>
+      <details key="end" value="214"/>
       <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>

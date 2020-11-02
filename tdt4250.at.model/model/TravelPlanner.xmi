@@ -24,6 +24,14 @@
         length="3600"/>
     <gates name="C6"/>
   </airports>
+  <airports
+      id="TRF"
+      location="Sandefjord">
+    <runways
+        id="18/36"
+        length="2669"/>
+    <gates name="1"/>
+  </airports>
   <airlines
       name="SAS">
     <flights
@@ -42,6 +50,25 @@
         requiredRunwayLengthTakeoff="2473"
         requiredRunwayLengthLanding="1981"/>
   </airlines>
+  <airlines
+      name="Widerøe">
+    <flights
+        airplane="//@airlines.1/@airplanes.0"
+        departureAirport="//@airports.2"
+        destinationAirport="//@airports.0"
+        departureGate="//@airports.2/@gates.0"
+        destinationGate="//@airports.0/@gates.0"
+        passengers="//@passengers.2"
+        code="WF486"
+        departureTime="2020-11-02T19:45:00.000+0100"
+        arrivalTime="2020-11-02T20:55:00.000+0100"/>
+    <airplanes
+        type="Bombardier DHC-8 Dash 8-100"
+        numberOfSeats="39"
+        minimumCrew="4"
+        requiredRunwayLengthTakeoff="800"
+        requiredRunwayLengthLanding="800"/>
+  </airlines>
   <passengers
       firstName="Sigrid Marita"
       familyName="Kvamme"
@@ -49,5 +76,10 @@
   <passengers
       firstName="Mari Sofie"
       familyName="Lerfaldet"
+      age="24"/>
+  <passengers
+      firstName="Ådne"
+      familyName="Karstad"
+      gender="Male"
       age="24"/>
 </at:TravelPlanner>
