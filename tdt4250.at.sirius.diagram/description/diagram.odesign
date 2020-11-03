@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" name="diagram" version="12.0.0.2017041100">
-  <ownedViewpoints name="MyViewpoint">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="diagram" version="12.0.0.2017041100">
+  <ownedViewpoints name="AtDiagramViewpoint" modelFileExtension="xmi">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AtDiagram" domainClass="at::TravelPlanner" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="AirlineNode" domainClass="at::Airline">
+          <style xsi:type="style:BundledImageDescription" labelSize="14" showIcon="false" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" shape="ring">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
+            <labelFormat>bold</labelFormat>
+            <labelFormat>underline</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="AirplaneNode" domainClass="at::Airplane">
+          <style xsi:type="style:BundledImageDescription" labelSize="11" showIcon="false" labelExpression="feature:type" labelAlignment="RIGHT" resizeKind="NSEW" shape="triangle">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="AirlineHasAirplaneEdge" sourceMapping="//@ownedViewpoints[name='AtDiagramViewpoint']/@ownedRepresentations[name='AtDiagram']/@defaultLayer/@nodeMappings[name='AirlineNode']" targetMapping="//@ownedViewpoints[name='AtDiagramViewpoint']/@ownedRepresentations[name='AtDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']" targetFinderExpression="feature:airplanes">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="tdt4250.at.sirius.diagram.Services"/>
   </ownedViewpoints>
 </description:Group>
