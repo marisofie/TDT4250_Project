@@ -1,10 +1,22 @@
-# TDT4250_Project 💾
+# TDT4250 Semester Project 💾
+
+## Short introduction to domain
+We have decided to model air flight from a flight planning view. The task will be to create a clean and systematic model of how one would plan different flights for different airlines. Some of the issues that we will address is that
+
+- two planes cannot use the same runway at the same time
+- a single plane cannot be on different flights, hence it must be available for the planned flight
+- a plane as a passanger capacity
+- and more ...
+    
+We want to use Sirius to make it easy for the ones planning the flights. And we want to use transformation to text to make the flight data available for customers.
 
 ## Project overview 📢
 
     - tdt4250.at.model
     - tdt4250.at.model.tests
     - tdt4250.at.acceleo.html
+    - tdt4250.at.sirius.diagram
+    - tdt4250.at.sirius.modelling
 
 ## Features 🔥
 
