@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="AirFlight2Text" name="tdt4250.at.acceleo.html">
-    <property name="ECLIPSE_HOME" value="../../../Eclipse/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../tdt4250"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../../../../Applications/Eclipse.app/Contents/Eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="tdt4250.at.acceleo.html.libraryclasspath">
