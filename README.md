@@ -1,17 +1,13 @@
 # TDT4250 Semester Project 💾
 
 ## Short introduction to domain
-We have decided to model air flight from a flight planning view. The task will be to create a clean and systematic model of how one would plan different flights for different airlines. Some of the issues that we will address is that
-
-- two planes cannot use the same runway at the same time
-- a single plane cannot be on different flights, hence it must be available for the planned flight
-- a plane as a passanger capacity
-- and more ...
+We have decided to model air flight from a flight planning view. The task will be to create a clean and systematic model of how one would plan different flights for different airlines.
     
 We want to use Sirius to make it easy for the ones planning the flights. And we want to use transformation to text to make the flight data available for customers.
 
 ## Project overview 📢
 
+    - tdt4250.at.acceleo.html
     - tdt4250.at.model
     - tdt4250.at.model.tests
     - tdt4250.at.acceleo.html
@@ -27,45 +23,57 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 
 ### Technical Features
 
-- Model to Text transformation using Acceleo
+- Model to Text transformation using Acceleo (tdt4250.at.accele.html)
+- DSL using Sirius (?)
 
 ## Learning objectives
 
 - Modelling a complex domain
   - Airplane travel
 - Component Based Design
-- Use Xtext
+- Use Xtext (?) -- REMOVE?
   - Create an environment / editor for the airplane company planners to create flights
 - Use Sirius
-  - Constraints
+  - Workbench for travel planners scheduling flights 
+- Use Acceleo 
   - M2T --> display the flights for the customers
 - EMF Forms
 
 ## Constraints and derived features ✈️
+- two planes cannot use the same runway at the same time
+- a single plane cannot be on different flights, hence it must be available for the planned flight
+- a plane as a passanger capacity
+- and more ...
 
-    - Airline
+- TravelPlanner
+  - **Constraints**
+    - <constraintname>: Two airplanes cannot use the same runway at the same time
+    - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
+- Airline
+- Airplane
+- Flight
+  - **Constraints**
+    - NumberOfPassenger: Number of passengers cannot excede number of seats on flight 
+      - Q: why does this appear in atValidator class and expects us to implement it in code?
+    - ValdidateRunwayLengthTakeOff: Runway chosen must be long enough for given airplane (takeoff)
+    - ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane (landing)
+    - <constraintname>: Only gates belonging to the selected airport can be chosen
+    - <constraintname>: Crew is equal to or bigger than minimumcrew for airplane
+    - <constraintname>: Person cannot be passenger and part of crew
+  - **Derived features**
+    - duration: derived from arrivaltime - departuretime
+      - Written with ecore constraint (not OCL), therefore also tested manually. 
+- Airport
+- Gate
+- Runway
+- Person
+  - **Derived features**
+    - fullName: derived from firstName and familyName
+- Crew
+  - **Constraints**
+    - <constraintname>: no duplicate roles for crew members (?)
+- CrewAllocation
 
-    - Airplane
-    - Flight
-      - NumberOfPassenger <= Plane.NumberOfSeats (OCL) - Note to self: - Hvorfor dukker denne opp i atValidator og forventer at vi skal skrive den på nytt?
-      - Sjekk at person ikke både er passasjer og del av crew
-      - Duration = arrivaltime – departuretime (derived)
-        - Make sure that time zone is also accounted for
-        - Duration given in minutes
-        - _Takes timezones into account!_
-        - Constraint tested by using tests in (FlightTest.java).
-      - Check that takeoff and landing runway is long enough.
-        - DepartureAirport has long enough runway for takeoff
-        - ArrivalAirport has long enough runway for landing.
-      - Make sure that only gates at the correct airport is validated when choosing gates.
-      - Check that minimumcrew is validated for airplane.
-    - Airport
-    - Gate
-    - Runway
-    - Person
-      - FullName – derived from firstName and familyName
-    - Crew
-      - Check that there are not duplicate roles for crew members?
 
 ## Classes
 
