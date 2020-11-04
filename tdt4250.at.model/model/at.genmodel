@@ -48,6 +48,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationAirport"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/departureGate"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationGate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationRunway"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/departureRunway"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/crew"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/passengers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Flight/code"/>
@@ -65,6 +67,7 @@
     </genClasses>
     <genClasses ecoreClass="at.ecore#//Runway">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Runway/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Runway/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Runway/length"/>
     </genClasses>
     <genClasses ecoreClass="at.ecore#//Person">

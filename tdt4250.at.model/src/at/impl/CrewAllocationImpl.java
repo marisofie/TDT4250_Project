@@ -7,6 +7,7 @@ import at.Crew;
 import at.CrewAllocation;
 import at.Person;
 
+import at.Role;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -47,7 +48,7 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROLE_EDEFAULT = null;
+	protected static final Role ROLE_EDEFAULT = Role.PILOT;
 
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
@@ -57,7 +58,7 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected String role = ROLE_EDEFAULT;
+	protected Role role = ROLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference list.
@@ -93,7 +94,7 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRole() {
+	public Role getRole() {
 		return role;
 	}
 
@@ -102,9 +103,9 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRole(String newRole) {
-		String oldRole = role;
-		role = newRole;
+	public void setRole(Role newRole) {
+		Role oldRole = role;
+		role = newRole == null ? ROLE_EDEFAULT : newRole;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW_ALLOCATION__ROLE, oldRole, role));
 	}
@@ -234,7 +235,7 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AtPackage.CREW_ALLOCATION__ROLE:
-				setRole((String)newValue);
+				setRole((Role)newValue);
 				return;
 			case AtPackage.CREW_ALLOCATION__MEMBER:
 				getMember().clear();
@@ -277,7 +278,7 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AtPackage.CREW_ALLOCATION__ROLE:
-				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+				return role != ROLE_EDEFAULT;
 			case AtPackage.CREW_ALLOCATION__MEMBER:
 				return member != null && !member.isEmpty();
 			case AtPackage.CREW_ALLOCATION__CREW:

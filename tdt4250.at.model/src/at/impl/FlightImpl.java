@@ -10,6 +10,7 @@ import at.Flight;
 import at.Gate;
 import at.Person;
 
+import at.Runway;
 import java.util.Collection;
 import java.util.Date;
 
@@ -19,6 +20,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -40,6 +43,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link at.impl.FlightImpl#getDestinationAirport <em>Destination Airport</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDepartureGate <em>Departure Gate</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDestinationGate <em>Destination Gate</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getDestinationRunway <em>Destination Runway</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getDepartureRunway <em>Departure Runway</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getCrew <em>Crew</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getPassengers <em>Passengers</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getCode <em>Code</em>}</li>
@@ -111,6 +116,26 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Gate destinationGate;
 
 	/**
+	 * The cached value of the '{@link #getDestinationRunway() <em>Destination Runway</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestinationRunway()
+	 * @generated
+	 * @ordered
+	 */
+	protected Runway destinationRunway;
+
+	/**
+	 * The cached value of the '{@link #getDepartureRunway() <em>Departure Runway</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDepartureRunway()
+	 * @generated
+	 * @ordered
+	 */
+	protected Runway departureRunway;
+
+	/**
 	 * The cached value of the '{@link #getCrew() <em>Crew</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +203,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date ARRIVAL_TIME_EDEFAULT = null;
+	protected static final Date ARRIVAL_TIME_EDEFAULT = (Date)EcoreFactory.eINSTANCE.createFromString(EcorePackage.eINSTANCE.getEDate(), "2000-01-01T00:00:00.000+0100");
 
 	/**
 	 * The cached value of the '{@link #getArrivalTime() <em>Arrival Time</em>}' attribute.
@@ -422,6 +447,82 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Runway getDestinationRunway() {
+		if (destinationRunway != null && destinationRunway.eIsProxy()) {
+			InternalEObject oldDestinationRunway = (InternalEObject)destinationRunway;
+			destinationRunway = (Runway)eResolveProxy(oldDestinationRunway);
+			if (destinationRunway != oldDestinationRunway) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DESTINATION_RUNWAY, oldDestinationRunway, destinationRunway));
+			}
+		}
+		return destinationRunway;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Runway basicGetDestinationRunway() {
+		return destinationRunway;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestinationRunway(Runway newDestinationRunway) {
+		Runway oldDestinationRunway = destinationRunway;
+		destinationRunway = newDestinationRunway;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DESTINATION_RUNWAY, oldDestinationRunway, destinationRunway));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Runway getDepartureRunway() {
+		if (departureRunway != null && departureRunway.eIsProxy()) {
+			InternalEObject oldDepartureRunway = (InternalEObject)departureRunway;
+			departureRunway = (Runway)eResolveProxy(oldDepartureRunway);
+			if (departureRunway != oldDepartureRunway) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.FLIGHT__DEPARTURE_RUNWAY, oldDepartureRunway, departureRunway));
+			}
+		}
+		return departureRunway;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Runway basicGetDepartureRunway() {
+		return departureRunway;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDepartureRunway(Runway newDepartureRunway) {
+		Runway oldDepartureRunway = departureRunway;
+		departureRunway = newDepartureRunway;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_RUNWAY, oldDepartureRunway, departureRunway));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Crew getCrew() {
 		return crew;
 	}
@@ -574,6 +675,12 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__DESTINATION_GATE:
 				if (resolve) return getDestinationGate();
 				return basicGetDestinationGate();
+			case AtPackage.FLIGHT__DESTINATION_RUNWAY:
+				if (resolve) return getDestinationRunway();
+				return basicGetDestinationRunway();
+			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
+				if (resolve) return getDepartureRunway();
+				return basicGetDepartureRunway();
 			case AtPackage.FLIGHT__CREW:
 				return getCrew();
 			case AtPackage.FLIGHT__PASSENGERS:
@@ -611,6 +718,12 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return;
 			case AtPackage.FLIGHT__DESTINATION_GATE:
 				setDestinationGate((Gate)newValue);
+				return;
+			case AtPackage.FLIGHT__DESTINATION_RUNWAY:
+				setDestinationRunway((Runway)newValue);
+				return;
+			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
+				setDepartureRunway((Runway)newValue);
 				return;
 			case AtPackage.FLIGHT__CREW:
 				setCrew((Crew)newValue);
@@ -655,6 +768,12 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__DESTINATION_GATE:
 				setDestinationGate((Gate)null);
 				return;
+			case AtPackage.FLIGHT__DESTINATION_RUNWAY:
+				setDestinationRunway((Runway)null);
+				return;
+			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
+				setDepartureRunway((Runway)null);
+				return;
 			case AtPackage.FLIGHT__CREW:
 				setCrew((Crew)null);
 				return;
@@ -694,6 +813,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return departureGate != null;
 			case AtPackage.FLIGHT__DESTINATION_GATE:
 				return destinationGate != null;
+			case AtPackage.FLIGHT__DESTINATION_RUNWAY:
+				return destinationRunway != null;
+			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
+				return departureRunway != null;
 			case AtPackage.FLIGHT__CREW:
 				return crew != null;
 			case AtPackage.FLIGHT__PASSENGERS:

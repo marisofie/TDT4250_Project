@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.Flight#getDestinationAirport <em>Destination Airport</em>}</li>
  *   <li>{@link at.Flight#getDepartureGate <em>Departure Gate</em>}</li>
  *   <li>{@link at.Flight#getDestinationGate <em>Destination Gate</em>}</li>
+ *   <li>{@link at.Flight#getDestinationRunway <em>Destination Runway</em>}</li>
+ *   <li>{@link at.Flight#getDepartureRunway <em>Departure Runway</em>}</li>
  *   <li>{@link at.Flight#getCrew <em>Crew</em>}</li>
  *   <li>{@link at.Flight#getPassengers <em>Passengers</em>}</li>
  *   <li>{@link at.Flight#getCode <em>Code</em>}</li>
@@ -31,8 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see at.AtPackage#getFlight()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew'"
- *        annotation="OCL maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew' validateRunwayLengthTakeOff='self.departureRunway.length &gt;= self.airplane.requiredRunwayLengthTakeoff\n' validateRunwayLengthLanding='self.destinationRunway.length &gt;= self.airplane.requiredRunwayLengthLanding' validateRunwayExistsTakeOff='self.departureAirport.runways -&gt; exists(r | r.name = self.departureRunway.name) ' validateRunwayExistsLanding='let dr = self.destinationRunway in (if self.destinationAirport.runways -&gt; exists(r | r.name = self.destinationRunway.name) then true else false endif)'"
  * @generated
  */
 public interface Flight extends EObject {
@@ -158,6 +160,50 @@ public interface Flight extends EObject {
 	void setDestinationGate(Gate value);
 
 	/**
+	 * Returns the value of the '<em><b>Destination Runway</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Destination Runway</em>' reference.
+	 * @see #setDestinationRunway(Runway)
+	 * @see at.AtPackage#getFlight_DestinationRunway()
+	 * @model
+	 * @generated
+	 */
+	Runway getDestinationRunway();
+
+	/**
+	 * Sets the value of the '{@link at.Flight#getDestinationRunway <em>Destination Runway</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Destination Runway</em>' reference.
+	 * @see #getDestinationRunway()
+	 * @generated
+	 */
+	void setDestinationRunway(Runway value);
+
+	/**
+	 * Returns the value of the '<em><b>Departure Runway</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Departure Runway</em>' reference.
+	 * @see #setDepartureRunway(Runway)
+	 * @see at.AtPackage#getFlight_DepartureRunway()
+	 * @model
+	 * @generated
+	 */
+	Runway getDepartureRunway();
+
+	/**
+	 * Sets the value of the '{@link at.Flight#getDepartureRunway <em>Departure Runway</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Departure Runway</em>' reference.
+	 * @see #getDepartureRunway()
+	 * @generated
+	 */
+	void setDepartureRunway(Runway value);
+
+	/**
 	 * Returns the value of the '<em><b>Crew</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,12 +283,13 @@ public interface Flight extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Arrival Time</b></em>' attribute.
+	 * The default value is <code>"2000-01-01T00:00:00.000+0100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Arrival Time</em>' attribute.
 	 * @see #setArrivalTime(Date)
 	 * @see at.AtPackage#getFlight_ArrivalTime()
-	 * @model
+	 * @model default="2000-01-01T00:00:00.000+0100"
 	 * @generated
 	 */
 	Date getArrivalTime();

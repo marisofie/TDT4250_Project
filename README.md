@@ -45,17 +45,17 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
   - **Constraints**
     - <constraintname>: Two airplanes cannot use the same runway at the same time
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
+    - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner. 
 #### Airline
 #### Airplane
 #### Flight
   - **Constraints**
-    - NumberOfPassenger: Number of passengers cannot excede number of seats on flight 
-      - Q: why does this appear in atValidator class and expects us to implement it in code?
-    - ValdidateRunwayLengthTakeOff: Runway chosen must be long enough for given airplane (takeoff)
-    - ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane (landing)
-    - <constraintname>: Only gates belonging to the selected airport can be chosen
-    - <constraintname>: Crew is equal to or bigger than minimumcrew for airplane
-    - <constraintname>: Person cannot be passenger and part of crew
+    - MaximumPassengers: Number of passengers cannot excede number of seats on flight 
+    - ValdidateRunwayLengthTakeOff, ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane
+    - ValidateRunwayExistsTakeOff, ValidateRunwayExistsLanding: Runway chosen belongs to the correct airport  
+    - ValidateGateTakeOff, ValidateGateLanding: Only gates belonging to the selected airport can be chosen
+    - MinimumCrew: Crew is equal to or bigger than minimumcrew for airplane
+    - ValidateCrew: Person cannot be passenger and part of crew
   - **Derived features**
     - duration: derived from arrivaltime - departuretime
       - Written with ecore constraint (not OCL), therefore also tested manually. 

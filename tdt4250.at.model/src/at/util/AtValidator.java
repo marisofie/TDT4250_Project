@@ -161,8 +161,20 @@ public class AtValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_maximumPassengers(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_minimumCrew(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateRunwayLengthTakeOff(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateRunwayLengthLanding(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateRunwayExistsTakeOff(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateRunwayExistsLanding(flight, diagnostics, context);
 		return result;
 	}
+
+	/**
+	 * The cached validation expression for the maximumPassengers constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__MAXIMUM_PASSENGERS__EEXPRESSION = "self.passengers -> size() < self.airplane.numberOfSeats";
 
 	/**
 	 * Validates the maximumPassengers constraint of '<em>Flight</em>'.
@@ -171,26 +183,27 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFlight_maximumPassengers(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "maximumPassengers", getObjectLabel(flight, context) },
-						 new Object[] { flight },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "maximumPassengers",
+				 FLIGHT__MAXIMUM_PASSENGERS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
+
+	/**
+	 * The cached validation expression for the minimumCrew constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__MINIMUM_CREW__EEXPRESSION = "self.crew -> size() >= self.airplane.minimumCrew";
 
 	/**
 	 * Validates the minimumCrew constraint of '<em>Flight</em>'.
@@ -199,25 +212,135 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFlight_minimumCrew(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "minimumCrew", getObjectLabel(flight, context) },
-						 new Object[] { flight },
-						 context));
-			}
-			return false;
-		}
-		return true;
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "minimumCrew",
+				 FLIGHT__MINIMUM_CREW__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateRunwayLengthTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_RUNWAY_LENGTH_TAKE_OFF__EEXPRESSION = "self.departureRunway.length >= self.airplane.requiredRunwayLengthTakeoff\n" +
+		"";
+
+	/**
+	 * Validates the validateRunwayLengthTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateRunwayLengthTakeOff(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateRunwayLengthTakeOff",
+				 FLIGHT__VALIDATE_RUNWAY_LENGTH_TAKE_OFF__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateRunwayLengthLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_RUNWAY_LENGTH_LANDING__EEXPRESSION = "self.destinationRunway.length >= self.airplane.requiredRunwayLengthLanding";
+
+	/**
+	 * Validates the validateRunwayLengthLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateRunwayLengthLanding(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateRunwayLengthLanding",
+				 FLIGHT__VALIDATE_RUNWAY_LENGTH_LANDING__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateRunwayExistsTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_TAKE_OFF__EEXPRESSION = "self.departureAirport.runways -> exists(r | r.name = self.departureRunway.name) ";
+
+	/**
+	 * Validates the validateRunwayExistsTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateRunwayExistsTakeOff(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateRunwayExistsTakeOff",
+				 FLIGHT__VALIDATE_RUNWAY_EXISTS_TAKE_OFF__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateRunwayExistsLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_LANDING__EEXPRESSION = "let dr = self.destinationRunway in (if self.destinationAirport.runways -> exists(r | r.name = self.destinationRunway.name) then true else false endif)";
+
+	/**
+	 * Validates the validateRunwayExistsLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateRunwayExistsLanding(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateRunwayExistsLanding",
+				 FLIGHT__VALIDATE_RUNWAY_EXISTS_LANDING__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

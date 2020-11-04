@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link at.impl.RunwayImpl#getId <em>Id</em>}</li>
+ *   <li>{@link at.impl.RunwayImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.impl.RunwayImpl#getLength <em>Length</em>}</li>
  * </ul>
  *
@@ -35,7 +36,7 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final int ID_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -45,7 +46,27 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLength() <em>Length</em>}' attribute.
@@ -91,7 +112,7 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -100,11 +121,32 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
+	public void setId(int newId) {
+		int oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.RUNWAY__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.RUNWAY__NAME, oldName, name));
 	}
 
 	/**
@@ -138,6 +180,8 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 		switch (featureID) {
 			case AtPackage.RUNWAY__ID:
 				return getId();
+			case AtPackage.RUNWAY__NAME:
+				return getName();
 			case AtPackage.RUNWAY__LENGTH:
 				return getLength();
 		}
@@ -153,7 +197,10 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AtPackage.RUNWAY__ID:
-				setId((String)newValue);
+				setId((Integer)newValue);
+				return;
+			case AtPackage.RUNWAY__NAME:
+				setName((String)newValue);
 				return;
 			case AtPackage.RUNWAY__LENGTH:
 				setLength((Integer)newValue);
@@ -173,6 +220,9 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 			case AtPackage.RUNWAY__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case AtPackage.RUNWAY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case AtPackage.RUNWAY__LENGTH:
 				setLength(LENGTH_EDEFAULT);
 				return;
@@ -189,7 +239,9 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AtPackage.RUNWAY__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+				return id != ID_EDEFAULT;
+			case AtPackage.RUNWAY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case AtPackage.RUNWAY__LENGTH:
 				return length != LENGTH_EDEFAULT;
 		}
@@ -208,6 +260,8 @@ public class RunwayImpl extends MinimalEObjectImpl.Container implements Runway {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", length: ");
 		result.append(length);
 		result.append(')');

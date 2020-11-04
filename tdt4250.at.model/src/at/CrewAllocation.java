@@ -27,25 +27,28 @@ import org.eclipse.emf.ecore.EObject;
 public interface CrewAllocation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute.
+	 * The literals are from the enumeration {@link at.Role}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role</em>' attribute.
-	 * @see #setRole(String)
+	 * @see at.Role
+	 * @see #setRole(Role)
 	 * @see at.AtPackage#getCrewAllocation_Role()
-	 * @model
+	 * @model dataType="at.Role"
 	 * @generated
 	 */
-	String getRole();
+	Role getRole();
 
 	/**
 	 * Sets the value of the '{@link at.CrewAllocation#getRole <em>Role</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Role</em>' attribute.
+	 * @see at.Role
 	 * @see #getRole()
 	 * @generated
 	 */
-	void setRole(String value);
+	void setRole(Role value);
 
 	/**
 	 * Returns the value of the '<em><b>Member</b></em>' reference list.

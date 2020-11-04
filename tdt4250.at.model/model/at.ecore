@@ -32,13 +32,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Flight">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding"/>
+      <details key="constraints" value="maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew"/>
     </eAnnotations>
-    <eAnnotations source="OCL" references="#//Flight/%OCL%">
+    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0" references="#//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%">
       <details key="maximumPassengers" value="self.passengers -> size() &lt; self.airplane.numberOfSeats"/>
       <details key="minimumCrew" value="self.crew -> size() >= self.airplane.minimumCrew"/>
       <details key="validateRunwayLengthTakeOff" value="self.departureRunway.length >= self.airplane.requiredRunwayLengthTakeoff&#xA;"/>
-      <details key="validateRunwayLengthLanding" value="self.arrivalRunway.length >= self.airplane.requiredRunwayLengthLanding"/>
+      <details key="validateRunwayLengthLanding" value="self.destinationRunway.length >= self.airplane.requiredRunwayLengthLanding"/>
+      <details key="validateRunwayExistsTakeOff" value="self.departureAirport.runways -> exists(r | r = self.departureRunway) "/>
+      <details key="validateRunwayExistsLanding" value="self.destinationAirport.runways -> exists(r | r = self.destinationRunway) "/>
+      <details key="validateGateTakeOff" value="self.departureAirport.gates -> exists(g | g = self.departureGate)"/>
+      <details key="validateGateLanding" value="self.destinationAirport.gates -> exists(g | g = self.destinationGate)"/>
+      <details key="validateCrew" value="((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
@@ -47,14 +52,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationAirport" eType="#//Airport"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departureGate" eType="#//Gate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arrivalRunway" eType="#//Runway"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinationRunway" eType="#//Runway"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departureRunway" eType="#//Runway"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="passengers" upperBound="-1"
         eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="departureTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        defaultValueLiteral="2000-01-01T00:00:00.000+0100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,7 +74,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Runway">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
