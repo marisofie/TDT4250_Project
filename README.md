@@ -40,18 +40,14 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 - EMF Forms
 
 ## Constraints and derived features ✈️
-- two planes cannot use the same runway at the same time
-- a single plane cannot be on different flights, hence it must be available for the planned flight
-- a plane as a passanger capacity
-- and more ...
 
-- TravelPlanner
+#### TravelPlanner
   - **Constraints**
     - <constraintname>: Two airplanes cannot use the same runway at the same time
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
-- Airline
-- Airplane
-- Flight
+#### Airline
+#### Airplane
+#### Flight
   - **Constraints**
     - NumberOfPassenger: Number of passengers cannot excede number of seats on flight 
       - Q: why does this appear in atValidator class and expects us to implement it in code?
@@ -63,16 +59,16 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
   - **Derived features**
     - duration: derived from arrivaltime - departuretime
       - Written with ecore constraint (not OCL), therefore also tested manually. 
-- Airport
-- Gate
-- Runway
-- Person
+#### Airport
+#### Gate
+#### Runway
+#### Person
   - **Derived features**
     - fullName: derived from firstName and familyName
-- Crew
+#### Crew
   - **Constraints**
     - <constraintname>: no duplicate roles for crew members (?)
-- CrewAllocation
+#### CrewAllocation
 
 
 ## Classes
