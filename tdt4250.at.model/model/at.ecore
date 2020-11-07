@@ -96,11 +96,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Crew">
     <eStructuralFeatures xsi:type="ecore:EReference" name="crewAllocations" upperBound="-1"
         eType="#//CrewAllocation" containment="true" eOpposite="#//CrewAllocation/crew"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrewAllocation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//Role"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" upperBound="-1"
-        eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" eOpposite="#//Crew/crewAllocations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Role" instanceClassName="java.lang.string">
