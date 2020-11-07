@@ -22,6 +22,8 @@
         eType="#//Airplane" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airplane">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AirplaneType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCrew" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

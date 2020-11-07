@@ -47,6 +47,8 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
     - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner. 
 #### Airline
+  - **Constraints**
+    - <constraintName>: One Airline must have unique airplanes 
 #### Airplane
 #### Flight
   - **Constraints**
@@ -70,6 +72,10 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
     - <constraintname>: no duplicate roles for crew members (?)
 #### CrewAllocation
 
+## Limitations 
+- Travel planners must ensure that an airplane is at the correct airport for the chosen flight 
+  - Ways this can be implemente as a validation: 
+    - Look at flight, is the airplane currently being used landing at the airport it is to be used from in due time? 
 
 ## Classes
 
