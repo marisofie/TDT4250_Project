@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore"
-    xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore at.ecore">
+    xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore ../tdt4250.at.model/model/at.ecore">
   <airports
       id="TRD"
       location="Trondheim">
@@ -43,21 +43,31 @@
         destinationGate="//@airports.1/@gates.0"
         destinationRunway="//@airports.1/@runways.0"
         departureRunway="//@airports.0/@runways.0"
-        passengers="//@passengers.1 //@passengers.2"
+        passengers="//@airlines.1/@employees.0 //@airlines.1/@employees.1"
         code="SK377"
         departureTime="2020-11-02T06:55:00.000+0100"
         arrivalTime="2020-11-02T07:55:00.000+0100">
-      <crew
-      	test="test1">
-        <crewAllocations
-            member="//@passengers.0"/>
-      </crew>
+      <allocations
+          member="//@airlines.0/@employees.1"/>
+      <allocations
+          role="First officer"
+          member="//@airlines.0/@employees.0"/>
     </flights>
     <airplanes
         numberOfSeats="162"
         minimumCrew="5"
         requiredRunwayLengthTakeoff="2473"
         requiredRunwayLengthLanding="1981"/>
+    <employees
+        firstName="Lise"
+        familyName="Hansen"
+        age="30"
+        allocations="//@airlines.0/@flights.0/@allocations.1"/>
+    <employees
+        firstName="Sigrid Marita"
+        familyName="Kvamme"
+        age="23"
+        allocations="//@airlines.0/@flights.0/@allocations.0"/>
   </airlines>
   <airlines
       name="Widerøe">
@@ -69,7 +79,7 @@
         destinationGate="//@airports.0/@gates.0"
         destinationRunway="//@airports.0/@runways.0"
         departureRunway="//@airports.2/@runways.0"
-        passengers="//@passengers.2"
+        passengers="//@airlines.1/@employees.1"
         code="WF486"
         departureTime="2020-11-02T19:45:00.000+0100"
         arrivalTime="2020-11-02T20:55:00.000+0100"/>
@@ -79,18 +89,14 @@
         minimumCrew="4"
         requiredRunwayLengthTakeoff="800"
         requiredRunwayLengthLanding="800"/>
+    <employees
+        firstName="Mari Sofie"
+        familyName="Lerfaldet"
+        age="24"/>
+    <employees
+        firstName="Ådne"
+        familyName="Karstad"
+        gender="Male"
+        age="24"/>
   </airlines>
-  <passengers
-      firstName="Sigrid Marita"
-      familyName="Kvamme"
-      age="23"/>
-  <passengers
-      firstName="Mari Sofie"
-      familyName="Lerfaldet"
-      age="24"/>
-  <passengers
-      firstName="Ådne"
-      familyName="Karstad"
-      gender="Male"
-      age="24"/>
 </at:TravelPlanner>

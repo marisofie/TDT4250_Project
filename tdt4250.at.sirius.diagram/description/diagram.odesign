@@ -79,32 +79,46 @@
     <ownedJavaExtensions qualifiedClassName="tdt4250.at.sirius.diagram.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="AirlineDiagramViewpoint" modelFileExtension="xmi">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AirlineDiagram" domainClass="at::Airline" rootExpression="dia" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AirlineDiagram" domainClass="at::Airline" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="AirplaneNode" domainClass="at::Airplane">
+        <nodeMappings name="PersonNode" semanticCandidatesExpression="feature:employees" domainClass="at::Person">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="feature:fullName" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="AirplaneNode" semanticCandidatesExpression="feature:airplanes" domainClass="at::Airplane">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Airplane: ' + self.type" labelAlignment="RIGHT" resizeKind="NSEW" shape="triangle">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
           </style>
         </nodeMappings>
-        <containerMappings name="FlightContainer" domainClass="at::Flight" childrenPresentation="List">
-          <subContainerMappings name="CrewContainer" semanticCandidatesExpression="feature:eAllContents" domainClass="at::Crew" childrenPresentation="List">
-            <subNodeMappings name="CrewAllocationNode" semanticCandidatesExpression="feature:eAllContents" domainClass="at::CrewAllocation">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="feature:role" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:test">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        <nodeMappings name="GateNode" semanticCandidatesExpression="aql: self.flights.destinationGate" domainClass="at::Gate">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Gate: ' + self.name" labelPosition="node" resizeKind="NSEW" shape="dot">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="crewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:flight" sourceFinderExpression="feature:member" domainClass="at::CrewAllocation" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="aql: self.role">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="FlightContainer" semanticCandidatesExpression="aql: self.flights" domainClass="at::Flight" childrenPresentation="List">
+          <subNodeMappings name="CrewAllocationNode" semanticCandidatesExpression="feature:allocations" domainClass="at::CrewAllocation">
+            <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql: self.role" resizeKind="NSEW" shape="triangle">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
             </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: 'Flight: ' + self.code ">
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql: 'Flight: ' + self.code">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
