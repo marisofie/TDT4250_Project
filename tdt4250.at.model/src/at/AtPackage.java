@@ -179,13 +179,22 @@ public interface AtPackage extends EPackage {
 	int AIRPLANE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRPLANE__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__TYPE = 0;
+	int AIRPLANE__TYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Number Of Seats</b></em>' attribute.
@@ -194,7 +203,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__NUMBER_OF_SEATS = 1;
+	int AIRPLANE__NUMBER_OF_SEATS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Minimum Crew</b></em>' attribute.
@@ -203,7 +212,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__MINIMUM_CREW = 2;
+	int AIRPLANE__MINIMUM_CREW = 3;
 
 	/**
 	 * The feature id for the '<em><b>Required Runway Length Takeoff</b></em>' attribute.
@@ -212,7 +221,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_TAKEOFF = 3;
+	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_TAKEOFF = 4;
 
 	/**
 	 * The feature id for the '<em><b>Required Runway Length Landing</b></em>' attribute.
@@ -221,7 +230,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_LANDING = 4;
+	int AIRPLANE__REQUIRED_RUNWAY_LENGTH_LANDING = 5;
 
 	/**
 	 * The number of structural features of the '<em>Airplane</em>' class.
@@ -230,7 +239,7 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AIRPLANE_FEATURE_COUNT = 5;
+	int AIRPLANE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Airplane</em>' class.
@@ -835,6 +844,17 @@ public interface AtPackage extends EPackage {
 	EClass getAirplane();
 
 	/**
+	 * Returns the meta object for the attribute '{@link at.Airplane#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see at.Airplane#getId()
+	 * @see #getAirplane()
+	 * @generated
+	 */
+	EAttribute getAirplane_Id();
+
+	/**
 	 * Returns the meta object for the attribute '{@link at.Airplane#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,6 +1439,14 @@ public interface AtPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AIRPLANE = eINSTANCE.getAirplane();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AIRPLANE__ID = eINSTANCE.getAirplane_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

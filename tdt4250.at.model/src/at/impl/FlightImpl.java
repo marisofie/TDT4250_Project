@@ -321,18 +321,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDepartureAirport(Airport newDepartureAirport) {
-		Airport oldDepartureAirport = departureAirport;
-		departureAirport = newDepartureAirport;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_AIRPORT, oldDepartureAirport, departureAirport));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Airport getDestinationAirport() {
 		if (destinationAirport != null && destinationAirport.eIsProxy()) {
 			InternalEObject oldDestinationAirport = (InternalEObject)destinationAirport;
@@ -707,9 +695,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__AIRPLANE:
 				setAirplane((Airplane)newValue);
 				return;
-			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
-				setDepartureAirport((Airport)newValue);
-				return;
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
 				setDestinationAirport((Airport)newValue);
 				return;
@@ -755,9 +740,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 		switch (featureID) {
 			case AtPackage.FLIGHT__AIRPLANE:
 				setAirplane((Airplane)null);
-				return;
-			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
-				setDepartureAirport((Airport)null);
 				return;
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
 				setDestinationAirport((Airport)null);
@@ -850,5 +832,64 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 		result.append(')');
 		return result.toString();
 	}
+	
+	public boolean usesSameRunwayAtTheSameTime(Flight otherFlight) {
+		
+		if (this.hasDepartureRunway() && this.hasDepartureTime() && otherFlight.hasDepartureRunway() && otherFlight.hasDepartureTime()) {
+			if (	
+					this.getDepartureRunway().equals(otherFlight.getDepartureRunway()) &&
+					this.getDepartureTime().equals(otherFlight.getDepartureTime())
+					) {
+				return true;
+			}			
+		}
+		
+		if (this.hasDepartureRunway() && this.hasDepartureTime() && otherFlight.hasDestinationRunway() && otherFlight.hasArrivalTime()) {
+			if (
+					this.getDepartureRunway().equals(otherFlight.getDestinationRunway()) &&
+					this.getDepartureTime().equals(otherFlight.getArrivalTime())
+				) {
+				return true;
+			}
+		}
+		
+		if (this.hasDestinationRunway() && this.hasArrivalTime() && otherFlight.hasDepartureRunway() && otherFlight.hasDepartureTime()) {
+			if (
+					this.getDestinationRunway().equals(otherFlight.getDepartureRunway()) &&
+					this.getArrivalTime().equals(otherFlight.getDepartureTime())
+				) {
+				return true;
+			}
+		}
+		
+		if (this.hasDestinationRunway() && this.hasArrivalTime() && otherFlight.hasDestinationRunway() && otherFlight.hasArrivalTime()) {
+			if (
+				this.getDestinationRunway().equals(otherFlight.getDestinationRunway()) &&
+				this.getArrivalTime().equals(otherFlight.getArrivalTime())
+			) {
+				return true;
+			}
+		}
+
+		
+		return false;
+	}
+	
+	public boolean hasDepartureTime() {
+		return departureTime != null;
+	}
+	
+	public boolean hasArrivalTime() {
+		return arrivalTime != null;
+	}
+	
+	public boolean hasDepartureRunway() {
+		return departureRunway != null;
+	}
+	
+	public boolean hasDestinationRunway() {
+		return destinationRunway != null;
+	}
+	
 
 } //FlightImpl

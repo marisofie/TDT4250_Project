@@ -284,7 +284,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAirplane_Type() {
+	public EAttribute getAirplane_Id() {
 		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -293,7 +293,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAirplane_NumberOfSeats() {
+	public EAttribute getAirplane_Type() {
 		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -302,7 +302,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAirplane_MinimumCrew() {
+	public EAttribute getAirplane_NumberOfSeats() {
 		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -311,7 +311,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAirplane_RequiredRunwayLengthTakeoff() {
+	public EAttribute getAirplane_MinimumCrew() {
 		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -320,8 +320,17 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAirplane_RequiredRunwayLengthLanding() {
+	public EAttribute getAirplane_RequiredRunwayLengthTakeoff() {
 		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAirplane_RequiredRunwayLengthLanding() {
+		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -723,6 +732,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEReference(airlineEClass, AIRLINE__AIRPLANES);
 
 		airplaneEClass = createEClass(AIRPLANE);
+		createEAttribute(airplaneEClass, AIRPLANE__ID);
 		createEAttribute(airplaneEClass, AIRPLANE__TYPE);
 		createEAttribute(airplaneEClass, AIRPLANE__NUMBER_OF_SEATS);
 		createEAttribute(airplaneEClass, AIRPLANE__MINIMUM_CREW);
@@ -820,6 +830,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEReference(getAirline_Airplanes(), this.getAirplane(), null, "airplanes", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(airplaneEClass, Airplane.class, "Airplane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAirplane_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_Type(), this.getAirplaneType(), "type", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_NumberOfSeats(), ecorePackage.getEInt(), "numberOfSeats", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_MinimumCrew(), ecorePackage.getEInt(), "minimumCrew", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -829,7 +840,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEClass(flightEClass, Flight.class, "Flight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlight_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, Flight.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_Airplane(), this.getAirplane(), null, "airplane", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlight_DepartureAirport(), this.getAirport(), null, "departureAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlight_DepartureAirport(), this.getAirport(), null, "departureAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DestinationAirport(), this.getAirport(), null, "destinationAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DepartureGate(), this.getGate(), null, "departureGate", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DestinationGate(), this.getGate(), null, "destinationGate", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -915,10 +926,16 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
 		   });
 		addAnnotation
+		  (travelPlannerEClass,
+		   source,
+		   new String[] {
+			   "constraints", "validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen"
+		   });
+		addAnnotation
 		  (flightEClass,
 		   source,
 		   new String[] {
-			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding"
+			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew"
 		   });
 	}
 
@@ -938,8 +955,11 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 			   "minimumCrew", "self.crew -> size() >= self.airplane.minimumCrew",
 			   "validateRunwayLengthTakeOff", "self.departureRunway.length >= self.airplane.requiredRunwayLengthTakeoff\n",
 			   "validateRunwayLengthLanding", "self.destinationRunway.length >= self.airplane.requiredRunwayLengthLanding",
-			   "validateRunwayExistsTakeOff", "self.departureAirport.runways -> exists(r | r.name = self.departureRunway.name) ",
-			   "validateRunwayExistsLanding", "let dr = self.destinationRunway in (if self.destinationAirport.runways -> exists(r | r.name = self.destinationRunway.name) then true else false endif)"
+			   "validateRunwayExistsTakeOff", "self.departureAirport.runways -> exists(r | r = self.departureRunway) ",
+			   "validateRunwayExistsLanding", "self.destinationAirport.runways -> exists(r | r = self.destinationRunway) ",
+			   "validateGateTakeOff", "self.departureAirport.gates -> exists(g | g = self.departureGate)",
+			   "validateGateLanding", "self.destinationAirport.gates -> exists(g | g = self.destinationGate)",
+			   "validateCrew", "((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"
 		   },
 		   new URI[] {
 			 URI.createURI(eNS_URI).appendFragment("//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%")
@@ -948,7 +968,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		  (getPerson_FullName(),
 		   source,
 		   new String[] {
-			   "derivation", "self.firstName + \' \' + self.familyName"
+			   "derivation", "self.firstName + \'  \' + self.familyName"
 		   });
 	}
 

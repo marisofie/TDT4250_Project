@@ -32,7 +32,7 @@ public interface Person extends EObject {
 	 * @return the value of the '<em>Full Name</em>' attribute.
 	 * @see at.AtPackage#getPerson_FullName()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 derivation='self.firstName + \' \' + self.familyName'"
+	 *        annotation="http://www.eclipse.org/acceleo/query/1.0 derivation='self.firstName + \'  \' + self.familyName'"
 	 * @generated
 	 */
 	String getFullName();

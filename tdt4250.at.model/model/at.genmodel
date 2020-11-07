@@ -35,6 +35,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Airline/airplanes"/>
     </genClasses>
     <genClasses ecoreClass="at.ecore#//Airplane">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/numberOfSeats"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/minimumCrew"/>

@@ -92,4 +92,9 @@
       familyName="Karstad"
       gender="Male"
       age="24"/>
+  <passengers
+      firstName="Albert"
+      familyName="Einstein"
+      gender="Male"
+      age="20"/>
 </at:TravelPlanner>

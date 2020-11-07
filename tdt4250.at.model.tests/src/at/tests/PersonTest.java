@@ -97,12 +97,14 @@ public class PersonTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see at.Person#getFullName()
-	 * @generated
+	 * @generated NOPE
 	 */
 	public void testGetFullName() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+		Person person = AtFactory.eINSTANCE.createPerson();
+		person.setFirstName("Mac");
+		person.setFamilyName("Gyver");
+		System.out.println(person.getFirstName() + " " + person.getFamilyName() +  " = " + person.getFullName());
+		assertEquals("Mac Gyver", person.getFullName());
 	}
 
 } //PersonTest

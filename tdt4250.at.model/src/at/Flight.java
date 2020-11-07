@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see at.AtPackage#getFlight()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew' validateRunwayLengthTakeOff='self.departureRunway.length &gt;= self.airplane.requiredRunwayLengthTakeoff\n' validateRunwayLengthLanding='self.destinationRunway.length &gt;= self.airplane.requiredRunwayLengthLanding' validateRunwayExistsTakeOff='self.departureAirport.runways -&gt; exists(r | r.name = self.departureRunway.name) ' validateRunwayExistsLanding='let dr = self.destinationRunway in (if self.destinationAirport.runways -&gt; exists(r | r.name = self.destinationRunway.name) then true else false endif)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew' validateRunwayLengthTakeOff='self.departureRunway.length &gt;= self.airplane.requiredRunwayLengthTakeoff\n' validateRunwayLengthLanding='self.destinationRunway.length &gt;= self.airplane.requiredRunwayLengthLanding' validateRunwayExistsTakeOff='self.departureAirport.runways -&gt; exists(r | r = self.departureRunway) ' validateRunwayExistsLanding='self.destinationAirport.runways -&gt; exists(r | r = self.destinationRunway) ' validateGateTakeOff='self.departureAirport.gates -&gt; exists(g | g = self.departureGate)' validateGateLanding='self.destinationAirport.gates -&gt; exists(g | g = self.destinationGate)' validateCrew='((self.crew.crewAllocations -&gt; collect(ca |ca.member)) -&gt; intersection(self.passengers)) -&gt; isEmpty()'"
  * @generated
  */
 public interface Flight extends EObject {
@@ -76,22 +76,11 @@ public interface Flight extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Departure Airport</em>' reference.
-	 * @see #setDepartureAirport(Airport)
 	 * @see at.AtPackage#getFlight_DepartureAirport()
-	 * @model
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Airport getDepartureAirport();
-
-	/**
-	 * Sets the value of the '{@link at.Flight#getDepartureAirport <em>Departure Airport</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Departure Airport</em>' reference.
-	 * @see #getDepartureAirport()
-	 * @generated
-	 */
-	void setDepartureAirport(Airport value);
 
 	/**
 	 * Returns the value of the '<em><b>Destination Airport</b></em>' reference.
@@ -303,5 +292,21 @@ public interface Flight extends EObject {
 	 * @generated
 	 */
 	void setArrivalTime(Date value);
+	
+	/**
+	 * Check if other flight plan to use the same runway at the same time.
+	 * @param otherFlight
+	 * @return
+	 */
+	boolean usesSameRunwayAtTheSameTime(Flight otherFlight);
+	
+	boolean	hasDepartureTime();
+	
+	boolean hasArrivalTime();
+	
+	boolean hasDepartureRunway();
+	
+	boolean hasDestinationRunway();
+
 
 } // Flight

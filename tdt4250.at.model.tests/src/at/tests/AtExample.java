@@ -22,8 +22,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
 /**
  * <!-- begin-user-doc -->
  * A sample utility for the '<em><b>at</b></em>' package.

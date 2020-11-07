@@ -7,6 +7,9 @@
     <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="TravelPlanner">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="airports" upperBound="-1"
         eType="#//Airport" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="airlines" upperBound="-1"
@@ -50,7 +53,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="airplane" eType="#//Airplane"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"
+        changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationAirport" eType="#//Airport"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departureGate" eType="#//Gate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"/>
@@ -85,7 +89,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
-        <details key="derivation" value="self.firstName + ' ' + self.familyName"/>
+        <details key="derivation" value="self.firstName + '  ' + self.familyName"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

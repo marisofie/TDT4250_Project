@@ -3,7 +3,6 @@
 package at.util;
 
 import at.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -123,7 +122,63 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTravelPlanner(TravelPlanner travelPlanner, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(travelPlanner, diagnostics, context);
+		if (!validate_NoCircularContainment(travelPlanner, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(travelPlanner, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTravelPlanner_validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen(travelPlanner, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen constraint of '<em>Travel Planner</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateTravelPlanner_validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen(TravelPlanner travelPlanner, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (twoFlightsPlanToUseTheSameRunwayAtTheSameTime(travelPlanner)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen", getObjectLabel(travelPlanner, context) },
+						 new Object[] { travelPlanner },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+	
+	private boolean twoFlightsPlanToUseTheSameRunwayAtTheSameTime(TravelPlanner travelPlanner) {
+		for (Airline airline : travelPlanner.getAirlines()) {
+			for (Flight flight : airline.getFlights()) {
+				for (Airline otherAirline : travelPlanner.getAirlines()) {
+					for (Flight otherFlight : otherAirline.getFlights()) {
+						if (flight.equals(otherFlight)) continue;
+						else {
+							if (flight.usesSameRunwayAtTheSameTime(otherFlight)) {
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		return false;
 	}
 
 	/**
@@ -165,6 +220,9 @@ public class AtValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateFlight_validateRunwayLengthLanding(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateRunwayExistsTakeOff(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateRunwayExistsLanding(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateGateTakeOff(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateGateLanding(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateCrew(flight, diagnostics, context);
 		return result;
 	}
 
@@ -291,7 +349,7 @@ public class AtValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_TAKE_OFF__EEXPRESSION = "self.departureAirport.runways -> exists(r | r.name = self.departureRunway.name) ";
+	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_TAKE_OFF__EEXPRESSION = "self.departureAirport.runways -> exists(r | r = self.departureRunway) ";
 
 	/**
 	 * Validates the validateRunwayExistsTakeOff constraint of '<em>Flight</em>'.
@@ -320,7 +378,7 @@ public class AtValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_LANDING__EEXPRESSION = "let dr = self.destinationRunway in (if self.destinationAirport.runways -> exists(r | r.name = self.destinationRunway.name) then true else false endif)";
+	protected static final String FLIGHT__VALIDATE_RUNWAY_EXISTS_LANDING__EEXPRESSION = "self.destinationAirport.runways -> exists(r | r = self.destinationRunway) ";
 
 	/**
 	 * Validates the validateRunwayExistsLanding constraint of '<em>Flight</em>'.
@@ -344,12 +402,103 @@ public class AtValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the validateGateTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_GATE_TAKE_OFF__EEXPRESSION = "self.departureAirport.gates -> exists(g | g = self.departureGate)";
+
+	/**
+	 * Validates the validateGateTakeOff constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateGateTakeOff(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateGateTakeOff",
+				 FLIGHT__VALIDATE_GATE_TAKE_OFF__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateGateLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_GATE_LANDING__EEXPRESSION = "self.destinationAirport.gates -> exists(g | g = self.destinationGate)";
+
+	/**
+	 * Validates the validateGateLanding constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateGateLanding(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateGateLanding",
+				 FLIGHT__VALIDATE_GATE_LANDING__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the validateCrew constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FLIGHT__VALIDATE_CREW__EEXPRESSION = "((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()";
+
+	/**
+	 * Validates the validateCrew constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateCrew(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateCrew",
+				 FLIGHT__VALIDATE_CREW__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateAirport(Airport airport, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(airport, diagnostics, context);
+	}
+
+	private boolean checkIfFlightIsDeplicate(Flight flight, Flight otherFlight) {
+		return flight.equals(otherFlight);
 	}
 
 	/**
