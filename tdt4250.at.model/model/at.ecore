@@ -54,8 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="airplane" eType="#//Airplane"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"
-        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureAirport" eType="#//Airport"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationAirport" eType="#//Airport"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departureGate" eType="#//Gate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"/>

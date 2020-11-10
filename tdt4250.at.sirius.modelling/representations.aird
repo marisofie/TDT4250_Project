@@ -11,7 +11,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_2NRV0CD2EeuN9PFjtTsn_A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_eiFpMCODEeuHF-a6l0ZNdQ" name="SASDiagram" repPath="#_egxakCODEeuHF-a6l0ZNdQ" changeId="4428eaba-cc50-44f0-a38b-e3c51ae79bcc">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_eiFpMCODEeuHF-a6l0ZNdQ" name="SASDiagram" repPath="#_egxakCODEeuHF-a6l0ZNdQ" changeId="bf9c51ee-eaf9-408b-9b11-9a46628c09a2">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']"/>
         <target xmi:type="at:Airline" href="TravelPlanner.xmi#//@airlines.0"/>
       </ownedRepresentationDescriptors>
@@ -989,7 +989,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ejSjEiODEeuHF-a6l0ZNdQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_ei7WsyODEeuHF-a6l0ZNdQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ei7WtCODEeuHF-a6l0ZNdQ" x="2660" y="-32" width="70" height="70"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ei7WtCODEeuHF-a6l0ZNdQ" x="2676" y="148" width="70" height="70"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_ei9y8CODEeuHF-a6l0ZNdQ" type="2003" element="_ehcwACODEeuHF-a6l0ZNdQ">
           <children xmi:type="notation:Node" xmi:id="_ei_oICODEeuHF-a6l0ZNdQ" type="5007"/>
@@ -1457,17 +1457,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_ekIQkCODEeuHF-a6l0ZNdQ" type="4001" element="_eh1xlSODEeuHF-a6l0ZNdQ" source="_ei0B8CODEeuHF-a6l0ZNdQ" target="_ei7WsiODEeuHF-a6l0ZNdQ">
           <children xmi:type="notation:Node" xmi:id="_ekIQlCODEeuHF-a6l0ZNdQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQlSODEeuHF-a6l0ZNdQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQlSODEeuHF-a6l0ZNdQ" x="-8" y="-8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ekIQliODEeuHF-a6l0ZNdQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQlyODEeuHF-a6l0ZNdQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQlyODEeuHF-a6l0ZNdQ" x="7" y="6"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ekIQmCODEeuHF-a6l0ZNdQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQmSODEeuHF-a6l0ZNdQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekIQmSODEeuHF-a6l0ZNdQ" x="5" y="6"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ekIQkSODEeuHF-a6l0ZNdQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ekIQkiODEeuHF-a6l0ZNdQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ekIQkyODEeuHF-a6l0ZNdQ" points="[0, 0, -260, 60]$[260, -60, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ekIQkyODEeuHF-a6l0ZNdQ" points="[40, 12, -239, -78]$[279, 90, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ekI3oCODEeuHF-a6l0ZNdQ" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ekI3oSODEeuHF-a6l0ZNdQ" id="(0.5,1.0)"/>
         </edges>
@@ -1649,17 +1649,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_smhX0COEEeuHF-a6l0ZNdQ" type="4001" element="_smTVaCOEEeuHF-a6l0ZNdQ" source="_ejCrcCODEeuHF-a6l0ZNdQ" target="_ei7WsiODEeuHF-a6l0ZNdQ">
           <children xmi:type="notation:Node" xmi:id="_smh-4COEEeuHF-a6l0ZNdQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-4SOEEeuHF-a6l0ZNdQ" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-4SOEEeuHF-a6l0ZNdQ" x="68" y="-11"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_smh-4iOEEeuHF-a6l0ZNdQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-4yOEEeuHF-a6l0ZNdQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-4yOEEeuHF-a6l0ZNdQ" x="21" y="8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_smh-5COEEeuHF-a6l0ZNdQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-5SOEEeuHF-a6l0ZNdQ" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_smh-5SOEEeuHF-a6l0ZNdQ" x="56" y="9"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_smhX0SOEEeuHF-a6l0ZNdQ"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_smhX0iOEEeuHF-a6l0ZNdQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_smhX0yOEEeuHF-a6l0ZNdQ" points="[-1, 0, -599, 220]$[497, -61, -101, 159]$[598, -220, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_smhX0yOEEeuHF-a6l0ZNdQ" points="[0, 0, -613, 70]$[496, -76, -117, -6]$[578, -72, -35, -2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_smh-5iOEEeuHF-a6l0ZNdQ" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_smh-5yOEEeuHF-a6l0ZNdQ" id="(0.5,1.0)"/>
         </edges>
@@ -1911,6 +1911,9 @@
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_ehbh4SODEeuHF-a6l0ZNdQ" name="11/29" incomingEdges="_eh1xlSODEeuHF-a6l0ZNdQ _smTVaCOEEeuHF-a6l0ZNdQ" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Runway" href="TravelPlanner.xmi#2"/>
       <semanticElements xmi:type="at:Runway" href="TravelPlanner.xmi#2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_ehbh4iODEeuHF-a6l0ZNdQ" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" borderColor="246,139,139" labelPosition="node" shape="stroke" color="246,139,139">
         <description xmi:type="style:BundledImageDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='RunwayNode']/@style"/>
       </ownedStyle>
