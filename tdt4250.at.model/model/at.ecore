@@ -23,11 +23,12 @@
         eType="#//Flight" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="airplanes" upperBound="-1"
         eType="#//Airplane" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
+        eType="#//Person" containment="true" eOpposite="#//Person/employer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airplane">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AirplaneType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCrew" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredRunwayLengthTakeoff"
@@ -41,14 +42,14 @@
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0" references="#//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%">
       <details key="maximumPassengers" value="self.passengers -> size() &lt; self.airplane.numberOfSeats"/>
-      <details key="minimumCrew" value="self.crew -> size() >= self.airplane.minimumCrew"/>
+      <details key="minimumCrew" value="self.allocations -> size() >= self.airplane.minimumCrew"/>
       <details key="validateRunwayLengthTakeOff" value="self.departureRunway.length >= self.airplane.requiredRunwayLengthTakeoff&#xA;"/>
       <details key="validateRunwayLengthLanding" value="self.destinationRunway.length >= self.airplane.requiredRunwayLengthLanding"/>
       <details key="validateRunwayExistsTakeOff" value="self.departureAirport.runways -> exists(r | r = self.departureRunway) "/>
       <details key="validateRunwayExistsLanding" value="self.destinationAirport.runways -> exists(r | r = self.destinationRunway) "/>
       <details key="validateGateTakeOff" value="self.departureAirport.gates -> exists(g | g = self.departureGate)"/>
       <details key="validateGateLanding" value="self.destinationAirport.gates -> exists(g | g = self.destinationGate)"/>
-      <details key="validateCrew" value="((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"/>
+      <details key="validateCrew" value="((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
@@ -60,13 +61,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationGate" eType="#//Gate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destinationRunway" eType="#//Runway"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="departureRunway" eType="#//Runway"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="passengers" upperBound="-1"
         eType="#//Person"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="departureTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="departureTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        defaultValueLiteral="2000-01-01T00:00:00.000+0100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
         defaultValueLiteral="2000-01-01T00:00:00.000+0100"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" upperBound="-1"
+        eType="#//CrewAllocation" containment="true" eOpposite="#//CrewAllocation/flight"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -96,16 +100,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="familyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//Gender"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Crew">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="crewAllocations" upperBound="-1"
-        eType="#//CrewAllocation" containment="true" eOpposite="#//CrewAllocation/crew"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" eType="#//CrewAllocation"
+        eOpposite="#//CrewAllocation/member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employer" eType="#//Airline"
+        eOpposite="#//Airline/employees"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrewAllocation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//Role"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//Person"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="crew" eType="#//Crew" eOpposite="#//Crew/crewAllocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//Person"
+        eOpposite="#//Person/allocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flight" eType="#//Flight"
+        eOpposite="#//Flight/allocations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Role" instanceClassName="java.lang.string">
     <eLiterals name="Pilot" literal="Pilot"/>

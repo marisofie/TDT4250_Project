@@ -1,96 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<at:TravelPlanner
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore"
-    xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore at.ecore">
-  <airports
-      id="TRD"
-      location="Trondheim">
-    <runways
-        name="09/27"
-        length="2999"/>
-    <gates name="32"/>
-  </airports>
-  <airports
-      id="OSL"
-      location="Oslo">
-    <runways
-        name="01R/19L"
-        length="2950"/>
-    <runways
-        id="1"
-        name="01L/19R"
-        length="3600"/>
+<at:TravelPlanner xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore" xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore ../tdt4250.at.model/model/at.ecore">
+  <airports id="OSL" location="Oslo">
+    <runways name="01R/19L" length="2950"/>
+    <runways id="1" name="01L/19R" length="3600"/>
     <gates name="C6"/>
   </airports>
-  <airports
-      id="TRF"
-      location="Sandefjord">
-    <runways
-        name="18/36"
-        length="2669"/>
-    <gates name="1"/>
+  <airports id="TRD" location="Trondheim">
+    <runways name="09/27" length="2999"/>
+    <gates name="32"/>
+    <gates name="30"/>
   </airports>
-  <airlines
-      name="SAS">
-    <flights
-        airplane="//@airlines.0/@airplanes.0"
-        departureAirport="//@airports.0"
-        destinationAirport="//@airports.1"
-        departureGate="//@airports.0/@gates.0"
-        destinationGate="//@airports.1/@gates.0"
-        destinationRunway="//@airports.1/@runways.0"
-        departureRunway="//@airports.0/@runways.0"
-        passengers="//@passengers.1 //@passengers.2"
-        code="SK377"
-        departureTime="2020-11-02T06:55:00.000+0100"
-        arrivalTime="2020-11-02T07:55:00.000+0100">
-      <crew
-      	test="test1">
-        <crewAllocations
-            member="//@passengers.0"/>
-      </crew>
+  <airports id="TRF" location="Sandefjord">
+    <runways name="18/36" length="2669"/>
+    <gates name="1"/>
+    <gates name="2"/>
+  </airports>
+  <airports id="SVG" location="Stavanger">
+    <runways id="4" name="18/36" length="2706"/>
+    <runways id="2" name="11/29" length="2299"/>
+    <gates name="17"/>
+    <gates name="18"/>
+    <gates name="19"/>
+  </airports>
+  <airlines name="SAS">
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.1" destinationAirport="//@airports.0" departureGate="//@airports.1/@gates.0" destinationGate="//@airports.0/@gates.0" destinationRunway="//@airports.0/@runways.0" departureRunway="//@airports.1/@runways.0" passengers="//@airlines.0/@employees.0 //@airlines.0/@employees.4" code="SK377" departureTime="2020-11-02T06:55:00.000+0100" arrivalTime="2020-11-02T07:55:00.000+0100">
+      <allocations member="//@airlines.0/@employees.1"/>
+      <allocations role="First officer" member="//@airlines.1/@employees.0"/>
+      <allocations role="Purser" member="//@airlines.0/@employees.2"/>
+      <allocations role="Second officer" member="//@airlines.0/@employees.5"/>
+      <allocations role="Flight attendant" member="//@airlines.1/@employees.1"/>
+      <allocations role="Flight attendant"/>
     </flights>
-    <airplanes
-        numberOfSeats="162"
-        minimumCrew="5"
-        requiredRunwayLengthTakeoff="2473"
-        requiredRunwayLengthLanding="1981"/>
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.0" destinationAirport="//@airports.1" departureGate="//@airports.0/@gates.0" destinationGate="//@airports.1/@gates.0" destinationRunway="//@airports.1/@runways.0" departureRunway="//@airports.0/@runways.0" code="SK338" departureTime="2020-11-10T10:45:00.000+0100" arrivalTime="2020-11-10T11:40:00.000+0100">
+      <allocations/>
+      <allocations role="Flight attendant"/>
+      <allocations role="First officer" member="//@airlines.0/@employees.4"/>
+      <allocations role="Purser" member="//@airlines.0/@employees.0"/>
+      <allocations role="Flight attendant"/>
+      <allocations/>
+      <allocations member="//@airlines.0/@employees.3"/>
+    </flights>
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.0" destinationAirport="//@airports.3" departureGate="//@airports.0/@gates.0" destinationGate="//@airports.3/@gates.2" destinationRunway="2" departureRunway="1" code="SK4047" departureTime="2020-11-10T19:45:00.000+0100" arrivalTime="2020-11-10T20:40:00.000+0100"/>
+    <airplanes id="1" numberOfSeats="162" minimumCrew="5" requiredRunwayLengthTakeoff="2473" requiredRunwayLengthLanding="1981"/>
+    <employees firstName="Lise" familyName="Hansen" age="30" allocations="//@airlines.0/@flights.1/@allocations.3"/>
+    <employees firstName="Sigrid Marita" familyName="Kvamme" age="23" allocations="//@airlines.0/@flights.0/@allocations.0"/>
+    <employees firstName="Marit" familyName="Larsen" age="30" allocations="//@airlines.0/@flights.0/@allocations.2"/>
+    <employees firstName="Kari" familyName="Hansen" age="24" allocations="//@airlines.0/@flights.1/@allocations.6"/>
+    <employees firstName="Tomas" familyName="Knudsen" gender="Male" age="28" allocations="//@airlines.0/@flights.1/@allocations.2"/>
+    <employees firstName="Kåre" familyName="Gustavsen" gender="Male" age="35" allocations="//@airlines.0/@flights.0/@allocations.3"/>
   </airlines>
-  <airlines
-      name="Widerøe">
-    <flights
-        airplane="//@airlines.1/@airplanes.0"
-        departureAirport="//@airports.2"
-        destinationAirport="//@airports.0"
-        departureGate="//@airports.2/@gates.0"
-        destinationGate="//@airports.0/@gates.0"
-        destinationRunway="//@airports.0/@runways.0"
-        departureRunway="//@airports.2/@runways.0"
-        passengers="//@passengers.2"
-        code="WF486"
-        departureTime="2020-11-02T19:45:00.000+0100"
-        arrivalTime="2020-11-02T20:55:00.000+0100"/>
-    <airplanes
-        type="Bombardier DHC-8 Dash 8-100"
-        numberOfSeats="39"
-        minimumCrew="4"
-        requiredRunwayLengthTakeoff="800"
-        requiredRunwayLengthLanding="800"/>
+  <airlines name="Widerøe">
+    <flights airplane="//@airlines.1/@airplanes.0" passengers="//@airlines.1/@employees.1" code="WF486" departureTime="2020-11-02T19:45:00.000+0100" arrivalTime="2020-11-02T20:55:00.000+0100"/>
+    <airplanes type="Bombardier DHC-8 Dash 8-100" numberOfSeats="39" minimumCrew="4" requiredRunwayLengthTakeoff="800" requiredRunwayLengthLanding="800"/>
+    <employees firstName="Mari Sofie" familyName="Lerfaldet" age="24" allocations="//@airlines.0/@flights.0/@allocations.1"/>
+    <employees firstName="Ådne" familyName="Karstad" gender="Male" age="24" allocations="//@airlines.0/@flights.0/@allocations.4"/>
   </airlines>
-  <passengers
-      firstName="Sigrid Marita"
-      familyName="Kvamme"
-      age="23"/>
-  <passengers
-      firstName="Mari Sofie"
-      familyName="Lerfaldet"
-      age="24"/>
-  <passengers
-      firstName="Ådne"
-      familyName="Karstad"
-      gender="Male"
-      age="24"/>
 </at:TravelPlanner>

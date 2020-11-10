@@ -110,3 +110,12 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
     • AirplaneType
     	○ https://nn.wikipedia.org/wiki/SAS
     	○ https://en.wikipedia.org/wiki/Boeing_737#737-800
+
+
+## References
+Icons collected from [flavicon](https://www.flaticon.com/), made by: 
+- Freepik
+- Those Icons
+- xnimrodx 
+- Eucalyp
+

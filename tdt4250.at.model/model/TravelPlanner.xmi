@@ -12,6 +12,7 @@
         name="09/27"
         length="2999"/>
     <gates name="32"/>
+    <gates name="30"/>
   </airports>
   <airports
       id="OSL"
@@ -24,6 +25,7 @@
         name="01L/19R"
         length="3600"/>
     <gates name="C6"/>
+    <gates name="A20"/>
   </airports>
   <airports
       id="TRF"
@@ -43,20 +45,94 @@
         destinationGate="//@airports.1/@gates.0"
         destinationRunway="//@airports.1/@runways.0"
         departureRunway="//@airports.0/@runways.0"
-        passengers="//@passengers.1 //@passengers.2"
+        passengers="//@airlines.0/@employees.0 //@airlines.0/@employees.4"
         code="SK377"
         departureTime="2020-11-02T06:55:00.000+0100"
         arrivalTime="2020-11-02T07:55:00.000+0100">
-      <crew>
-        <crewAllocations
-            member="//@passengers.0"/>
-      </crew>
+      <allocations
+          member="//@airlines.0/@employees.1"/>
+      <allocations
+          role="First officer"
+          member="//@airlines.1/@employees.0"/>
+      <allocations
+          role="Purser"
+          member="//@airlines.0/@employees.2"/>
+      <allocations
+          role="Second officer"
+          member="//@airlines.0/@employees.5"/>
+      <allocations
+          role="Flight attendant"
+          member="//@airlines.1/@employees.1"/>
+      <allocations
+          role="Flight attendant"
+          member="//@airlines.0/@employees.3"/>
+    </flights>
+    <flights
+        airplane="//@airlines.0/@airplanes.0"
+        departureAirport="//@airports.1"
+        destinationAirport="//@airports.0"
+        departureGate="//@airports.1/@gates.1"
+        destinationGate="//@airports.0/@gates.1"
+        destinationRunway="//@airports.0/@runways.0"
+        departureRunway="1"
+        code="SK338"
+        departureTime="2020-11-10T10:45:00.000+0100"
+        arrivalTime="2020-11-10T11:40:00.000+0100">
+      <allocations/>
+      <allocations
+          role="Flight attendant"/>
+      <allocations
+          role="First officer"
+          member="//@airlines.0/@employees.4"/>
+      <allocations
+          role="Purser"
+          member="//@airlines.0/@employees.0"/>
+      <allocations
+          role="Flight attendant"/>
     </flights>
     <airplanes
         numberOfSeats="162"
         minimumCrew="5"
         requiredRunwayLengthTakeoff="2473"
         requiredRunwayLengthLanding="1981"/>
+    <airplanes
+        id="1"
+        numberOfSeats="162"
+        minimumCrew="5"
+        requiredRunwayLengthTakeoff="2473"
+        requiredRunwayLengthLanding="1981"/>
+    <employees
+        firstName="Lise"
+        familyName="Hansen"
+        age="30"
+        allocations="//@airlines.0/@flights.1/@allocations.3"/>
+    <employees
+        firstName="Sigrid Marita"
+        familyName="Kvamme"
+        age="23"
+        allocations="//@airlines.0/@flights.0/@allocations.0"/>
+    <employees
+        firstName="Marit"
+        familyName="Larsen"
+        age="30"
+        allocations="//@airlines.0/@flights.0/@allocations.2"/>
+    <employees
+        firstName="Kari"
+        familyName="Hansen"
+        age="24"
+        allocations="//@airlines.0/@flights.0/@allocations.5"/>
+    <employees
+        firstName="Tomas"
+        familyName="Knudsen"
+        gender="Male"
+        age="28"
+        allocations="//@airlines.0/@flights.1/@allocations.2"/>
+    <employees
+        firstName="Kåre"
+        familyName="Gustavsen"
+        gender="Male"
+        age="35"
+        allocations="//@airlines.0/@flights.0/@allocations.3"/>
   </airlines>
   <airlines
       name="Widerøe">
@@ -68,7 +144,7 @@
         destinationGate="//@airports.0/@gates.0"
         destinationRunway="//@airports.0/@runways.0"
         departureRunway="//@airports.2/@runways.0"
-        passengers="//@passengers.2"
+        passengers="//@airlines.1/@employees.1"
         code="WF486"
         departureTime="2020-11-02T19:45:00.000+0100"
         arrivalTime="2020-11-02T20:55:00.000+0100"/>
@@ -78,6 +154,17 @@
         minimumCrew="4"
         requiredRunwayLengthTakeoff="800"
         requiredRunwayLengthLanding="800"/>
+    <employees
+        firstName="Mari Sofie"
+        familyName="Lerfaldet"
+        age="24"
+        allocations="//@airlines.0/@flights.0/@allocations.1"/>
+    <employees
+        firstName="Ådne"
+        familyName="Karstad"
+        gender="Male"
+        age="24"
+        allocations="//@airlines.0/@flights.0/@allocations.4"/>
   </airlines>
   <passengers
       firstName="Sigrid Marita"
