@@ -43,7 +43,7 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 
 #### TravelPlanner
   - **Constraints**
-    - <constraintname>: Two airplanes cannot use the same runway at the same time
+    - ValidateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen: Two airplanes cannot use the same runway at the same time
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
     - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner. 
 #### Airline
