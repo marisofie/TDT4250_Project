@@ -60,7 +60,7 @@
 <div class="ft_item ft_arr-time">Arrival Time</div>
 <div class="ft_item ft_duration">Flight Duration</div>
 [for (airline : Airline | travelPlanner.airlines)]
-[for (flight : Flight | airline.flights -> select(f | f.departureAirport.id = airport.id) )]
+[for (flight : Flight | (airline.flights -> reject(f | f.departureAirport = null) ) -> select(f | f.departureAirport.id = airport.id) )]
 [generateFlightListRow(flight) /]
 [/for]
 [/for]
@@ -77,7 +77,7 @@
 <div class="ft_item ft_arr-time">Arrival Time</div>
 <div class="ft_item ft_duration">Flight Duration</div>
 [for (airline : Airline | travelPlanner.airlines)]
-[for (flight : Flight | airline.flights -> select(f | f.destinationAirport.id = airport.id) )]
+[for (flight : Flight | (airline.flights -> reject(f | f.destinationAirport = null) ) -> select(f | f.destinationAirport.id = airport.id) )]
 [generateFlightListRow(flight) /]
 [/for]
 [/for]
