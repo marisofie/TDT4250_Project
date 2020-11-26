@@ -497,10 +497,6 @@ public class AtValidator extends EObjectValidator {
 		return validate_EveryDefaultConstraint(airport, diagnostics, context);
 	}
 
-	private boolean checkIfFlightIsDeplicate(Flight flight, Flight otherFlight) {
-		return flight.equals(otherFlight);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

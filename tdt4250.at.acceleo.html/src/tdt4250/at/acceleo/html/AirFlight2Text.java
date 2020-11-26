@@ -24,8 +24,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import at.util.AtResourceFactoryImpl;
-
 /**
  * Entry point of the 'AirFlight2Text' generation module.
  *

@@ -11,6 +11,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius,
  org.eclipse.sirius.common.acceleo.aql
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-14
 Bundle-Vendor: %providerName
 Automatic-Module-Name: tdt4250.at.sirius.diagram
