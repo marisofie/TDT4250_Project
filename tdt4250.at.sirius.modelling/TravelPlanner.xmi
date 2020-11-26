@@ -22,7 +22,7 @@
     <gates name="18"/>
     <gates name="19"/>
   </airports>
-  <airlines name="SAS">
+  <airlines name="SAS" airports="//@airports.0 //@airports.1 //@airports.2 //@airports.3">
     <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.1" destinationAirport="//@airports.0" departureGate="//@airports.1/@gates.0" destinationGate="//@airports.0/@gates.0" destinationRunway="//@airports.0/@runways.0" departureRunway="//@airports.1/@runways.0" passengers="//@airlines.0/@employees.0 //@airlines.0/@employees.4" code="SK377" departureTime="2020-11-02T06:55:00.000+0100" arrivalTime="2020-11-02T07:55:00.000+0100">
       <allocations member="//@airlines.0/@employees.1"/>
       <allocations role="First officer" member="//@airlines.1/@employees.0"/>
@@ -41,8 +41,9 @@
       <allocations member="//@airlines.0/@employees.3"/>
     </flights>
     <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.0" destinationAirport="//@airports.3" departureGate="//@airports.0/@gates.0" destinationGate="//@airports.3/@gates.2" destinationRunway="2" departureRunway="1" code="SK4047" departureTime="2020-11-10T19:45:00.000+0100" arrivalTime="2020-11-10T20:40:00.000+0100"/>
-    <flights departureAirport="//@airports.3" departureGate="//@airports.3/@gates.1" code=""/>
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.1" destinationAirport="//@airports.0" departureGate="//@airports.1/@gates.1" destinationGate="//@airports.0/@gates.0" destinationRunway="//@airports.0/@runways.0" departureRunway="//@airports.1/@runways.0" code="SK123"/>
     <airplanes id="1" numberOfSeats="162" minimumCrew="5" requiredRunwayLengthTakeoff="2473" requiredRunwayLengthLanding="1981"/>
+    <airplanes type="Boeing 737-700" id="2" numberOfSeats="100" minimumCrew="3" requiredRunwayLengthTakeoff="1234" requiredRunwayLengthLanding="1234"/>
     <employees firstName="Lise" familyName="Hansen" age="30" allocations="//@airlines.0/@flights.1/@allocations.3"/>
     <employees firstName="Sigrid Marita" familyName="Kvamme" age="23" allocations="//@airlines.0/@flights.0/@allocations.0"/>
     <employees firstName="Marit" familyName="Larsen" age="30" allocations="//@airlines.0/@flights.0/@allocations.2"/>

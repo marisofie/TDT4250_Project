@@ -2,6 +2,7 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="12.0.0.2017041100">
   <ownedViewpoints name="TravelPlannerDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TravelPlannerDiagram" domainClass="at::TravelPlanner" enablePopupBars="true">
+      <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <defaultLayer name="Default">
         <containerMappings name="AirlineContainer" domainClass="at::Airline" childrenPresentation="List">
           <subNodeMappings name="Flights" semanticCandidatesExpression="feature:eAllContents" domainClass="at::Flight">
@@ -102,6 +103,7 @@
   </ownedViewpoints>
   <ownedViewpoints name="AirlineDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AirlineDiagram" initialisation="true" domainClass="at::Airline">
+      <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="PersonNode" semanticCandidatesExpression="feature:employees" domainClass="at::Person">
           <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="feature:fullName" iconPath="/tdt4250.at.sirius.modelling/icons/pilot-of-airplane.png" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
@@ -146,22 +148,6 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="FlightDestAirportEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']" targetFinderExpression="feature:destinationAirport">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="Destination">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="FlightDepAirportEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']" targetFinderExpression="feature:departureAirport">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="Departure">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
         <edgeMappings name="CrewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:flight" sourceFinderExpression="feature:member" domainClass="at::CrewAllocation" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -182,22 +168,6 @@
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="FlightDestGateEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetFinderExpression="feature:destinationGate">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="Destination">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="FlightDepGateEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetFinderExpression="feature:departureGate">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="Departure">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -319,7 +289,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DepAirport_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DepAirport_Edge">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -330,7 +300,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DestAirport_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DestAirport_Edge">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -341,7 +311,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DestGate_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DestGate_Edge">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -352,7 +322,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DepGate_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_DepGate_Edge">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -390,8 +360,9 @@
     </ownedRepresentations>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
+    <metamodels href="../../tdt4250.at.model/model/at.ecore#/"/>
     <categories name="Default">
-      <pages name="Airline page" labelExpression="General" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="General Page" labelExpression="General" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1"/>
       <groups name="Flight group" labelExpression="Flight" domainClass="at::Flight" semanticCandidateExpression="var:self" preconditionExpression="">
         <controls xsi:type="properties:TextDescription" name="Code" labelExpression="Code" helpExpression="Code of the flight" valueExpression="feature:code">
           <initialOperation>
@@ -405,23 +376,92 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:ContainerDescription" name="AirportContainer">
-          <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql: self.eContainer(at::TravelPlanner).airports" candidateDisplayExpression="aql: candidate">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="departureAirport" valueExpression="aql:newValue"/>
-              </firstModelOperations>
-            </initialOperation>
-          </controls>
+        <controls xsi:type="properties:SelectDescription" name="Airplane" labelExpression="airplane" valueExpression="feature:airplane" candidatesExpression="aql:self.eContainer().airplanes" candidateDisplayExpression="aql: 1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="airplane" valueExpression="aql:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
         </controls>
-        <controls xsi:type="properties:ContainerDescription" name="GateContainer">
-          <controls xsi:type="properties:SelectDescription" name="DepGate" labelExpression="Departure Gate" valueExpression="feature:departureGate" candidatesExpression="aql: self.departureAirport.gates" candidateDisplayExpression="aql:candidate.name">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="departureGate" valueExpression="aql:newValue"/>
-              </firstModelOperations>
-            </initialOperation>
+        <controls xsi:type="properties:ContainerDescription" name="DepDestContainer">
+          <controls xsi:type="properties:ContainerDescription" name="DepartureContainer">
+            <controls xsi:type="properties:TextDescription" name="DepTime" labelExpression="Departure Time" valueExpression="feature:departureTime">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="departureTime" valueExpression="newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.departureTime = 'Sat Jan 01 00:00:00 CET 2000'">
+                <style>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql:self.eContainer().airports" candidateDisplayExpression="aql: candidate.location">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="departureAirport" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DepGate" labelExpression="Departure Gate" valueExpression="feature:departureGate" candidatesExpression="aql: self.departureAirport.gates" candidateDisplayExpression="aql:candidate.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="departureGate" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DepRunway" labelExpression="Departure Runway" valueExpression="feature:departureRunway" candidatesExpression="aql:self.departureAirport.runways" candidateDisplayExpression="aql: candidate.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="departureRunway" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
           </controls>
+          <controls xsi:type="properties:ContainerDescription" name="DestinationContainer">
+            <controls xsi:type="properties:TextDescription" name="DestTime" labelExpression="Destination Time" valueExpression="feature:arrivalTime">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destinationTime" valueExpression="newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:self.arrivalTime = 'Sat Jan 01 00:00:00 CET 2000'">
+                <style>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                </style>
+              </conditionalStyles>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DestAirport" labelExpression="Destination Airport" valueExpression="feature:destinationAirport" candidatesExpression="aql:self.eContainer().airports" candidateDisplayExpression="aql: candidate.location">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destinationAirport" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DestGate" labelExpression="Destination Gate" valueExpression="feature:destinationGate" candidatesExpression="aql: self.destinationAirport.gates" candidateDisplayExpression="aql:candidate.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destinationGate" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+            <controls xsi:type="properties:SelectDescription" name="DepRunway" labelExpression="Destination Runway" valueExpression="feature:destinationRunway" candidatesExpression="aql:self.destinationAirport.runways" candidateDisplayExpression="aql: candidate.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destinationRunway" valueExpression="aql:newValue"/>
+                </firstModelOperations>
+              </initialOperation>
+            </controls>
+          </controls>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+      </groups>
+      <groups name="Crew Group" labelExpression="Crew" domainClass="at::CrewAllocation" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="Pilot" labelExpression="Role" valueExpression="self:role" candidatesExpression="aql: self.eResource().eContents(at::Role)" candidateDisplayExpression="aql: candidate.literal">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
         </controls>
       </groups>
     </categories>

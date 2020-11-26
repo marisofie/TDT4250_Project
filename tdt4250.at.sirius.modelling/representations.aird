@@ -11,7 +11,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_2NRV0CD2EeuN9PFjtTsn_A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_RsOlwS8jEeuexOBQrKVSlA" name="SASDiagram" repPath="#_RsKUUC8jEeuexOBQrKVSlA" changeId="e326c43f-05a0-404a-ba6c-f8f7c100eea8">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_RsOlwS8jEeuexOBQrKVSlA" name="SASDiagram" repPath="#_RsKUUC8jEeuexOBQrKVSlA" changeId="18456b20-b485-4571-bfe2-1ea0c5f0f212">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']"/>
         <target xmi:type="at:Airline" href="TravelPlanner.xmi#//@airlines.0"/>
       </ownedRepresentationDescriptors>
@@ -1040,15 +1040,34 @@
         <children xmi:type="notation:Node" xmi:id="_XoGuUC8jEeuexOBQrKVSlA" type="2003" element="_XntFsC8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_XoHVYi8jEeuexOBQrKVSlA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_XoH8cC8jEeuexOBQrKVSlA" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_IgssgC8yEeuexOBQrKVSlA" type="3010" element="_Ign0By8yEeuexOBQrKVSlA">
-              <styles xmi:type="notation:FontStyle" xmi:id="_IgssgS8yEeuexOBQrKVSlA" fontName=".AppleSystemUIFont" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_Igssgi8yEeuexOBQrKVSlA"/>
+            <children xmi:type="notation:Node" xmi:id="_HPfgEC_yEeu6HJUsZRYTtw" type="3010" element="_HPb1ui_yEeu6HJUsZRYTtw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_HPfgES_yEeu6HJUsZRYTtw" fontName=".AppleSystemUIFont" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HPfgEi_yEeu6HJUsZRYTtw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_VoR4oC_0Eeu6NoLCjeccvg" type="3010" element="_VoJVwC_0Eeu6NoLCjeccvg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_VoR4oS_0Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_VoR4oi_0Eeu6NoLCjeccvg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_j2agYC_2Eeu6NoLCjeccvg" type="3010" element="_j2WO-S_2Eeu6NoLCjeccvg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_j2agYS_2Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_j2agYi_2Eeu6NoLCjeccvg"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_XoH8cS8jEeuexOBQrKVSlA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_XoH8ci8jEeuexOBQrKVSlA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_XoHVYC8jEeuexOBQrKVSlA" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XoHVYS8jEeuexOBQrKVSlA" x="169" y="292" width="150" height="127"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XoHVYS8jEeuexOBQrKVSlA" x="61" y="332" width="174" height="135"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_zCYGgC_xEeu6HJUsZRYTtw" type="2001" element="_zCO8kC_xEeu6HJUsZRYTtw">
+          <children xmi:type="notation:Node" xmi:id="_zCYGgy_xEeu6HJUsZRYTtw" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_zCYGhC_xEeu6HJUsZRYTtw" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_zCZUoC_xEeu6HJUsZRYTtw" type="3004" element="_zCPjoC_xEeu6HJUsZRYTtw">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_zCZUoS_xEeu6HJUsZRYTtw" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zCZUoi_xEeu6HJUsZRYTtw"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_zCYGgS_xEeu6HJUsZRYTtw" fontName=".AppleSystemUIFont" fontHeight="10"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zCYGgi_xEeu6HJUsZRYTtw" x="2436" y="352" width="100" height="100"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_RsXvsi8jEeuexOBQrKVSlA"/>
         <edges xmi:type="notation:Edge" xmi:id="_RuJ4YC8jEeuexOBQrKVSlA" type="4001" element="_RtOrUC8jEeuexOBQrKVSlA" source="_Rt4LkC8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
@@ -1179,7 +1198,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RudaZi8jEeuexOBQrKVSlA" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RudaZy8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RueBcC8jEeuexOBQrKVSlA" type="4001" element="_RtSVsC8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RueBcC8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtSVsC8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RueBdC8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RueBdS8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1195,7 +1214,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RueogC8jEeuexOBQrKVSlA" id="(0.5038167938931297,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RueogS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Rueogi8jEeuexOBQrKVSlA" type="4001" element="_RtSVtS8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt4yoi8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Rueogi8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtSVtS8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt4yoi8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RufPkC8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RufPkS8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1211,7 +1230,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RufPli8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RufPly8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RufPmC8jEeuexOBQrKVSlA" type="4001" element="_RtS8wC8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt5Zty8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RufPmC8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtS8wC8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt5Zty8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RufPnC8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RufPnS8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1227,7 +1246,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruf2oC8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruf2oS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Ruf2oi8jEeuexOBQrKVSlA" type="4001" element="_RtTj0C8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt4yoi8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Ruf2oi8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtTj0C8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt4yoi8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_Ruf2pi8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ruf2py8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1243,7 +1262,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruf2rC8jEeuexOBQrKVSlA" id="(0.5038167938931297,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruf2rS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Ruf2ri8jEeuexOBQrKVSlA" type="4001" element="_RtUK4i8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Ruf2ri8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtUK4i8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RugdsC8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RugdsS8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1259,7 +1278,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rugdti8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rugdty8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RugduC8jEeuexOBQrKVSlA" type="4001" element="_RtUx8i8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RugduC8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtUx8i8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt4LkC8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RugdvC8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RugdvS8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1515,7 +1534,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RupnoC8jEeuexOBQrKVSlA" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RupnoS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Rupnoi8jEeuexOBQrKVSlA" type="4001" element="_Rtei9C8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Rupnoi8jEeuexOBQrKVSlA" visible="false" type="4001" element="_Rtei9C8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_Rupnpi8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rupnpy8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1531,7 +1550,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RuqOsC8jEeuexOBQrKVSlA" id="(0.5038167938931297,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RuqOsS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RuqOsi8jEeuexOBQrKVSlA" type="4001" element="_RtfKBC8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt0hMi8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RuqOsi8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtfKBC8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rt0hMi8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RuqOti8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RuqOty8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1547,7 +1566,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruq1wC8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ruq1wS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Ruq1wi8jEeuexOBQrKVSlA" type="4001" element="_RtfKCS8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt29ci8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Ruq1wi8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtfKCS8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rt29ci8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_Ruq1xi8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ruq1xy8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1563,7 +1582,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rurc0C8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Rurc0S8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_Rurc0i8jEeuexOBQrKVSlA" type="4001" element="_RtfxFC8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt0hMi8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_Rurc0i8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtfxFC8jEeuexOBQrKVSlA" source="_Rt9EEC8jEeuexOBQrKVSlA" target="_Rt0hMi8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_Rurc1i8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rurc1y8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1579,7 +1598,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RusD4C8jEeuexOBQrKVSlA" id="(0.5038167938931297,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RusD4S8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RusD4i8jEeuexOBQrKVSlA" type="4001" element="_RtgYIi8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RusD4i8jEeuexOBQrKVSlA" visible="false" type="4001" element="_RtgYIi8jEeuexOBQrKVSlA" source="_Rt-SMy8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_RusD5i8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RusD5y8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1595,7 +1614,7 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RusD7C8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RusD7S8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_RusD7i8jEeuexOBQrKVSlA" type="4001" element="_Rtg_Mi8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
+        <edges xmi:type="notation:Edge" xmi:id="_RusD7i8jEeuexOBQrKVSlA" visible="false" type="4001" element="_Rtg_Mi8jEeuexOBQrKVSlA" source="_Rt-5Qy8jEeuexOBQrKVSlA" target="_Rtz6Jy8jEeuexOBQrKVSlA">
           <children xmi:type="notation:Node" xmi:id="_Rusq8C8jEeuexOBQrKVSlA" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rusq8S8jEeuexOBQrKVSlA" y="-10"/>
           </children>
@@ -1707,37 +1726,117 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RuugJC8jEeuexOBQrKVSlA" id="(0.5076923076923077,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RuugJS8jEeuexOBQrKVSlA" id="(0.5,1.0)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_rugI8C8wEeuexOBQrKVSlA" type="4001" element="_ruW_DC8wEeuexOBQrKVSlA" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt5Zty8jEeuexOBQrKVSlA">
-          <children xmi:type="notation:Node" xmi:id="_rugwAC8wEeuexOBQrKVSlA" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rugwAS8wEeuexOBQrKVSlA" y="-10"/>
+        <edges xmi:type="notation:Edge" xmi:id="_HPguMC_yEeu6HJUsZRYTtw" type="4001" element="_HPdD7C_yEeu6HJUsZRYTtw" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rtz6Ii8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_HPguNC_yEeu6HJUsZRYTtw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HPguNS_yEeu6HJUsZRYTtw" y="-10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_rugwAi8wEeuexOBQrKVSlA" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rugwAy8wEeuexOBQrKVSlA" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_HPguNi_yEeu6HJUsZRYTtw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HPguNy_yEeu6HJUsZRYTtw" y="10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_rugwBC8wEeuexOBQrKVSlA" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rugwBS8wEeuexOBQrKVSlA" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_HPguOC_yEeu6HJUsZRYTtw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HPguOS_yEeu6HJUsZRYTtw" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_rugI8S8wEeuexOBQrKVSlA"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_rugI8i8wEeuexOBQrKVSlA" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rugI8y8wEeuexOBQrKVSlA" points="[0, 0, -92, 84]$[92, -84, 0, 0]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rugwBi8wEeuexOBQrKVSlA" id="(0.831081081081081,0.0)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rugwBy8wEeuexOBQrKVSlA" id="(0.3,1.0)"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_HPguMS_yEeu6HJUsZRYTtw"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_HPguMi_yEeu6HJUsZRYTtw" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HPguMy_yEeu6HJUsZRYTtw" points="[0, 0, -766, 154]$[716, -144, -50, 10]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HPhVQC_yEeu6HJUsZRYTtw" id="(0.43023255813953487,0.4699248120300752)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HPhVQS_yEeu6HJUsZRYTtw" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_IguhsC8yEeuexOBQrKVSlA" type="4001" element="_IgqQUC8yEeuexOBQrKVSlA" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt2WZy8jEeuexOBQrKVSlA">
-          <children xmi:type="notation:Node" xmi:id="_IguhtC8yEeuexOBQrKVSlA" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IguhtS8yEeuexOBQrKVSlA" y="-10"/>
+        <edges xmi:type="notation:Edge" xmi:id="_VVsT0C_0Eeu6NoLCjeccvg" visible="false" type="4001" element="_VVk_Ei_0Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt4yoi8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_VVsT1C_0Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VVsT1S_0Eeu6NoLCjeccvg" y="-10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_Iguhti8yEeuexOBQrKVSlA" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Iguhty8yEeuexOBQrKVSlA" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_VVsT1i_0Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VVsT1y_0Eeu6NoLCjeccvg" y="10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_IguhuC8yEeuexOBQrKVSlA" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IguhuS8yEeuexOBQrKVSlA" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_VVsT2C_0Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VVsT2S_0Eeu6NoLCjeccvg" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_IguhsS8yEeuexOBQrKVSlA"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_Iguhsi8yEeuexOBQrKVSlA" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Iguhsy8yEeuexOBQrKVSlA" points="[0, 0, -255, 257]$[220, -222, -35, 35]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IgvIwC8yEeuexOBQrKVSlA" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IgvIwS8yEeuexOBQrKVSlA" id="(0.5,0.5)"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_VVsT0S_0Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_VVsT0i_0Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VVsT0y_0Eeu6NoLCjeccvg" points="[0, 0, -1944, 164]$[1904, -161, -40, 3]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VVs64C_0Eeu6NoLCjeccvg" id="(0.43023255813953487,0.4699248120300752)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VVs64S_0Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_VoTt0C_0Eeu6NoLCjeccvg" visible="false" type="4001" element="_VoNnPC_0Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt1IQC8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_VoTt1C_0Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VoTt1S_0Eeu6NoLCjeccvg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_VoUU4C_0Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VoUU4S_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_VoUU4i_0Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VoUU4y_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_VoTt0S_0Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_VoTt0i_0Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VoTt0y_0Eeu6NoLCjeccvg" points="[0, 0, -1971, 297]$[1936, -292, -35, 5]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VoUU5C_0Eeu6NoLCjeccvg" id="(0.43023255813953487,0.4699248120300752)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VoUU5S_0Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_V2ZNIC_0Eeu6NoLCjeccvg" visible="false" type="4001" element="_V2TGjC_0Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt5Zsi8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_V2ZNJC_0Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V2ZNJS_0Eeu6NoLCjeccvg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_V2ZNJi_0Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V2ZNJy_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_V2ZNKC_0Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V2ZNKS_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_V2ZNIS_0Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_V2ZNIi_0Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_V2ZNIy_0Eeu6NoLCjeccvg" points="[0, 0, -2336, 164]$[2296, -162, -40, 2]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_V2ZNKi_0Eeu6NoLCjeccvg" id="(0.43023255813953487,0.4699248120300752)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_V2ZNKy_0Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_WBd0sC_0Eeu6NoLCjeccvg" visible="false" type="4001" element="_WBY8PC_0Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt1vUi8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_WBd0tC_0Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WBd0tS_0Eeu6NoLCjeccvg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_WBd0ti_0Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WBd0ty_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_WBd0uC_0Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WBd0uS_0Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_WBd0sS_0Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_WBd0si_0Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WBd0sy_0Eeu6NoLCjeccvg" points="[0, 0, -2467, 297]$[2432, -293, -35, 4]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WBd0ui_0Eeu6NoLCjeccvg" id="(0.43023255813953487,0.4699248120300752)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WBd0uy_0Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_bZae4C_2Eeu6NoLCjeccvg" type="4001" element="_bZWNhC_2Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt6n0i8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_bZae5C_2Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bZae5S_2Eeu6NoLCjeccvg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bZae5i_2Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bZae5y_2Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bZae6C_2Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bZae6S_2Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_bZae4S_2Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_bZae4i_2Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bZae4y_2Eeu6NoLCjeccvg" points="[0, 0, -1827, 297]$[1792, -292, -35, 5]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bZbF8C_2Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bZbF8S_2Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_mtWRQC_2Eeu6NoLCjeccvg" type="4001" element="_mtTOEC_2Eeu6NoLCjeccvg" source="_XoGuUC8jEeuexOBQrKVSlA" target="_Rt6Awi8jEeuexOBQrKVSlA">
+          <children xmi:type="notation:Node" xmi:id="_mtW4UC_2Eeu6NoLCjeccvg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mtW4US_2Eeu6NoLCjeccvg" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_mtW4Ui_2Eeu6NoLCjeccvg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mtW4Uy_2Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_mtW4VC_2Eeu6NoLCjeccvg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mtW4VS_2Eeu6NoLCjeccvg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_mtWRQS_2Eeu6NoLCjeccvg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_mtWRQi_2Eeu6NoLCjeccvg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mtWRQy_2Eeu6NoLCjeccvg" points="[0, 0, -1247, 297]$[1212, -289, -35, 8]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mtW4Vi_2Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mtW4Vy_2Eeu6NoLCjeccvg" id="(0.5,0.5)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -1792,10 +1891,21 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs2Q0C8jEeuexOBQrKVSlA" name="Boeing 737-800, id: 1" incomingEdges="_RtZqci8jEeuexOBQrKVSlA _RtaRgi8jEeuexOBQrKVSlA _Rta4ki8jEeuexOBQrKVSlA" width="10" height="10" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs2Q0C8jEeuexOBQrKVSlA" name="Boeing 737-800, id: 1" incomingEdges="_RtZqci8jEeuexOBQrKVSlA _RtaRgi8jEeuexOBQrKVSlA _Rta4ki8jEeuexOBQrKVSlA _HPdD7C_yEeu6HJUsZRYTtw" width="10" height="10" resizeKind="NSEW">
       <target xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.0"/>
       <semanticElements xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.0"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs4GAC8jEeuexOBQrKVSlA" labelSize="10" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png" labelAlignment="LEFT" borderColor="217,196,215" labelPosition="node" color="217,196,215">
+        <description xmi:type="style:BundledImageDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_zCO8kC_xEeu6HJUsZRYTtw" name="Boeing 737-700, id: 2" width="10" height="10" resizeKind="NSEW">
+      <target xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.1"/>
+      <semanticElements xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:BundledImage" uid="_zCPjoC_xEeu6HJUsZRYTtw" labelSize="10" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png" labelAlignment="LEFT" borderColor="217,196,215" labelPosition="node" color="217,196,215">
         <description xmi:type="style:BundledImageDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']"/>
@@ -1816,7 +1926,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs57MS8jEeuexOBQrKVSlA" name="30" incomingEdges="_RtQggi8jEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs57MS8jEeuexOBQrKVSlA" name="30" incomingEdges="_RtQggi8jEeuexOBQrKVSlA _VoNnPC_0Eeu6NoLCjeccvg" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.1/@gates.1"/>
       <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.1/@gates.1"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs57Mi8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" borderColor="204,242,166" labelPosition="node" shape="triangle" color="204,242,166">
@@ -1832,7 +1942,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs6iQy8jEeuexOBQrKVSlA" name="2" incomingEdges="_RtRHki8jEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs6iQy8jEeuexOBQrKVSlA" name="2" incomingEdges="_RtRHki8jEeuexOBQrKVSlA _WBY8PC_0Eeu6NoLCjeccvg" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.2/@gates.1"/>
       <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.2/@gates.1"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs6iRC8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" borderColor="204,242,166" labelPosition="node" shape="triangle" color="204,242,166">
@@ -1848,7 +1958,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs7wYS8jEeuexOBQrKVSlA" name="18" incomingEdges="_RtRupC8jEeuexOBQrKVSlA _IgqQUC8yEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs7wYS8jEeuexOBQrKVSlA" name="18" incomingEdges="_RtRupC8jEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.3/@gates.1"/>
       <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.3/@gates.1"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs7wYi8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" borderColor="204,242,166" labelPosition="node" shape="triangle" color="204,242,166">
@@ -1872,7 +1982,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs9lkC8jEeuexOBQrKVSlA" name="TRD" outgoingEdges="_RtP5ci8jEeuexOBQrKVSlA _RtQggi8jEeuexOBQrKVSlA _RtcGtS8jEeuexOBQrKVSlA" incomingEdges="_RtSVtS8jEeuexOBQrKVSlA _RtTj0C8jEeuexOBQrKVSlA" width="8" height="8" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs9lkC8jEeuexOBQrKVSlA" name="TRD" outgoingEdges="_RtP5ci8jEeuexOBQrKVSlA _RtQggi8jEeuexOBQrKVSlA _RtcGtS8jEeuexOBQrKVSlA" incomingEdges="_RtSVtS8jEeuexOBQrKVSlA _RtTj0C8jEeuexOBQrKVSlA _VVk_Ei_0Eeu6NoLCjeccvg" width="8" height="8" resizeKind="NSEW">
       <target xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.1"/>
       <semanticElements xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.1"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs9lkS8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/airport.png" borderColor="77,137,20" labelPosition="node" shape="dot" color="77,137,20">
@@ -1880,7 +1990,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs9lky8jEeuexOBQrKVSlA" name="TRF" outgoingEdges="_RtQghy8jEeuexOBQrKVSlA _RtRHki8jEeuexOBQrKVSlA _Rtctwi8jEeuexOBQrKVSlA" width="8" height="8" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs9lky8jEeuexOBQrKVSlA" name="TRF" outgoingEdges="_RtQghy8jEeuexOBQrKVSlA _RtRHki8jEeuexOBQrKVSlA _Rtctwi8jEeuexOBQrKVSlA" incomingEdges="_V2TGjC_0Eeu6NoLCjeccvg" width="8" height="8" resizeKind="NSEW">
       <target xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.2"/>
       <semanticElements xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.2"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs9llC8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/airport.png" borderColor="77,137,20" labelPosition="node" shape="dot" color="77,137,20">
@@ -1888,7 +1998,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs-MoC8jEeuexOBQrKVSlA" name="SVG" outgoingEdges="_RtRHly8jEeuexOBQrKVSlA _RtRupC8jEeuexOBQrKVSlA _RtRuqS8jEeuexOBQrKVSlA _Rtd74C8jEeuexOBQrKVSlA _Rtd75S8jEeuexOBQrKVSlA" incomingEdges="_RtS8wC8jEeuexOBQrKVSlA _ruW_DC8wEeuexOBQrKVSlA" width="8" height="8" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs-MoC8jEeuexOBQrKVSlA" name="SVG" outgoingEdges="_RtRHly8jEeuexOBQrKVSlA _RtRupC8jEeuexOBQrKVSlA _RtRuqS8jEeuexOBQrKVSlA _Rtd74C8jEeuexOBQrKVSlA _Rtd75S8jEeuexOBQrKVSlA" incomingEdges="_RtS8wC8jEeuexOBQrKVSlA" width="8" height="8" resizeKind="NSEW">
       <target xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.3"/>
       <semanticElements xmi:type="at:Airport" href="TravelPlanner.xmi#//@airports.3"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs-MoS8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/airport.png" borderColor="77,137,20" labelPosition="node" shape="dot" color="77,137,20">
@@ -1896,7 +2006,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs-zsC8jEeuexOBQrKVSlA" name="01R/19L" incomingEdges="_RtbfoC8jEeuexOBQrKVSlA _RtiNUC8jEeuexOBQrKVSlA _Rti0YC8jEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs-zsC8jEeuexOBQrKVSlA" name="01R/19L" incomingEdges="_RtbfoC8jEeuexOBQrKVSlA _RtiNUC8jEeuexOBQrKVSlA _Rti0YC8jEeuexOBQrKVSlA _mtTOEC_2Eeu6NoLCjeccvg" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Runway" href="TravelPlanner.xmi#//@airports.0/@runways.0"/>
       <semanticElements xmi:type="at:Runway" href="TravelPlanner.xmi#//@airports.0/@runways.0"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs-zsS8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" borderColor="246,139,139" labelPosition="node" shape="stroke" color="246,139,139">
@@ -1912,7 +2022,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='RunwayNode']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs_awi8jEeuexOBQrKVSlA" name="09/27" incomingEdges="_RtcGtS8jEeuexOBQrKVSlA _RthmQC8jEeuexOBQrKVSlA _RtjbcC8jEeuexOBQrKVSlA" width="7" height="7" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_Rs_awi8jEeuexOBQrKVSlA" name="09/27" incomingEdges="_RtcGtS8jEeuexOBQrKVSlA _RthmQC8jEeuexOBQrKVSlA _RtjbcC8jEeuexOBQrKVSlA _bZWNhC_2Eeu6NoLCjeccvg" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="at:Runway" href="TravelPlanner.xmi#//@airports.1/@runways.0"/>
       <semanticElements xmi:type="at:Runway" href="TravelPlanner.xmi#//@airports.1/@runways.0"/>
       <ownedStyle xmi:type="diagram:BundledImage" uid="_Rs_awy8jEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" borderColor="246,139,139" labelPosition="node" shape="stroke" color="246,139,139">
@@ -2107,7 +2217,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='AirportGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtSVsC8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtSVsC8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK377"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtSVsS8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']/@style"/>
@@ -2115,7 +2225,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtSVtS8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs9lkC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtSVtS8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs9lkC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK338"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtSVti8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']/@style"/>
@@ -2123,7 +2233,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtS8wC8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs-MoC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtS8wC8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs-MoC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK4047"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtS8wS8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']/@style"/>
@@ -2131,7 +2241,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtTj0C8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs9lkC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtTj0C8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs9lkC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK377"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtTj0S8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']/@style"/>
@@ -2139,7 +2249,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtUK4i8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtUK4i8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK338"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtUK4y8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']/@style"/>
@@ -2147,7 +2257,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtUx8i8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtUx8i8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs8-gS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK4047"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtUx8y8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']/@style"/>
@@ -2281,7 +2391,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='AirportRunwayEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Rtei9C8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Rtei9C8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK377"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtfKAC8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']/@style"/>
@@ -2289,7 +2399,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfKBC8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs5UIS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfKBC8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs5UIS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK338"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtfKBS8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']/@style"/>
@@ -2297,7 +2407,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfKCS8jEeuexOBQrKVSlA" name="Destination" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs8XcS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfKCS8jEeuexOBQrKVSlA" name="Destination" visible="false" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs8XcS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK4047"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtfxEC8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']/@style"/>
@@ -2305,7 +2415,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfxFC8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs5UIS8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtfxFC8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtB3AC8jEeuexOBQrKVSlA" targetNode="_Rs5UIS8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK377"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtfxFS8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']/@style"/>
@@ -2313,7 +2423,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtgYIi8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RtgYIi8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtETQS8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK338"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RtgYIy8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']/@style"/>
@@ -2321,7 +2431,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Rtg_Mi8jEeuexOBQrKVSlA" name="Departure" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Rtg_Mi8jEeuexOBQrKVSlA" name="Departure" visible="false" sourceNode="_RtFhYC8jEeuexOBQrKVSlA" targetNode="_Rs4tEC8jEeuexOBQrKVSlA">
       <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK4047"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Rtg_My8jEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']/@style"/>
@@ -2377,9 +2487,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestRunwayEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XntFsC8jEeuexOBQrKVSlA" outgoingEdges="_ruW_DC8wEeuexOBQrKVSlA _IgqQUC8yEeuexOBQrKVSlA" width="2" height="2">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
-      <semanticElements xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XntFsC8jEeuexOBQrKVSlA" name="SK123" outgoingEdges="_HPdD7C_yEeu6HJUsZRYTtw _VVk_Ei_0Eeu6NoLCjeccvg _VoNnPC_0Eeu6NoLCjeccvg _V2TGjC_0Eeu6NoLCjeccvg _WBY8PC_0Eeu6NoLCjeccvg _bZWNhC_2Eeu6NoLCjeccvg _mtTOEC_2Eeu6NoLCjeccvg" width="2" height="2">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <semanticElements xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -2388,30 +2498,86 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Ign0By8yEeuexOBQrKVSlA" name="Departure: 18">
-        <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.3/@gates.1"/>
-        <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.3/@gates.1"/>
-        <ownedStyle xmi:type="diagram:Square" uid="_Ign0CC8yEeuexOBQrKVSlA" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" labelAlignment="LEFT" labelPosition="node">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HPb1ui_yEeu6HJUsZRYTtw" name="162">
+        <target xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.0"/>
+        <semanticElements xmi:type="at:Airplane" href="TravelPlanner.xmi#//@airlines.0/@airplanes.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_HPb1uy_yEeu6HJUsZRYTtw" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/seat.png" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='NumberOfSeats']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='NumberOfSeats']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_VoJVwC_0Eeu6NoLCjeccvg" name="Departure: 30">
+        <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.1/@gates.1"/>
+        <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.1/@gates.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_VoJ80C_0Eeu6NoLCjeccvg" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" labelAlignment="LEFT" labelPosition="node">
           <description xmi:type="style:SquareDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='DepGateNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='DepGateNode']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_j2WO-S_2Eeu6NoLCjeccvg" name="Destination: C6">
+        <target xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.0/@gates.0"/>
+        <semanticElements xmi:type="at:Gate" href="TravelPlanner.xmi#//@airports.0/@gates.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_j2W2AC_2Eeu6NoLCjeccvg" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" labelAlignment="LEFT" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='DestGateNode']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']/@subNodeMappings[name='DestGateNode']"/>
+      </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ruW_DC8wEeuexOBQrKVSlA" name="Departure" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs-MoC8jEeuexOBQrKVSlA">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ruXmEC8wEeuexOBQrKVSlA" size="2">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_HPdD7C_yEeu6HJUsZRYTtw" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs2Q0C8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_HPdD7S_yEeu6HJUsZRYTtw" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightAirplaneEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_HPdD7i_yEeu6HJUsZRYTtw" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightAirplaneEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VVk_Ei_0Eeu6NoLCjeccvg" name="Departure" visible="false" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs9lkC8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_VVk_Ey_0Eeu6NoLCjeccvg" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ruXmES8wEeuexOBQrKVSlA" labelSize="12" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_VVk_FC_0Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IgqQUC8yEeuexOBQrKVSlA" name="Departure" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs7wYS8jEeuexOBQrKVSlA">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IgqQUS8yEeuexOBQrKVSlA" size="2">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VoNnPC_0Eeu6NoLCjeccvg" name="Departure" visible="false" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs57MS8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_VoNnPS_0Eeu6NoLCjeccvg" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IgqQUi8yEeuexOBQrKVSlA" labelSize="12" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_VoNnPi_0Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_V2TGjC_0Eeu6NoLCjeccvg" name="Destination" visible="false" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs9lky8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_V2TtkC_0Eeu6NoLCjeccvg" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_V2TtkS_0Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestAirportEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_WBY8PC_0Eeu6NoLCjeccvg" name="Destination" visible="false" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs6iQy8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_WBY8PS_0Eeu6NoLCjeccvg" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_WBY8Pi_0Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestGateEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bZWNhC_2Eeu6NoLCjeccvg" name="Departure" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs_awi8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_bZWNhS_2Eeu6NoLCjeccvg" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepRunwayEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_bZWNhi_2Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepRunwayEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mtTOEC_2Eeu6NoLCjeccvg" name="Destination" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs-zsC8jEeuexOBQrKVSlA">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK123"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_mtT1AC_2Eeu6NoLCjeccvg" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestRunwayEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_mtT1AS_2Eeu6NoLCjeccvg" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestRunwayEdge']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_RsK7YC8jEeuexOBQrKVSlA"/>
