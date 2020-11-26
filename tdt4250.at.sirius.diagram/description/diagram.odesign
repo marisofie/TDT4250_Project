@@ -406,7 +406,7 @@
           </conditionalStyles>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="AirportContainer">
-          <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql: self.eContainer(at::TravelPlanner).airports" candidateDisplayExpression="aql:candidate.id">
+          <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql: self.eContainer(at::TravelPlanner).airports" candidateDisplayExpression="aql: candidate">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="departureAirport" valueExpression="aql:newValue"/>

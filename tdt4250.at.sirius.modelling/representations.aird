@@ -11,7 +11,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_2NRV0CD2EeuN9PFjtTsn_A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_RsOlwS8jEeuexOBQrKVSlA" name="SASDiagram" repPath="#_RsKUUC8jEeuexOBQrKVSlA" changeId="d70a1335-403d-4c3f-90f7-97a9fea10fb8">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_RsOlwS8jEeuexOBQrKVSlA" name="SASDiagram" repPath="#_RsKUUC8jEeuexOBQrKVSlA" changeId="e326c43f-05a0-404a-ba6c-f8f7c100eea8">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']"/>
         <target xmi:type="at:Airline" href="TravelPlanner.xmi#//@airlines.0"/>
       </ownedRepresentationDescriptors>
@@ -2377,9 +2377,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDestRunwayEdge']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XntFsC8jEeuexOBQrKVSlA" name="SK12" outgoingEdges="_ruW_DC8wEeuexOBQrKVSlA _IgqQUC8yEeuexOBQrKVSlA" width="2" height="2">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK12"/>
-      <semanticElements xmi:type="at:Flight" href="TravelPlanner.xmi#SK12"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_XntFsC8jEeuexOBQrKVSlA" outgoingEdges="_ruW_DC8wEeuexOBQrKVSlA _IgqQUC8yEeuexOBQrKVSlA" width="2" height="2">
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
+      <semanticElements xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -2398,7 +2398,7 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ruW_DC8wEeuexOBQrKVSlA" name="Departure" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs-MoC8jEeuexOBQrKVSlA">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK12"/>
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ruXmEC8wEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ruXmES8wEeuexOBQrKVSlA" labelSize="12" showIcon="false"/>
@@ -2406,7 +2406,7 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepAirportEdge']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_IgqQUC8yEeuexOBQrKVSlA" name="Departure" sourceNode="_XntFsC8jEeuexOBQrKVSlA" targetNode="_Rs7wYS8jEeuexOBQrKVSlA">
-      <target xmi:type="at:Flight" href="TravelPlanner.xmi#SK12"/>
+      <target xmi:type="at:Flight" href="TravelPlanner.xmi#"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IgqQUS8yEeuexOBQrKVSlA" size="2">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/tdt4250.at.sirius.diagram/description/diagram.odesign#//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='FlightDepGateEdge']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IgqQUi8yEeuexOBQrKVSlA" labelSize="12" showIcon="false"/>

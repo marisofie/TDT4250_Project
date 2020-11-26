@@ -41,7 +41,7 @@
       <allocations member="//@airlines.0/@employees.3"/>
     </flights>
     <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.0" destinationAirport="//@airports.3" departureGate="//@airports.0/@gates.0" destinationGate="//@airports.3/@gates.2" destinationRunway="2" departureRunway="1" code="SK4047" departureTime="2020-11-10T19:45:00.000+0100" arrivalTime="2020-11-10T20:40:00.000+0100"/>
-    <flights departureAirport="//@airports.3" departureGate="//@airports.3/@gates.1" code="SK12"/>
+    <flights departureAirport="//@airports.3" departureGate="//@airports.3/@gates.1" code=""/>
     <airplanes id="1" numberOfSeats="162" minimumCrew="5" requiredRunwayLengthTakeoff="2473" requiredRunwayLengthLanding="1981"/>
     <employees firstName="Lise" familyName="Hansen" age="30" allocations="//@airlines.0/@flights.1/@allocations.3"/>
     <employees firstName="Sigrid Marita" familyName="Kvamme" age="23" allocations="//@airlines.0/@flights.0/@allocations.0"/>
