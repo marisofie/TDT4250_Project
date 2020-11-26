@@ -24,8 +24,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import at.util.AtResourceFactoryImpl;
-
 /**
  * Entry point of the 'AirFlight2Text' generation module.
  *
@@ -44,7 +42,7 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateHomePage", "generateAirlinePages" };
+    public static final String[] TEMPLATE_NAMES = { "generateHomePage", "generateAirlinePages", "generateAirportPages" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).

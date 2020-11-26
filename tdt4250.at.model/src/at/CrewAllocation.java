@@ -2,8 +2,6 @@
  */
 package at;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link at.CrewAllocation#getRole <em>Role</em>}</li>
  *   <li>{@link at.CrewAllocation#getMember <em>Member</em>}</li>
- *   <li>{@link at.CrewAllocation#getCrew <em>Crew</em>}</li>
+ *   <li>{@link at.CrewAllocation#getFlight <em>Flight</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getCrewAllocation()
@@ -51,39 +49,51 @@ public interface CrewAllocation extends EObject {
 	void setRole(Role value);
 
 	/**
-	 * Returns the value of the '<em><b>Member</b></em>' reference list.
-	 * The list contents are of type {@link at.Person}.
+	 * Returns the value of the '<em><b>Member</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link at.Person#getAllocations <em>Allocations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' reference list.
+	 * @return the value of the '<em>Member</em>' reference.
+	 * @see #setMember(Person)
 	 * @see at.AtPackage#getCrewAllocation_Member()
-	 * @model
+	 * @see at.Person#getAllocations
+	 * @model opposite="allocations"
 	 * @generated
 	 */
-	EList<Person> getMember();
+	Person getMember();
 
 	/**
-	 * Returns the value of the '<em><b>Crew</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link at.Crew#getCrewAllocations <em>Crew Allocations</em>}'.
+	 * Sets the value of the '{@link at.CrewAllocation#getMember <em>Member</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Crew</em>' container reference.
-	 * @see #setCrew(Crew)
-	 * @see at.AtPackage#getCrewAllocation_Crew()
-	 * @see at.Crew#getCrewAllocations
-	 * @model opposite="crewAllocations" transient="false"
+	 * @param value the new value of the '<em>Member</em>' reference.
+	 * @see #getMember()
 	 * @generated
 	 */
-	Crew getCrew();
+	void setMember(Person value);
 
 	/**
-	 * Sets the value of the '{@link at.CrewAllocation#getCrew <em>Crew</em>}' container reference.
+	 * Returns the value of the '<em><b>Flight</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link at.Flight#getAllocations <em>Allocations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Crew</em>' container reference.
-	 * @see #getCrew()
+	 * @return the value of the '<em>Flight</em>' container reference.
+	 * @see #setFlight(Flight)
+	 * @see at.AtPackage#getCrewAllocation_Flight()
+	 * @see at.Flight#getAllocations
+	 * @model opposite="allocations" transient="false"
 	 * @generated
 	 */
-	void setCrew(Crew value);
+	Flight getFlight();
+
+	/**
+	 * Sets the value of the '{@link at.CrewAllocation#getFlight <em>Flight</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Flight</em>' container reference.
+	 * @see #getFlight()
+	 * @generated
+	 */
+	void setFlight(Flight value);
 
 } // CrewAllocation

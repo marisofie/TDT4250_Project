@@ -8,7 +8,6 @@ import at.AirplaneType;
 import at.Airport;
 import at.AtFactory;
 import at.AtPackage;
-import at.Crew;
 import at.CrewAllocation;
 import at.Flight;
 import at.Gate;
@@ -92,13 +91,6 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	private EClass personEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass crewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,6 +267,15 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAirline_Employees() {
+		return (EReference)airlineEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAirplane() {
 		return airplaneEClass;
 	}
@@ -285,7 +286,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	public EAttribute getAirplane_Id() {
-		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -294,7 +295,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	public EAttribute getAirplane_Type() {
-		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)airplaneEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -419,7 +420,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlight_Crew() {
+	public EReference getFlight_Passengers() {
 		return (EReference)flightEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -428,17 +429,8 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFlight_Passengers() {
-		return (EReference)flightEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getFlight_Code() {
-		return (EAttribute)flightEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)flightEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -447,7 +439,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	public EAttribute getFlight_DepartureTime() {
-		return (EAttribute)flightEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)flightEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -456,7 +448,16 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * @generated
 	 */
 	public EAttribute getFlight_ArrivalTime() {
-		return (EAttribute)flightEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)flightEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFlight_Allocations() {
+		return (EReference)flightEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -617,8 +618,8 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCrew() {
-		return crewEClass;
+	public EReference getPerson_Allocations() {
+		return (EReference)personEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -626,8 +627,8 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCrew_CrewAllocations() {
-		return (EReference)crewEClass.getEStructuralFeatures().get(0);
+	public EReference getPerson_Employer() {
+		return (EReference)personEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -662,7 +663,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCrewAllocation_Crew() {
+	public EReference getCrewAllocation_Flight() {
 		return (EReference)crewAllocationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -730,10 +731,11 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEAttribute(airlineEClass, AIRLINE__NAME);
 		createEReference(airlineEClass, AIRLINE__FLIGHTS);
 		createEReference(airlineEClass, AIRLINE__AIRPLANES);
+		createEReference(airlineEClass, AIRLINE__EMPLOYEES);
 
 		airplaneEClass = createEClass(AIRPLANE);
-		createEAttribute(airplaneEClass, AIRPLANE__ID);
 		createEAttribute(airplaneEClass, AIRPLANE__TYPE);
+		createEAttribute(airplaneEClass, AIRPLANE__ID);
 		createEAttribute(airplaneEClass, AIRPLANE__NUMBER_OF_SEATS);
 		createEAttribute(airplaneEClass, AIRPLANE__MINIMUM_CREW);
 		createEAttribute(airplaneEClass, AIRPLANE__REQUIRED_RUNWAY_LENGTH_TAKEOFF);
@@ -748,11 +750,11 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEReference(flightEClass, FLIGHT__DESTINATION_GATE);
 		createEReference(flightEClass, FLIGHT__DESTINATION_RUNWAY);
 		createEReference(flightEClass, FLIGHT__DEPARTURE_RUNWAY);
-		createEReference(flightEClass, FLIGHT__CREW);
 		createEReference(flightEClass, FLIGHT__PASSENGERS);
 		createEAttribute(flightEClass, FLIGHT__CODE);
 		createEAttribute(flightEClass, FLIGHT__DEPARTURE_TIME);
 		createEAttribute(flightEClass, FLIGHT__ARRIVAL_TIME);
+		createEReference(flightEClass, FLIGHT__ALLOCATIONS);
 
 		airportEClass = createEClass(AIRPORT);
 		createEAttribute(airportEClass, AIRPORT__ID);
@@ -774,14 +776,13 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEAttribute(personEClass, PERSON__FAMILY_NAME);
 		createEAttribute(personEClass, PERSON__GENDER);
 		createEAttribute(personEClass, PERSON__AGE);
-
-		crewEClass = createEClass(CREW);
-		createEReference(crewEClass, CREW__CREW_ALLOCATIONS);
+		createEReference(personEClass, PERSON__ALLOCATIONS);
+		createEReference(personEClass, PERSON__EMPLOYER);
 
 		crewAllocationEClass = createEClass(CREW_ALLOCATION);
 		createEAttribute(crewAllocationEClass, CREW_ALLOCATION__ROLE);
 		createEReference(crewAllocationEClass, CREW_ALLOCATION__MEMBER);
-		createEReference(crewAllocationEClass, CREW_ALLOCATION__CREW);
+		createEReference(crewAllocationEClass, CREW_ALLOCATION__FLIGHT);
 
 		// Create enums
 		roleEEnum = createEEnum(ROLE);
@@ -828,10 +829,11 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEAttribute(getAirline_Name(), ecorePackage.getEString(), "name", null, 0, 1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAirline_Flights(), this.getFlight(), null, "flights", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAirline_Airplanes(), this.getAirplane(), null, "airplanes", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAirline_Employees(), this.getPerson(), this.getPerson_Employer(), "employees", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(airplaneEClass, Airplane.class, "Airplane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAirplane_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_Type(), this.getAirplaneType(), "type", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAirplane_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_NumberOfSeats(), ecorePackage.getEInt(), "numberOfSeats", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_MinimumCrew(), ecorePackage.getEInt(), "minimumCrew", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAirplane_RequiredRunwayLengthTakeoff(), ecorePackage.getEInt(), "requiredRunwayLengthTakeoff", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -840,17 +842,17 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEClass(flightEClass, Flight.class, "Flight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFlight_Duration(), ecorePackage.getEInt(), "duration", null, 0, 1, Flight.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_Airplane(), this.getAirplane(), null, "airplane", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlight_DepartureAirport(), this.getAirport(), null, "departureAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlight_DepartureAirport(), this.getAirport(), null, "departureAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DestinationAirport(), this.getAirport(), null, "destinationAirport", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DepartureGate(), this.getGate(), null, "departureGate", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DestinationGate(), this.getGate(), null, "destinationGate", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DestinationRunway(), this.getRunway(), null, "destinationRunway", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_DepartureRunway(), this.getRunway(), null, "departureRunway", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlight_Crew(), this.getCrew(), null, "crew", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlight_Passengers(), this.getPerson(), null, "passengers", null, 0, -1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFlight_Code(), ecorePackage.getEString(), "code", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFlight_DepartureTime(), ecorePackage.getEDate(), "departureTime", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlight_Code(), ecorePackage.getEString(), "code", null, 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlight_DepartureTime(), ecorePackage.getEDate(), "departureTime", "2000-01-01T00:00:00.000+0100", 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFlight_ArrivalTime(), ecorePackage.getEDate(), "arrivalTime", "2000-01-01T00:00:00.000+0100", 0, 1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlight_Allocations(), this.getCrewAllocation(), this.getCrewAllocation_Flight(), "allocations", null, 0, -1, Flight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(airportEClass, Airport.class, "Airport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAirport_Id(), ecorePackage.getEString(), "id", null, 0, 1, Airport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -872,14 +874,13 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEAttribute(getPerson_FamilyName(), ecorePackage.getEString(), "familyName", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPerson_Gender(), this.getGender(), "gender", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPerson_Age(), ecorePackage.getEInt(), "age", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(crewEClass, Crew.class, "Crew", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCrew_CrewAllocations(), this.getCrewAllocation(), this.getCrewAllocation_Crew(), "crewAllocations", null, 0, -1, Crew.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Allocations(), this.getCrewAllocation(), this.getCrewAllocation_Member(), "allocations", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Employer(), this.getAirline(), this.getAirline_Employees(), "employer", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(crewAllocationEClass, CrewAllocation.class, "CrewAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCrewAllocation_Role(), this.getRole(), "role", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrewAllocation_Member(), this.getPerson(), null, "member", null, 0, -1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrewAllocation_Crew(), this.getCrew(), this.getCrew_CrewAllocations(), "crew", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrewAllocation_Member(), this.getPerson(), this.getPerson_Allocations(), "member", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrewAllocation_Flight(), this.getFlight(), this.getFlight_Allocations(), "flight", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(roleEEnum, Role.class, "Role");
@@ -952,14 +953,14 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		   source,
 		   new String[] {
 			   "maximumPassengers", "self.passengers -> size() < self.airplane.numberOfSeats",
-			   "minimumCrew", "self.crew -> size() >= self.airplane.minimumCrew",
+			   "minimumCrew", "self.allocations -> size() >= self.airplane.minimumCrew",
 			   "validateRunwayLengthTakeOff", "self.departureRunway.length >= self.airplane.requiredRunwayLengthTakeoff\n",
 			   "validateRunwayLengthLanding", "self.destinationRunway.length >= self.airplane.requiredRunwayLengthLanding",
 			   "validateRunwayExistsTakeOff", "self.departureAirport.runways -> exists(r | r = self.departureRunway) ",
 			   "validateRunwayExistsLanding", "self.destinationAirport.runways -> exists(r | r = self.destinationRunway) ",
 			   "validateGateTakeOff", "self.departureAirport.gates -> exists(g | g = self.departureGate)",
 			   "validateGateLanding", "self.destinationAirport.gates -> exists(g | g = self.destinationGate)",
-			   "validateCrew", "((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"
+			   "validateCrew", "((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"
 		   },
 		   new URI[] {
 			 URI.createURI(eNS_URI).appendFragment("//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%")

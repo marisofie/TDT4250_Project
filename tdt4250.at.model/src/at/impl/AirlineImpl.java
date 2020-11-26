@@ -7,6 +7,7 @@ import at.Airplane;
 import at.AtPackage;
 import at.Flight;
 
+import at.Person;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.impl.AirlineImpl#getName <em>Name</em>}</li>
  *   <li>{@link at.impl.AirlineImpl#getFlights <em>Flights</em>}</li>
  *   <li>{@link at.impl.AirlineImpl#getAirplanes <em>Airplanes</em>}</li>
+ *   <li>{@link at.impl.AirlineImpl#getEmployees <em>Employees</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +81,16 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 	 * @ordered
 	 */
 	protected EList<Airplane> airplanes;
+
+	/**
+	 * The cached value of the '{@link #getEmployees() <em>Employees</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmployees()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Person> employees;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +161,33 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Person> getEmployees() {
+		if (employees == null) {
+			employees = new EObjectContainmentWithInverseEList<Person>(Person.class, this, AtPackage.AIRLINE__EMPLOYEES, AtPackage.PERSON__EMPLOYER);
+		}
+		return employees;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.AIRLINE__EMPLOYEES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEmployees()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +195,8 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				return ((InternalEList<?>)getFlights()).basicRemove(otherEnd, msgs);
 			case AtPackage.AIRLINE__AIRPLANES:
 				return ((InternalEList<?>)getAirplanes()).basicRemove(otherEnd, msgs);
+			case AtPackage.AIRLINE__EMPLOYEES:
+				return ((InternalEList<?>)getEmployees()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,6 +215,8 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				return getFlights();
 			case AtPackage.AIRLINE__AIRPLANES:
 				return getAirplanes();
+			case AtPackage.AIRLINE__EMPLOYEES:
+				return getEmployees();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +241,10 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				getAirplanes().clear();
 				getAirplanes().addAll((Collection<? extends Airplane>)newValue);
 				return;
+			case AtPackage.AIRLINE__EMPLOYEES:
+				getEmployees().clear();
+				getEmployees().addAll((Collection<? extends Person>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -218,6 +266,9 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 			case AtPackage.AIRLINE__AIRPLANES:
 				getAirplanes().clear();
 				return;
+			case AtPackage.AIRLINE__EMPLOYEES:
+				getEmployees().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,6 +287,8 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				return flights != null && !flights.isEmpty();
 			case AtPackage.AIRLINE__AIRPLANES:
 				return airplanes != null && !airplanes.isEmpty();
+			case AtPackage.AIRLINE__EMPLOYEES:
+				return employees != null && !employees.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

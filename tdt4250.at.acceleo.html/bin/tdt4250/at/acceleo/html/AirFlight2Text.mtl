@@ -4,15 +4,19 @@
 
 [template public generateHomePage(travelPlanner : TravelPlanner)]
 [comment @main/]
+[comment Generate the home page /]
 [file ('index.html', false, 'UTF-8')]
 [generateHeader('Home Page')/]
 [generateNavBar(travelPlanner)/]
-
+<div class="content-container">
 <h1>Welcome to Travel Planner</h1>
+
+[createAirportNavigation(travelPlanner)/]	
 
 <p> Created by Mari Sofie, Sigrid Marita, and &Aring;dne </p>
 
 [generateReferenceList(travelPlanner)/]
+</div>
 </html>
 [/file]
 [/template]
@@ -20,27 +24,172 @@
 
 [template public generateAirlinePages(travelPlanner : TravelPlanner)]
 [comment @main/]
+[comment Generate an html file for each airline /] 
 [for (airline : Airline | travelPlanner.airlines)]
 [file (airline.name.concat('.html'), false, 'UTF-8')]
 [generateHeader(airline.name)/]
 [generateNavBar(travelPlanner)/]
-
+<div class="content-container">
 <h1>[airline.name/]</h1>
-[generateFlightList(airline)/]
-
+[generateAirlineFlightList(airline)/]
 [generateReferenceList(travelPlanner)/]
+</div>
 </html>
 [/file]
 [/for]
 [/template]
 
+
+[template public generateAirportPages(travelPlanner : TravelPlanner)]
+[comment @main/]
+[for (airport : Airport | travelPlanner.airports)]
+[file (airport.id.concat('.html'), false, 'UTF-8')]
+[generateHeader(airport.id)/]
+[generateNavBar(travelPlanner)/]
+<div class="content-container">
+<h1>[airport.id/]</h1>
+
+
+<h3> Flights departing from [airport.id/] </h3>
+<!-- ft: flight table for departure airport -->
+<div class="ft">
+<div class="ft_item ft_code">Flight Code</div>
+<div class="ft_item ft_dep-ap">Departure from</div>
+<div class="ft_item ft_dest-ap">Destination</div>
+<div class="ft_item ft_dep-time">Departure Time</div>
+<div class="ft_item ft_arr-time">Arrival Time</div>
+<div class="ft_item ft_duration">Flight Duration</div>
+[for (airline : Airline | travelPlanner.airlines)]
+[for (flight : Flight | (airline.flights -> reject(f | f.departureAirport = null) ) -> select(f | f.departureAirport.id = airport.id) )]
+[generateFlightListRow(flight) /]
+[/for]
+[/for]
+</div>
+
+
+<h3> Flights arriving at [airport.id/] </h3>
+<!-- ft: flight table for destination airport -->
+<div class="ft">
+<div class="ft_item ft_code">Flight Code</div>
+<div class="ft_item ft_dep-ap">Departure from</div>
+<div class="ft_item ft_dest-ap">Destination</div>
+<div class="ft_item ft_dep-time">Departure Time</div>
+<div class="ft_item ft_arr-time">Arrival Time</div>
+<div class="ft_item ft_duration">Flight Duration</div>
+[for (airline : Airline | travelPlanner.airlines)]
+[for (flight : Flight | (airline.flights -> reject(f | f.destinationAirport = null) ) -> select(f | f.destinationAirport.id = airport.id) )]
+[generateFlightListRow(flight) /]
+[/for]
+[/for]
+</div>
+
+[generateReferenceList(travelPlanner) /]
+</div>
+</html>
+[/file]
+[/for]
+[/template]
+
+[template public createAirportNavigation(travelPlanner : TravelPlanner)]
+<h2>Select an airport to see all departures and arrivals</h2>
+<ul>
+[for (airport : Airport | travelPlanner.airports)]
+<li><a href="[airport.id/].html">[airport.id/]</a></li>
+[/for]
+</ul>
+[/template]
+
+
 [template public generateHeader(title : String)]
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8"/>
-	<title>[title/]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<style>
+	* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.tp-header {
+  min-height: 88px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tp_nav ul,
+.tp_nav li {
+  list-style: none;
+}
+
+.tp_nav {
+  width: 40%;
+}
+
+.tp_nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tp_nav a {
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.tp_nav a:visited {
+  color: black;
+}
+
+.content-container {
+  min-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+    width: 80%;
+}
+
+.ft {
+  display: grid;
+
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 4px;
+}
+
+.ft_item {
+    text-align: center;
+    align-self: center;
+}
+
+.ft_dep-time {
+    grid-column: 4/6;
+}
+.ft_arr-time {
+    grid-column: 6/8;
+}
+
+.ref-list {
+  justify-self: center;
+}
+
+</style>
 <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -61,22 +210,40 @@
 </div>
 [/template]
 
-[template public generateFlightList(airline: Airline)]
+[template public generateAirlineFlightList(airline: Airline)]
 <!-- ft: flight table -->
 <div class="ft">
+<div class="ft_item ft_code">Flight Code</div>
+<div class="ft_item ft_dep-ap">Departure from</div>
+<div class="ft_item ft_dest-ap">Destination</div>
+<div class="ft_item ft_dep-time">Departure Time</div>
+<div class="ft_item ft_arr-time">Arrival Time</div>
+<div class="ft_item ft_duration">Flight Duration</div>
 [for (flight : Flight | airline.flights)]
+[generateFlightListRow(flight) /]
+[/for]
+</div>
+[/template]
+
+
+[template public generateFlightListRow(flight : Flight)]
 <div class="ft_item ft_code">[flight.code/]</div>
 <div class="ft_item ft_dep-ap">[flight.departureAirport.id/]</div>
 <div class="ft_item ft_dest-ap">[flight.destinationAirport.id/]</div>
 <div class="ft_item ft_dep-time">[flight.departureTime/]</div>
 <div class="ft_item ft_arr-time">[flight.arrivalTime/]</div>
 <div class="ft_item ft_duration">[flight.duration/]</div>
-[/for]
-</div>
 [/template]
+
 
 [template public generateReferenceList(travelPlanner : TravelPlanner)]
 <div class="ref-list">
 Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 </div>
 [/template]
+
+[template public filterFlightsOnAirport(airport : Airport, airline : Airline)] 
+	
+[/template]
+
+

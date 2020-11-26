@@ -25,16 +25,16 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.Flight#getDestinationGate <em>Destination Gate</em>}</li>
  *   <li>{@link at.Flight#getDestinationRunway <em>Destination Runway</em>}</li>
  *   <li>{@link at.Flight#getDepartureRunway <em>Departure Runway</em>}</li>
- *   <li>{@link at.Flight#getCrew <em>Crew</em>}</li>
  *   <li>{@link at.Flight#getPassengers <em>Passengers</em>}</li>
  *   <li>{@link at.Flight#getCode <em>Code</em>}</li>
  *   <li>{@link at.Flight#getDepartureTime <em>Departure Time</em>}</li>
  *   <li>{@link at.Flight#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link at.Flight#getAllocations <em>Allocations</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getFlight()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.crew -&gt; size() &gt;= self.airplane.minimumCrew' validateRunwayLengthTakeOff='self.departureRunway.length &gt;= self.airplane.requiredRunwayLengthTakeoff\n' validateRunwayLengthLanding='self.destinationRunway.length &gt;= self.airplane.requiredRunwayLengthLanding' validateRunwayExistsTakeOff='self.departureAirport.runways -&gt; exists(r | r = self.departureRunway) ' validateRunwayExistsLanding='self.destinationAirport.runways -&gt; exists(r | r = self.destinationRunway) ' validateGateTakeOff='self.departureAirport.gates -&gt; exists(g | g = self.departureGate)' validateGateLanding='self.destinationAirport.gates -&gt; exists(g | g = self.destinationGate)' validateCrew='((self.crew.crewAllocations -&gt; collect(ca |ca.member)) -&gt; intersection(self.passengers)) -&gt; isEmpty()'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 maximumPassengers='self.passengers -&gt; size() &lt; self.airplane.numberOfSeats' minimumCrew='self.allocations -&gt; size() &gt;= self.airplane.minimumCrew' validateRunwayLengthTakeOff='self.departureRunway.length &gt;= self.airplane.requiredRunwayLengthTakeoff\n' validateRunwayLengthLanding='self.destinationRunway.length &gt;= self.airplane.requiredRunwayLengthLanding' validateRunwayExistsTakeOff='self.departureAirport.runways -&gt; exists(r | r = self.departureRunway) ' validateRunwayExistsLanding='self.destinationAirport.runways -&gt; exists(r | r = self.destinationRunway) ' validateGateTakeOff='self.departureAirport.gates -&gt; exists(g | g = self.departureGate)' validateGateLanding='self.destinationAirport.gates -&gt; exists(g | g = self.destinationGate)' validateCrew='((self.allocations-&gt; collect(ca |ca.member)) -&gt; intersection(self.passengers)) -&gt; isEmpty()'"
  * @generated
  */
 public interface Flight extends EObject {
@@ -76,11 +76,22 @@ public interface Flight extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Departure Airport</em>' reference.
+	 * @see #setDepartureAirport(Airport)
 	 * @see at.AtPackage#getFlight_DepartureAirport()
-	 * @model changeable="false"
+	 * @model
 	 * @generated
 	 */
 	Airport getDepartureAirport();
+
+	/**
+	 * Sets the value of the '{@link at.Flight#getDepartureAirport <em>Departure Airport</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Departure Airport</em>' reference.
+	 * @see #getDepartureAirport()
+	 * @generated
+	 */
+	void setDepartureAirport(Airport value);
 
 	/**
 	 * Returns the value of the '<em><b>Destination Airport</b></em>' reference.
@@ -193,28 +204,6 @@ public interface Flight extends EObject {
 	void setDepartureRunway(Runway value);
 
 	/**
-	 * Returns the value of the '<em><b>Crew</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Crew</em>' containment reference.
-	 * @see #setCrew(Crew)
-	 * @see at.AtPackage#getFlight_Crew()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Crew getCrew();
-
-	/**
-	 * Sets the value of the '{@link at.Flight#getCrew <em>Crew</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Crew</em>' containment reference.
-	 * @see #getCrew()
-	 * @generated
-	 */
-	void setCrew(Crew value);
-
-	/**
 	 * Returns the value of the '<em><b>Passengers</b></em>' reference list.
 	 * The list contents are of type {@link at.Person}.
 	 * <!-- begin-user-doc -->
@@ -233,7 +222,7 @@ public interface Flight extends EObject {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see at.AtPackage#getFlight_Code()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getCode();
@@ -250,12 +239,13 @@ public interface Flight extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Departure Time</b></em>' attribute.
+	 * The default value is <code>"2000-01-01T00:00:00.000+0100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Departure Time</em>' attribute.
 	 * @see #setDepartureTime(Date)
 	 * @see at.AtPackage#getFlight_DepartureTime()
-	 * @model
+	 * @model default="2000-01-01T00:00:00.000+0100"
 	 * @generated
 	 */
 	Date getDepartureTime();
@@ -293,6 +283,20 @@ public interface Flight extends EObject {
 	 */
 	void setArrivalTime(Date value);
 	
+	/**
+	 * Returns the value of the '<em><b>Allocations</b></em>' containment reference list.
+	 * The list contents are of type {@link at.CrewAllocation}.
+	 * It is bidirectional and its opposite is '{@link at.CrewAllocation#getFlight <em>Flight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocations</em>' containment reference list.
+	 * @see at.AtPackage#getFlight_Allocations()
+	 * @see at.CrewAllocation#getFlight
+	 * @model opposite="flight" containment="true"
+	 * @generated
+	 */
+	EList<CrewAllocation> getAllocations();
+
 	/**
 	 * Check if other flight plan to use the same runway at the same time.
 	 * @param otherFlight

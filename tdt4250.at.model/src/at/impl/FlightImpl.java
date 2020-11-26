@@ -5,7 +5,7 @@ package at.impl;
 import at.Airplane;
 import at.Airport;
 import at.AtPackage;
-import at.Crew;
+import at.CrewAllocation;
 import at.Flight;
 import at.Gate;
 import at.Person;
@@ -27,7 +27,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,11 +47,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link at.impl.FlightImpl#getDestinationGate <em>Destination Gate</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDestinationRunway <em>Destination Runway</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDepartureRunway <em>Departure Runway</em>}</li>
- *   <li>{@link at.impl.FlightImpl#getCrew <em>Crew</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getPassengers <em>Passengers</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getCode <em>Code</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getDepartureTime <em>Departure Time</em>}</li>
  *   <li>{@link at.impl.FlightImpl#getArrivalTime <em>Arrival Time</em>}</li>
+ *   <li>{@link at.impl.FlightImpl#getAllocations <em>Allocations</em>}</li>
  * </ul>
  *
  * @generated
@@ -136,16 +138,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	protected Runway departureRunway;
 
 	/**
-	 * The cached value of the '{@link #getCrew() <em>Crew</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCrew()
-	 * @generated
-	 * @ordered
-	 */
-	protected Crew crew;
-
-	/**
 	 * The cached value of the '{@link #getPassengers() <em>Passengers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,7 +175,7 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date DEPARTURE_TIME_EDEFAULT = null;
+	protected static final Date DEPARTURE_TIME_EDEFAULT = (Date)EcoreFactory.eINSTANCE.createFromString(EcorePackage.eINSTANCE.getEDate(), "2000-01-01T00:00:00.000+0100");
 
 	/**
 	 * The cached value of the '{@link #getDepartureTime() <em>Departure Time</em>}' attribute.
@@ -214,6 +206,16 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * @ordered
 	 */
 	protected Date arrivalTime = ARRIVAL_TIME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CrewAllocation> allocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,6 +316,18 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 */
 	public Airport basicGetDepartureAirport() {
 		return departureAirport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDepartureAirport(Airport newDepartureAirport) {
+		Airport oldDepartureAirport = departureAirport;
+		departureAirport = newDepartureAirport;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__DEPARTURE_AIRPORT, oldDepartureAirport, departureAirport));
 	}
 
 	/**
@@ -511,49 +525,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Crew getCrew() {
-		return crew;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCrew(Crew newCrew, NotificationChain msgs) {
-		Crew oldCrew = crew;
-		crew = newCrew;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__CREW, oldCrew, newCrew);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCrew(Crew newCrew) {
-		if (newCrew != crew) {
-			NotificationChain msgs = null;
-			if (crew != null)
-				msgs = ((InternalEObject)crew).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__CREW, null, msgs);
-			if (newCrew != null)
-				msgs = ((InternalEObject)newCrew).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AtPackage.FLIGHT__CREW, null, msgs);
-			msgs = basicSetCrew(newCrew, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.FLIGHT__CREW, newCrew, newCrew));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Person> getPassengers() {
 		if (passengers == null) {
 			passengers = new EObjectResolvingEList<Person>(Person.class, this, AtPackage.FLIGHT__PASSENGERS);
@@ -629,11 +600,38 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CrewAllocation> getAllocations() {
+		if (allocations == null) {
+			allocations = new EObjectContainmentWithInverseEList<CrewAllocation>(CrewAllocation.class, this, AtPackage.FLIGHT__ALLOCATIONS, AtPackage.CREW_ALLOCATION__FLIGHT);
+		}
+		return allocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAllocations()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AtPackage.FLIGHT__CREW:
-				return basicSetCrew(null, msgs);
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				return ((InternalEList<?>)getAllocations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -669,8 +667,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
 				if (resolve) return getDepartureRunway();
 				return basicGetDepartureRunway();
-			case AtPackage.FLIGHT__CREW:
-				return getCrew();
 			case AtPackage.FLIGHT__PASSENGERS:
 				return getPassengers();
 			case AtPackage.FLIGHT__CODE:
@@ -679,6 +675,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return getDepartureTime();
 			case AtPackage.FLIGHT__ARRIVAL_TIME:
 				return getArrivalTime();
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				return getAllocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -695,6 +693,9 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__AIRPLANE:
 				setAirplane((Airplane)newValue);
 				return;
+			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
+				setDepartureAirport((Airport)newValue);
+				return;
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
 				setDestinationAirport((Airport)newValue);
 				return;
@@ -710,9 +711,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
 				setDepartureRunway((Runway)newValue);
 				return;
-			case AtPackage.FLIGHT__CREW:
-				setCrew((Crew)newValue);
-				return;
 			case AtPackage.FLIGHT__PASSENGERS:
 				getPassengers().clear();
 				getPassengers().addAll((Collection<? extends Person>)newValue);
@@ -725,6 +723,10 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return;
 			case AtPackage.FLIGHT__ARRIVAL_TIME:
 				setArrivalTime((Date)newValue);
+				return;
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				getAllocations().clear();
+				getAllocations().addAll((Collection<? extends CrewAllocation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -741,6 +743,9 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__AIRPLANE:
 				setAirplane((Airplane)null);
 				return;
+			case AtPackage.FLIGHT__DEPARTURE_AIRPORT:
+				setDepartureAirport((Airport)null);
+				return;
 			case AtPackage.FLIGHT__DESTINATION_AIRPORT:
 				setDestinationAirport((Airport)null);
 				return;
@@ -756,9 +761,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
 				setDepartureRunway((Runway)null);
 				return;
-			case AtPackage.FLIGHT__CREW:
-				setCrew((Crew)null);
-				return;
 			case AtPackage.FLIGHT__PASSENGERS:
 				getPassengers().clear();
 				return;
@@ -770,6 +772,9 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return;
 			case AtPackage.FLIGHT__ARRIVAL_TIME:
 				setArrivalTime(ARRIVAL_TIME_EDEFAULT);
+				return;
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				getAllocations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -799,8 +804,6 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return destinationRunway != null;
 			case AtPackage.FLIGHT__DEPARTURE_RUNWAY:
 				return departureRunway != null;
-			case AtPackage.FLIGHT__CREW:
-				return crew != null;
 			case AtPackage.FLIGHT__PASSENGERS:
 				return passengers != null && !passengers.isEmpty();
 			case AtPackage.FLIGHT__CODE:
@@ -809,6 +812,8 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 				return DEPARTURE_TIME_EDEFAULT == null ? departureTime != null : !DEPARTURE_TIME_EDEFAULT.equals(departureTime);
 			case AtPackage.FLIGHT__ARRIVAL_TIME:
 				return ARRIVAL_TIME_EDEFAULT == null ? arrivalTime != null : !ARRIVAL_TIME_EDEFAULT.equals(arrivalTime);
+			case AtPackage.FLIGHT__ALLOCATIONS:
+				return allocations != null && !allocations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

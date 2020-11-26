@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.Airline#getName <em>Name</em>}</li>
  *   <li>{@link at.Airline#getFlights <em>Flights</em>}</li>
  *   <li>{@link at.Airline#getAirplanes <em>Airplanes</em>}</li>
+ *   <li>{@link at.Airline#getEmployees <em>Employees</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getAirline()
@@ -70,5 +71,19 @@ public interface Airline extends EObject {
 	 * @generated
 	 */
 	EList<Airplane> getAirplanes();
+
+	/**
+	 * Returns the value of the '<em><b>Employees</b></em>' containment reference list.
+	 * The list contents are of type {@link at.Person}.
+	 * It is bidirectional and its opposite is '{@link at.Person#getEmployer <em>Employer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Employees</em>' containment reference list.
+	 * @see at.AtPackage#getAirline_Employees()
+	 * @see at.Person#getEmployer
+	 * @model opposite="employer" containment="true"
+	 * @generated
+	 */
+	EList<Person> getEmployees();
 
 } // Airline

@@ -94,15 +94,6 @@ public interface AtFactory extends EFactory {
 	Person createPerson();
 
 	/**
-	 * Returns a new object of class '<em>Crew</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Crew</em>'.
-	 * @generated
-	 */
-	Crew createCrew();
-
-	/**
 	 * Returns a new object of class '<em>Crew Allocation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

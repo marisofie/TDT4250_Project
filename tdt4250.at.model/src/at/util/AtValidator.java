@@ -101,8 +101,6 @@ public class AtValidator extends EObjectValidator {
 				return validateRunway((Runway)value, diagnostics, context);
 			case AtPackage.PERSON:
 				return validatePerson((Person)value, diagnostics, context);
-			case AtPackage.CREW:
-				return validateCrew((Crew)value, diagnostics, context);
 			case AtPackage.CREW_ALLOCATION:
 				return validateCrewAllocation((CrewAllocation)value, diagnostics, context);
 			case AtPackage.ROLE:
@@ -261,7 +259,7 @@ public class AtValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FLIGHT__MINIMUM_CREW__EEXPRESSION = "self.crew -> size() >= self.airplane.minimumCrew";
+	protected static final String FLIGHT__MINIMUM_CREW__EEXPRESSION = "self.allocations -> size() >= self.airplane.minimumCrew";
 
 	/**
 	 * Validates the minimumCrew constraint of '<em>Flight</em>'.
@@ -465,7 +463,7 @@ public class AtValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String FLIGHT__VALIDATE_CREW__EEXPRESSION = "((self.crew.crewAllocations -> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()";
+	protected static final String FLIGHT__VALIDATE_CREW__EEXPRESSION = "((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()";
 
 	/**
 	 * Validates the validateCrew constraint of '<em>Flight</em>'.
@@ -497,10 +495,6 @@ public class AtValidator extends EObjectValidator {
 		return validate_EveryDefaultConstraint(airport, diagnostics, context);
 	}
 
-	private boolean checkIfFlightIsDeplicate(Flight flight, Flight otherFlight) {
-		return flight.equals(otherFlight);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,15 +520,6 @@ public class AtValidator extends EObjectValidator {
 	 */
 	public boolean validatePerson(Person person, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(person, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCrew(Crew crew, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(crew, diagnostics, context);
 	}
 
 	/**
