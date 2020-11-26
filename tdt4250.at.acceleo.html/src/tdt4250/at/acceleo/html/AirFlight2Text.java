@@ -44,7 +44,7 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String[] TEMPLATE_NAMES = { "generateHomePage", "generateAirlinePages" };
+    public static final String[] TEMPLATE_NAMES = { "generateHomePage", "generateAirlinePages", "generateAirportPages" };
     
     /**
      * The list of properties files from the launch parameters (Launch configuration).
