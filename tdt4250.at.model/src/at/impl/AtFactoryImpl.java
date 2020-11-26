@@ -65,7 +65,6 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 			case AtPackage.GATE: return createGate();
 			case AtPackage.RUNWAY: return createRunway();
 			case AtPackage.PERSON: return createPerson();
-			case AtPackage.CREW: return createCrew();
 			case AtPackage.CREW_ALLOCATION: return createCrewAllocation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -188,16 +187,6 @@ public class AtFactoryImpl extends EFactoryImpl implements AtFactory {
 	public Person createPerson() {
 		PersonImpl person = new PersonImpl();
 		return person;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Crew createCrew() {
-		CrewImpl crew = new CrewImpl();
-		return crew;
 	}
 
 	/**

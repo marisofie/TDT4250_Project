@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.Person#getFamilyName <em>Family Name</em>}</li>
  *   <li>{@link at.Person#getGender <em>Gender</em>}</li>
  *   <li>{@link at.Person#getAge <em>Age</em>}</li>
+ *   <li>{@link at.Person#getAllocations <em>Allocations</em>}</li>
+ *   <li>{@link at.Person#getEmployer <em>Employer</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getPerson()
@@ -127,5 +129,53 @@ public interface Person extends EObject {
 	 * @generated
 	 */
 	void setAge(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Allocations</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link at.CrewAllocation#getMember <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocations</em>' reference.
+	 * @see #setAllocations(CrewAllocation)
+	 * @see at.AtPackage#getPerson_Allocations()
+	 * @see at.CrewAllocation#getMember
+	 * @model opposite="member"
+	 * @generated
+	 */
+	CrewAllocation getAllocations();
+
+	/**
+	 * Sets the value of the '{@link at.Person#getAllocations <em>Allocations</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allocations</em>' reference.
+	 * @see #getAllocations()
+	 * @generated
+	 */
+	void setAllocations(CrewAllocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Employer</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link at.Airline#getEmployees <em>Employees</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Employer</em>' container reference.
+	 * @see #setEmployer(Airline)
+	 * @see at.AtPackage#getPerson_Employer()
+	 * @see at.Airline#getEmployees
+	 * @model opposite="employees" transient="false"
+	 * @generated
+	 */
+	Airline getEmployer();
+
+	/**
+	 * Sets the value of the '{@link at.Person#getEmployer <em>Employer</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Employer</em>' container reference.
+	 * @see #getEmployer()
+	 * @generated
+	 */
+	void setEmployer(Airline value);
 
 } // Person

@@ -2,17 +2,22 @@
  */
 package at.impl;
 
+import at.Airline;
 import at.AtPackage;
+import at.CrewAllocation;
 import at.Gender;
 import at.Person;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link at.impl.PersonImpl#getFamilyName <em>Family Name</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getGender <em>Gender</em>}</li>
  *   <li>{@link at.impl.PersonImpl#getAge <em>Age</em>}</li>
+ *   <li>{@link at.impl.PersonImpl#getAllocations <em>Allocations</em>}</li>
+ *   <li>{@link at.impl.PersonImpl#getEmployer <em>Employer</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,6 +128,16 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * @ordered
 	 */
 	protected int age = AGE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected CrewAllocation allocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -239,6 +256,157 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CrewAllocation getAllocations() {
+		if (allocations != null && allocations.eIsProxy()) {
+			InternalEObject oldAllocations = (InternalEObject)allocations;
+			allocations = (CrewAllocation)eResolveProxy(oldAllocations);
+			if (allocations != oldAllocations) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.PERSON__ALLOCATIONS, oldAllocations, allocations));
+			}
+		}
+		return allocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CrewAllocation basicGetAllocations() {
+		return allocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAllocations(CrewAllocation newAllocations, NotificationChain msgs) {
+		CrewAllocation oldAllocations = allocations;
+		allocations = newAllocations;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__ALLOCATIONS, oldAllocations, newAllocations);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAllocations(CrewAllocation newAllocations) {
+		if (newAllocations != allocations) {
+			NotificationChain msgs = null;
+			if (allocations != null)
+				msgs = ((InternalEObject)allocations).eInverseRemove(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
+			if (newAllocations != null)
+				msgs = ((InternalEObject)newAllocations).eInverseAdd(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
+			msgs = basicSetAllocations(newAllocations, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__ALLOCATIONS, newAllocations, newAllocations));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Airline getEmployer() {
+		if (eContainerFeatureID() != AtPackage.PERSON__EMPLOYER) return null;
+		return (Airline)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEmployer(Airline newEmployer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newEmployer, AtPackage.PERSON__EMPLOYER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmployer(Airline newEmployer) {
+		if (newEmployer != eInternalContainer() || (eContainerFeatureID() != AtPackage.PERSON__EMPLOYER && newEmployer != null)) {
+			if (EcoreUtil.isAncestor(this, newEmployer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newEmployer != null)
+				msgs = ((InternalEObject)newEmployer).eInverseAdd(this, AtPackage.AIRLINE__EMPLOYEES, Airline.class, msgs);
+			msgs = basicSetEmployer(newEmployer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__EMPLOYER, newEmployer, newEmployer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.PERSON__ALLOCATIONS:
+				if (allocations != null)
+					msgs = ((InternalEObject)allocations).eInverseRemove(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
+				return basicSetAllocations((CrewAllocation)otherEnd, msgs);
+			case AtPackage.PERSON__EMPLOYER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetEmployer((Airline)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AtPackage.PERSON__ALLOCATIONS:
+				return basicSetAllocations(null, msgs);
+			case AtPackage.PERSON__EMPLOYER:
+				return basicSetEmployer(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AtPackage.PERSON__EMPLOYER:
+				return eInternalContainer().eInverseRemove(this, AtPackage.AIRLINE__EMPLOYEES, Airline.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -252,6 +420,11 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return getGender();
 			case AtPackage.PERSON__AGE:
 				return getAge();
+			case AtPackage.PERSON__ALLOCATIONS:
+				if (resolve) return getAllocations();
+				return basicGetAllocations();
+			case AtPackage.PERSON__EMPLOYER:
+				return getEmployer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -275,6 +448,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return;
 			case AtPackage.PERSON__AGE:
 				setAge((Integer)newValue);
+				return;
+			case AtPackage.PERSON__ALLOCATIONS:
+				setAllocations((CrewAllocation)newValue);
+				return;
+			case AtPackage.PERSON__EMPLOYER:
+				setEmployer((Airline)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -300,6 +479,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			case AtPackage.PERSON__AGE:
 				setAge(AGE_EDEFAULT);
 				return;
+			case AtPackage.PERSON__ALLOCATIONS:
+				setAllocations((CrewAllocation)null);
+				return;
+			case AtPackage.PERSON__EMPLOYER:
+				setEmployer((Airline)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -322,6 +507,10 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				return gender != GENDER_EDEFAULT;
 			case AtPackage.PERSON__AGE:
 				return age != AGE_EDEFAULT;
+			case AtPackage.PERSON__ALLOCATIONS:
+				return allocations != null;
+			case AtPackage.PERSON__EMPLOYER:
+				return getEmployer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

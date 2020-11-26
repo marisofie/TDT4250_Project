@@ -3,25 +3,18 @@
 package at.impl;
 
 import at.AtPackage;
-import at.Crew;
 import at.CrewAllocation;
+import at.Flight;
 import at.Person;
 
 import at.Role;
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -34,7 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link at.impl.CrewAllocationImpl#getRole <em>Role</em>}</li>
  *   <li>{@link at.impl.CrewAllocationImpl#getMember <em>Member</em>}</li>
- *   <li>{@link at.impl.CrewAllocationImpl#getCrew <em>Crew</em>}</li>
+ *   <li>{@link at.impl.CrewAllocationImpl#getFlight <em>Flight</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +54,14 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	protected Role role = ROLE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference list.
+	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMember()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Person> member;
+	protected Person member;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,9 +108,14 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Person> getMember() {
-		if (member == null) {
-			member = new EObjectResolvingEList<Person>(Person.class, this, AtPackage.CREW_ALLOCATION__MEMBER);
+	public Person getMember() {
+		if (member != null && member.eIsProxy()) {
+			InternalEObject oldMember = (InternalEObject)member;
+			member = (Person)eResolveProxy(oldMember);
+			if (member != oldMember) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.CREW_ALLOCATION__MEMBER, oldMember, member));
+			}
 		}
 		return member;
 	}
@@ -127,9 +125,8 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Crew getCrew() {
-		if (eContainerFeatureID() != AtPackage.CREW_ALLOCATION__CREW) return null;
-		return (Crew)eInternalContainer();
+	public Person basicGetMember() {
+		return member;
 	}
 
 	/**
@@ -137,8 +134,13 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCrew(Crew newCrew, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCrew, AtPackage.CREW_ALLOCATION__CREW, msgs);
+	public NotificationChain basicSetMember(Person newMember, NotificationChain msgs) {
+		Person oldMember = member;
+		member = newMember;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.CREW_ALLOCATION__MEMBER, oldMember, newMember);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -147,20 +149,59 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCrew(Crew newCrew) {
-		if (newCrew != eInternalContainer() || (eContainerFeatureID() != AtPackage.CREW_ALLOCATION__CREW && newCrew != null)) {
-			if (EcoreUtil.isAncestor(this, newCrew))
+	public void setMember(Person newMember) {
+		if (newMember != member) {
+			NotificationChain msgs = null;
+			if (member != null)
+				msgs = ((InternalEObject)member).eInverseRemove(this, AtPackage.PERSON__ALLOCATIONS, Person.class, msgs);
+			if (newMember != null)
+				msgs = ((InternalEObject)newMember).eInverseAdd(this, AtPackage.PERSON__ALLOCATIONS, Person.class, msgs);
+			msgs = basicSetMember(newMember, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW_ALLOCATION__MEMBER, newMember, newMember));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Flight getFlight() {
+		if (eContainerFeatureID() != AtPackage.CREW_ALLOCATION__FLIGHT) return null;
+		return (Flight)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFlight(Flight newFlight, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newFlight, AtPackage.CREW_ALLOCATION__FLIGHT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFlight(Flight newFlight) {
+		if (newFlight != eInternalContainer() || (eContainerFeatureID() != AtPackage.CREW_ALLOCATION__FLIGHT && newFlight != null)) {
+			if (EcoreUtil.isAncestor(this, newFlight))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCrew != null)
-				msgs = ((InternalEObject)newCrew).eInverseAdd(this, AtPackage.CREW__CREW_ALLOCATIONS, Crew.class, msgs);
-			msgs = basicSetCrew(newCrew, msgs);
+			if (newFlight != null)
+				msgs = ((InternalEObject)newFlight).eInverseAdd(this, AtPackage.FLIGHT__ALLOCATIONS, Flight.class, msgs);
+			msgs = basicSetFlight(newFlight, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW_ALLOCATION__CREW, newCrew, newCrew));
+			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.CREW_ALLOCATION__FLIGHT, newFlight, newFlight));
 	}
 
 	/**
@@ -171,10 +212,14 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AtPackage.CREW_ALLOCATION__CREW:
+			case AtPackage.CREW_ALLOCATION__MEMBER:
+				if (member != null)
+					msgs = ((InternalEObject)member).eInverseRemove(this, AtPackage.PERSON__ALLOCATIONS, Person.class, msgs);
+				return basicSetMember((Person)otherEnd, msgs);
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCrew((Crew)otherEnd, msgs);
+				return basicSetFlight((Flight)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -187,8 +232,10 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AtPackage.CREW_ALLOCATION__CREW:
-				return basicSetCrew(null, msgs);
+			case AtPackage.CREW_ALLOCATION__MEMBER:
+				return basicSetMember(null, msgs);
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				return basicSetFlight(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -201,8 +248,8 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case AtPackage.CREW_ALLOCATION__CREW:
-				return eInternalContainer().eInverseRemove(this, AtPackage.CREW__CREW_ALLOCATIONS, Crew.class, msgs);
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				return eInternalContainer().eInverseRemove(this, AtPackage.FLIGHT__ALLOCATIONS, Flight.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -218,9 +265,10 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 			case AtPackage.CREW_ALLOCATION__ROLE:
 				return getRole();
 			case AtPackage.CREW_ALLOCATION__MEMBER:
-				return getMember();
-			case AtPackage.CREW_ALLOCATION__CREW:
-				return getCrew();
+				if (resolve) return getMember();
+				return basicGetMember();
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				return getFlight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -238,11 +286,10 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 				setRole((Role)newValue);
 				return;
 			case AtPackage.CREW_ALLOCATION__MEMBER:
-				getMember().clear();
-				getMember().addAll((Collection<? extends Person>)newValue);
+				setMember((Person)newValue);
 				return;
-			case AtPackage.CREW_ALLOCATION__CREW:
-				setCrew((Crew)newValue);
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				setFlight((Flight)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -260,10 +307,10 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 				setRole(ROLE_EDEFAULT);
 				return;
 			case AtPackage.CREW_ALLOCATION__MEMBER:
-				getMember().clear();
+				setMember((Person)null);
 				return;
-			case AtPackage.CREW_ALLOCATION__CREW:
-				setCrew((Crew)null);
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				setFlight((Flight)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -280,9 +327,9 @@ public class CrewAllocationImpl extends MinimalEObjectImpl.Container implements 
 			case AtPackage.CREW_ALLOCATION__ROLE:
 				return role != ROLE_EDEFAULT;
 			case AtPackage.CREW_ALLOCATION__MEMBER:
-				return member != null && !member.isEmpty();
-			case AtPackage.CREW_ALLOCATION__CREW:
-				return getCrew() != null;
+				return member != null;
+			case AtPackage.CREW_ALLOCATION__FLIGHT:
+				return getFlight() != null;
 		}
 		return super.eIsSet(featureID);
 	}

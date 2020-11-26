@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link at.impl.AirplaneImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.impl.AirplaneImpl#getType <em>Type</em>}</li>
+ *   <li>{@link at.impl.AirplaneImpl#getId <em>Id</em>}</li>
  *   <li>{@link at.impl.AirplaneImpl#getNumberOfSeats <em>Number Of Seats</em>}</li>
  *   <li>{@link at.impl.AirplaneImpl#getMinimumCrew <em>Minimum Crew</em>}</li>
  *   <li>{@link at.impl.AirplaneImpl#getRequiredRunwayLengthTakeoff <em>Required Runway Length Takeoff</em>}</li>
@@ -32,26 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airplane {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +51,26 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 	 * @ordered
 	 */
 	protected AirplaneType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNumberOfSeats() <em>Number Of Seats</em>}' attribute.
@@ -305,10 +305,10 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AtPackage.AIRPLANE__ID:
-				return getId();
 			case AtPackage.AIRPLANE__TYPE:
 				return getType();
+			case AtPackage.AIRPLANE__ID:
+				return getId();
 			case AtPackage.AIRPLANE__NUMBER_OF_SEATS:
 				return getNumberOfSeats();
 			case AtPackage.AIRPLANE__MINIMUM_CREW:
@@ -329,11 +329,11 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AtPackage.AIRPLANE__ID:
-				setId((Integer)newValue);
-				return;
 			case AtPackage.AIRPLANE__TYPE:
 				setType((AirplaneType)newValue);
+				return;
+			case AtPackage.AIRPLANE__ID:
+				setId((Integer)newValue);
 				return;
 			case AtPackage.AIRPLANE__NUMBER_OF_SEATS:
 				setNumberOfSeats((Integer)newValue);
@@ -359,11 +359,11 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AtPackage.AIRPLANE__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case AtPackage.AIRPLANE__TYPE:
 				setType(TYPE_EDEFAULT);
+				return;
+			case AtPackage.AIRPLANE__ID:
+				setId(ID_EDEFAULT);
 				return;
 			case AtPackage.AIRPLANE__NUMBER_OF_SEATS:
 				setNumberOfSeats(NUMBER_OF_SEATS_EDEFAULT);
@@ -389,10 +389,10 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AtPackage.AIRPLANE__ID:
-				return id != ID_EDEFAULT;
 			case AtPackage.AIRPLANE__TYPE:
 				return type != TYPE_EDEFAULT;
+			case AtPackage.AIRPLANE__ID:
+				return id != ID_EDEFAULT;
 			case AtPackage.AIRPLANE__NUMBER_OF_SEATS:
 				return numberOfSeats != NUMBER_OF_SEATS_EDEFAULT;
 			case AtPackage.AIRPLANE__MINIMUM_CREW:
@@ -415,10 +415,10 @@ public class AirplaneImpl extends MinimalEObjectImpl.Container implements Airpla
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", type: ");
+		result.append(" (type: ");
 		result.append(type);
+		result.append(", id: ");
+		result.append(id);
 		result.append(", numberOfSeats: ");
 		result.append(numberOfSeats);
 		result.append(", minimumCrew: ");

@@ -33,10 +33,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airline/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Airline/flights"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Airline/airplanes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Airline/employees"/>
     </genClasses>
     <genClasses ecoreClass="at.ecore#//Airplane">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/numberOfSeats"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/minimumCrew"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airplane/requiredRunwayLengthTakeoff"/>
@@ -51,11 +52,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationGate"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/destinationRunway"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/departureRunway"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/crew"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Flight/passengers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Flight/code"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Flight/departureTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Flight/arrivalTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Flight/allocations"/>
     </genClasses>
     <genClasses ecoreClass="at.ecore#//Airport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Airport/id"/>
@@ -77,14 +78,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Person/familyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Person/gender"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//Person/age"/>
-    </genClasses>
-    <genClasses ecoreClass="at.ecore#//Crew">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference at.ecore#//Crew/crewAllocations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//Person/allocations"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference at.ecore#//Person/employer"/>
     </genClasses>
     <genClasses ecoreClass="at.ecore#//CrewAllocation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute at.ecore#//CrewAllocation/role"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference at.ecore#//CrewAllocation/member"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference at.ecore#//CrewAllocation/crew"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference at.ecore#//CrewAllocation/flight"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
