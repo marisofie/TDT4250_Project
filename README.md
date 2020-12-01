@@ -111,6 +111,8 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
     	○ https://nn.wikipedia.org/wiki/SAS
     	○ https://en.wikipedia.org/wiki/Boeing_737#737-800
 
+## Sirius
+The different features implemented for the viewpoints can be found in the sirius.modeling bundle [here](tdt4250.at.sirius.diagram).
 
 ## References
 Icons collected from [flavicon](https://www.flaticon.com/), made by: 

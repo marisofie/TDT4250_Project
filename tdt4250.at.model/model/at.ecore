@@ -25,6 +25,8 @@
         eType="#//Airplane" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employees" upperBound="-1"
         eType="#//Person" containment="true" eOpposite="#//Person/employer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airports" upperBound="-1"
+        eType="#//Airport"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airplane">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AirplaneType"/>
@@ -99,15 +101,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="familyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//Gender"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" eType="#//CrewAllocation"
-        eOpposite="#//CrewAllocation/member"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" upperBound="-1"
+        eType="#//CrewAllocation" eOpposite="#//CrewAllocation/member"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="employer" eType="#//Airline"
         eOpposite="#//Airline/employees"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CrewAllocation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//Role"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//Person"
-        eOpposite="#//Person/allocations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" unique="false"
+        eType="#//Person" eOpposite="#//Person/allocations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flight" eType="#//Flight"
         eOpposite="#//Flight/allocations"/>
   </eClassifiers>
