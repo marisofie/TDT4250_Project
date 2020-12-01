@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="12.0.0.2017041100">
   <ownedViewpoints name="TravelPlannerDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TravelPlannerDiagram" domainClass="at::TravelPlanner" enablePopupBars="true">
       <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <defaultLayer name="Default">
+        <edgeMappings name="AirlineAirportEdge" sourceMapping="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@containerMappings[name='AirlineContainer']" targetMapping="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@containerMappings[name='AirportContainer']" targetFinderExpression="feature:airports">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="AirlineContainer" domainClass="at::Airline" childrenPresentation="List">
           <subNodeMappings name="Flights" semanticCandidatesExpression="feature:eAllContents" domainClass="at::Flight">
             <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql: self.code" iconPath="/tdt4250.at.sirius.modelling/icons/flight-ticket.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
@@ -96,6 +104,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="AirlineAirportEdge" edgeMappings="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@edgeMappings[name='AirlineAirportEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="airports" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -104,6 +123,9 @@
   <ownedViewpoints name="AirlineDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AirlineDiagram" initialisation="true" domainClass="at::Airline">
       <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="FlightsMissingCrew">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" semanticConditionExpression="aql: self.allocations -> size() &lt; self.airplane.minimumCrew"/>
+      </filters>
       <defaultLayer name="Default">
         <nodeMappings name="PersonNode" semanticCandidatesExpression="feature:employees" domainClass="at::Person">
           <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="feature:fullName" iconPath="/tdt4250.at.sirius.modelling/icons/pilot-of-airplane.png" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
@@ -112,51 +134,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="AirplaneNode" semanticCandidatesExpression="feature:airplanes" domainClass="at::Airplane">
-          <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="aql: self.type + ', id: ' + self.id" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png" labelAlignment="LEFT" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="GateNode" domainClass="at::Gate">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="triangle">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="AirportNode" semanticCandidatesExpression="aql: self.airports" domainClass="at::Airport">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="feature:id" iconPath="/tdt4250.at.sirius.modelling/icons/airport.png" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW" shape="dot">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="RunwayNode" domainClass="at::Runway">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="stroke">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="AirportGateEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='GateNode']" targetFinderExpression="feature:gates">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="CrewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:flight" sourceFinderExpression="feature:member" domainClass="at::CrewAllocation" useDomainElement="true">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <beginLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql: self.role">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </beginLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="FlightAirplaneEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']" targetFinderExpression="feature:airplane">
+        <edgeMappings name="FlightAirplaneEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airplane']/@nodeMappings[name='AirplaneNode']" targetFinderExpression="feature:airplane">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -164,10 +142,10 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="AirportRunwayEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirportNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='RunwayNode']" targetFinderExpression="feature:runways">
+        <edgeMappings name="CrewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:allocations" domainClass="at::CrewAllocation" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false">
+            <centerLabelStyleDescription labelSize="12" labelExpression="feature:role">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -232,20 +210,6 @@
           </style>
         </containerMappings>
         <toolSections name="CreationTools">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_Employee_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='CrewAllocationEdge']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="at::CrewAllocation" referenceName="allocations">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="member" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="Choose role"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Flight" containerMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" iconPath="/tdt4250.at.sirius.modelling/icons/flight-ticket.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -259,23 +223,21 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Airplane" nodeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='AirplaneNode']" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Flight_Employee_Edge" edgeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@edgeMappings[name='CrewAllocationEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="at::Airplane" referenceName="airplanes">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Type" valueExpression="aql: 'Set type of airplane...'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Id" valueExpression="aql: 'Set id...'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="NumberOfSeats" valueExpression="aql: 'Set number of seats...'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="MinimumCrew" valueExpression="aql: 'Set minimum crew...'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RequiredRunwayLengthTakeoff" valueExpression="aql: 'Set required runway length for takeoff'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RequiredRunwayLengthLanding" valueExpression="aql: 'Set required runway length for landing'"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="at::CrewAllocation" referenceName="allocations">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="member" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="at::Role"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Employee" nodeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" iconPath="/tdt4250.at.sirius.modelling/icons/pilot-of-airplane.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Employee" iconPath="/tdt4250.at.sirius.modelling/icons/pilot-of-airplane.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -292,12 +254,81 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+      <additionalLayers name="Airplane" activeByDefault="true">
+        <nodeMappings name="AirplaneNode" semanticCandidatesExpression="feature:airplanes" domainClass="at::Airplane">
+          <style xsi:type="style:BundledImageDescription" labelSize="10" labelExpression="aql: self.type + ', id: ' + self.id" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png" labelAlignment="LEFT" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="CreationTools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Airplane" nodeMappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airplane']/@nodeMappings[name='AirplaneNode']" iconPath="/tdt4250.at.sirius.modelling/icons/plane.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="at::Airplane" referenceName="airplanes">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Type" valueExpression="aql: 'Set type of airplane...'"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="Id" valueExpression="aql: 'Set id...'"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="NumberOfSeats" valueExpression="aql: 'Set number of seats...'"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="MinimumCrew" valueExpression="aql: 'Set minimum crew...'"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RequiredRunwayLengthTakeoff" valueExpression="aql: 'Set required runway length for takeoff'"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RequiredRunwayLengthLanding" valueExpression="aql: 'Set required runway length for landing'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Airports" activeByDefault="true">
+        <nodeMappings name="GateNode" domainClass="at::Gate">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="triangle">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="AirportNode" semanticCandidatesExpression="aql: self.airports" domainClass="at::Airport">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="feature:id" iconPath="/tdt4250.at.sirius.modelling/icons/airport.png" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW" shape="dot">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RunwayNode" domainClass="at::Runway">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="stroke">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="AirportGateEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airports']/@nodeMappings[name='AirportNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airports']/@nodeMappings[name='GateNode']" targetFinderExpression="feature:gates">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AirportRunwayEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airports']/@nodeMappings[name='AirportNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@additionalLayers[name='Airports']/@nodeMappings[name='RunwayNode']" targetFinderExpression="feature:runways">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="AirlineTable" initialisation="true" domainClass="at::Airline">
+      <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
     </ownedRepresentations>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="../../tdt4250.at.model/model/at.ecore#/"/>
     <categories name="Default">
-      <pages name="General Page" labelExpression="General" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1"/>
+      <pages name="General Page" labelExpression="General" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.5 //@extensions.0/@categories.0/@groups.6 //@extensions.0/@categories.0/@groups.7"/>
       <groups name="Flight group" labelExpression="Flight" domainClass="at::Flight" semanticCandidateExpression="var:self" preconditionExpression="">
         <controls xsi:type="properties:TextDescription" name="Code" labelExpression="Code" helpExpression="Code of the flight" valueExpression="feature:code">
           <initialOperation>
@@ -311,7 +342,7 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:SelectDescription" name="Airplane" labelExpression="airplane" valueExpression="feature:airplane" candidatesExpression="aql:self.eContainer().airplanes" candidateDisplayExpression="aql: 1">
+        <controls xsi:type="properties:SelectDescription" name="Airplane" labelExpression="airplane" valueExpression="feature:airplane" candidatesExpression="aql:self.eContainer().airplanes" candidateDisplayExpression="aql: candidate.type.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:SetValue" featureName="airplane" valueExpression="aql:newValue"/>
@@ -391,12 +422,219 @@
           </controls>
           <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
         </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="CrewAllocations" labelExpression="Crew" referenceNameExpression="allocations"/>
       </groups>
-      <groups name="Crew Group" labelExpression="Crew" domainClass="at::CrewAllocation" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:SelectDescription" name="Pilot" labelExpression="Role" valueExpression="self:role" candidatesExpression="aql: self.eResource().eContents(at::Role)" candidateDisplayExpression="aql: candidate.literal">
+      <groups name="CrewAllocation group" labelExpression="CrewAllocation" domainClass="at::CrewAllocation" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="Role" labelExpression="Select role" valueExpression="feature:role" candidatesExpression="aql: (at::Role).eContents()" candidateDisplayExpression="aql: candidate.name">
           <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="aql:newValue"/>
+            </firstModelOperations>
           </initialOperation>
+        </controls>
+      </groups>
+      <groups name="Airline group" labelExpression="Airline" domainClass="at::Airline" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="Name" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.name == ''">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="AirlineContainer">
+          <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Employees" labelExpression="Employees" referenceNameExpression="employees"/>
+          <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Airports" labelExpression="Airports" referenceNameExpression="airports"/>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+        </controls>
+      </groups>
+      <groups name="Person group" labelExpression="Person" domainClass="at::Person" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:ContainerDescription" name="NameContainer">
+          <controls xsi:type="properties:TextDescription" name="FirstName" labelExpression="First name" valueExpression="aql: self.firstName">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="firstName" valueExpression="aql:newValue"/>
+              </firstModelOperations>
+            </initialOperation>
+            <conditionalStyles preconditionExpression="aql:self.firstName == ''">
+              <style>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionalStyles>
+          </controls>
+          <controls xsi:type="properties:TextDescription" name="FamilyName" labelExpression="Family name" valueExpression="aql: self.familyName">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="familyName" valueExpression="aql:newValue"/>
+              </firstModelOperations>
+            </initialOperation>
+            <conditionalStyles preconditionExpression="aql:self.familyName == ''">
+              <style>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionalStyles>
+          </controls>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="AgeGenderContainer">
+          <controls xsi:type="properties:SelectDescription" name="Gender" labelExpression="Gender" valueExpression="feature:gender" candidatesExpression="aql: (at::Gender).eContents()" candidateDisplayExpression="aql: candidate.name">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="gender" valueExpression="aql:newValue"/>
+              </firstModelOperations>
+            </initialOperation>
+          </controls>
+          <controls xsi:type="properties:TextDescription" name="Age" labelExpression="Age" valueExpression="feature:age">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="age" valueExpression="aql: newValue.toInteger()"/>
+              </firstModelOperations>
+            </initialOperation>
+            <conditionalStyles preconditionExpression="aql:self.age == 0">
+              <style>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionalStyles>
+          </controls>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+      </groups>
+      <groups name="Airplane group" labelExpression="Airplane" domainClass="at::Airplane" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="Type" labelExpression="Type" valueExpression="feature:type" candidatesExpression="aql: (at::AirplaneType).eContents()" candidateDisplayExpression="aql: candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql: newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="Id" labelExpression="Id" valueExpression="feature:id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql: newValue.toInteger()"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.id == 0">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="NumberOfSeats" labelExpression="Number of Seats" valueExpression="feature:numberOfSeats">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="numberOfSeats" valueExpression="aql: newValue.toInteger()"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.numberOfSeats == 0">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="MinimumCrew" labelExpression="Minimum crew" valueExpression="feature:minimumCrew">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="minimumCrew" valueExpression="aql: newValue.toInteger()"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.minimumCrew == 0">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="RunwayContainer">
+          <controls xsi:type="properties:TextDescription" name="RunwayTakeOff" labelExpression="Min. Runway length takeoff" valueExpression="feature:requiredRunwayLengthTakeoff">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="requiredRunwayLengthTakeoff" valueExpression="aql: newValue.toInteger()"/>
+              </firstModelOperations>
+            </initialOperation>
+            <conditionalStyles preconditionExpression="aql:self.requiredRunwayLengthTakeoff == 0">
+              <style>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionalStyles>
+          </controls>
+          <controls xsi:type="properties:TextDescription" name="RunwayLanding" labelExpression="Min. Runway length landing" valueExpression="feature:requiredRunwayLengthLanding">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="requiredRunwayLengthLanding" valueExpression="aql: newValue.toInteger()"/>
+              </firstModelOperations>
+            </initialOperation>
+            <conditionalStyles preconditionExpression="aql:self.requiredRunwayLengthLanding == 0">
+              <style>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionalStyles>
+          </controls>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+      </groups>
+      <groups name="Airport group" labelExpression="Airport" domainClass="at::Airport" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextAreaDescription" name="Location" labelExpression="Location" lineCount="1" valueExpression="feature:location">
+          <initialOperation/>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="GateRunwayContainer">
+          <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Gate" labelExpression="Gates" referenceNameExpression="gates"/>
+          <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Runway" labelExpression="Runways" referenceNameExpression="runways"/>
+          <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+        </controls>
+      </groups>
+      <groups name="Gate group" labelExpression="Gate" domainClass="at::Gate" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="Name" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.name == ''">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+      </groups>
+      <groups name="Runway group" labelExpression="Runway" domainClass="at::Runway" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="Name" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.name == ''">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="Id" labelExpression="Id" valueExpression="feature:id">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql: newValue.toInteger()"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.id == 0">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="Length" labelExpression="Length" valueExpression="feature:length">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="length" valueExpression="aql: newValue.toInteger()"/>
+            </firstModelOperations>
+          </initialOperation>
+          <conditionalStyles preconditionExpression="aql:self.length == 0">
+            <style>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionalStyles>
         </controls>
       </groups>
     </categories>
