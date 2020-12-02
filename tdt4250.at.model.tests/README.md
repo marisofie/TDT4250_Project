@@ -82,3 +82,60 @@ Furthermore, we have tested that two flights cannot use the same runway at the s
 		);
 	}
 ```
+
+We also tried to test that we could give different severity depending on how much time there is between the two flights.
+
+```java
+		public void testValidateRunwayTrafficSeverityLessThanTwoMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 1, 30).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.ERROR, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity());
+	}
+
+	public void testValidateRunwayTrafficSeverityLessThanEightMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 6).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.WARNING, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity());
+	}
+
+	public void testValidateRunwayTrafficSeverityLessThanFifteenMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 14).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.INFO, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity());
+	}
+```
+
+We could have (and would have in other circumstances) cross-tested to check if departure and arrival for the different flights are caught with the same arguments. However, we feel that we are able to display that we are able to test the different cases with this code.

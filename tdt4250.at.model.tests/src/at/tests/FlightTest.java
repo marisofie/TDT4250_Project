@@ -9,10 +9,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import at.Airline;
 import at.AtFactory;
 import at.Flight;
 import at.Runway;
@@ -198,6 +196,80 @@ public class FlightTest extends TestCase {
 		assertTrue(
 				AtValidator.INSTANCE.validateFlight_validateOnlyOneFlightOnRunway(flight, null, null)
 		);
+	}
+	
+	public void testValidateRunwayTrafficSeverityLessThanTwoMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 1, 30).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+		
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+	
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.ERROR, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity()); 
 	}	
+	
+	public void testValidateRunwayTrafficSeverityLessThanEightMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 6).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+		
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+	
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.WARNING, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity());
+	}
+	
+	public void testValidateRunwayTrafficSeverityLessThanFifteenMinutesApart() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		// 24 December 2020 at 12:06
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 14).getTime();
+		otherFlight.setDepartureTime(otherDepartureTime);
+		
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+	
+		Diagnostic diagnostics = Diagnostician.INSTANCE.validate(flight);
+		assertEquals(Diagnostic.INFO, findDiagnostics(diagnostics, flight, "validateOnlyOneFlightOnRunway").getSeverity());
+	}
+	
+	
+	/**
+	 * Private method taken from tdt4250.ra.model.tests
+	 * @param diagnostic
+	 * @param o
+	 * @param constraint
+	 * @return diagnostic for a given validation or null
+	 */
+	private Diagnostic findDiagnostics(Diagnostic diagnostic, Object o, String constraint) {
+		  if (diagnostic.getMessage().contains(constraint) && (o == null || diagnostic.getData().contains(o))) {
+		   return diagnostic;
+		  }
+		  for (Diagnostic child : diagnostic.getChildren()) {
+		   Diagnostic found = findDiagnostics(child, o, constraint);
+		   if (found != null) {
+		    return found;
+		   }
+		  }
+		  return null;
+	 }
+	
+	
 
 } //FlightTest
