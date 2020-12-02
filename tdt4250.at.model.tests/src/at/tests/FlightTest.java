@@ -8,6 +8,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.util.Diagnostician;
+
 import at.Airline;
 import at.AtFactory;
 import at.Flight;
@@ -35,9 +39,13 @@ public class FlightTest extends TestCase {
 	 * The fixture for this Flight test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected Flight fixture = null;
+	protected Flight flight = null;
+	protected Flight otherFlight = null;
+	protected TravelPlanner tp = null;
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,11 +90,22 @@ public class FlightTest extends TestCase {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AtFactory.eINSTANCE.createFlight());
+		// Crate Flight Planner instance
+		this.tp = AtFactory.eINSTANCE.createTravelPlanner();
+		
+		// Create two separate Airlines
+		this.tp.getAirlines().add(AtFactory.eINSTANCE.createAirline());
+		this.tp.getAirlines().add(AtFactory.eINSTANCE.createAirline());
+		
+		// Instantiate the two different flights and add them to the two different airlines
+		this.flight = AtFactory.eINSTANCE.createFlight();
+		this.tp.getAirlines().get(0).getFlights().add(this.flight);
+		this.otherFlight = AtFactory.eINSTANCE.createFlight();
+		this.tp.getAirlines().get(1).getFlights().add(this.otherFlight);
 	}
 
 	/**
@@ -98,6 +117,9 @@ public class FlightTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+		this.otherFlight = null;
+		this.flight = null;
+		this.tp = null;
 	}
 
 	/**
@@ -126,19 +148,9 @@ public class FlightTest extends TestCase {
 		assertEquals(flight.getDuration(), 60);
 	}
 	
-	public void testValidateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen() {
-        TravelPlanner tp = AtFactory.eINSTANCE.createTravelPlanner();
-        Airline airline = AtFactory.eINSTANCE.createAirline();
-        tp.getAirlines().add(airline);
-        
-        Flight flight = AtFactory.eINSTANCE.createFlight();
-        airline.getFlights().add(flight);
-        Flight otherFlight = AtFactory.eINSTANCE.createFlight();
-        airline.getFlights().add(otherFlight);
-        
-        
+	public void testValidateRunwayTrafficWithTheSameDepartureTime() {
         // 24 December 2020 at 12:00
-        Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 21, 12, 0).getTime();
+        Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
         flight.setDepartureTime(departureTime);
         otherFlight.setDepartureTime(departureTime);
         
@@ -147,12 +159,45 @@ public class FlightTest extends TestCase {
         flight.setDepartureRunway(runway);
         otherFlight.setDepartureRunway(runway);
         
-        
         assertFalse(
                 AtValidator.INSTANCE.validateFlight_validateOnlyOneFlightOnRunway(flight, null, null)
         );
 	}
 	
+	public void testValidateRunwayTrafficWithTwoDateObjectsWithSameDepTime() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		// 24 December 2020 at 12:00
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		otherFlight.setDepartureTime(otherDepartureTime);
+		
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+		
+		assertFalse(
+				AtValidator.INSTANCE.validateFlight_validateOnlyOneFlightOnRunway(flight, null, null)
+		);
+	}
 	
+	public void testValidateRunwayTrafficSameTimeOnDifferentDates() {
+		// 24 December 2020 at 12:00
+		Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 24, 12, 0).getTime();
+		// 25 December 2020 at 12:00
+		Date otherDepartureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 25, 12, 0).getTime();
+		flight.setDepartureTime(departureTime);
+		otherFlight.setDepartureTime(otherDepartureTime);
+		
+		// Set the same runway to both departures
+		Runway runway = AtFactory.eINSTANCE.createRunway();
+		flight.setDepartureRunway(runway);
+		otherFlight.setDepartureRunway(runway);
+		
+		assertTrue(
+				AtValidator.INSTANCE.validateFlight_validateOnlyOneFlightOnRunway(flight, null, null)
+		);
+	}	
 
 } //FlightTest

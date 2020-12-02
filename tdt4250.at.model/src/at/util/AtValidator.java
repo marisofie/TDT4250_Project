@@ -438,7 +438,6 @@ public class AtValidator extends EObjectValidator {
 	 * @generated NOT
 	 */
 	public boolean validateFlight_validateOnlyOneFlightOnRunway(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		
 		int trafficSeverity = validateRunwayTraffic(flight);
 		
 		if (trafficSeverity > 0) {
@@ -463,9 +462,9 @@ public class AtValidator extends EObjectValidator {
 		case 1:
 			return Diagnostic.INFO;
 		case 2:
-			return Diagnostic.ERROR;
-		case 3:
 			return Diagnostic.WARNING;
+		case 3:
+			return Diagnostic.ERROR;
 		default:
 			return Diagnostic.OK;
 		}
