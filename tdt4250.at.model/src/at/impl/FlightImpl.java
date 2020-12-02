@@ -838,47 +838,93 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 		return result.toString();
 	}
 	
-	public boolean usesSameRunwayAtTheSameTime(Flight otherFlight) {
-		
-		if (this.hasDepartureRunway() && this.hasDepartureTime() && otherFlight.hasDepartureRunway() && otherFlight.hasDepartureTime()) {
-			if (	
-					this.getDepartureRunway().equals(otherFlight.getDepartureRunway()) &&
-					this.getDepartureTime().equals(otherFlight.getDepartureTime())
-					) {
-				return true;
-			}			
-		}
-		
-		if (this.hasDepartureRunway() && this.hasDepartureTime() && otherFlight.hasDestinationRunway() && otherFlight.hasArrivalTime()) {
-			if (
-					this.getDepartureRunway().equals(otherFlight.getDestinationRunway()) &&
-					this.getDepartureTime().equals(otherFlight.getArrivalTime())
-				) {
-				return true;
-			}
-		}
-		
-		if (this.hasDestinationRunway() && this.hasArrivalTime() && otherFlight.hasDepartureRunway() && otherFlight.hasDepartureTime()) {
-			if (
-					this.getDestinationRunway().equals(otherFlight.getDepartureRunway()) &&
-					this.getArrivalTime().equals(otherFlight.getDepartureTime())
-				) {
-				return true;
-			}
-		}
-		
-		if (this.hasDestinationRunway() && this.hasArrivalTime() && otherFlight.hasDestinationRunway() && otherFlight.hasArrivalTime()) {
-			if (
-				this.getDestinationRunway().equals(otherFlight.getDestinationRunway()) &&
-				this.getArrivalTime().equals(otherFlight.getArrivalTime())
-			) {
-				return true;
-			}
-		}
-
-		
-		return false;
+	
+	/**
+	 * Number of minutes rounded down
+	 * @param milis
+	 * @return number of minutes rounded down
+	 */
+	private int convertMiliSecondsToMinutes(long milis) {
+		return (int) (milis / 60000);
 	}
+	
+	/**
+	 * Measure if two departures are too close
+	 * less than 2 minutes apart => DANGER
+	 * between 2 and 8 minutes => MINOR WARNING
+	 * between 8 and 15 minutes => INFO
+	 * more than 15 minutes => OKAY
+	 */
+	private int getDepartureViolation(Date depTime, Date otherDepTime) {
+		long milisecsBetweenDepartures = Math.abs(depTime.getTime() - otherDepTime.getTime());
+		int minutesBetweenDepartures = convertMiliSecondsToMinutes(milisecsBetweenDepartures);
+		
+		if (minutesBetweenDepartures < 2) {
+			return 3;
+		} else if (minutesBetweenDepartures < 8) {
+			return 2;
+		} else if (minutesBetweenDepartures < 15) {
+			return 1;
+		}
+		
+		// No danger
+		return 0;
+	}
+	
+	/**
+	 * Validate if some other flight will be using the same runway at the same time.
+	 * @param otherFlight
+	 * @return severity of traffic, 0 is no traffic and 3 is highly dangerous
+	 */
+	private int validateRunwayTrafficOnDeparture(Flight otherFlight) {
+		// Difference between this.dep and otherFlight.dep
+		int depDelta = 0;
+		// Difference between this.dep and otherFlight.arr
+		int arrDelta = 0;
+		
+		if (this.getDepartureRunway().equals(otherFlight.getDepartureRunway())) {
+			depDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getDepartureTime());
+		}
+		
+		if (this.getDepartureRunway().equals(otherFlight.getDestinationRunway())) {
+			arrDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getArrivalTime());
+		}
+		
+		return Math.max(depDelta, arrDelta);
+	}
+	
+	/**
+	 * Validate if some other flight will be using the same runway at the same time.
+	 * @param otherFlight
+	 * @return severity of traffic, 0 is no traffic and 3 is highly dangerous
+	 */
+	private int validateRunwayTrafficOnArrival(Flight otherFlight) {
+		// Difference between this.arrival and otherFlight.dep
+		int depDelta = 0;
+		// Difference between this.arrival and otherFlight.arr
+		int arrDelta = 0;
+		
+		if (this.getDestinationRunway().equals(otherFlight.getDepartureRunway())) {
+			depDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getDepartureTime());
+		}
+		
+		if (this.getDepartureRunway().equals(otherFlight.getDestinationRunway())) {
+			arrDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getArrivalTime());
+		}
+		
+		return Math.max(depDelta, arrDelta);
+	}
+	
+	
+	/**
+	 * Validate if some other flight will be using the same runway at the same time.
+	 */
+	public int validateRunwayTraffic(Flight otherFlight) {
+		return Math.max(
+				validateRunwayTrafficOnDeparture(otherFlight),
+				validateRunwayTrafficOnArrival(otherFlight)
+		);
+	}	
 	
 	public boolean hasDepartureTime() {
 		return departureTime != null;

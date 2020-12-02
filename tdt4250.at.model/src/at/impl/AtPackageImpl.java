@@ -276,6 +276,15 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAirline_Airports() {
+		return (EReference)airlineEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAirplane() {
 		return airplaneEClass;
 	}
@@ -732,6 +741,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		createEReference(airlineEClass, AIRLINE__FLIGHTS);
 		createEReference(airlineEClass, AIRLINE__AIRPLANES);
 		createEReference(airlineEClass, AIRLINE__EMPLOYEES);
+		createEReference(airlineEClass, AIRLINE__AIRPORTS);
 
 		airplaneEClass = createEClass(AIRPLANE);
 		createEAttribute(airplaneEClass, AIRPLANE__TYPE);
@@ -830,6 +840,7 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEReference(getAirline_Flights(), this.getFlight(), null, "flights", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAirline_Airplanes(), this.getAirplane(), null, "airplanes", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAirline_Employees(), this.getPerson(), this.getPerson_Employer(), "employees", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAirline_Airports(), this.getAirport(), null, "airports", null, 0, -1, Airline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(airplaneEClass, Airplane.class, "Airplane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAirplane_Type(), this.getAirplaneType(), "type", null, 0, 1, Airplane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -874,12 +885,12 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		initEAttribute(getPerson_FamilyName(), ecorePackage.getEString(), "familyName", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPerson_Gender(), this.getGender(), "gender", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPerson_Age(), ecorePackage.getEInt(), "age", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPerson_Allocations(), this.getCrewAllocation(), this.getCrewAllocation_Member(), "allocations", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPerson_Allocations(), this.getCrewAllocation(), this.getCrewAllocation_Member(), "allocations", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPerson_Employer(), this.getAirline(), this.getAirline_Employees(), "employer", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(crewAllocationEClass, CrewAllocation.class, "CrewAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCrewAllocation_Role(), this.getRole(), "role", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCrewAllocation_Member(), this.getPerson(), this.getPerson_Allocations(), "member", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCrewAllocation_Member(), this.getPerson(), this.getPerson_Allocations(), "member", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCrewAllocation_Flight(), this.getFlight(), this.getFlight_Allocations(), "flight", null, 0, 1, CrewAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
@@ -930,13 +941,12 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		  (travelPlannerEClass,
 		   source,
 		   new String[] {
-			   "constraints", "validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen"
 		   });
 		addAnnotation
 		  (flightEClass,
 		   source,
 		   new String[] {
-			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew"
+			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew validateOnlyOneFlightOnRunway"
 		   });
 	}
 

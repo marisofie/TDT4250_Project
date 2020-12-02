@@ -160,13 +160,22 @@ public interface AtPackage extends EPackage {
 	int AIRLINE__EMPLOYEES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Airports</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AIRLINE__AIRPORTS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Airline</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AIRLINE_FEATURE_COUNT = 4;
+	int AIRLINE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Airline</em>' class.
@@ -616,7 +625,7 @@ public interface AtPackage extends EPackage {
 	int PERSON__AGE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Allocations</b></em>' reference.
+	 * The feature id for the '<em><b>Allocations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -833,6 +842,17 @@ public interface AtPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAirline_Employees();
+
+	/**
+	 * Returns the meta object for the reference list '{@link at.Airline#getAirports <em>Airports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Airports</em>'.
+	 * @see at.Airline#getAirports()
+	 * @see #getAirline()
+	 * @generated
+	 */
+	EReference getAirline_Airports();
 
 	/**
 	 * Returns the meta object for class '{@link at.Airplane <em>Airplane</em>}'.
@@ -1247,10 +1267,10 @@ public interface AtPackage extends EPackage {
 	EAttribute getPerson_Age();
 
 	/**
-	 * Returns the meta object for the reference '{@link at.Person#getAllocations <em>Allocations</em>}'.
+	 * Returns the meta object for the reference list '{@link at.Person#getAllocations <em>Allocations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Allocations</em>'.
+	 * @return the meta object for the reference list '<em>Allocations</em>'.
 	 * @see at.Person#getAllocations()
 	 * @see #getPerson()
 	 * @generated
@@ -1439,6 +1459,14 @@ public interface AtPackage extends EPackage {
 		 * @generated
 		 */
 		EReference AIRLINE__EMPLOYEES = eINSTANCE.getAirline_Employees();
+
+		/**
+		 * The meta object literal for the '<em><b>Airports</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AIRLINE__AIRPORTS = eINSTANCE.getAirline_Airports();
 
 		/**
 		 * The meta object literal for the '{@link at.impl.AirplaneImpl <em>Airplane</em>}' class.
@@ -1757,7 +1785,7 @@ public interface AtPackage extends EPackage {
 		EAttribute PERSON__AGE = eINSTANCE.getPerson_Age();
 
 		/**
-		 * The meta object literal for the '<em><b>Allocations</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Allocations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

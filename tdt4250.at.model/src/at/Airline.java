@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link at.Airline#getFlights <em>Flights</em>}</li>
  *   <li>{@link at.Airline#getAirplanes <em>Airplanes</em>}</li>
  *   <li>{@link at.Airline#getEmployees <em>Employees</em>}</li>
+ *   <li>{@link at.Airline#getAirports <em>Airports</em>}</li>
  * </ul>
  *
  * @see at.AtPackage#getAirline()
@@ -85,5 +86,17 @@ public interface Airline extends EObject {
 	 * @generated
 	 */
 	EList<Person> getEmployees();
+
+	/**
+	 * Returns the value of the '<em><b>Airports</b></em>' reference list.
+	 * The list contents are of type {@link at.Airport}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Airports</em>' reference list.
+	 * @see at.AtPackage#getAirline_Airports()
+	 * @model
+	 * @generated
+	 */
+	EList<Airport> getAirports();
 
 } // Airline

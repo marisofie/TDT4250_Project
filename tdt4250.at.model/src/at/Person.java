@@ -2,6 +2,7 @@
  */
 package at;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -131,28 +132,18 @@ public interface Person extends EObject {
 	void setAge(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Allocations</b></em>' reference.
+	 * Returns the value of the '<em><b>Allocations</b></em>' reference list.
+	 * The list contents are of type {@link at.CrewAllocation}.
 	 * It is bidirectional and its opposite is '{@link at.CrewAllocation#getMember <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allocations</em>' reference.
-	 * @see #setAllocations(CrewAllocation)
+	 * @return the value of the '<em>Allocations</em>' reference list.
 	 * @see at.AtPackage#getPerson_Allocations()
 	 * @see at.CrewAllocation#getMember
 	 * @model opposite="member"
 	 * @generated
 	 */
-	CrewAllocation getAllocations();
-
-	/**
-	 * Sets the value of the '{@link at.Person#getAllocations <em>Allocations</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Allocations</em>' reference.
-	 * @see #getAllocations()
-	 * @generated
-	 */
-	void setAllocations(CrewAllocation value);
+	EList<CrewAllocation> getAllocations();
 
 	/**
 	 * Returns the value of the '<em><b>Employer</b></em>' container reference.

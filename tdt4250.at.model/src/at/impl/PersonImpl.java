@@ -8,16 +8,20 @@ import at.CrewAllocation;
 import at.Gender;
 import at.Person;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -130,14 +134,14 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	protected int age = AGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' reference.
+	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAllocations()
 	 * @generated
 	 * @ordered
 	 */
-	protected CrewAllocation allocations;
+	protected EList<CrewAllocation> allocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,59 +260,11 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CrewAllocation getAllocations() {
-		if (allocations != null && allocations.eIsProxy()) {
-			InternalEObject oldAllocations = (InternalEObject)allocations;
-			allocations = (CrewAllocation)eResolveProxy(oldAllocations);
-			if (allocations != oldAllocations) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AtPackage.PERSON__ALLOCATIONS, oldAllocations, allocations));
-			}
+	public EList<CrewAllocation> getAllocations() {
+		if (allocations == null) {
+			allocations = new EObjectWithInverseResolvingEList<CrewAllocation>(CrewAllocation.class, this, AtPackage.PERSON__ALLOCATIONS, AtPackage.CREW_ALLOCATION__MEMBER);
 		}
 		return allocations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CrewAllocation basicGetAllocations() {
-		return allocations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAllocations(CrewAllocation newAllocations, NotificationChain msgs) {
-		CrewAllocation oldAllocations = allocations;
-		allocations = newAllocations;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__ALLOCATIONS, oldAllocations, newAllocations);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAllocations(CrewAllocation newAllocations) {
-		if (newAllocations != allocations) {
-			NotificationChain msgs = null;
-			if (allocations != null)
-				msgs = ((InternalEObject)allocations).eInverseRemove(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
-			if (newAllocations != null)
-				msgs = ((InternalEObject)newAllocations).eInverseAdd(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
-			msgs = basicSetAllocations(newAllocations, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AtPackage.PERSON__ALLOCATIONS, newAllocations, newAllocations));
 	}
 
 	/**
@@ -357,13 +313,12 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AtPackage.PERSON__ALLOCATIONS:
-				if (allocations != null)
-					msgs = ((InternalEObject)allocations).eInverseRemove(this, AtPackage.CREW_ALLOCATION__MEMBER, CrewAllocation.class, msgs);
-				return basicSetAllocations((CrewAllocation)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAllocations()).basicAdd(otherEnd, msgs);
 			case AtPackage.PERSON__EMPLOYER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -381,7 +336,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AtPackage.PERSON__ALLOCATIONS:
-				return basicSetAllocations(null, msgs);
+				return ((InternalEList<?>)getAllocations()).basicRemove(otherEnd, msgs);
 			case AtPackage.PERSON__EMPLOYER:
 				return basicSetEmployer(null, msgs);
 		}
@@ -421,8 +376,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			case AtPackage.PERSON__AGE:
 				return getAge();
 			case AtPackage.PERSON__ALLOCATIONS:
-				if (resolve) return getAllocations();
-				return basicGetAllocations();
+				return getAllocations();
 			case AtPackage.PERSON__EMPLOYER:
 				return getEmployer();
 		}
@@ -434,6 +388,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -450,7 +405,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				setAge((Integer)newValue);
 				return;
 			case AtPackage.PERSON__ALLOCATIONS:
-				setAllocations((CrewAllocation)newValue);
+				getAllocations().clear();
+				getAllocations().addAll((Collection<? extends CrewAllocation>)newValue);
 				return;
 			case AtPackage.PERSON__EMPLOYER:
 				setEmployer((Airline)newValue);
@@ -480,7 +436,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 				setAge(AGE_EDEFAULT);
 				return;
 			case AtPackage.PERSON__ALLOCATIONS:
-				setAllocations((CrewAllocation)null);
+				getAllocations().clear();
 				return;
 			case AtPackage.PERSON__EMPLOYER:
 				setEmployer((Airline)null);
@@ -508,7 +464,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 			case AtPackage.PERSON__AGE:
 				return age != AGE_EDEFAULT;
 			case AtPackage.PERSON__ALLOCATIONS:
-				return allocations != null;
+				return allocations != null && !allocations.isEmpty();
 			case AtPackage.PERSON__EMPLOYER:
 				return getEmployer() != null;
 		}

@@ -120,63 +120,7 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTravelPlanner(TravelPlanner travelPlanner, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(travelPlanner, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(travelPlanner, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTravelPlanner_validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen(travelPlanner, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen constraint of '<em>Travel Planner</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean validateTravelPlanner_validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen(TravelPlanner travelPlanner, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (twoFlightsPlanToUseTheSameRunwayAtTheSameTime(travelPlanner)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(createDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen", getObjectLabel(travelPlanner, context) },
-						 new Object[] { travelPlanner },
-						 context));
-			}
-			return false;
-		}
-		return true;
-	}
-	
-	private boolean twoFlightsPlanToUseTheSameRunwayAtTheSameTime(TravelPlanner travelPlanner) {
-		for (Airline airline : travelPlanner.getAirlines()) {
-			for (Flight flight : airline.getFlights()) {
-				for (Airline otherAirline : travelPlanner.getAirlines()) {
-					for (Flight otherFlight : otherAirline.getFlights()) {
-						if (flight.equals(otherFlight)) continue;
-						else {
-							if (flight.usesSameRunwayAtTheSameTime(otherFlight)) {
-								return true;
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		return false;
+		return validate_EveryDefaultConstraint(travelPlanner, diagnostics, context);
 	}
 
 	/**
@@ -221,6 +165,7 @@ public class AtValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateFlight_validateGateTakeOff(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateGateLanding(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateCrew(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateOnlyOneFlightOnRunway(flight, diagnostics, context);
 		return result;
 	}
 
@@ -484,6 +429,69 @@ public class AtValidator extends EObjectValidator {
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
+	}
+
+	/**
+	 * Validates the validateOnlyOneFlightOnRunway constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateFlight_validateOnlyOneFlightOnRunway(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		
+		int trafficSeverity = validateRunwayTraffic(flight);
+		
+		if (trafficSeverity > 0) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(getDiagnosticSeverity(trafficSeverity),
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "validateOnlyOneFlightOnRunway", getObjectLabel(flight, context) },
+						 new Object[] { flight },
+						 context));
+			}
+			return false;
+		}
+		return true;
+	}
+	
+	private int getDiagnosticSeverity(int trafficSeverity) {
+		switch (trafficSeverity) {
+		case 1:
+			return Diagnostic.INFO;
+		case 2:
+			return Diagnostic.ERROR;
+		case 3:
+			return Diagnostic.WARNING;
+		default:
+			return Diagnostic.OK;
+		}
+	}
+	
+	private int validateRunwayTraffic(Flight flight) {
+		// Need the root to be able to iterate over all flights
+		TravelPlanner tp = (TravelPlanner) flight.eContainer().eContainer();
+		int trafficSeverity = 0;
+		
+		for (Airline airline : tp.getAirlines()) {
+			for (Flight otherFlight : airline.getFlights()) {
+				if (flight.equals(otherFlight)) {
+					continue;
+				} else {
+					int tempSeverity = flight.validateRunwayTraffic(otherFlight);
+					if (tempSeverity > trafficSeverity) {
+						trafficSeverity = tempSeverity;
+					}
+					if (trafficSeverity == 3) {
+						return trafficSeverity;
+					}
+				}
+			}
+		}
+		return trafficSeverity;
 	}
 
 	/**

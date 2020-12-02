@@ -4,6 +4,7 @@ package at.impl;
 
 import at.Airline;
 import at.Airplane;
+import at.Airport;
 import at.AtPackage;
 import at.Flight;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link at.impl.AirlineImpl#getFlights <em>Flights</em>}</li>
  *   <li>{@link at.impl.AirlineImpl#getAirplanes <em>Airplanes</em>}</li>
  *   <li>{@link at.impl.AirlineImpl#getEmployees <em>Employees</em>}</li>
+ *   <li>{@link at.impl.AirlineImpl#getAirports <em>Airports</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +94,16 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 	 * @ordered
 	 */
 	protected EList<Person> employees;
+
+	/**
+	 * The cached value of the '{@link #getAirports() <em>Airports</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAirports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Airport> airports;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +186,18 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Airport> getAirports() {
+		if (airports == null) {
+			airports = new EObjectResolvingEList<Airport>(Airport.class, this, AtPackage.AIRLINE__AIRPORTS);
+		}
+		return airports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -217,6 +242,8 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				return getAirplanes();
 			case AtPackage.AIRLINE__EMPLOYEES:
 				return getEmployees();
+			case AtPackage.AIRLINE__AIRPORTS:
+				return getAirports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -245,6 +272,10 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				getEmployees().clear();
 				getEmployees().addAll((Collection<? extends Person>)newValue);
 				return;
+			case AtPackage.AIRLINE__AIRPORTS:
+				getAirports().clear();
+				getAirports().addAll((Collection<? extends Airport>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +300,9 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 			case AtPackage.AIRLINE__EMPLOYEES:
 				getEmployees().clear();
 				return;
+			case AtPackage.AIRLINE__AIRPORTS:
+				getAirports().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,6 +323,8 @@ public class AirlineImpl extends MinimalEObjectImpl.Container implements Airline
 				return airplanes != null && !airplanes.isEmpty();
 			case AtPackage.AIRLINE__EMPLOYEES:
 				return employees != null && !employees.isEmpty();
+			case AtPackage.AIRLINE__AIRPORTS:
+				return airports != null && !airports.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

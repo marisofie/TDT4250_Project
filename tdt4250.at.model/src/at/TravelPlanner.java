@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see at.AtPackage#getTravelPlanner()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface TravelPlanner extends EObject {
