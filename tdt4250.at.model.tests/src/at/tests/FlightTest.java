@@ -4,10 +4,16 @@ package at.tests;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
+import at.Airline;
 import at.AtFactory;
 import at.Flight;
-
+import at.Runway;
+import at.TravelPlanner;
+import at.util.AtValidator;
 import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
@@ -119,5 +125,34 @@ public class FlightTest extends TestCase {
 		
 		assertEquals(flight.getDuration(), 60);
 	}
+	
+	public void testValidateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen() {
+        TravelPlanner tp = AtFactory.eINSTANCE.createTravelPlanner();
+        Airline airline = AtFactory.eINSTANCE.createAirline();
+        tp.getAirlines().add(airline);
+        
+        Flight flight = AtFactory.eINSTANCE.createFlight();
+        airline.getFlights().add(flight);
+        Flight otherFlight = AtFactory.eINSTANCE.createFlight();
+        airline.getFlights().add(otherFlight);
+        
+        
+        // 24 December 2020 at 12:00
+        Date departureTime = new GregorianCalendar(2020, Calendar.DECEMBER, 21, 12, 0).getTime();
+        flight.setDepartureTime(departureTime);
+        otherFlight.setDepartureTime(departureTime);
+        
+        // Set the same runway to both departures
+        Runway runway = AtFactory.eINSTANCE.createRunway();
+        flight.setDepartureRunway(runway);
+        otherFlight.setDepartureRunway(runway);
+        
+        
+        assertFalse(
+                AtValidator.INSTANCE.validateFlight_validateOnlyOneFlightOnRunway(flight, null, null)
+        );
+	}
+	
+	
 
 } //FlightTest

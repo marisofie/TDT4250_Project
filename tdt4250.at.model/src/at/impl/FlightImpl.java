@@ -882,12 +882,20 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 		// Difference between this.dep and otherFlight.arr
 		int arrDelta = 0;
 		
-		if (this.getDepartureRunway().equals(otherFlight.getDepartureRunway())) {
-			depDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getDepartureTime());
+		if (this.getDepartureRunway() == null || this.getDepartureTime() == null) {
+			return 0;
 		}
 		
-		if (this.getDepartureRunway().equals(otherFlight.getDestinationRunway())) {
-			arrDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getArrivalTime());
+		if (otherFlight.getDepartureRunway() != null || otherFlight.getDepartureTime() != null) {
+			if (this.getDepartureRunway().equals(otherFlight.getDepartureRunway())) {
+				depDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getDepartureTime());
+			}			
+		}
+		
+		if (otherFlight.getDestinationRunway() != null || otherFlight.getArrivalTime() != null) {
+			if (this.getDepartureRunway().equals(otherFlight.getDestinationRunway())) {
+				arrDelta = getDepartureViolation(this.getDepartureTime(), otherFlight.getArrivalTime());
+			}			
 		}
 		
 		return Math.max(depDelta, arrDelta);
@@ -904,12 +912,20 @@ public class FlightImpl extends MinimalEObjectImpl.Container implements Flight {
 		// Difference between this.arrival and otherFlight.arr
 		int arrDelta = 0;
 		
-		if (this.getDestinationRunway().equals(otherFlight.getDepartureRunway())) {
-			depDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getDepartureTime());
+		if (this.getDestinationRunway() == null || this.getArrivalTime() == null) {
+			return 0;
 		}
 		
-		if (this.getDepartureRunway().equals(otherFlight.getDestinationRunway())) {
-			arrDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getArrivalTime());
+		if (otherFlight.getDepartureRunway() != null || otherFlight.getDepartureTime() != null) {
+			if (this.getDestinationRunway().equals(otherFlight.getDepartureRunway())) {
+				depDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getDepartureTime());
+			}			
+		}
+		
+		if (otherFlight.getDestinationRunway() != null || otherFlight.getArrivalTime() != null) {
+			if (this.getDestinationRunway().equals(otherFlight.getDestinationRunway())) {
+				arrDelta = getDepartureViolation(this.getArrivalTime(), otherFlight.getArrivalTime());
+			}			
 		}
 		
 		return Math.max(depDelta, arrDelta);
