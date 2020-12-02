@@ -48,18 +48,19 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 #### Airplane
 #### Flight
   - **Constraints**
-    - validateOnlyOneFlightOnRunway: Two airplanes cannot use the same runway at the same time
+    - validateOnlyOneFlightOnRunway: Two airplanes cannot use the same runway at the same time.
       - We have different severity depending on how much time there is between the two different flights. The most pressing severity is the on that is returned to the user.
         - Under 2 minutes between => ERROR
         - From 2 up to 8 minutes => WARNING
         - From 8 up to 15 minutes => INFO
         - 15 minutes or longer => OKAY
-    - MaximumPassengers: Number of passengers cannot excede number of seats on flight
-    - ValdidateRunwayLengthTakeOff, ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane
-    - ValidateRunwayExistsTakeOff, ValidateRunwayExistsLanding: Runway chosen belongs to the correct airport
-    - ValidateGateTakeOff, ValidateGateLanding: Only gates belonging to the selected airport can be chosen
-    - MinimumCrew: Crew is equal to or bigger than minimumcrew for airplane
-    - ValidateCrew: Person cannot be passenger and part of crew
+    - MaximumPassengers: Number of passengers cannot excede number of seats on flight.
+    - ValdidateRunwayLengthTakeOff, ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane.
+    - ValidateRunwayExistsTakeOff, ValidateRunwayExistsLanding: Runway chosen belongs to the correct airport.
+    - ValidateGateTakeOff, ValidateGateLanding: Only gates belonging to the selected airport can be chosen.
+    - MinimumCrew: Crew is equal to or bigger than minimumcrew for airplane.
+    - ValidateCrew: Person cannot be passenger and part of crew.
+    - validateCrewHasUniqueRole: A crew member must have a unique role on any given flight.
   - **Derived features**
     - duration: derived from arrivaltime - departuretime
       - Written with ecore constraint (not OCL), therefore also tested manually.

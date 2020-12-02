@@ -38,7 +38,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Flight">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew validateOnlyOneFlightOnRunway"/>
+      <details key="constraints" value="maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew validateOnlyOneFlightOnRunway validateCrewHasUniqueRole"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0" references="#//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%">
       <details key="maximumPassengers" value="self.passengers -> size() &lt; self.airplane.numberOfSeats"/>
@@ -50,6 +50,7 @@
       <details key="validateGateTakeOff" value="self.departureAirport.gates -> exists(g | g = self.departureGate)"/>
       <details key="validateGateLanding" value="self.destinationAirport.gates -> exists(g | g = self.destinationGate)"/>
       <details key="validateCrew" value="((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"/>
+      <details key="validateCrewHasUniqueRole" value="self.allocations -> isUnique(c | c.member)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
