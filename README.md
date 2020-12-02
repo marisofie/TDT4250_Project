@@ -41,14 +41,18 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 #### TravelPlanner
   - **Constraints**
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
-    - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner.
 #### Airline
   - **Constraints**
-    - <constraintName>: One Airline must have unique airplanes
+    - hasUniqueAirplanes: Airline must have unique airplanes, cannot add two instances of the same airplane in the system.
+      - Uses id of the airplane to check if it is unique, and is there dependant on `validateHasUniqueId` on Airplanes.
 #### Airplane
+  - **Constraints**
+    - validateHasUniqueId: ensure that all airplanes has unique id relative to it's airline
+      - We assume that all airlines own separate airplanes, and do therefore not check the id globally.
+      - We could have given all airplanes unique id's by collecting all airplanes from TravelPlanner: `self.eContainer().eContainer().airlines.airplanes -> isUnique(plane | plane.id)`.
 #### Flight
   - **Constraints**
-    - validateOnlyOneFlightOnRunway: Two airplanes cannot use the same runway at the same time.
+    - validateRunwayIsBusy: Two airplanes cannot use the same runway at the same time.
       - We have different severity depending on how much time there is between the two different flights. The most pressing severity is the on that is returned to the user.
         - Under 2 minutes between => ERROR
         - From 2 up to 8 minutes => WARNING
@@ -76,9 +80,15 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 #### CrewAllocation
 
 ## Limitations
+
+Limitations are mostly constraints that we are aware of, but for different reasons have not implemented. Mostly, we argue that the limitations are not implemented because of limited time.
+In some cases we also argue that we have not implemented a feature or constraint because we have already made similar validation or feature, and would like to focus on implementing different variations with the goal of learning more.
+
 - Travel planners must ensure that an airplane is at the correct airport for the chosen flight
   - Ways this can be implemente as a validation:
-    - Look at flight, is the airplane currently being used landing at the airport it is to be used from in due time?
+    - Look at flight, check the last flight that the airplane was used for and determine if it is on the airport it is needed.
+- `validatePlaneAlreadyInUse` - would check if a plane is already set to be used on flight at the same time.
+  - This would require some manual validation because it's dependant on the Date object, we would therefore argue that we have made a similar feature in `validateRunwayIsBusy` under `Flight`.
 
 ## Classes
 
