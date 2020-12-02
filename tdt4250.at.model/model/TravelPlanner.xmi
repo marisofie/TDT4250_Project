@@ -101,6 +101,12 @@
         minimumCrew="5"
         requiredRunwayLengthTakeoff="2473"
         requiredRunwayLengthLanding="1981"/>
+    <airplanes
+        id="3"
+        numberOfSeats="27"
+        minimumCrew="2"
+        requiredRunwayLengthTakeoff="150"
+        requiredRunwayLengthLanding="150"/>
     <employees
         firstName="Lise"
         familyName="Hansen"
@@ -150,6 +156,7 @@
         arrivalTime="2020-11-02T20:55:00.000+0100"/>
     <airplanes
         type="Bombardier DHC-8 Dash 8-100"
+        id="11"
         numberOfSeats="39"
         minimumCrew="4"
         requiredRunwayLengthTakeoff="800"

@@ -27,6 +27,12 @@
         eType="#//Airport"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Airplane">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="validateHasUniqueId"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/acceleo/query/1.0">
+      <details key="validateHasUniqueId" value="self.eContainer().eContainer().airlines.airplanes -> isUnique(plane | plane.id)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AirplaneType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfSeats" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
