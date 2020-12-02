@@ -10,8 +10,8 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
   - tdt4250.at.acceleo.html     --> Model to Text in the form of differnt html sites. [Read more here.](./tdt4250.at.acceleo.html/README.md)
   - tdt4250.at.model            --> Ecore model.  [Read more here.](./tdt4250.at.model/README.md)
   - tdt4250.at.model.tests      --> Tests for the model.  [Read more here.](./tdt4250.at.model.tests/README.md)
-  - tdt4250.at.sirius.diagram   -->
-  - tdt4250.at.sirius.modelling -->
+  - tdt4250.at.sirius.diagram   --> [Read more here.](./tdt4250.at.sirius.diagram/README.md)
+  - tdt4250.at.sirius.modelling --> [Read more here.](./tdt4250.at.sirius.modelling/README.md)
 
 ## Features 🔥
 
@@ -89,6 +89,8 @@ In some cases we also argue that we have not implemented a feature or constraint
     - Look at flight, check the last flight that the airplane was used for and determine if it is on the airport it is needed.
 - `validatePlaneAlreadyInUse` - would check if a plane is already set to be used on flight at the same time.
   - This would require some manual validation because it's dependant on the Date object, we would therefore argue that we have made a similar feature in `validateRunwayIsBusy` under `Flight`.
+- `validateCrewMemberAvailable` - would check if a given employee is available for a flight.
+  - Similarily as the validation above this would require manual validation because we would have to validate with regards to the date, duration and location of the flight.
 
 ## Classes
 
