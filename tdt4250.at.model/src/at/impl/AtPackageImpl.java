@@ -943,10 +943,22 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 		   new String[] {
 		   });
 		addAnnotation
+		  (airlineEClass,
+		   source,
+		   new String[] {
+			   "constraints", "validateHasUniqueAirplanes"
+		   });
+		addAnnotation
+		  (airplaneEClass,
+		   source,
+		   new String[] {
+			   "constraints", "validateHasUniqueId"
+		   });
+		addAnnotation
 		  (flightEClass,
 		   source,
 		   new String[] {
-			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew validateOnlyOneFlightOnRunway"
+			   "constraints", "maximumPassengers minimumCrew validateRunwayLengthTakeOff validateRunwayLengthLanding validateRunwayExistsTakeOff validateRunwayExistsLanding validateGateTakeOff validateGateLanding validateCrew validateCrewHasUniqueRole validateRunwayIsBusy"
 		   });
 	}
 
@@ -959,6 +971,18 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 	protected void create_1Annotations() {
 		String source = "http://www.eclipse.org/acceleo/query/1.0";
 		addAnnotation
+		  (airlineEClass,
+		   source,
+		   new String[] {
+			   "validateHasUniqueAirplanes", "self.airplanes -> isUnique(p | p.id)"
+		   });
+		addAnnotation
+		  (airplaneEClass,
+		   source,
+		   new String[] {
+			   "validateHasUniqueId", "self.eContainer().airlines.airplanes -> isUnique(plane | plane.id)"
+		   });
+		addAnnotation
 		  (flightEClass,
 		   source,
 		   new String[] {
@@ -970,7 +994,8 @@ public class AtPackageImpl extends EPackageImpl implements AtPackage {
 			   "validateRunwayExistsLanding", "self.destinationAirport.runways -> exists(r | r = self.destinationRunway) ",
 			   "validateGateTakeOff", "self.departureAirport.gates -> exists(g | g = self.departureGate)",
 			   "validateGateLanding", "self.destinationAirport.gates -> exists(g | g = self.destinationGate)",
-			   "validateCrew", "((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()"
+			   "validateCrew", "((self.allocations-> collect(ca |ca.member)) -> intersection(self.passengers)) -> isEmpty()",
+			   "validateCrewHasUniqueRole", "self.allocations -> isUnique(c | c.member)"
 		   },
 		   new URI[] {
 			 URI.createURI(eNS_URI).appendFragment("//Person/fullName/%http:%2F%2Fwww.eclipse.org%2Facceleo%2Fquery%2F1.0%")

@@ -23,7 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see at.AtPackage#getAirline()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validateHasUniqueAirplanes'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 validateHasUniqueAirplanes='self.airplanes -&gt; isUnique(p | p.id)'"
  * @generated
  */
 public interface Airline extends EObject {

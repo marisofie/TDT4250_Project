@@ -129,7 +129,46 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAirline(Airline airline, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(airline, diagnostics, context);
+		if (!validate_NoCircularContainment(airline, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(airline, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAirline_validateHasUniqueAirplanes(airline, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the validateHasUniqueAirplanes constraint of '<em>Airline</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String AIRLINE__VALIDATE_HAS_UNIQUE_AIRPLANES__EEXPRESSION = "self.airplanes -> isUnique(p | p.id)";
+
+	/**
+	 * Validates the validateHasUniqueAirplanes constraint of '<em>Airline</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAirline_validateHasUniqueAirplanes(Airline airline, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.AIRLINE,
+				 airline,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateHasUniqueAirplanes",
+				 AIRLINE__VALIDATE_HAS_UNIQUE_AIRPLANES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -138,7 +177,46 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAirplane(Airplane airplane, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(airplane, diagnostics, context);
+		if (!validate_NoCircularContainment(airplane, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(airplane, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAirplane_validateHasUniqueId(airplane, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the validateHasUniqueId constraint of '<em>Airplane</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String AIRPLANE__VALIDATE_HAS_UNIQUE_ID__EEXPRESSION = "self.eContainer().airlines.airplanes -> isUnique(plane | plane.id)";
+
+	/**
+	 * Validates the validateHasUniqueId constraint of '<em>Airplane</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAirplane_validateHasUniqueId(Airplane airplane, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.AIRPLANE,
+				 airplane,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateHasUniqueId",
+				 AIRPLANE__VALIDATE_HAS_UNIQUE_ID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -165,7 +243,8 @@ public class AtValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateFlight_validateGateTakeOff(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateGateLanding(flight, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFlight_validateCrew(flight, diagnostics, context);
-		if (result || diagnostics != null) result &= validateFlight_validateOnlyOneFlightOnRunway(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateCrewHasUniqueRole(flight, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFlight_validateRunwayIsBusy(flight, diagnostics, context);
 		return result;
 	}
 
@@ -432,12 +511,41 @@ public class AtValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the validateOnlyOneFlightOnRunway constraint of '<em>Flight</em>'.
+	 * The cached validation expression for the validateCrewHasUniqueRole constraint of '<em>Flight</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public boolean validateFlight_validateOnlyOneFlightOnRunway(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	protected static final String FLIGHT__VALIDATE_CREW_HAS_UNIQUE_ROLE__EEXPRESSION = "self.allocations -> isUnique(c | c.member)";
+
+	/**
+	 * Validates the validateCrewHasUniqueRole constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateCrewHasUniqueRole(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(AtPackage.Literals.FLIGHT,
+				 flight,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "validateCrewHasUniqueRole",
+				 FLIGHT__VALIDATE_CREW_HAS_UNIQUE_ROLE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * Validates the validateRunwayIsBusy constraint of '<em>Flight</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFlight_validateRunwayIsBusy(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		int trafficSeverity = validateRunwayTraffic(flight);
 		
 		if (trafficSeverity > 0) {
@@ -448,7 +556,7 @@ public class AtValidator extends EObjectValidator {
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
-						 new Object[] { "validateOnlyOneFlightOnRunway", getObjectLabel(flight, context) },
+						 new Object[] { "validateRunwayIsBusy", getObjectLabel(flight, context) },
 						 new Object[] { flight },
 						 context));
 			}
@@ -456,7 +564,7 @@ public class AtValidator extends EObjectValidator {
 		}
 		return true;
 	}
-	
+
 	private int getDiagnosticSeverity(int trafficSeverity) {
 		switch (trafficSeverity) {
 		case 1:
