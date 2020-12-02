@@ -2,17 +2,16 @@
 
 ## Short introduction to domain
 We have decided to model air flight from a flight planning view. The task will be to create a clean and systematic model of how one would plan different flights for different airlines.
-    
+
 We want to use Sirius to make it easy for the ones planning the flights. And we want to use transformation to text to make the flight data available for customers.
 
 ## Project overview 📢
 
-    - tdt4250.at.acceleo.html
-    - tdt4250.at.model
-    - tdt4250.at.model.tests
-    - tdt4250.at.acceleo.html
-    - tdt4250.at.sirius.diagram
-    - tdt4250.at.sirius.modelling
+  - tdt4250.at.acceleo.html     --> Model to Text in the form of differnt html sites. [Read more here.](./tdt4250.at.acceleo.html/README.md)
+  - tdt4250.at.model            --> Ecore model.  [Read more here.](./tdt4250.at.model/README.md)
+  - tdt4250.at.model.tests      --> Tests for the model.  [Read more here.](./tdt4250.at.model.tests/README.md)
+  - tdt4250.at.sirius.diagram   -->
+  - tdt4250.at.sirius.modelling -->
 
 ## Features 🔥
 
@@ -31,11 +30,9 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 - Modelling a complex domain
   - Airplane travel
 - Component Based Design
-- Use Xtext (?) -- REMOVE?
-  - Create an environment / editor for the airplane company planners to create flights
 - Use Sirius
-  - Workbench for travel planners scheduling flights 
-- Use Acceleo 
+  - Workbench for travel planners scheduling flights
+- Use Acceleo
   - M2T --> display the flights for the customers
 - EMF Forms
 
@@ -43,24 +40,29 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 
 #### TravelPlanner
   - **Constraints**
-    - ValidateRunwayMayOnlyBeUsedByOneFlightAtAGivenTimen: Two airplanes cannot use the same runway at the same time
     - <constraintname>: A single plane cannot be on different flights, hence it must be available for the planned flight
-    - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner. 
+    - **NB**: for some reason, when setting ID here and making it unique, you can still create duplicate airplanes and duplicate runways for an airport. HOW TO FIX THIS?? Another way to solve this might be to put the constraint under TravelPlanner.
 #### Airline
   - **Constraints**
-    - <constraintName>: One Airline must have unique airplanes 
+    - <constraintName>: One Airline must have unique airplanes
 #### Airplane
 #### Flight
   - **Constraints**
-    - MaximumPassengers: Number of passengers cannot excede number of seats on flight 
+    - validateOnlyOneFlightOnRunway: Two airplanes cannot use the same runway at the same time
+      - We have different severity depending on how much time there is between the two different flights. The most pressing severity is the on that is returned to the user.
+        - Under 2 minutes between => ERROR
+        - From 2 up to 8 minutes => WARNING
+        - From 8 up to 15 minutes => INFO
+        - 15 minutes or longer => OKAY
+    - MaximumPassengers: Number of passengers cannot excede number of seats on flight
     - ValdidateRunwayLengthTakeOff, ValidateRunwayLengthLanding: Runway chosen must be long enough for given airplane
-    - ValidateRunwayExistsTakeOff, ValidateRunwayExistsLanding: Runway chosen belongs to the correct airport  
+    - ValidateRunwayExistsTakeOff, ValidateRunwayExistsLanding: Runway chosen belongs to the correct airport
     - ValidateGateTakeOff, ValidateGateLanding: Only gates belonging to the selected airport can be chosen
     - MinimumCrew: Crew is equal to or bigger than minimumcrew for airplane
     - ValidateCrew: Person cannot be passenger and part of crew
   - **Derived features**
     - duration: derived from arrivaltime - departuretime
-      - Written with ecore constraint (not OCL), therefore also tested manually. 
+      - Written with ecore constraint (not OCL), therefore also tested manually.
 #### Airport
 #### Gate
 #### Runway
@@ -72,10 +74,10 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
     - <constraintname>: no duplicate roles for crew members (?)
 #### CrewAllocation
 
-## Limitations 
-- Travel planners must ensure that an airplane is at the correct airport for the chosen flight 
-  - Ways this can be implemente as a validation: 
-    - Look at flight, is the airplane currently being used landing at the airport it is to be used from in due time? 
+## Limitations
+- Travel planners must ensure that an airplane is at the correct airport for the chosen flight
+  - Ways this can be implemente as a validation:
+    - Look at flight, is the airplane currently being used landing at the airport it is to be used from in due time?
 
 ## Classes
 
@@ -115,9 +117,9 @@ We want to use Sirius to make it easy for the ones planning the flights. And we 
 The different features implemented for the viewpoints can be found in the sirius.modeling bundle [here](tdt4250.at.sirius.diagram).
 
 ## References
-Icons collected from [flavicon](https://www.flaticon.com/), made by: 
+Icons collected from [flavicon](https://www.flaticon.com/), made by:
 - Freepik
 - Those Icons
-- xnimrodx 
+- xnimrodx
 - Eucalyp
 
