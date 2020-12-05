@@ -33,7 +33,7 @@ A diagram showing our ecore model is presented below. Underneath follows a descr
 - AirplaneType
     - The different airplane types and their correct attributes have been found from various web pages. Following are the links:
       - [Wikipedia](https://nn.wikipedia.org/wiki/SAS) 
-      - [Wikipedia] (https://en.wikipedia.org/wiki/Boeing_737)
+      - [Wikipedia](https://en.wikipedia.org/wiki/Boeing_737)
       - [Runway lengths required 737-800](http://krepelka.com/fsweb/learningcenter/aircraft/flightnotesboeing737-800.htm)
       - [Runway lengths required 737-600](https://skybrary.aero/index.php/B736)
 
