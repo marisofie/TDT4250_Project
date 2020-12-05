@@ -152,7 +152,7 @@
         </edgeMappings>
         <containerMappings name="FlightContainer" detailDescriptions="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='FlightTable']" semanticCandidatesExpression="aql: self.flights" domainClass="at::Flight" childrenPresentation="List">
           <subNodeMappings name="DepAirportNode" semanticCandidatesExpression="feature:departureAirport" domainClass="at::Airport">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Departure: ' + self.location" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Departure: ' + self.id" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -173,7 +173,7 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="DestAirportNode" semanticCandidatesExpression="feature:destinationAirport" domainClass="at::Airport">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Destination: ' + self.location" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Destination: ' + self.id" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -287,7 +287,7 @@
         </toolSections>
       </additionalLayers>
       <additionalLayers name="Airports" activeByDefault="true">
-        <nodeMappings name="GateNode" semanticCandidatesExpression="aql: self.eContainer().eCoairports.gates" domainClass="at::Gate">
+        <nodeMappings name="GateNode" semanticCandidatesExpression="aql: self.airports.gates" domainClass="at::Gate">
           <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/gate.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="triangle">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -301,7 +301,7 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="RunwayNode" domainClass="at::Runway">
+        <nodeMappings name="RunwayNode" semanticCandidatesExpression="aql: self.airports.runways" domainClass="at::Runway">
           <style xsi:type="style:BundledImageDescription" labelSize="12" iconPath="/tdt4250.at.sirius.modelling/icons/runway.png" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW" shape="stroke">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

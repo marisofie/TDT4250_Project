@@ -40,7 +40,7 @@
   </airports>
   <airlines
       name="SAS"
-      airports="//@airports.0 //@airports.1 //@airports.2">
+      airports="//@airports.0 //@airports.1">
     <flights
         airplane="//@airlines.0/@airplanes.0"
         departureAirport="//@airports.0"
@@ -66,6 +66,7 @@
       <allocations
           role="Flight attendant"
           member="//@airlines.0/@employees.6"/>
+      <allocations/>
     </flights>
     <airplanes
         id="141"
@@ -84,15 +85,15 @@
         id="124"
         numberOfSeats="149"
         minimumCrew="2"
-        requiredRunwayLengthTakeoff="1710"
-        requiredRunwayLengthLanding="1710"/>
+        requiredRunwayLengthTakeoff="1900"
+        requiredRunwayLengthLanding="1300"/>
     <airplanes
         type="Boeing 737-600"
         id="938"
         numberOfSeats="149"
         minimumCrew="3"
-        requiredRunwayLengthTakeoff="1710"
-        requiredRunwayLengthLanding="1710"/>
+        requiredRunwayLengthTakeoff="1900"
+        requiredRunwayLengthLanding="1300"/>
     <employees
         firstName="Lise"
         familyName="Hansen"
