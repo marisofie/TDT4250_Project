@@ -3,6 +3,40 @@ A diagram showing our ecore model is presented below. Underneath follows a descr
 
 ![Image of Ecore diagram](https://user-images.githubusercontent.com/34618612/100888292-38688c00-34b6-11eb-94b0-d271e70306ae.png)
 
+## Classes
+- TravelPlanner
+  - Top class
+  - Has multiple airlines and multiple airports
+- Airline
+  - Contains the related flights, airplanes, employees and airports it flies to and from. 
+- Airport
+  - Contains related runways and gates
+- Airplane
+  - Is now contained in Airline, but could be argued that it can exist without an airline, and be referenced by the airline instead. In this implementation we assume that an airplane cannot be shared between airlines and therefore it is contained by the airline.      
+  - Does not include weight or maximumweight, as our application is designed for travel planners and not plane engineers.
+- Flight
+  - We are modeling for domestic flights. Therefore there is not no attribute for country.
+- Runway
+  - Runways are fetched from the web from: 
+  - Oslo (OSL): [Wikipedia](https://no.wikipedia.org/wiki/Oslo_lufthavn_(Gardermoen)#Rullebaner_og_flytrafikkontroll).
+  - Trondheim (TRD): [Wikipedia](https://en.wikipedia.org/wiki/Trondheim_Airport,_Værnes).
+  - Sandefjord (TRF): [Wikipedia](https://en.wikipedia.org/wiki/Sandefjord_Airport,_Torp).
+
+## Data types
+- Role
+    - The different roles included were found [here](https://en.wikipedia.org/wiki/Aircrew).
+    - We did not include all roles mentioned. 
+- Gender
+    - Male
+    - Female
+    - Other
+- AirplaneType
+    - The different airplane types and their correct attributes have been found from various web pages. Following are the links:
+      - [Wikipedia](https://nn.wikipedia.org/wiki/SAS) 
+      - [Wikipedia] (https://en.wikipedia.org/wiki/Boeing_737)
+      - [Runway lengths required 737-800](http://krepelka.com/fsweb/learningcenter/aircraft/flightnotesboeing737-800.htm)
+      - [Runway lengths required 737-600](https://skybrary.aero/index.php/B736)
+
 ## Constraints and derived features ✈️
 #### Airline
   - **Constraints**
@@ -47,37 +81,4 @@ In some cases we also argue that we have not implemented a feature or constraint
 - `validateCrewMemberAvailable` - would check if a given employee is available for a flight.
   - Similarily as the validation above this would require manual validation because we would have to validate with regards to the date, duration and location of the flight.
 
-## Classes
-- TravelPlanner
-  - Top class
-  - Has multiple airlines and multiple airports
-- Airline
-  - Contains the related flights, airplanes, employees and airports it flies to and from. 
-- Airport
-  - Contains related runways and gates
-- Airplane
-  - Is now contained in Airline, but could be argued that it can exist without an airline, and be referenced by the airline instead. In this implementation we assume that an airplane cannot be shared between airlines and therefore it is contained by the airline.      
-  - Does not include weight or maximumweight, as our application is designed for travel planners and not plane engineers.
-- Flight
-  - We are modeling for domestic flights. Therefore there is not no attribute for country.
-- Runway
-  - Runways are fetched from the web from: 
-  - Oslo (OSL): [Wikipedia](https://no.wikipedia.org/wiki/Oslo_lufthavn_(Gardermoen)#Rullebaner_og_flytrafikkontroll).
-  - Trondheim (TRD): [Wikipedia](https://en.wikipedia.org/wiki/Trondheim_Airport,_Værnes).
-  - Sandefjord (TRF): [Wikipedia](https://en.wikipedia.org/wiki/Sandefjord_Airport,_Torp).
-
-## Data types
-- Role
-    - The different roles included were found [here](https://en.wikipedia.org/wiki/Aircrew).
-    - We did not include all roles mentioned. 
-- Gender
-    - Male
-    - Female
-    - Other
-- AirplaneType
-    - The different airplane types and their correct attributes have been found from various web pages. Following are the links:
-      - [Wikipedia](https://nn.wikipedia.org/wiki/SAS) 
-      - [Wikipedia] (https://en.wikipedia.org/wiki/Boeing_737)
-      - [Runway lengths required 737-800](http://krepelka.com/fsweb/learningcenter/aircraft/flightnotesboeing737-800.htm)
-      - [Runway lengths required 737-600](https://skybrary.aero/index.php/B736)
 
