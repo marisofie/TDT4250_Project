@@ -16,6 +16,7 @@ A diagram showing our ecore model is presented below. Underneath follows a descr
   - Does not include weight or maximumweight, as our application is designed for travel planners and not plane engineers.
 - Flight
   - We are modeling for domestic flights. Therefore there is not no attribute for country.
+  - Flights are created by looking at flights at the airlines' web pages. By example flights contained in SAS are found at https://www.sas.no. 
 - Runway
   - Runways are fetched from the web from: 
   - Oslo (OSL): [Wikipedia](https://no.wikipedia.org/wiki/Oslo_lufthavn_(Gardermoen)#Rullebaner_og_flytrafikkontroll).
