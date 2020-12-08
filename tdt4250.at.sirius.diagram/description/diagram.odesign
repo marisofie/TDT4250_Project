@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="diagram" version="12.0.0.2017041100">
   <ownedViewpoints name="TravelPlannerDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TravelPlannerDiagram" domainClass="at::TravelPlanner" enablePopupBars="true">
       <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <defaultLayer name="Default">
+        <nodeMappings name="TravelPlanner" detailDescriptions="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='TravelPlanner']" semanticCandidatesExpression="aql: self" domainClass="at::TravelPlanner">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql: 'Right click to create table view'" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW" shape="dot">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </nodeMappings>
         <edgeMappings name="AirlineAirportEdge" sourceMapping="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@containerMappings[name='AirlineContainer']" targetMapping="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerDiagram']/@defaultLayer/@containerMappings[name='AirportContainer']" targetFinderExpression="feature:airports">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -115,8 +122,31 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="description_2:TableCreationDescription" name="TravelPlanner" tableDescription="//@ownedViewpoints[name='TravelPlannerDiagramViewpoint']/@ownedRepresentations[name='TravelPlannerTable']">
+            <initialOperation/>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="tableName"/>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="TravelPlannerTable" initialisation="true" domainClass="at::TravelPlanner">
+      <ownedLineMappings name="Airline" domainClass="at::Airline" semanticCandidatesExpression="aql: self.airlines">
+        <defaultBackground>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+        </defaultBackground>
+        <ownedSubLines name="Flight" domainClass="at::Flight" semanticCandidatesExpression="aql: self.flights"/>
+        <ownedSubLines name="Airplane" domainClass="at::Airplane" semanticCandidatesExpression="aql: self.airplanes"/>
+      </ownedLineMappings>
+      <ownedLineMappings name="Airport" domainClass="at::Airport">
+        <ownedSubLines name="Gate" domainClass="at::Gate" semanticCandidatesExpression="aql: self.gates"/>
+        <ownedSubLines name="Runway" domainClass="at::Runway" semanticCandidatesExpression="aql: self.runways"/>
+      </ownedLineMappings>
+      <ownedColumnMappings name="Airport" headerLabelExpression="Airports" featureName="airports">
+        <defaultForeground labelSize="11">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="tdt4250.at.sirius.diagram.Services"/>
   </ownedViewpoints>
@@ -142,7 +172,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CrewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='FlightDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:flight" sourceFinderExpression="feature:member" domainClass="at::CrewAllocation" useDomainElement="true">
+        <edgeMappings name="CrewAllocationEdge" sourceMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@nodeMappings[name='PersonNode']" targetMapping="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='AirlineDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" targetFinderExpression="feature:flight" sourceFinderExpression="feature:member" domainClass="at::CrewAllocation" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:role">

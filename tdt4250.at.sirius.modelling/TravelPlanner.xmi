@@ -37,7 +37,7 @@
     <employees firstName="Kåre" familyName="Gustavsen" gender="Male" age="35" allocations="//@airlines.0/@flights.0/@allocations.3"/>
     <employees firstName="Kåre" familyName="Laring" gender="Male" age="30" allocations="//@airlines.0/@flights.0/@allocations.4"/>
   </airlines>
-  <airlines name="Widerøe">
+  <airlines name="Widerøe" airports="//@airports.2 //@airports.0">
     <flights airplane="//@airlines.1/@airplanes.0" passengers="//@airlines.1/@employees.1" code="WF486" departureTime="2020-11-02T19:45:00.000+0100" arrivalTime="2020-11-02T20:55:00.000+0100"/>
     <airplanes type="Bombardier DHC-8 Dash 8-100" numberOfSeats="39" minimumCrew="4" requiredRunwayLengthTakeoff="800" requiredRunwayLengthLanding="800"/>
     <employees firstName="Mari Sofie" familyName="Lerfaldet" age="24"/>

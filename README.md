@@ -20,6 +20,7 @@ To model our domain we use Ecore modelling. We then create a DSL by using Sirius
   - Acceleo
   - Sirius
   - Ecore
+  - JDK14 
 **NB: sjekk her om hva som må installeres. Skriv det muligens inn for hver enkelt bundle, altså sirius under sirius.model osv...**
 
 ## Features 🔥
