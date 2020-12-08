@@ -39,7 +39,7 @@ When writing in acceleo you are able to use the *acceleo query language* to do m
 
 ## Remarks
 
-The `AirFlight2Text.mtl` file illustrates the strength of automatic code generation. The file is quite short, and has very simple functions. Yet it is able to create several html files with rich content. Even more, we may now add data as we wish to our domain and just run the transformation to generate all necessary data. This could for example be further utilised in a continious deployment process. On each push to a main branch you could spin up a container a light weight container in some environment and bundle up all the html files and deploy it to a production environment.
+The `AirFlight2Text.mtl` file illustrates the strength of automatic code generation. The file is quite short, and has very simple functions. Yet it is able to create several html files with rich content. Even more, we may now add data as we wish to our domain and just run the transformation to generate all necessary data. This could for example be further utilised in a continious deployment process. On each push to a main branch you could spin up a light weight container and run the transformation automatically. You could then bundle up all the html files and deploy it to a production environment.
 
 
 ## Limitations
