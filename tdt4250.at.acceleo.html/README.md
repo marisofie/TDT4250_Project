@@ -28,6 +28,15 @@ Your configration should look like this:
 
 ![Image of AirFlight2Text Configuration](https://user-images.githubusercontent.com/34618612/101469217-c0321880-3944-11eb-8d29-136d3aec1fab.png)
 
+
+## Interesting features
+
+When writing in acceleo you are able to use the *acceleo query language* to do more advanced querries against the model. As an example we have written a for-loop to iterate over all flights in a collection that has a certain departure airport, but excluding all flights that has no `departureAirport` to avoid errors.
+
+```java
+[for (flight : Flight | (airline.flights -> reject(f | f.departureAirport = null) ) -> select(f | f.departureAirport.id = airport.id) )]
+```
+
 ## Remarks
 
 The `AirFlight2Text.mtl` file illustrates the strength of automatic code generation. The file is quite short, and has very simple functions. Yet it is able to create several html files with rich content. Even more, we may now add data as we wish to our domain and just run the transformation to generate all necessary data. This could for example be further utilised in a continious deployment process. On each push to a main branch you could spin up a container a light weight container in some environment and bundle up all the html files and deploy it to a production environment.
@@ -38,3 +47,4 @@ The `AirFlight2Text.mtl` file illustrates the strength of automatic code generat
 We have not emphasized design in this assignment, so excuse the styling.
 
 The Model2Text is quite simplistic, so it would need more effort to integrate it with more advanced systems, but example a flight booking system.
+
