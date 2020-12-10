@@ -129,8 +129,8 @@
         departureRunway="//@airports.0/@runways.0"
         passengers="//@passengers.0 //@passengers.1 //@passengers.2"
         code="SK379"
-        departureTime="2020-12-11T16:00:00.000+0100"
-        arrivalTime="2020-12-11T15:00:00.000+0100">
+        departureTime="2020-12-11T15:00:00.000+0100"
+        arrivalTime="2020-12-11T16:00:00.000+0100">
       <allocations
           member="//@airlines.0/@employees.1"/>
       <allocations
