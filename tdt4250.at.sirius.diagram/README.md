@@ -3,13 +3,7 @@
 [Back to project](/README.md)
 
 ## Setup
-To run this bundle and ***tdt4250.at.sirius.modelling*** you will need to install 
- - Sirius Specifier Environment
- - Ecore Diagram Editor (SDK)
- - EMF Forms SDK 
- - Acceleo Query SDK 
-
- To generate the different viewpoints, you go to the ***representations.aird*** file in the modelling bundle. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable, as this can be generated from the TravelPlannerDiagram. 
+ To generate the different viewpoints, navigate to the ***representations.aird*** file in the modelling bundle. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable or FlightDiagram, as these can be generated from the TravelPlannerDiagram and the SASDiagram.  
 
 ## Viewpoints
 There are two different viewpoints chosen for the modeling.
