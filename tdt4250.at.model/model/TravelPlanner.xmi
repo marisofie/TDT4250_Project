@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<at:TravelPlanner
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore"
-    xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore at.ecore">
-  <airports
-      id="TRD"
-      location="Trondheim">
-    <runways
-        name="09/27"
-        length="2999"/>
+<at:TravelPlanner xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:at="platform:/plugin/tdt4250.at.model/model/at.ecore" xsi:schemaLocation="platform:/plugin/tdt4250.at.model/model/at.ecore at.ecore">
+  <airports id="TRD" location="Trondheim">
+    <runways name="09/27" length="2999"/>
     <gates name="32"/>
     <gates name="30"/>
     <gates name="25"/>
@@ -19,16 +10,9 @@
     <gates name="28"/>
     <gates name="29"/>
   </airports>
-  <airports
-      id="OSL"
-      location="Oslo">
-    <runways
-        name="01R/19L"
-        length="2950"/>
-    <runways
-        id="1"
-        name="01L/19R"
-        length="3600"/>
+  <airports id="OSL" location="Oslo">
+    <runways name="01R/19L" length="2950"/>
+    <runways id="1" name="01L/19R" length="3600"/>
     <gates name="C6"/>
     <gates name="A20"/>
     <gates name="A2"/>
@@ -49,12 +33,8 @@
     <gates name="C8"/>
     <gates name="C9"/>
   </airports>
-  <airports
-      id="TRF"
-      location="Sandefjord">
-    <runways
-        name="18/36"
-        length="2669"/>
+  <airports id="TRF" location="Sandefjord">
+    <runways name="18/36" length="2669"/>
     <gates name="1"/>
     <gates name="26"/>
     <gates name="25"/>
@@ -62,226 +42,56 @@
     <gates name="28"/>
     <gates name="29"/>
   </airports>
-  <airlines
-      name="SAS"
-      airports="//@airports.0 //@airports.1 //@airports.2">
-    <flights
-        airplane="//@airlines.0/@airplanes.0"
-        departureAirport="//@airports.0"
-        destinationAirport="//@airports.1"
-        departureGate="//@airports.0/@gates.0"
-        destinationGate="//@airports.1/@gates.0"
-        destinationRunway="//@airports.1/@runways.0"
-        departureRunway="//@airports.0/@runways.0"
-        passengers="//@passengers.0 //@passengers.2 //@passengers.3 //@passengers.4"
-        code="SK377"
-        departureTime="2020-11-02T06:55:00.000+0100"
-        arrivalTime="2020-11-02T07:55:00.000+0100">
-      <allocations
-          member="//@airlines.0/@employees.0"/>
-      <allocations
-          role="First officer"
-          member="//@airlines.0/@employees.5"/>
-      <allocations
-          role="Purser"
-          member="//@airlines.0/@employees.1"/>
-      <allocations
-          role="Second officer"
-          member="//@airlines.0/@employees.3"/>
-      <allocations
-          role="Flight attendant"
-          member="//@airlines.0/@employees.4"/>
+  <airlines name="SAS" airports="//@airports.0 //@airports.1 //@airports.2">
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.0" destinationAirport="//@airports.1" departureGate="//@airports.0/@gates.0" destinationGate="//@airports.1/@gates.0" destinationRunway="//@airports.1/@runways.0" departureRunway="//@airports.0/@runways.0" passengers="//@passengers.0 //@passengers.2 //@passengers.3 //@passengers.4" code="SK377" departureTime="2020-11-02T06:55:00.000+0100" arrivalTime="2020-11-02T07:55:00.000+0100">
+      <allocations member="//@airlines.0/@employees.0"/>
+      <allocations role="First officer" member="//@airlines.0/@employees.5"/>
+      <allocations role="Purser" member="//@airlines.0/@employees.1"/>
+      <allocations role="Second officer" member="//@airlines.0/@employees.3"/>
+      <allocations role="Flight attendant" member="//@airlines.0/@employees.4"/>
     </flights>
-    <flights
-        airplane="//@airlines.0/@airplanes.0"
-        departureAirport="//@airports.1"
-        destinationAirport="//@airports.0"
-        departureGate="//@airports.1/@gates.1"
-        destinationGate="//@airports.0/@gates.1"
-        destinationRunway="//@airports.0/@runways.0"
-        departureRunway="1"
-        passengers="//@passengers.1 //@passengers.5 //@passengers.6"
-        code="SK338"
-        departureTime="2020-11-10T10:45:00.000+0100"
-        arrivalTime="2020-11-10T11:40:00.000+0100">
-      <allocations
-          member="//@airlines.0/@employees.4"/>
-      <allocations
-          role="Flight attendant"
-          member="//@airlines.0/@employees.0"/>
-      <allocations
-          role="First officer"
-          member="//@airlines.0/@employees.5"/>
-      <allocations
-          role="Purser"
-          member="//@airlines.0/@employees.2"/>
-      <allocations
-          role="Flight attendant"
-          member="//@airlines.0/@employees.3"/>
+    <flights airplane="//@airlines.0/@airplanes.0" departureAirport="//@airports.1" destinationAirport="//@airports.0" departureGate="//@airports.1/@gates.1" destinationGate="//@airports.0/@gates.1" destinationRunway="//@airports.0/@runways.0" departureRunway="1" passengers="//@passengers.1 //@passengers.5 //@passengers.6" code="SK338" departureTime="2020-11-10T10:45:00.000+0100" arrivalTime="2020-11-10T11:40:00.000+0100">
+      <allocations member="//@airlines.0/@employees.4"/>
+      <allocations role="Flight attendant" member="//@airlines.0/@employees.0"/>
+      <allocations role="First officer" member="//@airlines.0/@employees.5"/>
+      <allocations role="Purser" member="//@airlines.0/@employees.2"/>
+      <allocations role="Flight attendant" member="//@airlines.0/@employees.3"/>
     </flights>
-    <flights
-        airplane="//@airlines.0/@airplanes.2"
-        departureAirport="//@airports.0"
-        destinationAirport="//@airports.2"
-        departureGate="//@airports.0/@gates.1"
-        destinationGate="//@airports.2/@gates.0"
-        destinationRunway="//@airports.2/@runways.0"
-        departureRunway="//@airports.0/@runways.0"
-        passengers="//@passengers.0 //@passengers.1 //@passengers.2"
-        code="SK379"
-        departureTime="2020-12-11T15:00:00.000+0100"
-        arrivalTime="2020-12-11T16:00:00.000+0100">
-      <allocations
-          member="//@airlines.0/@employees.1"/>
-      <allocations
-          role="First officer"
-          member="//@airlines.0/@employees.0"/>
-      <allocations
-          role="Purser"
-          member="//@airlines.0/@employees.4"/>
-      <allocations
-          role="Second officer"
-          member="//@airlines.0/@employees.3"/>
-      <allocations
-          role="Flight attendant"
-          member="//@airlines.0/@employees.5"/>
+    <flights airplane="//@airlines.0/@airplanes.2" departureAirport="//@airports.0" destinationAirport="//@airports.2" departureGate="//@airports.0/@gates.1" destinationGate="//@airports.2/@gates.0" destinationRunway="//@airports.2/@runways.0" departureRunway="//@airports.0/@runways.0" passengers="//@passengers.0 //@passengers.1 //@passengers.2" code="SK379" departureTime="2020-12-11T15:00:00.000+0100" arrivalTime="2020-12-11T16:00:00.000+0100">
+      <allocations member="//@airlines.0/@employees.1"/>
+      <allocations role="First officer" member="//@airlines.0/@employees.0"/>
+      <allocations role="Purser" member="//@airlines.0/@employees.4"/>
+      <allocations role="Second officer" member="//@airlines.0/@employees.3"/>
+      <allocations role="Flight attendant" member="//@airlines.0/@employees.5"/>
     </flights>
-    <airplanes
-        numberOfSeats="162"
-        minimumCrew="5"
-        requiredRunwayLengthTakeoff="2473"
-        requiredRunwayLengthLanding="1981"/>
-    <airplanes
-        id="1"
-        numberOfSeats="162"
-        minimumCrew="5"
-        requiredRunwayLengthTakeoff="2473"
-        requiredRunwayLengthLanding="1981"/>
-    <airplanes
-        type="Boeing 737-600"
-        id="3"
-        numberOfSeats="113"
-        minimumCrew="4"
-        requiredRunwayLengthTakeoff="1900"
-        requiredRunwayLengthLanding="1300"/>
-    <employees
-        firstName="Sigrid Marita"
-        familyName="Kvamme"
-        age="23"
-        allocations="//@airlines.0/@flights.0/@allocations.0 //@airlines.0/@flights.1/@allocations.1 //@airlines.0/@flights.2/@allocations.1"/>
-    <employees
-        firstName="Marit"
-        familyName="Larsen"
-        age="30"
-        allocations="//@airlines.0/@flights.0/@allocations.2 //@airlines.0/@flights.2/@allocations.0"/>
-    <employees
-        firstName="Kari"
-        familyName="Hansen"
-        age="24"
-        allocations="//@airlines.0/@flights.1/@allocations.3"/>
-    <employees
-        firstName="Kåre"
-        familyName="Gustavsen"
-        gender="Male"
-        age="35"
-        allocations="//@airlines.0/@flights.0/@allocations.3 //@airlines.0/@flights.1/@allocations.4 //@airlines.0/@flights.2/@allocations.3"/>
-    <employees
-        firstName="Lise"
-        familyName="Strand"
-        age="30"
-        allocations="//@airlines.0/@flights.0/@allocations.4 //@airlines.0/@flights.1/@allocations.0 //@airlines.0/@flights.2/@allocations.2"/>
-    <employees
-        firstName="Tomas"
-        familyName="Strand"
-        gender="Male"
-        age="28"
-        allocations="//@airlines.0/@flights.0/@allocations.1 //@airlines.0/@flights.1/@allocations.2 //@airlines.0/@flights.2/@allocations.4"/>
+    <airplanes numberOfSeats="162" minimumCrew="5" requiredRunwayLengthTakeoff="2473" requiredRunwayLengthLanding="1981"/>
+    <airplanes id="1" numberOfSeats="162" minimumCrew="5" requiredRunwayLengthTakeoff="2473" requiredRunwayLengthLanding="1981"/>
+    <airplanes type="Boeing 737-600" id="3" numberOfSeats="113" minimumCrew="4" requiredRunwayLengthTakeoff="1900" requiredRunwayLengthLanding="1300"/>
+    <employees firstName="Sigrid Marita" familyName="Kvamme" age="23" allocations="//@airlines.0/@flights.0/@allocations.0 //@airlines.0/@flights.1/@allocations.1 //@airlines.0/@flights.2/@allocations.1"/>
+    <employees firstName="Marit" familyName="Larsen" age="30" allocations="//@airlines.0/@flights.0/@allocations.2 //@airlines.0/@flights.2/@allocations.0"/>
+    <employees firstName="Kari" familyName="Hansen" age="24" allocations="//@airlines.0/@flights.1/@allocations.3"/>
+    <employees firstName="Kåre" familyName="Gustavsen" gender="Male" age="35" allocations="//@airlines.0/@flights.0/@allocations.3 //@airlines.0/@flights.1/@allocations.4 //@airlines.0/@flights.2/@allocations.3"/>
+    <employees firstName="Lise" familyName="Strand" age="30" allocations="//@airlines.0/@flights.0/@allocations.4 //@airlines.0/@flights.1/@allocations.0 //@airlines.0/@flights.2/@allocations.2"/>
+    <employees firstName="Tomas" familyName="Strand" gender="Male" age="28" allocations="//@airlines.0/@flights.0/@allocations.1 //@airlines.0/@flights.1/@allocations.2 //@airlines.0/@flights.2/@allocations.4"/>
   </airlines>
-  <airlines
-      name="Widerøe"
-      airports="//@airports.0 //@airports.1 //@airports.2">
-    <flights
-        airplane="//@airlines.1/@airplanes.0"
-        departureAirport="//@airports.2"
-        destinationAirport="//@airports.0"
-        departureGate="//@airports.2/@gates.0"
-        destinationGate="//@airports.0/@gates.0"
-        destinationRunway="//@airports.0/@runways.0"
-        departureRunway="//@airports.2/@runways.0"
-        passengers="//@passengers.0 //@passengers.1 //@passengers.2 //@passengers.3 //@passengers.4 //@passengers.5 //@passengers.6"
-        code="WF486"
-        departureTime="2020-11-02T19:45:00.000+0100"
-        arrivalTime="2020-11-02T20:55:00.000+0100">
-      <allocations
-          member="//@airlines.1/@employees.0"/>
-      <allocations
-          role="First officer"
-          member="//@airlines.1/@employees.2"/>
-      <allocations
-          role="Purser"
-          member="//@airlines.1/@employees.1"/>
-      <allocations
-          role="Flight attendant"
-          member="//@airlines.1/@employees.3"/>
+  <airlines name="Widerøe" airports="//@airports.0 //@airports.1 //@airports.2">
+    <flights airplane="//@airlines.1/@airplanes.0" departureAirport="//@airports.2" destinationAirport="//@airports.0" departureGate="//@airports.2/@gates.0" destinationGate="//@airports.0/@gates.0" destinationRunway="//@airports.0/@runways.0" departureRunway="//@airports.2/@runways.0" passengers="//@passengers.0 //@passengers.1 //@passengers.2 //@passengers.3 //@passengers.4 //@passengers.5 //@passengers.6" code="WF486" departureTime="2020-11-02T19:45:00.000+0100" arrivalTime="2020-11-02T20:55:00.000+0100">
+      <allocations member="//@airlines.1/@employees.0"/>
+      <allocations role="First officer" member="//@airlines.1/@employees.2"/>
+      <allocations role="Purser" member="//@airlines.1/@employees.1"/>
+      <allocations role="Flight attendant" member="//@airlines.1/@employees.3"/>
     </flights>
-    <airplanes
-        type="Bombardier DHC-8 Dash 8-100"
-        id="11"
-        numberOfSeats="39"
-        minimumCrew="4"
-        requiredRunwayLengthTakeoff="800"
-        requiredRunwayLengthLanding="800"/>
-    <employees
-        firstName="Mari Sofie"
-        familyName="Lerfaldet"
-        age="24"
-        allocations="//@airlines.1/@flights.0/@allocations.0"/>
-    <employees
-        firstName="Anne"
-        familyName="Vikra"
-        age="50"
-        allocations="//@airlines.1/@flights.0/@allocations.2"/>
-    <employees
-        firstName="Kiara"
-        familyName="Lowengrip"
-        age="28"
-        allocations="//@airlines.1/@flights.0/@allocations.1"/>
-    <employees
-        firstName="Ådne"
-        familyName="Karstad"
-        age="40"
-        allocations="//@airlines.1/@flights.0/@allocations.3"/>
+    <airplanes type="Bombardier DHC-8 Dash 8-100" id="11" numberOfSeats="39" minimumCrew="4" requiredRunwayLengthTakeoff="800" requiredRunwayLengthLanding="800"/>
+    <employees firstName="Mari Sofie" familyName="Lerfaldet" age="24" allocations="//@airlines.1/@flights.0/@allocations.0"/>
+    <employees firstName="Anne" familyName="Vikra" age="50" allocations="//@airlines.1/@flights.0/@allocations.2"/>
+    <employees firstName="Kiara" familyName="Lowengrip" age="28" allocations="//@airlines.1/@flights.0/@allocations.1"/>
+    <employees firstName="Ådne" familyName="Karstad" age="40" allocations="//@airlines.1/@flights.0/@allocations.3"/>
   </airlines>
-  <passengers
-      firstName="Kurt"
-      familyName="Nilsen"
-      gender="Male"
-      age="20"/>
-  <passengers
-      firstName="Erna"
-      familyName="Solberg"
-      age="55"/>
-  <passengers
-      firstName="Mads"
-      familyName="Hansen"
-      gender="Male"
-      age="55"/>
-  <passengers
-      firstName="Ida"
-      familyName="Fladen"
-      age="20"/>
-  <passengers
-      firstName="Erik"
-      familyName="Follestad"
-      gender="Male"
-      age="70"/>
-  <passengers
-      firstName="Martin"
-      familyName="Henriksen"
-      age="36"/>
-  <passengers
-      firstName="Morten"
-      familyName="Hegseth"
-      gender="Male"
-      age="43"/>
+  <passengers firstName="Kurt" familyName="Nilsen" gender="Male" age="20"/>
+  <passengers firstName="Erna" familyName="Solberg" age="55"/>
+  <passengers firstName="Mads" familyName="Hansen" gender="Male" age="55"/>
+  <passengers firstName="Ida" familyName="Fladen" age="20"/>
+  <passengers firstName="Erik" familyName="Follestad" gender="Male" age="70"/>
+  <passengers firstName="Martin" familyName="Henriksen" age="36"/>
+  <passengers firstName="Morten" familyName="Hegseth" gender="Male" age="43"/>
 </at:TravelPlanner>

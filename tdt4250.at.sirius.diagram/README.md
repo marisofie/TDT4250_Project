@@ -3,7 +3,9 @@
 [Back to project](/README.md)
 
 ## Setup
- To generate the different viewpoints, navigate to the ***representations.aird*** file in the modelling bundle. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable or FlightDiagram, as these can be generated from the TravelPlannerDiagram and the AirlineDiagram.  
+ To generate the different viewpoints, navigate to the _representations.aird_ file in _tdt4250.at.sirius.modelling_. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable or FlightDiagram, as these can be generated from the TravelPlannerDiagram and the AirlineDiagram.  
+
+ To see the different implementations for the different views, open the _diagram.odesign_ file under the _description_ folder. 
 
 ## Viewpoints
 There are two different viewpoints chosen for the modeling.
@@ -12,12 +14,14 @@ There are two different viewpoints chosen for the modeling.
 This viewpoint is meant for the people who has an oversight over airports and airlines around the world. There are two representations, one as a diagram and another as a table.
 
 **Diagram view**
+
 This view is meant to work as a platform for adding new airports and airlines to the system. It contains the airports and airlines the travel agency has access to and shows which airports a certain airline flies to. 
 
 **Table view**
+
 This view can be created from the diagram view if the travel planner want to get a more structured way of seeing the data. If the user wants to go back, (s)he can just right click and choose the diagram view again. 
 
-The two views can be navigated between by right clicking outside of the elements in the diagram/table and choose ***open*** -> the other diagram. 
+The two views can be navigated between by right clicking outside of the elements in the diagram/table and choose _open_ -> the other diagram. 
 
 #### Features
 **CreationTools**

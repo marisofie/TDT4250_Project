@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<style>
+	* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.tp-header {
+  min-height: 88px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tp_nav ul,
+.tp_nav li {
+  list-style: none;
+}
+
+.tp_nav {
+  width: 40%;
+}
+
+.tp_nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tp_nav a {
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.tp_nav a:visited {
+  color: black;
+}
+
+.content-container {
+  min-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+    width: 80%;
+}
+
+.ft {
+  display: grid;
+
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 4px;
+}
+
+.ft_item {
+    text-align: center;
+    align-self: center;
+}
+
+.ft_dep-time {
+    grid-column: 4/6;
+}
+.ft_arr-time {
+    grid-column: 6/8;
+}
+
+.ref-list {
+  justify-self: center;
+}
+
+</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<!-- tp: travel planner -->
+<div class="tp-header">
+<img src="tp.png" alt="TP Logo"/>
+<nav class="tp_nav">
+<ul>
+	<li><a href='index.html'>Home</a></li>
+	<li><a href="SAS.html">SAS</a></li>
+	<li><a href="Widerøe.html">Widerøe</a></li>
+</ul>
+</nav>
+</div>
+<div class="content-container">
+<h1>Widerøe</h1>
+<!-- ft: flight table -->
+<div class="ft">
+<div class="ft_item ft_code">Flight Code</div>
+<div class="ft_item ft_dep-ap">Departure from</div>
+<div class="ft_item ft_dest-ap">Destination</div>
+<div class="ft_item ft_dep-time">Departure Time</div>
+<div class="ft_item ft_arr-time">Arrival Time</div>
+<div class="ft_item ft_duration">Flight Duration</div>
+<div class="ft_item ft_code">WF486</div>
+<div class="ft_item ft_dep-ap">TRF</div>
+<div class="ft_item ft_dest-ap">TRD</div>
+<div class="ft_item ft_dep-time">Mon Nov 02 19:45:00 CET 2020</div>
+<div class="ft_item ft_arr-time">Mon Nov 02 20:55:00 CET 2020</div>
+<div class="ft_item ft_duration">70</div>
+</div>
+<div class="ref-list">
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+</div>
+</div>
+</html>
