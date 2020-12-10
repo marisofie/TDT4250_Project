@@ -232,7 +232,7 @@ main {
 <div class="ft_item ft_dest-ap">[flight.destinationAirport.id/]</div>
 <div class="ft_item ft_dep-time">[flight.departureTime/]</div>
 <div class="ft_item ft_arr-time">[flight.arrivalTime/]</div>
-<div class="ft_item ft_duration">[flight.duration/]</div>
+<div class="ft_item ft_duration">[flightDuration(flight.departureTime, flight.arrivalTime)/]</div>
 [/template]
 
 
@@ -246,4 +246,7 @@ Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
 	
 [/template]
 
+[query public flightDuration(departureTime : EDate, arrivalTime: EDate) : String =
+	invoke('tdt4250.at.acceleo.html.AirFlight2TextHelper', 'flightDuration(java.util.Date, java.util.Date)', Sequence{departureTime, arrivalTime})
+/]
 
