@@ -152,6 +152,7 @@
   </ownedViewpoints>
   <ownedViewpoints name="AirlineDiagramViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AirlineDiagram" initialisation="true" domainClass="at::Airline">
+      <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="FlightsMissingCrew">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='FlightDiagram']/@defaultLayer/@containerMappings[name='FlightContainer']" semanticConditionExpression="aql: self.allocations -> size() &lt; self.airplane.minimumCrew"/>
       </filters>
@@ -337,6 +338,7 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FlightDiagram" initialisation="true" domainClass="at::Flight" rootExpression="flightDiagram" enablePopupBars="true">
+      <metamodel href="../../tdt4250.at.model/model/at.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="Airline" semanticCandidatesExpression="aql: self.eContainer()" doubleClickDescription="//@ownedViewpoints[name='AirlineDiagramViewpoint']/@ownedRepresentations[name='FlightDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Airline']" domainClass="at::Airline">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql: self.name + ': Go back to full view'" iconPath="/tdt4250.at.sirius.modelling/icons/pilot-of-airplane.png" sizeComputationExpression="12" labelPosition="node" resizeKind="NSEW">
@@ -518,7 +520,7 @@
                 </style>
               </conditionalStyles>
             </controls>
-            <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql:self.eContainer().airports" candidateDisplayExpression="aql: candidate.location">
+            <controls xsi:type="properties:SelectDescription" name="DepAirport" labelExpression="Departure Airport" valueExpression="feature:departureAirport" candidatesExpression="aql: self.eContainer().airports" candidateDisplayExpression="aql: candidate.location">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="departureAirport" valueExpression="aql:newValue"/>

@@ -36,7 +36,8 @@
     <gates name="1"/>
   </airports>
   <airlines
-      name="SAS">
+      name="SAS"
+      airports="//@airports.0 //@airports.1 //@airports.2">
     <flights
         airplane="//@airlines.0/@airplanes.0"
         departureAirport="//@airports.0"
@@ -141,7 +142,8 @@
         allocations="//@airlines.0/@flights.0/@allocations.3"/>
   </airlines>
   <airlines
-      name="Widerøe">
+      name="Widerøe"
+      airports="//@airports.0 //@airports.1 //@airports.2">
     <flights
         airplane="//@airlines.1/@airplanes.0"
         departureAirport="//@airports.2"
