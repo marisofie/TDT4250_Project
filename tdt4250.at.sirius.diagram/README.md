@@ -3,7 +3,7 @@
 [Back to project](/README.md)
 
 ## Setup
- To generate the different viewpoints, navigate to the ***representations.aird*** file in the modelling bundle. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable or FlightDiagram, as these can be generated from the TravelPlannerDiagram and the SASDiagram.  
+ To generate the different viewpoints, navigate to the ***representations.aird*** file in the modelling bundle. Navigate to the representations and create new representations under the viewpoint you want to access. This does not include TravelPlannerTable or FlightDiagram, as these can be generated from the TravelPlannerDiagram and the AirlineDiagram.  
 
 ## Viewpoints
 There are two different viewpoints chosen for the modeling.
