@@ -19,7 +19,7 @@ To be able to run the transformation you will need to configure it to run in Ecl
 5. Fill in the follwing fields:
    1. Project: `tdt4250.at.acceleo.html`
    2. Main Class: `tdt4250.at.acceleo.html.AirFlight2text`
-   3. Model: `/tdt4250.at.sirius.modelling/TravelPlanner.xmi`
+   3. Model: `/tdt4250.at.model/TravelPlanner.xmi`
    4. Target: `/tdt4250.at.acceleo.html/src/tdt50/at/acceleo/html/result` <-- may set to a differnt location, but this one is recommended.
 6. Ensure the configuration Runner is set to `Java Application`.
 7. You may now run the configuration.
