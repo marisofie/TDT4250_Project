@@ -338,7 +338,7 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOPE
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
@@ -389,7 +389,7 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOPE
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {

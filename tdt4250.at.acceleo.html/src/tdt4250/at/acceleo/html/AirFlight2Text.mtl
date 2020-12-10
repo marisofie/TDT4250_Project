@@ -232,7 +232,7 @@ main {
 <div class="ft_item ft_dest-ap">[flight.destinationAirport.id/]</div>
 <div class="ft_item ft_dep-time">[flight.departureTime/]</div>
 <div class="ft_item ft_arr-time">[flight.arrivalTime/]</div>
-<div class="ft_item ft_duration">[flightDuration(flight.departureTime, flight.arrivalTime)/]</div>
+<div class="ft_item ft_duration">[flightDuration(flight.departureTime, flight.arrivalTime)/] minutes</div>
 [/template]
 
 
