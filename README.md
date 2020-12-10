@@ -18,7 +18,7 @@ To model our domain we use Ecore modelling. We then create a DSL by using Sirius
 - tdt4250.at.sirius.diagram --> Descriptions of the viewpoints in Sirius. [Description](./tdt4250.at.sirius.diagram/README.md)
 - tdt4250.at.sirius.modelling --> Representations of the viewpoints in Sirius. [Description](./tdt4250.at.sirius.modelling/README.md)
 
-## Required installations
+## Getting started
 
 Launch a new Eclipse application making sure that the following plugins are included:
 
