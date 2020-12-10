@@ -30,6 +30,7 @@ This viewpoint is meant for the different airlines planning their flights.
 
 #### Features
 **Layers**
+
 There are three layers chosen for the diagram:
  - Default:
    - This layer contains the flights and employees contained in the airline.
@@ -39,6 +40,7 @@ There are three layers chosen for the diagram:
    - This layer contains the different airports with the related runways and gates that the airline flies to and from.
 
 **Filter**
+
 There is one filter implemented, which removes flights that have filled the minimum requirement for crew allocations. This is implemented as the diagram can become large, and by removing the already finished flights, the airline can focus on finishing flights that are not completed.
 
 **CreationTools**
