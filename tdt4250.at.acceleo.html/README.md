@@ -26,7 +26,7 @@ To be able to run the transformation you will need to configure it to run in Ecl
 
 Your configration should look like this:
 
-![Image of AirFlight2Text Configuration](https://user-images.githubusercontent.com/34618612/101469217-c0321880-3944-11eb-8d29-136d3aec1fab.png)
+![Image of AirFlight2Text Configuration](https://user-images.githubusercontent.com/34618612/101766295-e097d980-3ae2-11eb-8f79-59a98cd17a85.png)
 
 
 ## Interesting features
