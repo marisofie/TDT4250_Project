@@ -24,6 +24,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
+import at.AtPackage;
+import at.util.AtResourceFactoryImpl;
+
 /**
  * Entry point of the 'AirFlight2Text' generation module.
  *
@@ -344,6 +347,10 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.ecore.EcorePackage.eINSTANCE.getNsURI(), org.eclipse.emf.ecore.EcorePackage.eINSTANCE);
         }
         
+        if (!isInWorkspace(AtPackage.class) ) {
+        	resourceSet.getPackageRegistry().put(AtPackage.eINSTANCE.getNsURI(), AtPackage.eINSTANCE);
+        }
+        
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
          * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
@@ -403,7 +410,7 @@ public class AirFlight2Text extends AbstractAcceleoGenerator {
          * To learn more about the registration of Resource Factories, have a look at the Acceleo documentation (Help -> Help Contents). 
          */ 
         
-        // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(XyzResource.FILE_EXTENSION, XyzResource.Factory.INSTANCE);
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new AtResourceFactoryImpl());
         
         /*
          * Some metamodels require a very complex setup for standalone usage. For example, if you want to use a generator
