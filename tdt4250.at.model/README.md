@@ -72,7 +72,7 @@ A diagram showing our ecore model is presented below. Underneath follows a descr
 
 ## Limitations
 Limitations are mostly constraints that we are aware of, but for different reasons have not implemented. Mostly, we argue that the limitations are not implemented because of limited time. 
-In some cases we also argue that we have not implemented a feature or constraint because we have already made similar a validation or feature, and would like to focus on implementing different variations with the goal of learning more.
+In some cases we also argue that we have not implemented a feature or constraint because we have already made a similar validation or feature, and would like to focus on implementing different variations with the goal of learning more.
 
 - Airlines must ensure that an airplane is at the correct airport for the chosen flight
   - Ways this can be implemente as a validation:
@@ -81,5 +81,7 @@ In some cases we also argue that we have not implemented a feature or constraint
   - This would require some manual validation because it's dependent on the Date object, we would therefore argue that we have made a similar feature in `validateRunwayIsBusy` under `Flight`.
 - `validateCrewMemberAvailable` - would check if a given employee is available for a flight.
   - Similarily as the validation above this would require manual validation because we would have to validate with regards to the date, duration and location of the flight.
+- Flight must ensure that arrival time is after departure time. 
+  - This has the same validation as the one above, where we would have used the date to compare and make sure that the departure occurs before the arrival. 
 
 
