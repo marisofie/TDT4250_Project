@@ -4,9 +4,9 @@
 
 Acceleo is a template-based techonology that allows us to automatically generate informative source code based on the `flight planner` models and the code templated defined in `AirFlight2Text.mtl` file.
 
-We use Acceleo to specifically take the model flight data that we produce in **Sirius** to produce informative web pages. While the **Sirius diagram editor** is created for employees at a (fictive) flight planner company, the **Acceleo produced web pages** are meant for customers that want to find flights. Hence, we decided to use M2T transformation to be able to produce generic lists of flight information for the customers.
+We use Acceleo to specifically take the model flight data that we produce in **Sirius** to produce informative web pages. While the **Sirius diagram editor** is created for employees at a (fictive) flight planner company, the **Acceleo produced web pages** are meant for customers that want to find flights, although it could be useful for employees as well. Hence, we decided to use M2T transformation to be able to produce generic lists of flight information for the customers.
 
-If configuration is not something you want, the project should already have produced html pages inside `tdt4250.at.acceleo.html.result`.
+If you don't want to configure to generate yourself, you should find already generated html pages inside of `tdt4250.at.acceleo.html.result`.
 
 ## Configuration
 
@@ -26,25 +26,30 @@ To be able to run the transformation you will need to configure it to run in Ecl
 
 Your configration should look like this:
 
-![Image of AirFlight2Text Configuration](https://user-images.githubusercontent.com/34618612/101766295-e097d980-3ae2-11eb-8f79-59a98cd17a85.png)
-
+![Image of AirFlight2Text Configuration](https://user-images.githubusercontent.com/34618612/101766846-abd85200-3ae3-11eb-8d0d-cccb9aaa0d54.png)
 
 ## Interesting features
 
-When writing in acceleo you are able to use the *acceleo query language* to do more advanced querries against the model. As an example we have written a for-loop to iterate over all flights in a collection that has a certain departure airport, but excluding all flights that has no `departureAirport` to avoid errors.
+When writing in acceleo you are able to use the _acceleo query language_ to do more advanced querries against the model. As an example we have written a for-loop to iterate over all flights in a collection that has a certain departure airport, but excluding all flights that has no `departureAirport` to avoid errors.
 
 ```java
 [for (flight : Flight | (airline.flights -> reject(f | f.departureAirport = null) ) -> select(f | f.departureAirport.id = airport.id) )]
+```
+
+Also, to support showing flight duration, which is a derived field written in Java code on the model, we added a helper function for acceleo to generate this, and also to show how you can use custom queries in acceleo.
+
+```java
+[query public flightDuration(departureTime : EDate, arrivalTime: EDate) : String =
+	invoke('tdt4250.at.acceleo.html.AirFlight2TextHelper', 'flightDuration(java.util.Date, java.util.Date)', Sequence{departureTime, arrivalTime})
+/]
 ```
 
 ## Remarks
 
 The `AirFlight2Text.mtl` file illustrates the strength of automatic code generation. The file is quite short, and has very simple functions. Yet it is able to create several html files with rich content. Even more, we may now add data as we wish to our domain and just run the transformation to generate all necessary data. This could for example be further utilised in a continious deployment process. On each push to a main branch you could spin up a light weight container and run the transformation automatically. You could then bundle up all the html files and deploy it to a production environment.
 
-
 ## Limitations
 
 We have not emphasized design in this assignment, so excuse the styling.
 
 The Model2Text is quite simplistic, so it would need more effort to integrate it with more advanced systems, but example a flight booking system.
-
