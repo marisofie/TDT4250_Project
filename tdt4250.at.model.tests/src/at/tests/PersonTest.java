@@ -103,7 +103,6 @@ public class PersonTest extends TestCase {
 		Person person = AtFactory.eINSTANCE.createPerson();
 		person.setFirstName("Mac");
 		person.setFamilyName("Gyver");
-		System.out.println(person.getFirstName() + " " + person.getFamilyName() +  " = " + person.getFullName());
 		assertEquals("Mac Gyver", person.getFullName());
 	}
 

@@ -26,10 +26,9 @@ import junit.textui.TestRunner;
  * <p>
  * The following features are tested:
  * <ul>
- * <li>{@link at.Flight#getDuration() <em>Duration</em>}</li>
+ *   <li>{@link at.Flight#getDuration() <em>Duration</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class FlightTest extends TestCase {
@@ -47,7 +46,6 @@ public class FlightTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public static void main(String[] args) {
@@ -55,9 +53,9 @@ public class FlightTest extends TestCase {
 	}
 
 	/**
-	 * Constructs a new Flight test case with the given name. <!-- begin-user-doc
+	 * Constructs a new Flight test case with the given name.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public FlightTest(String name) {
@@ -65,9 +63,9 @@ public class FlightTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Flight test case. <!-- begin-user-doc --> <!--
+	 * Sets the fixture for this Flight test case.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void setFixture(Flight fixture) {
@@ -75,9 +73,9 @@ public class FlightTest extends TestCase {
 	}
 
 	/**
-	 * Returns the fixture for this Flight test case. <!-- begin-user-doc --> <!--
+	 * Returns the fixture for this Flight test case.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Flight getFixture() {
@@ -109,7 +107,6 @@ public class FlightTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see junit.framework.TestCase#tearDown()
 	 * @generated
 	 */

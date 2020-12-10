@@ -165,10 +165,14 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getFullName() {
-		return (String)FULL_NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		String fullName = "";
+		if (this.firstName != null) fullName += this.firstName + " ";
+		if (this.familyName != null) fullName += this.familyName;
+		if (fullName.length() > 0) return fullName.strip();
+		return null;
 	}
 
 	/**

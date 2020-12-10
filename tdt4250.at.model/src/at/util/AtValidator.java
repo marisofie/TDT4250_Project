@@ -546,13 +546,15 @@ public class AtValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFlight_validateRunwayIsBusy(Flight flight, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		int trafficSeverity = validateRunwayTraffic(flight);
-		
-		if (trafficSeverity > 0) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(createDiagnostic
-						(getDiagnosticSeverity(trafficSeverity),
+						(Diagnostic.ERROR,
 						 DIAGNOSTIC_SOURCE,
 						 0,
 						 "_UI_GenericConstraint_diagnostic",
